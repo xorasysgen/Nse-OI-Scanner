@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OISpurts {
 	
 	
-	@RequestMapping("OS")
+	@RequestMapping("os")
 	public String showOISpurts() {
 		return "OI Spurts building module version 1.0.0.1";
 		
