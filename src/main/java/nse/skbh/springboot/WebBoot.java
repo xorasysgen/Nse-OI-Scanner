@@ -19,9 +19,9 @@ public class WebBoot {
 	@RequestMapping("/oi")
 	public OIData home() {
 		String date=Utils.getYesterdayDateString();
-		System.out.println(date.replaceAll("-", ""));// get yesterday date
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "")+".zip";
-		System.out.println(ftpUrl);
+		System.out.println("date replaced -" + date.replaceAll("-", ""));
+		System.out.println("URL :" +  ftpUrl);
 		URL url = null;
 		List<Nse> nse = null;
 		try {
