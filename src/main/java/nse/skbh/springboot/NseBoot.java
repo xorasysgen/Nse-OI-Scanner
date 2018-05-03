@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class NseBoot {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NseBoot.class, args);
+		
+		SpringApplication.run(NseBoot.class, args);	/*Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run". We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss*/
+		// start server by calling this method just like another program
 
 	}
 
