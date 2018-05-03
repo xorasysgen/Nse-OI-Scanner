@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: NSE Research Application api
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Sushil K Bhaskar
+Implementation-Vendor-Id: nse.skbh.springboot
+Build-Jdk: 1.8.0_144
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/nse-api
+Created-By: Maven Integration for Eclipse
+
