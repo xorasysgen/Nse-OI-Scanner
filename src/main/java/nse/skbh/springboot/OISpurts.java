@@ -9,7 +9,7 @@ public class OISpurts {
 	
 	@RequestMapping("os")
 	public String showOISpurts() {
-		return "OI Spurts building module version 1.0.0.1";
+		return "OI Spurts building module version 1.0.0.1 system : diffrent than git";
 		
 	}
 	
