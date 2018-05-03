@@ -19,7 +19,7 @@ public class WebBoot {
 	@RequestMapping("/oi")
 	public OIData home() {
 		String date=Utils.getYesterdayDateString();
-		System.out.println(date.replaceAll("-", ""));
+		System.out.println(date.replaceAll("-", ""));// get yesterday date
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "")+".zip";
 		System.out.println(ftpUrl);
 		URL url = null;
