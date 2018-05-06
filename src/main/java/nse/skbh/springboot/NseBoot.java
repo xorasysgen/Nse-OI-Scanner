@@ -20,7 +20,9 @@ public class NseBoot {
 		 */
 
 		SpringApplication.run(NseBoot.class, args);
+
 		// start server by calling this method just like another program
+
 	}
 
 }
