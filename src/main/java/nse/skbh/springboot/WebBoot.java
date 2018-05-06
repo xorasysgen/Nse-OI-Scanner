@@ -15,10 +15,9 @@ public class WebBoot {
 
 	@RequestMapping("/oi")
 	public OIData home() {
-		/* test for the uploading and merging of git files vijay */
+		/* test for the uploading and merging of git filess */
 
 		List<Nse> nse = null;
-
 		try {
 			nse = ReadURI.unpackArchive();
 		} catch (IOException e) {
