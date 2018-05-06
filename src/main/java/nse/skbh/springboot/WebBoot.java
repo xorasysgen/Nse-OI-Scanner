@@ -15,7 +15,7 @@ public class WebBoot {
 
 	@RequestMapping("/oi")
 	public OIData home() {
-		/* test for the uploading and merging of git filess */
+		/* test for the uploading and merging of git directory */
 
 		List<Nse> nse = null;
 		try {
