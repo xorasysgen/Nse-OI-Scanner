@@ -14,6 +14,7 @@ import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
+import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
 
 @RestController
@@ -72,7 +73,26 @@ public class WebBoot  {
         return parentFOSecStockWatchData;
 	}
 
+	
+	@RequestMapping("/most_active_volume")
+	public ParentMostActive mostActiveSecuritiesByVolume() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentMostActive> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopVolume1.json",ParentMostActive.class);
+        ParentMostActive parentMostActive = response.getBody();
+        return parentMostActive;
+	}
+	
+	@RequestMapping("/most_active_value")
+	public ParentMostActive mostActiveSecuritiesByValue() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentMostActive> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopValue1.json",ParentMostActive.class);
+        ParentMostActive parentMostActive = response.getBody();
+        return parentMostActive;
+	}
 
+	
 	
 	
 	
