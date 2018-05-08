@@ -13,6 +13,8 @@ import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
+import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
+import nse.skbh.springboot.pojo.ParentOIChangeData;
 
 @RestController
 public class WebBoot  {
@@ -37,7 +39,7 @@ public class WebBoot  {
 	public GainerLosser topGainer() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
         ResponseEntity<GainerLosser> response = 
-        	      restTemplate.getForEntity("https://www.nseindia.com//live_market/dynaContent/live_analysis/gainers/niftyGainers1.json",GainerLosser.class);
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json",GainerLosser.class);
         GainerLosser gainerLosser = response.getBody();
         return gainerLosser;
 	}
@@ -50,6 +52,26 @@ public class WebBoot  {
         GainerLosser gainerLosser = response.getBody();
         return gainerLosser;
 	}
+	
+	
+	@RequestMapping("/oi_spurts")
+	public ParentOIChangeData topPositiveOIChangeData() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentOIChangeData> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/topPositiveOIChangeData.json",ParentOIChangeData.class);
+        ParentOIChangeData parentOIChangeData = response.getBody();
+        return parentOIChangeData;
+	}
+	
+	@RequestMapping("/fo_stocks")
+	public ParentFOSecStockWatchData foSecStockWatch() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentFOSecStockWatchData> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json",ParentFOSecStockWatchData.class);
+        ParentFOSecStockWatchData parentFOSecStockWatchData = response.getBody();
+        return parentFOSecStockWatchData;
+	}
+
 
 	
 	
