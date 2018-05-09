@@ -13,9 +13,12 @@ import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
+import nse.skbh.springboot.pojo.ParentAdvanceDecline;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
+import nse.skbh.springboot.pojo.ParentIndices;
 import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
+import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
 @RestController
 public class WebBoot  {
@@ -27,7 +30,6 @@ public class WebBoot  {
 		try {
 			nse = ReadURI.unpackArchive();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		OIData OIData = new OIData();
@@ -92,9 +94,34 @@ public class WebBoot  {
         return parentMostActive;
 	}
 
+	@RequestMapping("/indices")
+	public ParentIndices allIndices() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentIndices> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/homepage/Indices1.json",ParentIndices.class);
+        ParentIndices indices = response.getBody();
+        return indices;
+	}
 	
 	
+	@RequestMapping("/advances_declines")
+	public ParentAdvanceDecline AdvancesDeclines() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentAdvanceDecline> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/changePercentage.json",ParentAdvanceDecline.class);
+        ParentAdvanceDecline parentAdvanceDecline = response.getBody();
+        return parentAdvanceDecline;
+	}
 	
+	
+	@RequestMapping("/volume_gainers")
+	public ParentVolumeGainer25 volumeGainers() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<ParentVolumeGainer25> response = 
+        	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/volume_spurts/volume_spurts.json",ParentVolumeGainer25.class);
+        ParentVolumeGainer25 parentVolumeGainer25 = response.getBody();
+        return parentVolumeGainer25;
+	}
 	
 
 }
