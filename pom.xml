@@ -28,9 +28,12 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			</dependency>
-
+		</dependency>
 
 	</dependencies>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
 
 </project>
