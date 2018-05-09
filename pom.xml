@@ -39,13 +39,9 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
-
+	
 	</dependencies>
 
-	<dependency>
-		<groupId>org.json</groupId>
-		<artifactId>json</artifactId>
-	</dependency>
 
 
 	<properties>
