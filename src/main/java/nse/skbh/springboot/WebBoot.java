@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.Gson;
+
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
@@ -17,6 +19,7 @@ import nse.skbh.springboot.pojo.ParentAdvanceDecline;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndices;
 import nse.skbh.springboot.pojo.ParentMostActive;
+import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
@@ -121,6 +124,18 @@ public class WebBoot  {
         	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/volume_spurts/volume_spurts.json",ParentVolumeGainer25.class);
         ParentVolumeGainer25 parentVolumeGainer25 = response.getBody();
         return parentVolumeGainer25;
+	}
+	
+	@RequestMapping("/most_active_intraday")
+	public ParentMostActiveUnderlying mostActiveUnderlying() {
+		RestTemplate restTemplate=new RestTemplateProvider().getRestTemplate();
+        ResponseEntity<String> response = 
+      	      restTemplate.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_analysis/underlyings/ActiveUnderlyingsValue.json",String.class);
+        if(response.getBody()!=null) {
+        ParentMostActiveUnderlying parentMostActiveUnderlying = new Gson().fromJson(response.getBody().toString(),ParentMostActiveUnderlying.class);
+        return parentMostActiveUnderlying;
+        }
+        return null;
 	}
 	
 

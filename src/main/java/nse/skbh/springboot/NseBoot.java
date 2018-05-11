@@ -36,6 +36,7 @@ public class NseBoot {
 	public static void main(String[] args) {
 
 		SpringApplication.run(NseBoot.class, args);
+		// boot from here, run as simple java program, rest it will take care of it.
 
 	}
 

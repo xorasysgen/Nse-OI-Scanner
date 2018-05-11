@@ -15,6 +15,16 @@ final class Constant {
 	private static final String indices = "/indices";
 	private static final String advancesDeclines = "/advances_declines";
 	private static final String volumeGainers = "/volume_gainers";
+	private static final String bankNiftyVolume="/derivative/bank_nifty_volume";
+	private static final String call_all="/derivative/call/call_all";
+	private static final String  call_nifty="/derivative/call/call_nifty";
+	private static final String call_nifty_bank="/derivative/call/call_nifty_bank";
+	private static final String call_stocks ="/derivative/call/call_stocks";
+	private static final String put_all=("/derivative/put/put_all");
+	private static final String put_nifty="/derivative/put/put_nifty";
+	private static final String put_nifty_bank="/derivative/put/put_nifty_bank";
+	private static final String put_stocks="/derivative/put/put_stocks";
+	
 
 
 	public static List<String> getListOfService() {
@@ -29,6 +39,15 @@ final class Constant {
 		list.add(indices);
 		list.add(advancesDeclines);
 		list.add(volumeGainers);
+		list.add(bankNiftyVolume);
+		list.add(call_all);
+		list.add(call_nifty);
+		list.add(call_nifty_bank);
+		list.add(call_stocks);
+		list.add(put_all);
+		list.add(put_nifty);
+		list.add(put_nifty_bank);
+		list.add(put_stocks);
 		return list;
 
 	}
