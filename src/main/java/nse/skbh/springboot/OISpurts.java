@@ -30,42 +30,41 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/call")
 	@ResponseBody
 	ServicesList callHome() {
-		ServicesList servicesObj=new ServicesList();
-		List<Services> services=new ArrayList<>();
-		List<String> list =Constant.getListOfService();
-		Integer i=1;
+		ServicesList servicesObj = new ServicesList();
+		List<Services> services = new ArrayList<>();
+		List<String> list = Constant.getListOfService();
+		Integer i = 1;
 		for (String string : list) {
-			Services s=new Services();
-				s.setServiceID(i++);
-				s.setServiceURI(string);
+			Services s = new Services();
+			s.setServiceID(i++);
+			s.setServiceURI(string);
 			services.add(s);
 		}
 		servicesObj.setService(services);
 		return servicesObj;
 	}
 
-	
 	@RequestMapping("/put")
 	@ResponseBody
 	ServicesList putHome() {
-		ServicesList servicesObj=new ServicesList();
-		List<Services> services=new ArrayList<>();
-		List<String> list =Constant.getListOfService();
-		Integer i=1;
+		ServicesList servicesObj = new ServicesList();
+		List<Services> services = new ArrayList<>();
+		List<String> list = Constant.getListOfService();
+		Integer i = 1;
 		for (String string : list) {
-			Services s=new Services();
-				s.setServiceID(i++);
-				s.setServiceURI(string);
+			Services s = new Services();
+			s.setServiceID(i++);
+			s.setServiceURI(string);
 			services.add(s);
 		}
 		servicesObj.setService(services);
 		return servicesObj;
 	}
-	
+
 	@RequestMapping("/bank_nifty_volume")
 	public ParentBankNiftyVolume showAllBankNiftyVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -87,7 +86,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/call/call_nifty")
 	public ParentMostActiveCallPutAll ShowCallsNIFTYVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -98,7 +97,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/call/call_nifty_bank")
 	public ParentMostActiveCallPutAll ShowCallsBANKNIFTYVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -109,7 +108,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/call/call_stocks")
 	public ParentMostActiveCallPutAll ShowCallsOPTSTocKVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -120,10 +119,9 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
-	
-	/*all put section are here*/
-	
+
+	/* all put section are here */
+
 	@RequestMapping("/put/put_all")
 	public ParentMostActiveCallPutAll ShowPutsALLVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -134,7 +132,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/put/put_nifty")
 	public ParentMostActiveCallPutAll ShowPutsNIFTYVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -145,7 +143,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
+
 	@RequestMapping("/put/put_nifty_bank")
 	public ParentMostActiveCallPutAll ShowPutsBANKNIFTYVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -156,9 +154,7 @@ public class OISpurts {
 		return parentMostActiveCallPutAll;
 
 	}
-	
-	
-	
+
 	@RequestMapping("/put/put_stocks")
 	public ParentMostActiveCallPutAll ShowPutsOPTSTocKVolume() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
