@@ -5,13 +5,18 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
 
+@SuppressWarnings("deprecation")
 @RestController
 @SpringBootApplication
 public class NseBoot {
@@ -19,14 +24,14 @@ public class NseBoot {
 	@RequestMapping("/")
 	@ResponseBody
 	ServicesList home() {
-		ServicesList servicesObj=new ServicesList();
-		List<Services> services=new ArrayList<>();
-		List<String> list =Constant.getListOfService();
-		Integer i=1;
+		ServicesList servicesObj = new ServicesList();
+		List<Services> services = new ArrayList<>();
+		List<String> list = Constant.getListOfService();
+		Integer i = 1;
 		for (String string : list) {
-			Services s=new Services();
-				s.setServiceID(i++);
-				s.setServiceURI(string);
+			Services s = new Services();
+			s.setServiceID(i++);
+			s.setServiceURI(string);
 			services.add(s);
 		}
 		servicesObj.setService(services);
@@ -36,8 +41,21 @@ public class NseBoot {
 	public static void main(String[] args) {
 
 		SpringApplication.run(NseBoot.class, args);
-		// boot from here, run as simple java program, rest it will take care of it.
+		// boot from here, run as simple java program, rest it will take care of
+		// it.
 
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").exposedHeaders("Access-Control-Allow-Origin", "*").allowedOrigins("*");
+				;
+
+			}
+		};
 	}
 
 }
