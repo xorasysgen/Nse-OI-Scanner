@@ -1,22 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <title>My AngularJS App</title>
+    <title>NSE OI Spurts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- begin js files -->    
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
-<!-- end js files -->
-
-<!-- begin css files -->
- <link rel="stylesheet"   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
- <!-- end css files -->
- 
+<jsp:include page="js_css_include.jsp"/>
  
    
     <script type="text/javascript">
@@ -26,7 +13,6 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/oi_spurts",
             "columns": [
-            	 { "data": "symbol" },
                  { "data": "symbol" },
                  { "data": "latestOI" },
                  { "data": "prevOI" },
@@ -44,17 +30,18 @@
     
   </head>
   <body>
+    <jsp:include page="menu.jsp"/>
+  
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Intraday OI Spurts</legend>
+<legend>INTRADAY OI SPURTS - Moves with a sudden burst of speed</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">OI Spurts</h3>
+        <h3 class="panel-title">NSE OI Spurts</h3>
     </div>
     <div class="panel-body">
 	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
 		<thead>
 			<tr>
-			   <th>symbol</th>
                 <th>symbol</th>
                 <th>latestOI</th>
                 <th>prevOI</th>
