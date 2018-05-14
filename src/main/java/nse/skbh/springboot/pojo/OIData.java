@@ -5,14 +5,14 @@ import java.util.List;
 
 public class OIData {
 
-	List<Nse> OpenInterest = new ArrayList<Nse>();
+	List<Nse> data = new ArrayList<Nse>();
 
-	public List<Nse> getOpenInterest() {
-		return OpenInterest;
+	public List<Nse> getData() {
+		return data;
 	}
 
-	public void setOpenInterest(List<Nse> openInterest) {
-		OpenInterest = openInterest;
+	public void setData(List<Nse> data) {
+		this.data = data;
 	}
 
 }

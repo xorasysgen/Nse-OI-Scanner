@@ -16,8 +16,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-import com.google.gson.Gson;
-
 import nse.skbh.springboot.pojo.Nse;
 
 public class ReadURI {
@@ -89,7 +87,7 @@ public class ReadURI {
 						continue;
 					}
 					Nse nseObj = new Nse();
-					System.out.println(line);
+					// System.out.println(line);
 					String[] a = line.split("\\,");
 					nseObj.setDate(a[0]);
 					nseObj.setISIN(a[1]);
@@ -112,7 +110,7 @@ public class ReadURI {
 				zis.close();
 				break;
 			}
-			System.out.println(new Gson().toJson(nse));
+			// System.out.println(new Gson().toJson(nse));
 			Collections.sort(nse, new CompratorClass());
 			Collections.reverse(nse);
 			System.out.println(nse);

@@ -36,7 +36,7 @@ public class WebBoot {
 			e.printStackTrace();
 		}
 		OIData OIData = new OIData();
-		OIData.setOpenInterest(nse);
+		OIData.setData(nse);
 		return OIData;
 		// return new Gson().toJson(OIData);
 	}
