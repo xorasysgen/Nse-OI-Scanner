@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
@@ -16,6 +20,8 @@ import nse.skbh.springboot.pojo.ServicesList;
 @SpringBootApplication
 public class NseBoot {
 
+	
+	
 	@RequestMapping("/")
 	@ResponseBody
 	ServicesList home() {
@@ -39,5 +45,16 @@ public class NseBoot {
 		// boot from here, run as simple java program, rest it will take care of it.
 
 	}
+	
+	@Bean
+    public ViewResolver getViewResolver(){
+        InternalResourceViewResolver resolver = new
+            InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        return resolver;
+    }
+	
 
 }
