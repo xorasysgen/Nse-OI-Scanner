@@ -43,6 +43,7 @@ public class ReadURI {
 		String date = Utils.getYesterdayDateString();
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
+		System.out.println(ftpUrl);
 		URL url = null;
 		url = new URL(ftpUrl);
 		boolean status = downloadUsingStream(url, file_name);
@@ -69,7 +70,7 @@ public class ReadURI {
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			ZipInputStream zis = new ZipInputStream(bis);
 			ZipEntry entry = null;
-			System.out.println(url.toString());
+			System.out.println("inside zipo reader" + url.toString());
 			File zipFile = new File(file_name);
 			System.out.println(zipFile.getAbsoluteFile());
 			@SuppressWarnings("resource")
@@ -87,7 +88,7 @@ public class ReadURI {
 						continue;
 					}
 					Nse nseObj = new Nse();
-					// System.out.println(line);
+					System.out.println(line);
 					String[] a = line.split("\\,");
 					nseObj.setDate(a[0]);
 					nseObj.setISIN(a[1]);
