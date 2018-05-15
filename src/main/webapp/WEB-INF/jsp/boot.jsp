@@ -38,7 +38,8 @@
 	});
 </script>
 <body>
-	<h1>Hello, Boot!</h1>
+<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
+<legend>Welcome from BOOT!, F&O Equity Stock Watch Research Portal</legend>
 
 	<jsp:include page="menu.jsp" />
 
@@ -65,6 +66,7 @@
 		</table>
 	</div>
 
-
+</fieldset>
 </body>
+
 </html>
