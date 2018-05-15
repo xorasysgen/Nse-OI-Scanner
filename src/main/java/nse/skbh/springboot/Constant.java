@@ -25,8 +25,9 @@ final class Constant {
 	private static final String put_nifty_bank="/derivative/put/put_nifty_bank";
 	private static final String put_stocks="/derivative/put/put_stocks";
 	private static final String oi_spurts_rise_oi_rise_price="oi_spurts_rise_oi_rise_price";
-	private static final String oi_spurts_slide_oi_slide_price="oi_spurts_slide_oi_slide_price";
+	private static final String oi_spurts_slide_in_price_rise_in_oi="oi_spurts_slide_in_price_rise_in_oi";
 	private static final String oi_spurts_rise_in_price_slide_in_oi="oi_spurts_rise_in_price_slide_in_oi";
+	private static final String oi_spurts_slide_in_price_slide_in_oi="oi_spurts_slide_in_price_slide_in_oi";
 	
 
 
@@ -53,7 +54,8 @@ final class Constant {
 		list.add(put_stocks);
 		list.add(oi_spurts_rise_oi_rise_price);
 		list.add(oi_spurts_rise_in_price_slide_in_oi);
-		list.add(oi_spurts_slide_oi_slide_price);
+		list.add(oi_spurts_slide_in_price_rise_in_oi);
+		list.add(oi_spurts_slide_in_price_slide_in_oi);
 		return list;
 
 	}
