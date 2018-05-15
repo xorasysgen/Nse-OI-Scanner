@@ -21,6 +21,7 @@ import nse.skbh.springboot.pojo.ParentIndices;
 import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
+import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
 @RestController
@@ -70,7 +71,40 @@ public class WebBoot {
 		ParentOIChangeData parentOIChangeData = response.getBody();
 		return parentOIChangeData;
 	}
+	
+	@RequestMapping("/oi_spurts_rise_oi_rise_price")
+	public ParentRiseInOpenInterestRiseInPrice topRiseInOpenInterestRiseInPrice() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceRiseInOI.json",
+				ParentRiseInOpenInterestRiseInPrice.class);
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		return parentRiseInOpenInterestRiseInPrice;
+	}
+	
+	
+	@RequestMapping("/oi_spurts_rise_in_price_slide_in_oi")
+	public ParentRiseInOpenInterestRiseInPrice topRiseInPriceSlideInOI() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceSlideInOI.json",
+				ParentRiseInOpenInterestRiseInPrice.class);
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		return parentRiseInOpenInterestRiseInPrice;
+	}
 
+	@RequestMapping("/oi_spurts_slide_oi_slide_price")
+	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceSlideInOI() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceSlideInOI.json",
+				ParentRiseInOpenInterestRiseInPrice.class);
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		return parentRiseInOpenInterestRiseInPrice;
+	}
+
+	
+	
 	@RequestMapping("/fo_stocks")
 	public ParentFOSecStockWatchData foSecStockWatch() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
