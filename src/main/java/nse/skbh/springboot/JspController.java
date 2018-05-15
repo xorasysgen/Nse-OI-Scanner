@@ -40,5 +40,51 @@ public class JspController {
 	public String topOpenInterest() {
 		return "top_nse_open_interest";
 	}
+	
+	@RequestMapping("/bullish")
+	public String topBullish() {
+		return "bullish";
+	}
+	
+	@RequestMapping("/bearish")
+	public String topBearish() {
+		return "bearish";
+	}
+	
+	@RequestMapping("/short_covering")
+	public String topShortCovering() {
+		return "short_covering";
+	}
+	
+	@RequestMapping("/long_unwinding")
+	public String topLongUnwinding() {
+		return "long_unwinding";
+	}
+	
+	@RequestMapping("/derivative_call_all")
+	public String TopDerivativeCallAll() {
+		return "derivative_call_all";
+	}
+	@RequestMapping("/derivative_call_nifty_bank")
+	public String TopDerivativeCallNiftyBank() {
+		return "derivative_call_nifty_bank";
+	}
+	@RequestMapping("/derivative_call_nifty")
+	public String TopDerivativeCallNifty() {
+		return "derivative_call_nifty";
+	}
+	@RequestMapping("/derivative_put_all")
+	public String TopDerivativePutAll() {
+		return "derivative_put_all";
+	}
+	@RequestMapping("/derivative_put_nifty_bank")
+	public String TopDerivativePutNiftyBank() {
+		return "derivative_put_nifty_bank";
+	}
+	@RequestMapping("/derivative_put_nifty")
+	public String TopDerivativePutNifty() {
+		return "derivative_put_nifty";
+	}
+	
 
 }

@@ -21,27 +21,51 @@
           <ul class="dropdown-menu">
             <li><a href="gainers">Top Gainers</a></li>
             <li><a href="losers">Top Losers</a></li>
-            <li><a href="oispurts">OI Spurts</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="fostocks">Future and options Stocks</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">To Do</a></li>
           </ul>
+          
+          
         </li>
         
-      <ul class="nav navbar-nav">
-        <li><a href="top_open_interest">Top Nse Open Interest</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Derivative<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Open-Interest-All <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="oispurts">OI Spurts</a></li>
+            <li><a href="bullish">Bullish</a></li>
+            <li><a href="bearish">Bearish</a></li>
+            <li><a href="short_covering">Short Covering</a></li>
+            <li><a href="long_unwinding">Long Unwinding</a></li>
+            
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="top_open_interest">Top Nse Open Interest</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more To DO</a></li>
           </ul>
+          
+          
         </li>
-      </ul>
+        
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Derivative Nifty & Bank Nifty <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="derivative_call_all">All Call(CE)</a></li>
+            <li><a href="derivative_call_nifty_bank">Bank Nifty CALL(CE)</a></li>
+            <li><a href="derivative_call_nifty">Nifty Call (CE)</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="derivative_put_all">All PUT(PE)</a></li>
+            <li><a href="derivative_put_nifty_bank">Bank Nifty PUT(CE)</a></li>
+            <li><a href="derivative_put_nifty">Nifty PUT (PE)</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+          
+          
+        </li>
+        
+    
         
         <!-- <li><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>

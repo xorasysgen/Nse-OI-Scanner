@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My AngularJS App</title>
+    <title>F&O Stocks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
  
@@ -45,7 +45,7 @@
   
   
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Equity Stock Watch Derivatives</legend>
+<legend>F&O Equity Stock Watch Derivatives</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Top Future and Options Stocks</h3>
