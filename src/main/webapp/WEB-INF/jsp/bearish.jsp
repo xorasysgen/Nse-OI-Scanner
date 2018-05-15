@@ -11,7 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "ajax": "http://jsr101.herokuapp.com/oi_spurts_slide_in_price_rise_in_oi",
+            "ajax": "https://jsr101.herokuapp.com/oi_spurts_slide_in_price_rise_in_oi",
             "columns": [
                 { "data": "symbol" },
                 { "data": "instrument" },
