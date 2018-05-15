@@ -83,6 +83,16 @@ public class WebBoot {
 	}
 	
 	
+	@RequestMapping("/oi_spurts_slide_in_price_rise_in_oi")
+	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceRiseInOI() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceRiseInOI.json",
+				ParentRiseInOpenInterestRiseInPrice.class);
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		return parentRiseInOpenInterestRiseInPrice;
+	}
+
 	@RequestMapping("/oi_spurts_rise_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInPriceSlideInOI() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -92,8 +102,8 @@ public class WebBoot {
 		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
 		return parentRiseInOpenInterestRiseInPrice;
 	}
-
-	@RequestMapping("/oi_spurts_slide_oi_slide_price")
+	
+	@RequestMapping("/oi_spurts_slide_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceSlideInOI() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
 		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
@@ -102,6 +112,7 @@ public class WebBoot {
 		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
 		return parentRiseInOpenInterestRiseInPrice;
 	}
+
 
 	
 	
