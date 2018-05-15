@@ -71,7 +71,7 @@ public class WebBoot {
 		ParentOIChangeData parentOIChangeData = response.getBody();
 		return parentOIChangeData;
 	}
-	
+
 	@RequestMapping("/oi_spurts_rise_oi_rise_price")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInOpenInterestRiseInPrice() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -81,8 +81,7 @@ public class WebBoot {
 		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
 		return parentRiseInOpenInterestRiseInPrice;
 	}
-	
-	
+
 	@RequestMapping("/oi_spurts_slide_in_price_rise_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceRiseInOI() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -102,7 +101,7 @@ public class WebBoot {
 		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
 		return parentRiseInOpenInterestRiseInPrice;
 	}
-	
+
 	@RequestMapping("/oi_spurts_slide_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceSlideInOI() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -113,9 +112,6 @@ public class WebBoot {
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
-
-	
-	
 	@RequestMapping("/fo_stocks")
 	public ParentFOSecStockWatchData foSecStockWatch() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();

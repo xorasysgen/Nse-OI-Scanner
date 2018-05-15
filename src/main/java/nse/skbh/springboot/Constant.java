@@ -15,21 +15,20 @@ final class Constant {
 	private static final String indices = "/indices";
 	private static final String advancesDeclines = "/advances_declines";
 	private static final String volumeGainers = "/volume_gainers";
-	private static final String bankNiftyVolume="/derivative/bank_nifty_volume";
-	private static final String call_all="/derivative/call/call_all";
-	private static final String  call_nifty="/derivative/call/call_nifty";
-	private static final String call_nifty_bank="/derivative/call/call_nifty_bank";
-	private static final String call_stocks ="/derivative/call/call_stocks";
-	private static final String put_all=("/derivative/put/put_all");
-	private static final String put_nifty="/derivative/put/put_nifty";
-	private static final String put_nifty_bank="/derivative/put/put_nifty_bank";
-	private static final String put_stocks="/derivative/put/put_stocks";
-	private static final String oi_spurts_rise_oi_rise_price="oi_spurts_rise_oi_rise_price";
-	private static final String oi_spurts_slide_in_price_rise_in_oi="oi_spurts_slide_in_price_rise_in_oi";
-	private static final String oi_spurts_rise_in_price_slide_in_oi="oi_spurts_rise_in_price_slide_in_oi";
-	private static final String oi_spurts_slide_in_price_slide_in_oi="oi_spurts_slide_in_price_slide_in_oi";
-	
-
+	private static final String most_active_intraday = "/most_active_intraday";
+	private static final String bankNiftyVolume = "/derivative/bank_nifty_volume";
+	private static final String call_all = "/derivative/call/call_all";
+	private static final String call_nifty = "/derivative/call/call_nifty";
+	private static final String call_nifty_bank = "/derivative/call/call_nifty_bank";
+	private static final String call_stocks = "/derivative/call/call_stocks";
+	private static final String put_all = ("/derivative/put/put_all");
+	private static final String put_nifty = "/derivative/put/put_nifty";
+	private static final String put_nifty_bank = "/derivative/put/put_nifty_bank";
+	private static final String put_stocks = "/derivative/put/put_stocks";
+	private static final String oi_spurts_rise_oi_rise_price = "oi_spurts_rise_oi_rise_price";
+	private static final String oi_spurts_slide_in_price_rise_in_oi = "oi_spurts_slide_in_price_rise_in_oi";
+	private static final String oi_spurts_rise_in_price_slide_in_oi = "oi_spurts_rise_in_price_slide_in_oi";
+	private static final String oi_spurts_slide_in_price_slide_in_oi = "oi_spurts_slide_in_price_slide_in_oi";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -43,6 +42,7 @@ final class Constant {
 		list.add(indices);
 		list.add(advancesDeclines);
 		list.add(volumeGainers);
+		list.add(most_active_intraday);
 		list.add(bankNiftyVolume);
 		list.add(call_all);
 		list.add(call_nifty);

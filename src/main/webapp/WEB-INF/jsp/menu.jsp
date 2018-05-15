@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="gainers">Advance/Decline <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="most_active_underlying">Most Active Underlying<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NSE-Stocks <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -42,7 +42,8 @@
             <li role="separator" class="divider"></li>
             <li><a href="top_open_interest">Top Nse Open Interest</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more To DO</a></li>
+            <li><a href="active_fo_call">Active F&amp;O Stocks Call</a></li>
+            <li><a href="active_fo_put">Active F&amp;O Stocks Put</a></li>
           </ul>
           
           
