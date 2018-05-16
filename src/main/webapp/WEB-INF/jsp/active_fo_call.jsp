@@ -22,9 +22,6 @@
 						{ "data": "expiryDate" },
                         { "data": "optionType" },
                         { "data": "strikePrice" },
-                        { "data": "noOfContractsTraded" },
-                        { "data": "contractValueRsLakhs" },
-                        { "data": "contractValuePremRsLakhs" },
                         { "data": "lastTradedPrice" },
 						{ "data": "perChange" ,
                           	render: function ( data, type, row ) {
@@ -37,6 +34,9 @@
                         },
 					    { "data": "openInterest" },
 						{ "data": "valueOfUnderlying" },
+                        { "data": "noOfContractsTraded" },
+                        { "data": "contractValueRsLakhs" },
+                        { "data": "contractValuePremRsLakhs" },
             	        { "data": "timestamp" },
                         { "data": "impliedValue" },
             
@@ -60,21 +60,21 @@
         <h3 class="panel-title">Most Active Calls(F&amp;O)</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr>
 					 	<th>instrumentType</th>
                         <th>symbol</th>
 						<th>expiryDate</th>
-                        <th>optionType</th>
+                        <th>OPType</th>
                         <th>strikePrice</th>
+                        <th>lastTradedPrice</th>
+						<th>%perChange</th>
+					    <th>openInterest</th>
+						<th>valueOfUnderlying</th>
                         <th>noOfContractsTraded</th>
                         <th>contractValueRsLakhs</th>
                         <th>contractValuePremRsLakhs</th>
-                        <th>lastTradedPrice</th>
-						<th>perChange</th>
-					    <th>openInterest</th>
-						<th>valueOfUnderlying</th>
             	        <th>timestamp</th>
                         <th>impliedValue</th>
 			</tr>

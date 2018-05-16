@@ -24,6 +24,7 @@
                  { "data": "prevOI" },
                  { "data": "oiChange" ,
                 	render: function ( data, type, row ) {
+                		data=data.split(',').join('');
                         if (data >= 0) {
                           return '<span class="positive">'+data+'</span>';
                         } else {
@@ -61,17 +62,17 @@
         <h3 class="panel-title">NSE OI Spurts</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr>
                 <th>symbol</th>
-                <th>latestOI</th>
-                <th>prevOI</th>
-                <th>oiChange</th>
-                <th>percOIchange %</th>
-                <th>volume</th>
-                <th>valueInLakhs</th>
-                <th>underlying</th>
+                <th>latest OI</th>
+                <th>Prev OI</th>
+                <th>OI Change</th>
+                <th>%OIchange</th>
+                <th>Volume</th>
+                <th>ValueInLakhs</th>
+                <th>Last Traded Price</th>
               
 			</tr>
 		</thead>

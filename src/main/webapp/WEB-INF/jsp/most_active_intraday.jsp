@@ -22,14 +22,14 @@
                         	
                         },
                     	{ "data": "op" },
+                        { "data": "underlyingvalue" },
                         { "data": "value2" },
                         { "data": "value1" },
                         { "data": "total_VALUE" },
                         { "data": "volume2" },
                         { "data": "volume1" },
                         { "data": "total_VOLUME" },
-                        { "data": "openinterest" },
-                        { "data": "underlyingvalue" }
+                        { "data": "openinterest" }
             
             ]
         } );
@@ -51,19 +51,19 @@
         <h3 class="panel-title">Most Active Underlying</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr>
 					  <th>SYMBOL</th>
-				 	  <th>Options (Premium)</th>
+				 	  <th>Options(Premium)</th>
+					  <th>LTP(Price)</th>
 					  <th>val Options</th>
 					  <th>Val Futures</th>
 					  <th>Val Total</th>
 					  <th>Vol Options</th>
 					  <th>Vol Futures</th>
 					  <th>Vol Value</th>
-					  <th>Open Interest (Contracts</th>
-					  <th>Underlying</th>
+					  <th>Open Interest(Contracts)</th>
 			</tr>
 		</thead>
 

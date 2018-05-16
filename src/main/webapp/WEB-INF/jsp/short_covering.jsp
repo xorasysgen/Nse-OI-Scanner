@@ -48,7 +48,7 @@
         <h3 class="panel-title">Short Covering : Slide in OI-Rise in Price -> Decrease in open interest along with an increase in price mostly indicates short covering</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr> 
 						  <th>symbol</th>

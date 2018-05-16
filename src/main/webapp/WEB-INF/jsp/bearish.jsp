@@ -20,7 +20,15 @@
                 { "data": "optionType" },
                 { "data": "ltp" },
                 { "data": "prevClose" },
-                { "data": "percLtpChange" },
+                { "data": "percLtpChange",
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                	},
                 { "data": "latestOI" },
                 { "data": "oiChange" },
                 { "data": "volume" },
@@ -48,22 +56,22 @@
         <h3 class="panel-title">Bearish : Rise in Open Interest Slide In Price -> An increase in open interest along with a decrease in price</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr> 
 						  <th>symbol</th>
                             <th>instrument</th>
                             <th>expiry</th>
                             <th>strike</th>
-                            <th>optionType</th>
+                            <th>OPType</th>
                             <th>ltp</th>
                             <th>prevClose</th>
-                            <th>percLtpChange</th>
+                            <th>%PerLtpChange</th>
                             <th>latestOI</th>
                             <th>oiChange</th>
                             <th>volume</th>
                             <th>valueInCrores</th>
-                                <th>premValueInCrores</th>
+                             <th>premValueInCrores</th>
                             <th>underlyValue</th>
                             <th>isFO</th>
 						</tr>

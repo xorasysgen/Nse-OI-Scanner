@@ -48,14 +48,14 @@
         <h3 class="panel-title">Long Unwinding: Slide in OI-Slide in Price _> Decrease in open interest along with a decrease in price mostly indicates long unwinding.</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr> 
 						  <th>symbol</th>
                             <th>instrument</th>
                             <th>expiry</th>
                             <th>strike</th>
-                            <th>optionType</th>
+                            <th>OPType</th>
                             <th>ltp</th>
                             <th>prevClose</th>
                             <th>percLtpChange</th>

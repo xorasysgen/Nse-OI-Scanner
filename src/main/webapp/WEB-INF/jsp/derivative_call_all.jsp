@@ -60,21 +60,21 @@
         <h3 class="panel-title">Top Gainers</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr>
 							<th>Instrument</th>
-							<th>symbol</th>
-							<th>expiryDate</th>
-							<th>optionType</th>
-							<th>strikePrice</th>
-							<th>perChange</th>
-							<th>openInterest %</th>
+							<th>Symbol</th>
+							<th>ExpiryDate</th>
+							<th>OpType</th>
+							<th>StrikePrice</th>
+							<th>%Change</th>
+							<th>OpenInterest%</th>
 							<th>lastTradedPrice</th>
-							<th>noOfContractsTraded</th>
-							<th>contractValueRsLakhs</th>
-							<th>contractValuePremRsLakhs</th>
-							<th>timestamp</th>
+							<th>NoOfContractsTraded</th>
+							<th>ContractValueRsLakhs</th>
+							<th>ContractValuePremRsLakhs</th>
+							<th>Timestamp</th>
 						</tr>
 		</thead>
 

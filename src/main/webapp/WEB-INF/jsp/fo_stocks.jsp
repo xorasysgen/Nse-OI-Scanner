@@ -89,7 +89,7 @@
         <h3 class="panel-title">Top Future and Options Stocks</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
+	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr>
 				 	  <th>Script Name</th>
@@ -98,7 +98,7 @@
 					  <th>Low</th>
 					  <th>LTP</th>
 					  <th>Chng</th>
-					  <th>% Chng</th>
+					  <th>%Chng</th>
 					  <th>Volume(Lac)</th>
 					  <th>Turn Over(Crs)</th>
 					  <th>52w H</th>
