@@ -10,9 +10,9 @@
 <style type="text/css">
 #chart_wrap {
     position: relative;
-    padding-bottom: 100%;
+    padding-bottom: 25%;
     height: 0;
-    overflow:hidden;
+    overflow:visible;
 }
 
 #chart_div {
@@ -136,6 +136,12 @@
     	    	          var options = {
     	    	          title: 'Overall Advances & Declines Ratio Chart',
     	    	          is3D: true,
+    	    	          chartArea: {
+    	                      left: "10%",
+    	                      top: "10%",
+    	                      height: "50%",
+    	                      width: "50%"
+    	                  }
     	    	          };
                    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
                    chart.draw(data, options);
