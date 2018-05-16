@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Gainers</title>
+    <title>Top Gainers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
  
@@ -13,13 +13,26 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/top_gainer/",
             "columns": [
-                { "data": "symbol" },
+                { "data": "symbol" ,
+               	 render: function ( data, type, row ) {
+                     
+                     return '<span class="symbol">'+data+'</span>';
+                   
+                 }
+                },
                 { "data": "openPrice" },
                 { "data": "highPrice" },
                 { "data": "lowPrice" },
                 { "data": "ltp" },
                 { "data": "previousPrice" },
-                { "data": "netPrice" },
+                { "data": "netPrice" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }},
                 { "data": "tradedQuantity" },
                 { "data": "turnoverInLakhs" },
                 { "data": "lastCorpAnnouncementDate" },

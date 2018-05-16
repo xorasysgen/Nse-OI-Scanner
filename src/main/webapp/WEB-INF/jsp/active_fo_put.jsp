@@ -13,7 +13,11 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/derivative/put/put_stocks",
             "columns": [
-                      	{ "data": "instrumentType" },
+                      	{ "data": "instrumentType",
+                       	 render: function ( data, type, row ) {
+                             return '<span class="symbol">'+data+'</span>';
+                         }
+                      	},
                         { "data": "symbol" },
 						{ "data": "expiryDate" },
                         { "data": "optionType" },
@@ -22,11 +26,19 @@
                         { "data": "contractValueRsLakhs" },
                         { "data": "contractValuePremRsLakhs" },
                         { "data": "lastTradedPrice" },
-                        { "data": "impliedValue" },
+						{ "data": "perChange" ,
+                          	render: function ( data, type, row ) {
+                                if (data >= 0) {
+                                  return '<span class="positive">'+data+' %</span>';
+                                } else {
+                                  return '<span class="negative">'+data+' %</span>';
+                                }
+                              }
+                        },
 					    { "data": "openInterest" },
 						{ "data": "valueOfUnderlying" },
             	        { "data": "timestamp" },
-						{ "data": "perChange" }
+                        { "data": "impliedValue" }
             
             ]
         } );
@@ -60,11 +72,11 @@
                         <th>contractValueRsLakhs</th>
                         <th>contractValuePremRsLakhs</th>
                         <th>lastTradedPrice</th>
-                        <th>impliedValue</th>
+						<th>perChange</th>
 					    <th>openInterest</th>
 						<th>valueOfUnderlying</th>
             	        <th>timestamp</th>
-						<th>perChange</th>
+                        <th>impliedValue</th>
 			</tr>
 		</thead>
 

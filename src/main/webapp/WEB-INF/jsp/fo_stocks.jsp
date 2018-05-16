@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>F&O Stocks</title>
+    <title>F&amp;O Stocks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
  
@@ -13,19 +13,57 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/fo_stocks/",
             "columns": [
-                { "data": "symbol" },
+                { "data": "symbol" ,
+               	 render: function ( data, type, row ) {
+                     
+                     return '<span class="symbol">'+data+'</span>';
+                   
+                 }
+                },
                 { "data": "open" },
                 { "data": "high" },
                 { "data": "low" },
                 { "data": "ltP" },
-                { "data": "ptsC" },
-                { "data": "per" },
+                { "data": "ptsC" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+'</span>';
+                        } else {
+                          return '<span class="negative">'+data+'</span>';
+                        }
+                      }
+                },
+                { "data": "per",
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                },
                 { "data": "trdVol" },
                 { "data": "ntP" },
                 { "data": "wkhi" },
-                { "data": "wklo" },
-                { "data": "mPC" },
-                { "data": "yPC" },
+                { "data": "wklo"},
+                { "data": "mPC" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      } 
+                },
+                { "data": "yPC",
+                  	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                },
                 { "data": "wkhicm_adj" },
                 { "data": "wklocm_adj" },
                	{ "data": "xDt" },

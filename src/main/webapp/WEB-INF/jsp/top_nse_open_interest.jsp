@@ -14,12 +14,24 @@
             "ajax": "https://jsr101.herokuapp.com/open_interest/",
             "columns": [
                 { "data": "date" },
-                { "data": "usedLimit" },
+                { "data": "name",
+                 	 render: function ( data, type, row ) {
+                        
+                        return '<span class="symbol">'+data+'</span>';
+                      
+                    }
+               } ,
+                { "data": "usedLimit" ,
+               	render: function ( data, type, row ) {
+                      return '<span class="positive">'+data+' %</span>';
+                    }
+                  },
+               
                 { "data": "scrip" },
                 { "data": "mwpl" },
                 { "data": "nse_Open_Interest" },
-                { "data": "isin" },
-                { "data": "name" } 
+                { "data": "isin" }
+                
             
             ]
         } );
@@ -44,13 +56,13 @@
 	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 90%">
 		<thead>
 			<tr>
+					 <th>Name</th>
 				 	 <th>Date</th>
-					  <th>Used Limit % [ 95% goes in Ban ]</th>
+					  <th>Used Limit [ Danger>95% ]</th>
 					  <th>Script</th>
 					  <th>Market Wide Position Limit</th>
 					  <th>Nse Open Interest</th>
 					  <th>isin</th>
-					  <th>name</th>
 			</tr>
 		</thead>
 

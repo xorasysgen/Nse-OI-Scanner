@@ -14,11 +14,25 @@
             "ajax": "https://jsr101.herokuapp.com/derivative/call/call_all",
             "columns": [
                 { "data": "instrumentType" },
-                { "data": "symbol" },
+                { "data": "symbol",
+                  	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     } 
+                },
                 { "data": "expiryDate" },
                 { "data": "optionType" },
                 { "data": "strikePrice" },
-                { "data": "perChange" },
+                { "data": "perChange" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                },
                 { "data": "openInterest" },
                 { "data": "lastTradedPrice" },
                 { "data": "noOfContractsTraded" },

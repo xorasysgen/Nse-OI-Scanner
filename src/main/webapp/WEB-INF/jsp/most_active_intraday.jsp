@@ -13,7 +13,14 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/most_active_intraday/",
             "columns": [
-                        { "data": "fo_SYMBOL" },
+                        { "data": "fo_SYMBOL" ,
+                       	 render: function ( data, type, row ) {
+                             
+                             return '<span class="symbol">'+data+'</span>';
+                           
+                         }
+                        	
+                        },
                     	{ "data": "op" },
                         { "data": "value2" },
                         { "data": "value1" },

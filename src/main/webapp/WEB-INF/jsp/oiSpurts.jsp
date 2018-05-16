@@ -13,11 +13,33 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/oi_spurts",
             "columns": [
-                 { "data": "symbol" },
+                 { "data": "symbol",
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     }
+                 },
                  { "data": "latestOI" },
                  { "data": "prevOI" },
-                 { "data": "oiChange" },
-                 { "data": "percOIchange" },
+                 { "data": "oiChange" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+'</span>';
+                        } else {
+                          return '<span class="negative">'+data+'</span>';
+                        }
+                      }
+                 },
+                 { "data": "percOIchange",
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                 },
                  { "data": "volume" },
                  { "data": "valueInLakhs" },
                  { "data": "underlying" }

@@ -17,4 +17,18 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
  <!-- end css files -->
- 
+  <style>
+.negative {
+color:red;
+font-weight: bold;
+}
+.positive {
+color:green;
+font-weight: bold;
+}
+
+.symbol {
+color:#0275d8;
+font-weight: bold;
+}
+</style>
