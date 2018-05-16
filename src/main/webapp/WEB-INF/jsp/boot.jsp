@@ -3,10 +3,26 @@
 <head>
 <title>Boot Project</title>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<meta name="viewport"	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+
+<style type="text/css">
+#chart_wrap {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow:hidden;
+}
+
+#chart_div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+}
+</style>
 <jsp:include page="js_css_include.jsp" />
 
 <script type="text/javascript">
@@ -22,6 +38,60 @@
 				}).then(function successCallback(response) {
 					console.log(response.data);
 					$scope.posts = response.data.rows
+					$scope.getTrend = function(){
+					    var trend = "None";
+					    for(var i = 0; i < $scope.posts.length; i++){
+					        var row = $scope.posts[i];
+					        if(row.advances > row.declines){
+					        	trend= "Bullish";
+					        }
+					        else
+					        	trend= "Bearish";
+					    }
+					    return trend;
+					    
+					}
+					
+					$scope.getAdvanced = function(){
+					    var result = "None";
+					    for(var i = 0; i < $scope.posts.length; i++){
+					        var row = $scope.posts[i];
+					        result =  row.advances;
+					    }
+					    return result;
+					    
+					}
+					
+					$scope.getDeclines = function(){
+					    var result = "None";
+					    for(var i = 0; i < $scope.posts.length; i++){
+					        var row = $scope.posts[i];
+					        result =  row.declines;
+					    }
+					    return result;
+					    
+					}
+					
+					$scope.getUnchange = function(){
+					    var result = "None";
+					    for(var i = 0; i < $scope.posts.length; i++){
+					        var row = $scope.posts[i];
+					        result =  row.unchanged;
+					    }
+					    return result;
+					    
+					}
+					$scope.getTotal = function(){
+					    var result = "None";
+					    for(var i = 0; i < $scope.posts.length; i++){
+					        var row = $scope.posts[i];
+					        result =  row.total;
+					    }
+					    return result;
+					    
+					}
+					
+					
 					// this callback will be called asynchronously
 					// when the response is available
 				}, function errorCallback(response) {
@@ -31,6 +101,52 @@
 
 			} ]);
 </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+    var advances,declines,unchanged,total;
+
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+    	   $.ajax( {
+    	  	  type:'Get',
+    	  	  url:'https://jsr101.herokuapp.com/advances_declines',
+    	  	  success:function(data) {
+    	  	   console.log(data);
+    	  	   abc(data);
+    	  	
+    	  	  }
+
+    	  	  })
+    	   function abc(data){
+    	    	 advances = data.rows[0].advances;
+    	    	 declines=data.rows[0].declines ;
+    	    	 unchanged=data.rows[0].unchanged;
+    	    	 total=data.rows[0].total;
+    	    	  var data = google.visualization.arrayToDataTable(
+    	    			  [ ['Task', 'task' ],
+    	    			    ['Total Stocks', total],
+    	    	            ['Declines',      declines],
+    	    	            ['Unchanged',  unchanged],
+    	    	            ['Advances',     advances]
+    	    	           ]);
+    	    	                                                  
+    	    	          var options = {
+    	    	          title: 'Overall Advances & Declines Ratio Chart',
+    	    	          is3D: true,
+    	    	          };
+                   var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                   chart.draw(data, options);
+    	      }
+        
+      }
+      
+    </script>
+
+    
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -42,11 +158,43 @@
 <legend>Welcome from BOOT!, F&O Equity Stock Watch Research Portal</legend>
 
 	<jsp:include page="menu.jsp" />
-
 	<div ng-app="myApp" ng-controller="GreetingController">
+	<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
+<legend>Market Trend - Overall Advances / Declines Ratio</legend>
 
 
-		<table id="example"
+POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
+
+NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+<span  style="color: red; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
+
+UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+<span style="color: orange; font-weight: bold; font-size: 21px;">&nbsp; {{getUnchange()}} </span> <br>
+
+TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
+OVER ALL MARKET TREND <span style="color: blue; font-weight: bold; font-size: 18px; ">  {{getTrend()}}  </span> 
+
+
+<!-- begins Google chart -->
+<div id="chart_wrap">
+	<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+</div>
+<!-- end Google chart -->
+
+
+</fieldset>
+		
+	</div>
+
+</fieldset>
+</body>
+
+</html>
+
+<!-- unused offline code -->
+<!-- <table id="example"
 			class="table table-striped table-bordered dt-responsive nowrap"
 			style="width: 100%">
 			<thead>
@@ -63,10 +211,4 @@
 					<td style="color: blue; font-weight: bold; font-size: 21px; ">{{post.total}}</td>
 				</tr>
 			<tbody>
-		</table>
-	</div>
-
-</fieldset>
-</body>
-
-</html>
+		</table> -->
