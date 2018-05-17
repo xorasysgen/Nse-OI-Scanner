@@ -35,6 +35,16 @@ public class JspController {
 	public String top25VolumeGainer() {
 		return "volume_gainers";
 	}
+	
+	@RequestMapping("/most_active_securities_value")
+	public String MostActive_securities_value() {
+		return "most_active_securities_value";
+	}
+	
+	@RequestMapping("/most_active_securities_volume")
+	public String MostActive_securities_volume() {
+		return "most_active_securities_volume";
+	}
 
 	@RequestMapping("/fostocks")
 	public String fostocks() {

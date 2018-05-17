@@ -22,6 +22,8 @@
             <li><a href="gainers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Gainers</a></li>
             <li><a href="losers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Losers</a></li>
              <li><a href="25_volume_gainers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> 25 Volume Gainers</a></li>
+             <li><a href="most_active_securities_value"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Securities Value</a></li>
+             <li><a href="most_active_securities_volume"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Securities Volume</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="fostocks"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Future and options Stocks</a></li>
             <li role="separator" class="divider"></li>

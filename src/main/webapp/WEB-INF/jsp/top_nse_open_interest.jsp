@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My AngularJS App</title>
+    <title>Open Interest Equity Derivatives Scanner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
  
