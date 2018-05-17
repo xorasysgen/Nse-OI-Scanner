@@ -18,6 +18,7 @@ import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentAdvanceDecline;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndices;
+import nse.skbh.springboot.pojo.ParentIndicesData;
 import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
@@ -159,6 +160,16 @@ public class WebBoot {
 				ParentAdvanceDecline.class);
 		ParentAdvanceDecline parentAdvanceDecline = response.getBody();
 		return parentAdvanceDecline;
+	}
+
+	@RequestMapping("/advances_declines_nifty")
+	public ParentIndicesData AdvancesDeclinesNifty() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+				ParentIndicesData.class);
+		ParentIndicesData parentIndicesData = response.getBody();
+		return parentIndicesData;
 	}
 
 	@RequestMapping("/volume_gainers")
