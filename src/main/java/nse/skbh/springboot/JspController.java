@@ -30,17 +30,17 @@ public class JspController {
 	public String lossers() {
 		return "loosers";
 	}
-	
+
 	@RequestMapping("/25_volume_gainers")
 	public String top25VolumeGainer() {
 		return "volume_gainers";
 	}
-	
+
 	@RequestMapping("/most_active_securities_value")
 	public String MostActive_securities_value() {
 		return "most_active_securities_value";
 	}
-	
+
 	@RequestMapping("/most_active_securities_volume")
 	public String MostActive_securities_volume() {
 		return "most_active_securities_volume";
@@ -119,6 +119,11 @@ public class JspController {
 	@RequestMapping("/derivative_put_nifty")
 	public String TopDerivativePutNifty() {
 		return "derivative_put_nifty";
+	}
+
+	@RequestMapping("/indices_nse")
+	public String listIndices() {
+		return "indices";
 	}
 
 }
