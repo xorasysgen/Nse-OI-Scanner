@@ -62,8 +62,8 @@
 					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 					        }
-					        else  if(adr>=1.25){
-					        	trend= "Bullish";
+					        else  if(bull_per>45 && bull_per<=49 && adr>=1.30){
+					        	trend= "little Bullish(+) with SideWays Market";
 					        }
 					        else
 					        	trend="No Clear Trend";
