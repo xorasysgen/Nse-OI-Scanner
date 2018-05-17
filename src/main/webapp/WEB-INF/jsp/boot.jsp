@@ -227,7 +227,7 @@
 
 	                             				$http({
 	                             					method : 'GET',
-	                             					url : 'http://jsr101.herokuapp.com/advances_declines_nifty/'
+	                             					url : 'https://jsr101.herokuapp.com/advances_declines_nifty/'
 	                             				}).then(function successCallback(response) {
 	                             					console.log(response.data);
 	                             					console.log(response.data.advances);
@@ -301,7 +301,7 @@
 
 	                             				$http({
 	                             					method : 'GET',
-	                             					url : 'http://jsr101.herokuapp.com/advances_declines_bank_nifty/'
+	                             					url : 'https://jsr101.herokuapp.com/advances_declines_bank_nifty/'
 	                             				}).then(function successCallback(response) {
 	                             					console.log(response.data);
 	                             					console.log(response.data.advances);
