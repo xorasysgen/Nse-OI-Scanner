@@ -1,6 +1,7 @@
 package nse.skbh.springboot;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -26,7 +27,7 @@ public class NseBoot {
 	@ResponseBody
 	String root() {
 
-		return "JSR101 Spring Boot Project Running Ok.200";
+		return "Server Date And Time# [ " + new Date().toString() + " ] JSR101 Spring Boot Project is Running Ok.200";
 	}
 
 	@RequestMapping("/services")
