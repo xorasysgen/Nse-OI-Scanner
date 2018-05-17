@@ -42,11 +42,32 @@
 					    var trend = "None";
 					    for(var i = 0; i < $scope.posts.length; i++){
 					        var row = $scope.posts[i];
-					        if(row.advances > row.declines){
+					        var bull_per=(row.advances/row.total)*100;
+					        var bear_per=(row.declines/row.total)*100;
+					        var unchanged_per=(row.unchanged/row.total)*100;
+					        var adr=row.advances/row.declines;
+					        console.log("bull_per# " + bull_per);
+				        	console.log("bear_per# " + bear_per);
+					        console.log(unchanged_per);
+					        console.log(adr);
+				        	console.log("adr# " + adr);
+ 	   		        	    console.log("adr>1.25# " + adr);
+ 	   		        	    
+					        if(bull_per >= 50){
+					        	trend= "Extremely Bullish(+)";
+					        }
+					        else if(bear_per>=50){
+					        	trend= "Extremely Bearish(-)";
+					        }
+					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
+					        	trend= "Little Bearish(-) and SideWays Market";
+					        }
+					        else  if(adr>=1.25){
 					        	trend= "Bullish";
 					        }
 					        else
-					        	trend= "Bearish";
+					        	trend="No Clear Trend";
+					        
 					    }
 					    return trend;
 					    
@@ -127,10 +148,11 @@
     	    	 total=data.rows[0].total;
     	    	  var data = google.visualization.arrayToDataTable(
     	    			  [ ['Task', 'task' ],
-    	    			    ['Total Stocks', total],
-    	    	            ['Declines',      declines],
+    	    				['unused',0],  
+    	    	            ['Declines',  declines],
     	    	            ['Unchanged',  unchanged],
-    	    	            ['Advances',     advances]
+    	    			    ['Advances',   advances]
+    	    			    
     	    	           ]);
     	    	                                                  
     	    	          var options = {
