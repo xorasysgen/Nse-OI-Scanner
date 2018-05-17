@@ -172,6 +172,16 @@ public class WebBoot {
 		return parentIndicesData;
 	}
 
+	@RequestMapping("/advances_declines_bank_nifty")
+	public ParentIndicesData AdvancesDeclinesBankNifty() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json",
+				ParentIndicesData.class);
+		ParentIndicesData parentIndicesData = response.getBody();
+		return parentIndicesData;
+	}
+
 	@RequestMapping("/volume_gainers")
 	public ParentVolumeGainer25 volumeGainers() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
