@@ -30,6 +30,11 @@ public class JspController {
 	public String lossers() {
 		return "loosers";
 	}
+	
+	@RequestMapping("/25_volume_gainers")
+	public String top25VolumeGainer() {
+		return "volume_gainers";
+	}
 
 	@RequestMapping("/fostocks")
 	public String fostocks() {

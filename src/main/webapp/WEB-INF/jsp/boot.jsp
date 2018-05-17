@@ -60,7 +60,7 @@
 					        	trend= "Extremely Bearish(-)";
 					        }
 					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
-					        	trend= "Little Bearish(-) and SideWays Market";
+					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 					        }
 					        else  if(adr>=1.25){
 					        	trend= "Bullish";
