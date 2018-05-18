@@ -19,7 +19,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <span class="caret"></span></a>
           <ul class="dropdown-menu">
-          
+
+          <li><a href="bank_nifty_page"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Bank Nifty</a></li>
           <li><a href="indices_nse"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Indices</a></li>
             <li><a href="gainers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Gainers</a></li>
             <li><a href="losers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Losers</a></li>

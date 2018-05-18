@@ -95,4 +95,33 @@ public class ParentIndicesData {
 		this.advances = advances;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ParentIndicesData [trdVolumesumMil=");
+		builder.append(trdVolumesumMil);
+		builder.append(", time=");
+		builder.append(time);
+		builder.append(", latestData=");
+		builder.append(latestData);
+		builder.append(", declines=");
+		builder.append(declines);
+		builder.append(", trdValueSum=");
+		builder.append(trdValueSum);
+		builder.append(", data=");
+		builder.append(data);
+		builder.append(", trdValueSumMil=");
+		builder.append(trdValueSumMil);
+		builder.append(", unchanged=");
+		builder.append(unchanged);
+		builder.append(", trdVolumesum=");
+		builder.append(trdVolumesum);
+		builder.append(", advances=");
+		builder.append(advances);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
+
 }

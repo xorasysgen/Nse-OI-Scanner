@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
+import nse.skbh.springboot.pojo.IndicesData;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentAdvanceDecline;
@@ -179,6 +180,48 @@ public class WebBoot {
 				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json",
 				ParentIndicesData.class);
 		ParentIndicesData parentIndicesData = response.getBody();
+		List<IndicesData> data=parentIndicesData.getData();
+		for (IndicesData indicesData : data) {
+			if(indicesData.getSymbol().equals("KOTAKBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 13.99%");
+			
+			if(indicesData.getSymbol().equals("INDUSINDBK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 8.36%");
+			
+			if(indicesData.getSymbol().equals("YESBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 5.77%");
+			
+			if(indicesData.getSymbol().equals("FEDERALBNK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 1.36%");
+			
+			if(indicesData.getSymbol().equals("HDFCBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 34.49%");
+			
+			if(indicesData.getSymbol().equals("AXISBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 7.70%");
+			
+			if(indicesData.getSymbol().equals("RBLBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 1.60%");
+			
+			if(indicesData.getSymbol().equals("SBIN"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 7.92%");
+			
+			if(indicesData.getSymbol().equals("PNB"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 00.00%");
+			
+			if(indicesData.getSymbol().equals("IDFCBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 00.00%");
+			
+			if(indicesData.getSymbol().equals("BANKBARODA"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 1.23%");
+			
+			if(indicesData.getSymbol().equals("ICICIBANK"))
+				indicesData.setSymbol(indicesData.getSymbol() + " 15.81%");
+			
+			
+			
+		}
+		parentIndicesData.setData(data);
 		return parentIndicesData;
 	}
 
