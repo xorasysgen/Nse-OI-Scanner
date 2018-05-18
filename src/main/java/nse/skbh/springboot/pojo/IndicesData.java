@@ -2,7 +2,61 @@ package nse.skbh.springboot.pojo;
 
 public class IndicesData {
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("IndicesData [symbol=");
+		builder.append(symbol);
+		builder.append(", open=");
+		builder.append(open);
+		builder.append(", high=");
+		builder.append(high);
+		builder.append(", low=");
+		builder.append(low);
+		builder.append(", ltP=");
+		builder.append(ltP);
+		builder.append(", ptsC=");
+		builder.append(ptsC);
+		builder.append(", per=");
+		builder.append(per);
+		builder.append(", trdVol=");
+		builder.append(trdVol);
+		builder.append(", trdVolM=");
+		builder.append(trdVolM);
+		builder.append(", ntP=");
+		builder.append(ntP);
+		builder.append(", mVal=");
+		builder.append(mVal);
+		builder.append(", wkhi=");
+		builder.append(wkhi);
+		builder.append(", wklo=");
+		builder.append(wklo);
+		builder.append(", wkhicmAdj=");
+		builder.append(wkhicmAdj);
+		builder.append(", wklocmAdj=");
+		builder.append(wklocmAdj);
+		builder.append(", xDt=");
+		builder.append(xDt);
+		builder.append(", cAct=");
+		builder.append(cAct);
+		builder.append(", previousClose=");
+		builder.append(previousClose);
+		builder.append(", dayEndClose=");
+		builder.append(dayEndClose);
+		builder.append(", iislPtsChange=");
+		builder.append(iislPtsChange);
+		builder.append(", iislPercChange=");
+		builder.append(iislPercChange);
+		builder.append(", yPC=");
+		builder.append(yPC);
+		builder.append(", mPC=");
+		builder.append(mPC);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	private String symbol;
+	private String weightage;
 	private String open;
 	private String high;
 	private String low;
@@ -208,6 +262,14 @@ public class IndicesData {
 
 	public void setmPC(String mPC) {
 		this.mPC = mPC;
+	}
+
+	public String getWeightage() {
+		return weightage;
+	}
+
+	public void setWeightage(String weightage) {
+		this.weightage = weightage;
 	}
 
 }

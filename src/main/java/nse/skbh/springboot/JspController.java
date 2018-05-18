@@ -15,7 +15,13 @@ public class JspController {
 	public String index() {
 		return "index";
 	}
-
+	
+	@RequestMapping("/bank_nifty_page")
+	public String bankNifty() {
+		return "bank_nifty";
+	}
+	
+		
 	@RequestMapping("/oispurts")
 	public String oiSpurts() {
 		return "oiSpurts";
