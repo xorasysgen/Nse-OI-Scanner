@@ -56,6 +56,7 @@ public class IndicesData {
 	}
 
 	private String symbol;
+	private String weightage;
 	private String open;
 	private String high;
 	private String low;
@@ -261,6 +262,14 @@ public class IndicesData {
 
 	public void setmPC(String mPC) {
 		this.mPC = mPC;
+	}
+
+	public String getWeightage() {
+		return weightage;
+	}
+
+	public void setWeightage(String weightage) {
+		this.weightage = weightage;
 	}
 
 }

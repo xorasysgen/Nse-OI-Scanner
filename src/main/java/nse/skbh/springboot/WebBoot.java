@@ -182,41 +182,43 @@ public class WebBoot {
 		ParentIndicesData parentIndicesData = response.getBody();
 		List<IndicesData> data=parentIndicesData.getData();
 		for (IndicesData indicesData : data) {
-			if(indicesData.getSymbol().equals("KOTAKBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 13.99%");
+			if(indicesData.getSymbol().equals("KOTAKBANK")) 
+				indicesData.setWeightage("13.99%");
 			
-			if(indicesData.getSymbol().equals("INDUSINDBK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 8.36%");
 			
-			if(indicesData.getSymbol().equals("YESBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 5.77%");
+			if(indicesData.getSymbol().equals("INDUSINDBK")) 
+				indicesData.setWeightage("8.36%");
 			
+			
+			if(indicesData.getSymbol().equals("YESBANK")) 
+				indicesData.setWeightage("5.77%");
+				
 			if(indicesData.getSymbol().equals("FEDERALBNK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 1.36%");
+				indicesData.setWeightage("1.36%");
 			
 			if(indicesData.getSymbol().equals("HDFCBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 34.49%");
+				indicesData.setWeightage("34.49%");
 			
 			if(indicesData.getSymbol().equals("AXISBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 7.70%");
+				indicesData.setWeightage("7.70%");
 			
 			if(indicesData.getSymbol().equals("RBLBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 1.60%");
+				indicesData.setWeightage("1.60%");
 			
 			if(indicesData.getSymbol().equals("SBIN"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 7.92%");
+				indicesData.setWeightage("7.92%");
 			
 			if(indicesData.getSymbol().equals("PNB"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 00.00%");
+				indicesData.setWeightage("00.00%");
 			
 			if(indicesData.getSymbol().equals("IDFCBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 00.00%");
+				indicesData.setWeightage("00.00%");
 			
 			if(indicesData.getSymbol().equals("BANKBARODA"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 1.23%");
+				indicesData.setWeightage("1.23%");
 			
 			if(indicesData.getSymbol().equals("ICICIBANK"))
-				indicesData.setSymbol(indicesData.getSymbol() + " 15.81%");
+				indicesData.setWeightage("15.81%");
 			
 			
 			

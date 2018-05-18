@@ -20,6 +20,7 @@
                        
                      } 
                 	},
+                { "data": "weightage" },
                 { "data": "open" },
                 { "data": "high" },
                 { "data": "low" },
@@ -90,6 +91,7 @@
 		<thead>
 			<tr>
 				 	  <th>Symbol</th>
+				 	  <th>Weightage</th>
 				 	  <th>Open</th>
 					  <th>High</th>
 					  <th>Low</th>
