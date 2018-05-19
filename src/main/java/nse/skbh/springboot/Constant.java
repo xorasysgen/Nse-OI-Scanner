@@ -31,6 +31,8 @@ final class Constant {
 	private static final String oi_spurts_slide_in_price_slide_in_oi = "/oi_spurts_slide_in_price_slide_in_oi";
 	private static final String advances_declines_bank_nifty = "/advances_declines_bank_nifty";
 	private static final String advances_declines_nifty = "/advances_declines_nifty";
+	private static final String security_wise_deliverable_positions_data = "/security_wise_deliverable_positions_data";
+	private static final String security_var = "/security_var";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -60,6 +62,8 @@ final class Constant {
 		list.add(oi_spurts_rise_in_price_slide_in_oi);
 		list.add(oi_spurts_slide_in_price_rise_in_oi);
 		list.add(oi_spurts_slide_in_price_slide_in_oi);
+		list.add(security_wise_deliverable_positions_data);
+		list.add(security_var);
 		return list;
 
 	}

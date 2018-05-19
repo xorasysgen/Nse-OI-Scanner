@@ -4,9 +4,9 @@ public class SecurityVaR {
 
 	private String symbol;
 	private String series;
-	private String securityVaR;
-	private String indexVaR;
-	private String vaRMargin;
+	private String securityVars;
+	private String indexVars;
+	private String varsMargin;
 	private String extremeLossRate;
 	private String adhocMargin;
 	private String applicableMarginRate;
@@ -28,28 +28,28 @@ public class SecurityVaR {
 		this.series = series;
 	}
 
-	public String getSecurityVaR() {
-		return securityVaR;
+	public String getSecurityVars() {
+		return securityVars;
 	}
 
-	public void setSecurityVaR(String securityVaR) {
-		this.securityVaR = securityVaR;
+	public void setSecurityVars(String securityVars) {
+		this.securityVars = securityVars;
 	}
 
-	public String getIndexVaR() {
-		return indexVaR;
+	public String getIndexVars() {
+		return indexVars;
 	}
 
-	public void setIndexVaR(String indexVaR) {
-		this.indexVaR = indexVaR;
+	public void setIndexVars(String indexVars) {
+		this.indexVars = indexVars;
 	}
 
-	public String getVaRMargin() {
-		return vaRMargin;
+	public String getVarsMargin() {
+		return varsMargin;
 	}
 
-	public void setVaRMargin(String vaRMargin) {
-		this.vaRMargin = vaRMargin;
+	public void setVarsMargin(String varsMargin) {
+		this.varsMargin = varsMargin;
 	}
 
 	public String getExtremeLossRate() {
