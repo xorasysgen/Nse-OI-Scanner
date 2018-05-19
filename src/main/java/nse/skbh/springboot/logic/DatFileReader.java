@@ -75,14 +75,14 @@ public class DatFileReader {
 					securityVar.setSymbol(values[1]);
 					securityVar.setSeries(values[2]);
 
-					securityVar.setSecurityVaR(values[4]);
-					securityVar.setIndexVaR(values[5]);
-					securityVar.setVaRMargin(values[6]);
+					securityVar.setSecurityVars(values[4]);
+					securityVar.setIndexVars(values[5]);
+					securityVar.setVarsMargin(values[6]);
 					securityVar.setExtremeLossRate(values[7]);
 					securityVar.setAdhocMargin(values[8]);
 					securityVar.setApplicableMarginRate(values[9]);
 
-					String temp = securityVar.getSecurityVaR();
+					String temp = securityVar.getSecurityVars();
 					if (temp != null && temp.length() > 0) {
 						Double tempSecurityVar = Double.parseDouble(temp.trim());
 						if (tempSecurityVar <= 7.7)
