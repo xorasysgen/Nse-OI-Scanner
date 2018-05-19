@@ -63,7 +63,7 @@
             <li><a href="derivative_call_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty Call (CE)</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="derivative_put_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All PUT(PE)</a></li>
-            <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty PUT(CE)</a></li>
+            <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty PUT(PE)</a></li>
             <li><a href="derivative_put_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty PUT (PE)</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
