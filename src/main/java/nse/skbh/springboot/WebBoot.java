@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 
+import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
@@ -17,6 +18,7 @@ import nse.skbh.springboot.pojo.IndicesData;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentAdvanceDecline;
+import nse.skbh.springboot.pojo.ParentDeliveryBhavData;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndices;
 import nse.skbh.springboot.pojo.ParentIndicesData;
@@ -28,6 +30,12 @@ import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
 @RestController
 public class WebBoot {
+
+	@RequestMapping("/security-wise-deliverable-positions-data")
+	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
+		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();
+		return results;
+	}
 
 	@RequestMapping("/open_interest")
 	public OIData home() {
@@ -180,48 +188,44 @@ public class WebBoot {
 				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json",
 				ParentIndicesData.class);
 		ParentIndicesData parentIndicesData = response.getBody();
-		List<IndicesData> data=parentIndicesData.getData();
+		List<IndicesData> data = parentIndicesData.getData();
 		for (IndicesData indicesData : data) {
-			if(indicesData.getSymbol().equals("KOTAKBANK")) 
+			if (indicesData.getSymbol().equals("KOTAKBANK"))
 				indicesData.setWeightage("13.99%");
-			
-			
-			if(indicesData.getSymbol().equals("INDUSINDBK")) 
+
+			if (indicesData.getSymbol().equals("INDUSINDBK"))
 				indicesData.setWeightage("8.36%");
-			
-			
-			if(indicesData.getSymbol().equals("YESBANK")) 
+
+			if (indicesData.getSymbol().equals("YESBANK"))
 				indicesData.setWeightage("5.77%");
-				
-			if(indicesData.getSymbol().equals("FEDERALBNK"))
+
+			if (indicesData.getSymbol().equals("FEDERALBNK"))
 				indicesData.setWeightage("1.36%");
-			
-			if(indicesData.getSymbol().equals("HDFCBANK"))
+
+			if (indicesData.getSymbol().equals("HDFCBANK"))
 				indicesData.setWeightage("34.49%");
-			
-			if(indicesData.getSymbol().equals("AXISBANK"))
+
+			if (indicesData.getSymbol().equals("AXISBANK"))
 				indicesData.setWeightage("7.70%");
-			
-			if(indicesData.getSymbol().equals("RBLBANK"))
+
+			if (indicesData.getSymbol().equals("RBLBANK"))
 				indicesData.setWeightage("1.60%");
-			
-			if(indicesData.getSymbol().equals("SBIN"))
+
+			if (indicesData.getSymbol().equals("SBIN"))
 				indicesData.setWeightage("7.92%");
-			
-			if(indicesData.getSymbol().equals("PNB"))
+
+			if (indicesData.getSymbol().equals("PNB"))
 				indicesData.setWeightage("00.00%");
-			
-			if(indicesData.getSymbol().equals("IDFCBANK"))
+
+			if (indicesData.getSymbol().equals("IDFCBANK"))
 				indicesData.setWeightage("00.00%");
-			
-			if(indicesData.getSymbol().equals("BANKBARODA"))
+
+			if (indicesData.getSymbol().equals("BANKBARODA"))
 				indicesData.setWeightage("1.23%");
-			
-			if(indicesData.getSymbol().equals("ICICIBANK"))
+
+			if (indicesData.getSymbol().equals("ICICIBANK"))
 				indicesData.setWeightage("15.81%");
-			
-			
-			
+
 		}
 		parentIndicesData.setData(data);
 		return parentIndicesData;
