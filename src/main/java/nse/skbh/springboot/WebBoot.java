@@ -33,13 +33,13 @@ import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 @RestController
 public class WebBoot {
 
-	@RequestMapping("/security-wise-deliverable-positions-data")
+	@RequestMapping("/security_wise_deliverable_positions_data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
 		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();
 		return results;
 	}
 
-	@RequestMapping("/security-var")
+	@RequestMapping("/security_var")
 	public ParentSecurityVaR getSecurityVarFromNSe() {
 		ParentSecurityVaR results = new DatFileReader().getSecurityVar();
 		return results;

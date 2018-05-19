@@ -18,6 +18,11 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
  <!-- end css files -->
   <style>
+.blue {
+color:#0275d8;
+font-weight: bold;
+}
+  
 .negative {
 color:red;
 font-weight: bold;

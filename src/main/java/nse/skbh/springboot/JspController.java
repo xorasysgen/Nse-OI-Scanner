@@ -15,13 +15,12 @@ public class JspController {
 	public String index() {
 		return "index";
 	}
-	
+
 	@RequestMapping("/bank_nifty_page")
 	public String bankNifty() {
 		return "bank_nifty";
 	}
-	
-		
+
 	@RequestMapping("/oispurts")
 	public String oiSpurts() {
 		return "oiSpurts";
@@ -130,6 +129,16 @@ public class JspController {
 	@RequestMapping("/indices_nse")
 	public String listIndices() {
 		return "indices";
+	}
+
+	@RequestMapping("/security_wise_deliverable_positions")
+	public String get_security_wise_deliverable_positions_data() {
+		return "security_wise_deliverable_positions_data";
+	}
+
+	@RequestMapping("/security_var_public")
+	public String getSecurity_var_public() {
+		return "security_var";
 	}
 
 }

@@ -70,29 +70,32 @@ public class DatFileReader {
 			while ((line = reader.readLine()) != null) {
 
 				if (line.contains("EQ")) {
-					SecurityVaR securityVar = new SecurityVaR();
+
 					String values[] = line.split("\\,");
-					securityVar.setSymbol(values[1]);
-					securityVar.setSeries(values[2]);
+					Double d = Double.parseDouble(values[4]);
+					if (d > 0.0) {
+						SecurityVaR securityVar = new SecurityVaR();
+						securityVar.setSymbol(values[1]);
+						securityVar.setSeries(values[2]);
+						securityVar.setSecurityVars(values[4]);
+						securityVar.setIndexVars(values[5]);
+						securityVar.setVarsMargin(values[6]);
+						securityVar.setExtremeLossRate(values[7]);
+						securityVar.setAdhocMargin(values[8]);
+						securityVar.setApplicableMarginRate(values[9]);
 
-					securityVar.setSecurityVars(values[4]);
-					securityVar.setIndexVars(values[5]);
-					securityVar.setVarsMargin(values[6]);
-					securityVar.setExtremeLossRate(values[7]);
-					securityVar.setAdhocMargin(values[8]);
-					securityVar.setApplicableMarginRate(values[9]);
-
-					String temp = securityVar.getSecurityVars();
-					if (temp != null && temp.length() > 0) {
-						Double tempSecurityVar = Double.parseDouble(temp.trim());
-						if (tempSecurityVar <= 7.7)
-							securityVar.setSafeOrUnsafe("Safe");
-						else if (tempSecurityVar >= 7.8 && tempSecurityVar <= 12)
-							securityVar.setSafeOrUnsafe("Risky");
-						else
-							securityVar.setSafeOrUnsafe("Very Risky");
+						String temp = securityVar.getSecurityVars();
+						if (temp != null && temp.length() > 0) {
+							Double tempSecurityVar = Double.parseDouble(temp.trim());
+							if (tempSecurityVar <= 7.7)
+								securityVar.setSafeOrUnsafe("Safe");
+							else if (tempSecurityVar >= 7.8 && tempSecurityVar <= 12)
+								securityVar.setSafeOrUnsafe("Risky");
+							else
+								securityVar.setSafeOrUnsafe("Very Risky");
+						}
+						data.add(securityVar);
 					}
-					data.add(securityVar);
 				}
 
 			}
