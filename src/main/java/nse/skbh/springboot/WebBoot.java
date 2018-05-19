@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import com.google.gson.Gson;
 
 import nse.skbh.springboot.logic.CsvReader;
+import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
@@ -26,6 +27,7 @@ import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
 import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
+import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
 @RestController
@@ -34,6 +36,12 @@ public class WebBoot {
 	@RequestMapping("/security-wise-deliverable-positions-data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
 		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();
+		return results;
+	}
+
+	@RequestMapping("/security-var")
+	public ParentSecurityVaR getSecurityVarFromNSe() {
+		ParentSecurityVaR results = new DatFileReader().getSecurityVar();
 		return results;
 	}
 

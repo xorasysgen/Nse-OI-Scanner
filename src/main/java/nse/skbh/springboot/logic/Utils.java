@@ -1,18 +1,9 @@
 package nse.skbh.springboot.logic;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipInputStream;
 
 public class Utils {
 
@@ -55,39 +46,34 @@ public class Utils {
 
 	}
 
-	public static void main(String[] args) {
-		String fileName = "04052018.zipd";
-		ZipInputStream zis = null;
-		File f = new File(fileName);
-		System.out.println(f.exists());
-		try {
-			FileInputStream fis = new FileInputStream(fileName);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			zis = new ZipInputStream(bis);
+	public static String formatDate_ddMMyyyy(Date date) {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
+		return dateFormat.format(date);
 
-			ZipEntry entry;
-			File zipFile = new File("04052018.zip");
-			System.out.println(zipFile.getAbsoluteFile());
-			@SuppressWarnings("resource")
-			ZipFile zip = new ZipFile(zipFile);
-			while ((entry = zis.getNextEntry()) != null) {
-				BufferedReader bufferedeReader = new BufferedReader(new InputStreamReader(zip.getInputStream(entry)));
-				String line = bufferedeReader.readLine();
-				System.out.println(line);
-				line = bufferedeReader.readLine();
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (zis != null)
-				try {
-					zis.close();
-				} catch (IOException e) {
+	}
 
-					e.printStackTrace();
-				}
+	public static String getDateBasedOnNSEVaRFile() {
+
+		Calendar c = Calendar.getInstance();
+		// Set the calendar to the current date
+		c.clear();
+		String fDate = formatDate_ddMMyyyy(new Date());
+		Integer year = Integer.parseInt(fDate.substring(04, 8));
+		Integer month = Integer.parseInt(fDate.substring(02, 04));
+		Integer date = Integer.parseInt(fDate.substring(0, 2));
+		c.set(year, month - 1, date); // month start from 0 - 11
+		Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		if (dayOfWeek == Calendar.FRIDAY) {
+			c.add(Calendar.DATE, 0); // If it's Friday don`t skip to Monday
+		} else if (dayOfWeek == Calendar.SATURDAY) {
+			c.add(Calendar.DATE, 2); // If it's Saturday so skip to Monday
+		} else {
+			c.add(Calendar.DATE, 1);
 		}
+		Date preparedDate = c.getTime();
+		String formatedPreparedDate = formatDate_ddMMyyyy(preparedDate);
+		return formatedPreparedDate;
+
 	}
 
 }

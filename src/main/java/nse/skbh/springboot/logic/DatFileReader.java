@@ -8,19 +8,23 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-import nse.skbh.springboot.pojo.DeliveryBhavData;
-import nse.skbh.springboot.pojo.ParentDeliveryBhavData;
+import nse.skbh.springboot.pojo.ParentSecurityVaR;
+import nse.skbh.springboot.pojo.SecurityVaR;
 
-public class CsvReader {
+public class DatFileReader {
 
-	public ParentDeliveryBhavData getBhavCopyFromNSEOnline() {
+	public ParentSecurityVaR getSecurityVar() {
+		String DDMMYYYY = Utils.getDateBasedOnNSEVaRFile();
+		String fileName = "C_VAR1_" + DDMMYYYY + "_1.DAT";
+
 		try {
-			String myUrl = "https://www.nseindia.com/products/content/sec_bhavdata_full.csv";
+			String myUrl = "https://www.nseindia.com/archives/nsccl/var/" + fileName;
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
 
-			ParentDeliveryBhavData results = doHttpUrlConnectionAction(myUrl);
+			ParentSecurityVaR results = doHttpUrlConnectionAction(myUrl);
+			// System.out.println(new Gson().toJson(results));
 			return results;
 		} catch (Exception e) {
 			return null;
@@ -39,7 +43,7 @@ public class CsvReader {
 	 * @return
 	 * @throws Exception
 	 */
-	private ParentDeliveryBhavData doHttpUrlConnectionAction(String desiredUrl) throws Exception {
+	private ParentSecurityVaR doHttpUrlConnectionAction(String desiredUrl) throws Exception {
 		URL url = null;
 		BufferedReader reader = null;
 
@@ -60,41 +64,43 @@ public class CsvReader {
 
 			// read the output from the server
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			ParentDeliveryBhavData parentDeliveryBhavData = new ParentDeliveryBhavData();
-			List<DeliveryBhavData> data = new LinkedList<DeliveryBhavData>();
+			ParentSecurityVaR parentSecurityVaR = new ParentSecurityVaR();
+			List<SecurityVaR> data = new LinkedList<SecurityVaR>();
 			String line = null;
 			while ((line = reader.readLine()) != null) {
+
 				if (line.contains("EQ")) {
-					DeliveryBhavData deliveryBhavData = new DeliveryBhavData();
+					SecurityVaR securityVar = new SecurityVaR();
 					String values[] = line.split("\\,");
-					deliveryBhavData.setSymbol(values[0]);
-					deliveryBhavData.setSeries(values[1]);
-					deliveryBhavData.setDate(values[2]);
-					deliveryBhavData.setPreClose(values[3]);
-					deliveryBhavData.setOpenPrice(values[4]);
-					deliveryBhavData.setHighPrice(values[5]);
-					deliveryBhavData.setLowPrice(values[6]);
-					deliveryBhavData.setLastPrice(values[7]);
-					deliveryBhavData.setClosePrice(values[8]);
-					deliveryBhavData.setAvgPrice(values[9]);
-					deliveryBhavData.setTotalTradedQnty(values[10]);
-					deliveryBhavData.setTurnOvrLac(values[11]);
-					deliveryBhavData.setNoOfTrades(values[12]);
-					deliveryBhavData.setDelivQnty(values[13]);
-					deliveryBhavData.setDelivPer(values[14]);
-					String temp = values[13];
+					securityVar.setSymbol(values[1]);
+					securityVar.setSeries(values[2]);
+
+					securityVar.setSecurityVaR(values[4]);
+					securityVar.setIndexVaR(values[5]);
+					securityVar.setVaRMargin(values[6]);
+					securityVar.setExtremeLossRate(values[7]);
+					securityVar.setAdhocMargin(values[8]);
+					securityVar.setApplicableMarginRate(values[9]);
+
+					String temp = securityVar.getSecurityVaR();
 					if (temp != null && temp.length() > 0) {
-						Long delivQntyFilter = Long.parseLong(temp.trim());
-						if (delivQntyFilter > 10000)
-							data.add(deliveryBhavData);
+						Double tempSecurityVar = Double.parseDouble(temp.trim());
+						if (tempSecurityVar <= 7.7)
+							securityVar.setSafeOrUnsafe("Safe");
+						else if (tempSecurityVar >= 7.8 && tempSecurityVar <= 12)
+							securityVar.setSafeOrUnsafe("Risky");
+						else
+							securityVar.setSafeOrUnsafe("Very Risky");
 					}
+					data.add(securityVar);
 				}
+
 			}
-			parentDeliveryBhavData.setData(data);
-			return parentDeliveryBhavData;
+			parentSecurityVaR.setData(data);
+			return parentSecurityVaR;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ParentDeliveryBhavData();
+			return null;
 
 		} finally {
 			// close the reader; this can throw an exception too, so
