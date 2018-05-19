@@ -138,7 +138,7 @@ public class JspController {
 
 	@RequestMapping("/security_var_public")
 	public String getSecurity_var_public() {
-		return "security_var";
+		return "security_var_nse";
 	}
 
 }
