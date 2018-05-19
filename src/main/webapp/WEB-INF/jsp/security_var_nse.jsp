@@ -19,7 +19,7 @@
                 			render: function ( data, type, row ) {
                                 if (data <= 7.7) {
                                     return '<span class="positive">'+data+' %</span>';
-                                  } else if(data >=  7.8 && data > 12) {
+                                  } else if(data >=  7.8 && data <= 12) {
                                     return '<span class="blue">'+data+' %</span>';
                                   }
                                   else{
@@ -37,7 +37,7 @@
                                 if (data == 'Safe') {
                                   return '<span class="positive">'+data+'</span>';
                                 } else {
-                                  return '<span class="negative">'+data+' %</span>';
+                                  return '<span class="negative">'+data+' </span>';
                                 }
                               }}
                 

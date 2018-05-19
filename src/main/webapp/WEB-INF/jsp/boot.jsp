@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Boot Project</title>
+<title>Boot F&amp;O Equity Analysis Platform - The Trading and Investing Engine that simplify Trades-JSR101-V.1.10.1.46</title>
 <meta charset="utf-8">
 <meta name="viewport"	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -39,7 +39,8 @@
 
 <body>
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Welcome from BOOT!, F&O Equity Stock Watch Research Portal</legend>
+<legend>Boot<span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> F&amp;O equity analysis platform - The Trading &amp; Investing Engine that simplify trades. <span class="label label-default">JSR101-v.1.10.1.46</span> 
+</legend>
 
 <jsp:include page="menu.jsp" />
 	<div ng-app="myApp" ng-controller="GreetingController">

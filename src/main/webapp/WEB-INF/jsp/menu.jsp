@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="most_active_underlying"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Most Active Underlying<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <span class="badge">8</span><span class="caret"></span></a>
           <ul class="dropdown-menu">
 
           <li><a href="bank_nifty_page"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Bank Nifty</a></li>
@@ -37,7 +37,7 @@
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th" style="color:#007bff;"></span> Open-Interest-All <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th" style="color:#007bff;"></span> Open-Interest-All  <span class="badge">8</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="oispurts"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> OI Spurts</a></li>
             <li><a href="bullish"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Bullish</a></li>
@@ -56,7 +56,7 @@
         </li>
         
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivative Nifty & Bank Nifty <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivative Nifty & Bank Nifty  <span class="badge">6</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="derivative_call_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All Call(CE)</a></li>
             <li><a href="derivative_call_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty CALL(CE)</a></li>
@@ -74,7 +74,7 @@
 
 
 		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Resources <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <span class="badge">2</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable Positions</a></li>
             <li><a href="security_var_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security VaR</a></li>
