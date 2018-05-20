@@ -40,7 +40,7 @@ public class ReadURI {
 	}
 
 	public static List<Nse> unpackArchive() throws IOException {
-		String date = Utils.getYesterdayDateString();
+		String date = Utils.getDateToIgnoreWeekEndClose();
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
 		System.out.println("ftpUrl" + ftpUrl);
@@ -88,7 +88,7 @@ public class ReadURI {
 						continue;
 					}
 					Nse nseObj = new Nse();
-					System.out.println(line);
+					// System.out.println(line);
 					String[] a = line.split("\\,");
 					nseObj.setDate(a[0]);
 					nseObj.setISIN(a[1]);
@@ -117,6 +117,22 @@ public class ReadURI {
 			System.out.println(nse);
 			return nse;
 		} catch (IOException e) {
+		} finally {
+			try {
+
+				File file = new File(file_name);
+				System.out.println(file_name);
+				if (file.delete()) {
+					System.out.println(file.getName() + " is deleted!");
+				} else {
+					System.out.println(file_name + " Delete operation is failed.");
+				}
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+
+			}
 		}
 		return null;
 
