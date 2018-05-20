@@ -39,7 +39,8 @@
 
 <body>
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Boot<span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> F&amp;O equity analysis platform - The Trading &amp; Investing Engine that simplify trades. <span class="label label-default">JSR101-v.1.10.1.46</span> 
+<legend>
+F&amp;O equity analysis platform - The Trading &amp; Investing Engine that simplify trades.<span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span><sup><small><span class="label label-success"> JSR101 - v.1.46.5.3</span></small></sup>
 </legend>
 
 <jsp:include page="menu.jsp" />

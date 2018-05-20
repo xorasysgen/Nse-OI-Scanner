@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="boot"><span class="glyphicon glyphicon-home" style="color:#28a745;"></span> Spring Boot</a>
+      <a class="navbar-brand" href="boot"><span class="glyphicon glyphicon-home" style="color:#28a745;"></span><span style="color:#6db33f;"> Boot</span><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span></a>
       <!-- <img alt="Brand" src="https://bgasparotto.com/wp-content/uploads/2017/12/spring-logo.png" height="20%" width="20%"> -->	
     </div>
 
