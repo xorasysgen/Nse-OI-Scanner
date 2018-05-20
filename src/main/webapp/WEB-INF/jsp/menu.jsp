@@ -30,7 +30,7 @@
             <li role="separator" class="divider"></li>
             <li><a href="fostocks"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Future and options Stocks</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">To Do</a></li>
+            <li><a href="#">To do...</a></li>
           </ul>
           
           
@@ -66,7 +66,7 @@
             <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty PUT(PE)</a></li>
             <li><a href="derivative_put_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty PUT (PE)</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">One more To do...</a></li>
           </ul>
           
           
@@ -84,7 +84,7 @@
             <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty PUT(CE)</a></li>
             <li><a href="derivative_put_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty PUT (PE)</a></li>
             <li role="separator" class="divider"></li> -->
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">To do...</a></li>
           </ul>
           
           

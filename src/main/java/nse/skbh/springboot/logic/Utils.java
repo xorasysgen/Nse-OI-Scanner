@@ -102,4 +102,11 @@ public class Utils {
 
 	}
 
+	public static String getTimeZoneOfServer() {
+		String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";
+		DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+		String result = dateFormat.format(new Date()).concat(" ").concat(dateFormat.getTimeZone().getID());
+		return result;
+	}
+
 }

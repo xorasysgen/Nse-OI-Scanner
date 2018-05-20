@@ -1,7 +1,6 @@
 package nse.skbh.springboot;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
 
@@ -25,9 +25,8 @@ public class NseBoot {
 
 	@RequestMapping("/")
 	@ResponseBody
-	String root() {
-
-		return "Server Date And Time# [ " + new Date().toString() + " ] JSR101 Spring Boot Project is Running Ok.200";
+	ServerStatus root() {
+		return new ServerStatus();
 	}
 
 	@RequestMapping("/services")
