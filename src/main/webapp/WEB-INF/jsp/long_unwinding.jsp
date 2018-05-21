@@ -13,21 +13,69 @@
             "processing": true,
             "ajax": "https://jsr101.herokuapp.com/oi_spurts_slide_in_price_slide_in_oi",
             "columns": [
-                { "data": "symbol" },
-                { "data": "instrument" },
-                { "data": "expiry" },
-                { "data": "strike" },
-                { "data": "optionType" },
-                { "data": "ltp" },
-                { "data": "prevClose" },
-                { "data": "percLtpChange" },
-                { "data": "latestOI" },
-                { "data": "oiChange" },
-                { "data": "volume" },
-                { "data": "valueInCrores" },
-                { "data": "premValueInCrores" },
-                { "data": "underlyValue" },
-                { "data": "isFO" }
+                        { "data": "symbol" },
+                        { "data": "instrument" },
+                        { "data": "expiry" ,
+                           	 render: function ( data, type, row ) {
+                                 
+                                 return '<span class="symbol">'+data+'</span>';
+                               
+                             }
+                        },
+                        { "data": "strike"  ,
+                           	 render: function ( data, type, row ) {
+                                 
+                                 return '<span class="symbol">'+data+'</span>';
+                               
+                             }},
+                        { "data": "optionType" },
+                        { "data": "ltp" , 
+					  	 render: function ( data, type, row ) {
+					         
+					         return '<span class="negative">'+data+'</span>';
+					       
+					     }
+                        },
+                        { "data": "prevClose" , 
+					  	 render: function ( data, type, row ) {
+					         
+					         return '<span class="yellow">'+data+'</span>';
+					       
+					     }
+                        },
+                        { "data": "percLtpChange" ,
+                        	render: function ( data, type, row ) {
+                                if (data >= 0) {
+                                  return '<span class="positive">'+data+' %</span>';
+                                } else {
+                                  return '<span class="negative">'+data+' %</span>';
+                                }
+                              }
+                        },
+                        { "data": "latestOI" ,
+                        	render: function ( data, type, row ) {
+                        		data=data.split(',').join('');//remove comma
+                                if (data >= 0) {
+                                  return '<span class="positive">'+data+' </span>';
+                                } else {
+                                  return '<span class="negative">'+data+' </span>';
+                                }
+                              }},
+                        { "data": "oiChange" ,
+                        	render: function ( data, type, row ) {
+                        		data=data.split(',').join('');//remove comma
+                                if (data >= 0) {
+                                  return '<span class="positive">'+data+'</span>';
+                                } else {
+                                  return '<span class="negative">'+data+'</span>';
+                                }
+                              }
+                        },
+                        { "data": "volume" },
+                        { "data": "valueInCrores" },
+                        { "data": "premValueInCrores" },
+                        { "data": "underlyValue" },
+                        { "data": "isFO" }
             ]
         } );
     } );

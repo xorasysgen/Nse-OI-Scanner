@@ -15,8 +15,20 @@
             "columns": [
                 { "data": "symbol" },
                 { "data": "instrument" },
-                { "data": "expiry" },
-                { "data": "strike" },
+                { "data": "expiry"  ,
+                  	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     }
+                },
+                { "data": "strike"  ,
+                  	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     }
+                },
                 { "data": "optionType" },
                 { "data": "ltp" },
                 { "data": "prevClose" },

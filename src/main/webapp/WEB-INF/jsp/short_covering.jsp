@@ -15,14 +15,56 @@
             "columns": [
                 { "data": "symbol" },
                 { "data": "instrument" },
-                { "data": "expiry" },
-                { "data": "strike" },
+                { "data": "expiry" ,
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     }},
+                { "data": "strike"  ,
+                       	 render: function ( data, type, row ) {
+                             
+                             return '<span class="symbol">'+data+'</span>';
+                           
+                         }
+                     },
                 { "data": "optionType" },
-                { "data": "ltp" },
+                { "data": "ltp" , 
+				  	 render: function ( data, type, row ) {
+				         
+				         return '<span class="yellow">'+data+'</span>';
+				       
+				     }
+                },
                 { "data": "prevClose" },
-                { "data": "percLtpChange" },
-                { "data": "latestOI" },
-                { "data": "oiChange" },
+                { "data": "percLtpChange" ,
+                	render: function ( data, type, row ) {
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' %</span>';
+                        } else {
+                          return '<span class="negative">'+data+' %</span>';
+                        }
+                      }
+                },
+                { "data": "latestOI" ,
+                	render: function ( data, type, row ) {
+                		data=data.split(',').join('');//remove comma
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+' </span>';
+                        } else {
+                          return '<span class="negative">'+data+' </span>';
+                        }
+                      }},
+                { "data": "oiChange" ,
+                	render: function ( data, type, row ) {
+                		data=data.split(',').join('');//remove comma
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+'</span>';
+                        } else {
+                          return '<span class="negative">'+data+'</span>';
+                        }
+                      }
+                },
                 { "data": "volume" },
                 { "data": "valueInCrores" },
                 { "data": "premValueInCrores" },

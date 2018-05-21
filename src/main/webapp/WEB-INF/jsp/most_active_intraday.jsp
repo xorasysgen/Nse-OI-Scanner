@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 6, "total_VALUE" ]],
             "ajax": "https://jsr101.herokuapp.com/most_active_intraday/",
             "columns": [
                         { "data": "fo_SYMBOL" ,
@@ -21,8 +22,20 @@
                          }
                         	
                         },
-                    	{ "data": "op" },
-                        { "data": "underlyingvalue" },
+                    	{ "data": "op"  ,
+					  	 render: function ( data, type, row ) {
+					         
+					         return '<span class="yellow">'+data+'</span>';
+					       
+					     }
+                        },
+                        { "data": "underlyingvalue"  ,
+					  	 render: function ( data, type, row ) {
+					         
+					         return '<span class="positive">'+data+'</span>';
+					       
+					     }
+                    	},
                         { "data": "value2" },
                         { "data": "value1" },
                         { "data": "total_VALUE" },
@@ -57,12 +70,12 @@
 					  <th>SYMBOL</th>
 				 	  <th>Options(Premium)</th>
 					  <th>LTP(Price)</th>
-					  <th>val Options</th>
+					  <th>Val Options</th>
 					  <th>Val Futures</th>
 					  <th>Val Total</th>
 					  <th>Vol Options</th>
 					  <th>Vol Futures</th>
-					  <th>Vol Value</th>
+					  <th>Vol Total</th>
 					  <th>Open Interest(Contracts)</th>
 			</tr>
 		</thead>

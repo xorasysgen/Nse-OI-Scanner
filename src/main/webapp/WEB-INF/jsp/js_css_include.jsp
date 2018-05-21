@@ -22,7 +22,12 @@
 color:#0275d8;
 font-weight: bold;
 }
-  
+ 
+.yellow {
+color: #ffc107;
+font-weight: bold;
+} 
+ 
 .negative {
 color:red;
 font-weight: bold;
