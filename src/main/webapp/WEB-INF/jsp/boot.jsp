@@ -29,6 +29,73 @@
     height:100%;
 }
 </style>
+<script>
+function date_time(id)
+{
+        date = new Date;
+        year = date.getFullYear();
+        month = date.getMonth();
+        months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+        d = date.getDate();
+        day = date.getDay();
+        days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+        h = date.getHours();
+        if(h<10)
+        {
+                h = "0"+h;
+        }
+        m = date.getMinutes();
+        if(m<10)
+        {
+                m = "0"+m;
+        }
+        s = date.getSeconds();
+        if(s<10)
+        {
+                s = "0"+s;
+        }
+        result = ''+days[day]+' '+months[month]+' '+d+' '+year+' '+h+':'+m+':'+s;
+        document.getElementById(id).innerHTML = result;
+        setTimeout('date_time("'+id+'");','1000');
+        return true;
+}
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    //var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+</script>
+<style type="text/css">
+.time-frame {
+ 
+    width: 300px;
+    font-family: Arial;
+}
+
+.time-frame > div {
+    width: 100%;
+    text-align: center;
+}
+
+#date-part {
+    font-size: 1.2em;
+}
+#time-part {
+    font-size: 2em;
+}
+</style>
 <jsp:include page="js_css_include.jsp" />
 
 <!-- <script type="text/javascript">
@@ -40,13 +107,17 @@
 <body>
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 <legend>
-F&amp;O equity analysis platform - The Trading &amp; Investing Engine that simplify trades.<span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
+ <span style="color: #6c757d; font-size: 18px;">The Trading &amp; Investing Engine That SIMPLIFY TRADES, F&amp;O equity analysis platform by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
 </legend>
 <% response.addHeader("Refresh","60"); %>
 <jsp:include page="menu.jsp" />
 	<div ng-app="myApp" ng-controller="GreetingController">
 	<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-		<legend>Market Trend - Overall Advances / Declines Ratio</legend>
+		<legend><sub>Market Trend - Overall Advances / Declines Ratio  <sup><span style="color: #17a2b8; font-weight: bold; font-size: 14px;">#Last sync : <small><span id="txt"></span></small></span>  
+		&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 14px; color: green;"></span <small><span style="color: #6c757d; font-weight: bold; font-size: 14px;" id="date_time"></span></small></sup>
+            </legend>
+            <script type="text/javascript">window.onload = date_time('date_time');</script>
+            <script type="text/javascript">window.onload = startTime();</script>
 
 
 <div class="container">
