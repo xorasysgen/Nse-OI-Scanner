@@ -33,6 +33,17 @@ import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 @RestController
 public class WebBoot {
 
+	@RequestMapping("/mkt_open_status")
+	public String smeNormalMktStatus() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate.getForEntity(
+				"https://nseindia.com/emerge/homepage/smeNormalMktStatus.json",
+				String.class);
+		String string = response.getBody();
+		return string;
+
+	}
+	
 	@RequestMapping("/security_wise_deliverable_positions_data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
 		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();
