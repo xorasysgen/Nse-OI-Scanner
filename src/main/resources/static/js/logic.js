@@ -18,18 +18,21 @@
 					        var bear_per=(row.declines/row.total)*100;
 					        var unchanged_per=(row.unchanged/row.total)*100;
 					        var adr=row.advances/row.declines;
-					        console.log("bull_per# " + bull_per);
-				        	console.log("bear_per# " + bear_per);
-					        console.log(unchanged_per);
-					        console.log(adr);
-				        	console.log("adr# " + adr);
- 	   		        	    console.log("adr>1.25# " + adr);
+					        console.log("OverALl bull_per# " + bull_per);
+				        	console.log("OverALl bear_per# " + bear_per);
+				        	console.log("OverALl adr# " + adr);
  	   		        	    
-					        if(bull_per >= 50 && adr>=1.50){
-					        	trend= "Extremely Bullish(+)";
-					        }
-					        else if(bear_per>=50){
-					        	trend= "Extremely Bearish(-)";
+ 	   		        	    if(bull_per >= 55 && adr>=2){
+ 	   		        	    	trend= "Extremely Bullish(+)";
+ 	   		        	    }
+ 	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+				        	trend= "Bullish(+)";
+ 	   		        		}
+ 	   		        	    else if(bear_per>=55 && adr <=1){
+				        	trend= "Extremely Bearish(-)";
+ 	   		        	    }
+					        else if(bear_per>=50 && bear_per<55){
+					        	trend= "Bearish(-)";
 					        }
 					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
@@ -115,19 +118,23 @@
 	                             					        var bear_per=(row.declines/row.total)*100;
 	                             					        var unchanged_per=(row.unchanged/row.total)*100;
 	                             					        var adr=row.advances/row.declines;
-	                             					        console.log("bull_per# " + bull_per);
-	                             				        	console.log("bear_per# " + bear_per);
-	                             					        console.log(unchanged_per);
-	                             					        console.log(adr);
-	                             				        	console.log("adr# " + adr);
-	                              	   		        	    console.log("adr>1.25# " + adr);
+	                             					       console.log("OverALl bull_per# " + bull_per);
+	                             					       console.log("OverALl bear_per# " + bear_per);
+	                             					       console.log("OverALl adr# " + adr);
+	                            	   		        	    
 	                              	   		        	    
-	                             					        if(bull_per >= 50 && adr>=1.50){
-	                             					        	trend= "Extremely Bullish(+)";
-	                             					        }
-	                             					        else if(bear_per>=50){
-	                             					        	trend= "Extremely Bearish(-)";
-	                             					        }
+		                              	   		        	 if(bull_per >= 55 && adr>=2){
+		                          	   		        	    	trend= "Extremely Bullish(+)";
+		                          	   		        	    }
+		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                         				        	trend= "Bullish(+)";
+		                          	   		        		}
+		                          	   		        	    else if(bear_per>=55 && adr <=1){
+		                         				        	trend= "Extremely Bearish(-)";
+		                          	   		        	    }
+		                         					        else if(bear_per>=50 && bear_per<55){
+		                         					        	trend= "Bearish(-)";
+		                         					        }
 	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
@@ -213,19 +220,23 @@
 	                             					        var bear_per=(response.data.declines/50)*100;
 	                             					        var unchanged_per=(response.data.unchanged/50)*100;
 	                             					        var adr=response.data.advances/response.data.declines;
-	                             					        console.log("bull_per# " + bull_per);
-	                             				        	console.log("bear_per# " + bear_per);
-	                             					        console.log(unchanged_per);
-	                             					        console.log(adr);
-	                             				        	console.log("adr# " + adr);
-	                              	   		        	    console.log("adr>1.25# " + adr);
+	                             					       console.log("Nifty bull_per# " + bull_per);
+	                             					       console.log("Nifty bear_per# " + bear_per);
+	                             					       console.log("Nifty adr# " + adr);
+	                            	   		        	    
 	                              	   		        	    
-	                             					        if(bull_per >= 50){
-	                             					        	trend= "Extremely Bullish(+)";
-	                             					        }
-	                             					        else if(bear_per>=50){
-	                             					        	trend= "Extremely Bearish(-)";
-	                             					        }
+		                              	   		        	 if(bull_per >= 55 && adr>=2){
+		                          	   		        	    	trend= "Extremely Bullish(+)";
+		                          	   		        	    }
+		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                         				        	trend= "Bullish(+)";
+		                          	   		        		}
+		                          	   		        	    else if(bear_per>=55 && adr <=1){
+		                         				        	trend= "Extremely Bearish(-)";
+		                          	   		        	    }
+		                         					        else if(bear_per>=50 && bear_per<55){
+		                         					        	trend= "Bearish(-)";
+		                         					        }
 	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
@@ -287,19 +298,23 @@
 	                             					        var bear_per=(response.data.declines/12)*100;
 	                             					        var unchanged_per=(response.data.unchanged/12)*100;
 	                             					        var adr=response.data.advances/response.data.declines;
-	                             					        console.log("bull_per# " + bull_per);
-	                             				        	console.log("bear_per# " + bear_per);
-	                             					        console.log(unchanged_per);
-	                             					        console.log(adr);
-	                             				        	console.log("adr# " + adr);
-	                              	   		        	    console.log("adr>1.25# " + adr);
+	                             					       console.log("Bank Nifty bull_per# " + bull_per);
+	                             					       console.log("Bank Nifty bear_per# " + bear_per);
+	                             					       console.log("bank Nifty adr# " + adr);
+	                            	   		        	    
 	                              	   		        	    
-	                             					        if(bull_per >= 50){
-	                             					        	trend= "Extremely Bullish(+)";
-	                             					        }
-	                             					        else if(bear_per>=50){
-	                             					        	trend= "Extremely Bearish(-)";
-	                             					        }
+		                              	   		        	 if(bull_per >= 55 && adr>=2.2){
+		                          	   		        	    	trend= "Extremely Bullish(+)";
+		                          	   		        	    }
+		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                         				        	trend= "Bullish(+)";
+		                          	   		        		}
+		                          	   		        	    else if(bear_per>=55 && adr <=1){
+		                         				        	trend= "Extremely Bearish(-)";
+		                          	   		        	    }
+		                         					        else if(bear_per>=50 && bear_per<55){
+		                         					        	trend= "Bearish(-)";
+		                         					        }
 	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
