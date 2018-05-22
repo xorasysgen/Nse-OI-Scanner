@@ -12,7 +12,7 @@
 <!-- begins google chart js -->
 <script src="js/google_pie.js"></script>
 <!-- end google chart js -->
-
+<jsp:include page="js_css_include.jsp" />
 <style type="text/css">
 #chart_wrap {
     position: relative;
@@ -29,6 +29,25 @@
     height:100%;
 }
 </style>
+
+<script>
+        $.ajax({
+        	type:'Get',
+        	url: 'https://jsr101.herokuapp.com/mkt_open_status',
+        	success: function(result){
+        		var json = $.parseJSON(result);
+        		if(json.NormalMktStatus=="open")
+        			text="<span class='blinking' style='color: #4CAF50; font-weight: bold; font-size: 14px;'>Normal Market is Open</span>";
+        		else 
+        			text = "<span class='blinking' style='color: #f7786b; font-weight: bold; font-size: 14px;'>Normal Market has Closed</span>";
+        		
+            $("#mktStatus").html(text);
+        	
+        }
+        })
+
+</script>
+
 <script>
 function date_time(id)
 {
@@ -76,6 +95,12 @@ function checkTime(i) {
     return i;
 }
 
+function blinker() {
+	$('.blinking').fadeOut(500);
+	$('.blinking').fadeIn(500);
+}
+setInterval(blinker, 1000);
+
 </script>
 <style type="text/css">
 .time-frame {
@@ -96,7 +121,7 @@ function checkTime(i) {
     font-size: 2em;
 }
 </style>
-<jsp:include page="js_css_include.jsp" />
+
 
 <!-- <script type="text/javascript">
 	$(document).ready(function() {
@@ -107,88 +132,92 @@ function checkTime(i) {
 <body>
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 <legend>
- <span style="color: #6c757d; font-size: 18px;">The Trading<span style="color: orange; font-size: 18px;"> &amp; </span>Investing Engine that <span style="color: orange; font-size: 18px;">Simplify Trades...</span>F&amp;O equity analysis platform by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
+ <span style="color: #6c757d; font-size: 18px;">The Trading<span style="color: orange; font-size: 18px;"> &amp; </span>Investing Engine that Simplify Trades...F&amp;O equity analysis platform by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
+<sup><i><span id="mktStatus"></span></i></sup>
+<sup><span style="color: #17a2b8; font-weight: bold; font-size: 14px;"> #Last sync : <small><span id="txt"></span></small></span>  
+		&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 14px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 14px;" id="date_time"></span></small></sup>
+
+ 
 </legend>
 <% response.addHeader("Refresh","300"); %>
 <jsp:include page="menu.jsp" />
-	<div ng-app="myApp" ng-controller="GreetingController">
-	<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-		<legend><sub>Market Trend - Overall Advances/Declines Ratio  <sup><span style="color: #17a2b8; font-weight: bold; font-size: 14px;">#Last sync : <small><span id="txt"></span></small></span>  
-		&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 14px; color: green;"></span <small><span style="color: #6c757d; font-weight: bold; font-size: 14px;" id="date_time"></span></small></sup>
+
+<div ng-app="myApp" ng-controller="GreetingController">
+<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
+		<legend><span style="color: #17a2b8;">Market Trend - Overall Advances/Declines Ratio</span> 
+		
             </legend>
             <script type="text/javascript">window.onload = date_time('date_time');</script>
             <script type="text/javascript">window.onload = startTime();</script>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
-           
-POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
-
-NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span  style="color: red; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
-
-UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{getUnchange()}} </span> <br>
-
-OVERALL TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getTrend() }}  </span> 
-        </div>
+			<div class="container">
+			    <div class="row">
+			        <div class="col-md-4">
+			TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+			<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
+			           
+			POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
+			
+			NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span  style="color: red; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
+			
+			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{getUnchange()}} </span> <br>
+			
+			OVERALL TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getTrend() }}  </span> 
+			        </div>
+			        
         
         
-        
-        <div class="col-md-4">
-            <div ng-app="myApp" ng-controller="NiftyController">
-            
-TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  50 </span>  <br>
-
-POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getNiftyAdvanced() }} </span> <br>
-
-NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getNiftyDeclines() }} </span><br>
-
-UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getNiftyUnchange() }} </span> <br>
-
-NIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getNiftyTrend() }}  </span> 
-</div>
-        </div>
+		        <div class="col-md-4">
+		            <div ng-app="myApp" ng-controller="NiftyController">
+		            
+		TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+		<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  50 </span>  <br>
+		
+		POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+		<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getNiftyAdvanced() }} </span> <br>
+		
+		NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+		<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getNiftyDeclines() }} </span><br>
+		
+		UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+		<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getNiftyUnchange() }} </span> <br>
+		
+		NIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getNiftyTrend() }}  </span> 
+		</div>
+		        </div>
         
        
         
-        <div class="col-md-4" >
-        <span class="border-top border-dark">
-            <div ng-app="myApp" ng-controller="BankNiftyController">
-            
-TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  12 </span>  <br>
-
-POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getBankNiftyAdvanced() }} </span> <br>
-
-NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getBankNiftyDeclines() }} </span><br>
-
-UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
-
-BANKNIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getBankNiftyTrend() }}  </span> 
-</div>
-</span>
-        </div>
+			        <div class="col-md-4" >
+			        <span class="border-top border-dark">
+			            <div ng-app="myApp" ng-controller="BankNiftyController">
+			            
+			TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+			<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  12 </span>  <br>
+			
+			POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getBankNiftyAdvanced() }} </span> <br>
+			
+			NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getBankNiftyDeclines() }} </span><br>
+			
+			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
+			
+			BANKNIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getBankNiftyTrend() }}  </span> 
+			</div>
+			</span>
+			        </div>
     </div>
 </div>
 
 
 
-
 <!-- begins Google chart -->
-<div id="chart_wrap">
 	<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 </div>
 <!-- end Google chart -->
@@ -199,6 +228,7 @@ BANKNIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px;
 	</div>
 
 </fieldset>
+
 </body>
 
 </html>
