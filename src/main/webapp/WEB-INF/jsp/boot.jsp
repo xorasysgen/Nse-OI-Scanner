@@ -109,7 +109,7 @@ function checkTime(i) {
 <legend>
  <span style="color: #6c757d; font-size: 18px;">The Trading &amp; Investing Engine That SIMPLIFY TRADES, F&amp;O equity analysis platform by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
 </legend>
-<% response.addHeader("Refresh","60"); %>
+<% response.addHeader("Refresh","180"); %>
 <jsp:include page="menu.jsp" />
 	<div ng-app="myApp" ng-controller="GreetingController">
 	<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
