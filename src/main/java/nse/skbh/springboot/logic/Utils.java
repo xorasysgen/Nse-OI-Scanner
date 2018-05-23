@@ -68,7 +68,7 @@ public class Utils {
 		} else if (dayOfWeek == Calendar.SATURDAY) {
 			c.add(Calendar.DATE, 2); // If it's Saturday so skip to Monday
 		} else {
-			c.add(Calendar.DATE, 1);
+			c.add(Calendar.DATE, 0);
 		}
 		Date preparedDate = c.getTime();
 		String formatedPreparedDate = formatDate_ddMMyyyy(preparedDate);
@@ -94,7 +94,7 @@ public class Utils {
 		} else if (dayOfWeek == Calendar.SUNDAY) {
 			c.add(Calendar.DATE, -2); // If it's Saturday so skip to Monday
 		} else {
-			c.add(Calendar.DATE, 0);
+			c.add(Calendar.DATE, -1);
 		}
 		Date preparedDate = c.getTime();
 		String formatedPreparedDate = formatDate_ddMMyyyy(preparedDate);

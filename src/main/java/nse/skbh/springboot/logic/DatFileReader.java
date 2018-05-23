@@ -16,9 +16,11 @@ public class DatFileReader {
 	public ParentSecurityVaR getSecurityVar() {
 		String DDMMYYYY = Utils.getDateBasedOnNSEVaRFile();
 		String fileName = "C_VAR1_" + DDMMYYYY + "_1.DAT";
+		System.out.println("fileName" + fileName);
 
 		try {
 			String myUrl = "https://www.nseindia.com/archives/nsccl/var/" + fileName;
+			System.out.println(myUrl);
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
