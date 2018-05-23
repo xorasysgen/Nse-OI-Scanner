@@ -23,7 +23,13 @@
                 },
                 { "data": "expiryDate" },
                 { "data": "optionType" },
-                { "data": "strikePrice" },
+                { "data": "strikePrice" ,
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="liteGreen">'+data+'</span>';
+                       
+                     }
+                },
                 { "data": "perChange" ,
                 	render: function ( data, type, row ) {
                         if (data >= 0) {
@@ -34,7 +40,13 @@
                       }
                 },
                 { "data": "openInterest" },
-                { "data": "lastTradedPrice" },
+                { "data": "lastTradedPrice" ,
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     }
+                },
                 { "data": "noOfContractsTraded" },
                 { "data": "contractValueRsLakhs" },
                 { "data": "contractValuePremRsLakhs" },
@@ -57,7 +69,7 @@
 <legend>Intraday Top Call All Nifty & Nifty Bank</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Top Gainers</h3>
+        <h3 class="panel-title">Nifty Calls Status</h3>
     </div>
     <div class="panel-body">
 	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
