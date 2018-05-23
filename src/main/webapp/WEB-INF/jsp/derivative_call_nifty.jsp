@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 6, "perChange" ]],
             "ajax": "https://jsr101.herokuapp.com/derivative/call/call_nifty",
             "columns": [
             	  { "data": "instrumentType" },
