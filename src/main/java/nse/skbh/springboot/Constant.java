@@ -33,6 +33,8 @@ final class Constant {
 	private static final String advances_declines_nifty = "/advances_declines_nifty";
 	private static final String security_wise_deliverable_positions_data = "/security_wise_deliverable_positions_data";
 	private static final String security_var = "/security_var";
+	private static final String future_stocks_spike_volume="/future_stocks_spike_volume";
+	private static final String future_stocks_spike_value="/future_stocks_spike_value";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -64,6 +66,8 @@ final class Constant {
 		list.add(oi_spurts_slide_in_price_slide_in_oi);
 		list.add(security_wise_deliverable_positions_data);
 		list.add(security_var);
+		list.add(future_stocks_spike_value);
+		list.add(future_stocks_spike_volume);
 		return list;
 
 	}

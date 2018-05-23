@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 6, "percOIchange" ]],
             "ajax": "https://jsr101.herokuapp.com/oi_spurts",
             "columns": [
                  { "data": "symbol",
@@ -35,9 +36,9 @@
                  { "data": "percOIchange",
                 	render: function ( data, type, row ) {
                         if (data >= 0) {
-                          return '<span class="positive">'+data+' %</span>';
+                          return '<span class="positive">'+data+'%</span>';
                         } else {
-                          return '<span class="negative">'+data+' %</span>';
+                          return '<span class="negative">'+data+'%</span>';
                         }
                       }
                  },

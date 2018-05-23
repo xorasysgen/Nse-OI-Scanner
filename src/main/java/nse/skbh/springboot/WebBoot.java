@@ -28,6 +28,7 @@ import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
 import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
+import nse.skbh.springboot.pojo.ParentStocksFutures;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 
 @RestController
@@ -43,6 +44,29 @@ public class WebBoot {
 		return string;
 
 	}
+	
+	@RequestMapping("/future_stocks_spike_volume")
+	public ParentStocksFutures futOPTSTK() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKVolume.json",
+				ParentStocksFutures.class);
+		ParentStocksFutures string = response.getBody();
+		return string;
+
+	}
+	
+	@RequestMapping("/future_stocks_spike_value")
+	public ParentStocksFutures futOPTSTKValue() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKValue.json",
+				ParentStocksFutures.class);
+		ParentStocksFutures string = response.getBody();
+		return string;
+
+	}
+	
 	
 	@RequestMapping("/security_wise_deliverable_positions_data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
