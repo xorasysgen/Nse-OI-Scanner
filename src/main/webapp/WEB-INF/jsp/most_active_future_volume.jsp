@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 4, "asc" ]] ,
             "ajax": "https://jsr101.herokuapp.com/future_stocks_spike_volume",
             "columns": [
                 { "data": "instrumentType" },

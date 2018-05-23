@@ -11,7 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "order": [[ 6, "total_VALUE" ]],
+            "order": [[ 6, "asc" ]],
             "ajax": "https://jsr101.herokuapp.com/most_active_intraday/",
             "columns": [
                         { "data": "fo_SYMBOL" ,

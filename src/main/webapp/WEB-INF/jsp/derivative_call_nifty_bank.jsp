@@ -33,9 +33,9 @@
                   { "data": "perChange" ,
                   	render: function ( data, type, row ) {
                           if (data >= 0) {
-                            return '<span class="positive">'+data+' %</span>';
+                            return '<span class="positive">'+data+'%</span>';
                           } else {
-                            return '<span class="negative">'+data+' %</span>';
+                            return '<span class="negative">'+data+'%</span>';
                           }
                         }
                   },
