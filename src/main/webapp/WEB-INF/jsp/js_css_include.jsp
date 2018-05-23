@@ -18,6 +18,16 @@
  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
  <!-- end css files -->
   <style>
+  
+.liteGreen{
+color:#00C851;
+font-weight: bold; 
+}
+.darkGreen{
+color:#00e5ff;
+font-weight: bold; 
+}
+
 .blue {
 color:#0275d8;
 font-weight: bold;
@@ -29,7 +39,7 @@ font-weight: bold;
 } 
  
 .negative {
-color:red;
+color:#d50000;
 font-weight: bold;
 }
 .positive {

@@ -44,8 +44,18 @@
                 },
                 { "data": "trdVol" },
                 { "data": "ntP" },
-                { "data": "wkhi" },
-                { "data": "wklo"},
+                { "data": "wkhi" ,
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="liteGreen">'+data+'</span>';
+                       
+                     }},
+                { "data": "wklo",
+                       	 render: function ( data, type, row ) {
+                             
+                             return '<span class="negative">'+data+'</span>';
+                           
+                         }},
                 { "data": "mPC" ,
                 	render: function ( data, type, row ) {
                         if (data >= 0) {

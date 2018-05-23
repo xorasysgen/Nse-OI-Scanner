@@ -140,5 +140,16 @@ public class JspController {
 	public String getSecurity_var_public() {
 		return "security_var_nse";
 	}
+	
+	
+	@RequestMapping("/most_active_future_value_public")
+	public String most_active_future_value_public() {
+		return "most_active_future_value";
+	}
+
+	@RequestMapping("/most_active_future_volume_public")
+	public String most_active_future_volume_public() {
+		return "most_active_future_volume";
+	}
 
 }

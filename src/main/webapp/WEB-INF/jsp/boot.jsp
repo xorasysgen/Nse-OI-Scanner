@@ -166,7 +166,7 @@ setInterval(blinker, 1000);
 			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{getUnchange()}} </span> <br>
 			
-			OVERALL TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getTrend() }}  </span> 
+			OVERALL TREND <span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getTrend() }}  </span> 
 			        </div>
 			        
         
@@ -186,7 +186,7 @@ setInterval(blinker, 1000);
 		UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 		<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getNiftyUnchange() }} </span> <br>
 		
-		NIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getNiftyTrend() }}  </span> 
+		NIFTY TREND <span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getNiftyTrend() }}  </span> 
 		</div>
 		        </div>
         
@@ -208,7 +208,7 @@ setInterval(blinker, 1000);
 			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
 			
-			BANKNIFTY TREND <span style="color: #117a8b; font-weight: bold; font-size: 18px; ">  {{ getBankNiftyTrend() }}  </span> 
+			BANKNIFTY TREND <span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getBankNiftyTrend() }}  </span> 
 			</div>
 			</span>
 			        </div>
