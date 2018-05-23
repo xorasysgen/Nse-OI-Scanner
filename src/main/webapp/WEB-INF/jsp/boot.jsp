@@ -37,9 +37,9 @@
         	success: function(result){
         		var json = $.parseJSON(result);
         		if(json.NormalMktStatus=="open")
-        			text="<span class='blinking' style='color: #4CAF50; font-weight: bold; font-size: 14px;'>Normal Market is Open</span>";
+        			text="<span class='blinking' style='color: #00c853; font-weight: bold; font-size: 14px;'>Normal Market is Open</span>";
         		else 
-        			text = "<span class='blinking' style='color: #f7786b; font-weight: bold; font-size: 14px;'>Normal Market has Closed</span>";
+        			text = "<span class='blinking' style='color: #CC0000; font-weight: bold; font-size: 14px;'>Normal Market has Closed</span>";
         		
             $("#mktStatus").html(text);
         	
@@ -155,13 +155,13 @@ setInterval(blinker, 1000);
 			    <div class="row">
 			        <div class="col-md-4">
 			TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-			<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
+			<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
 			           
 			POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-			<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
+			<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
 			
 			NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-			<span  style="color: red; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
+			<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
 			
 			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{getUnchange()}} </span> <br>
@@ -175,13 +175,13 @@ setInterval(blinker, 1000);
 		            <div ng-app="myApp" ng-controller="NiftyController">
 		            
 		TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-		<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  50 </span>  <br>
+		<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  50 </span>  <br>
 		
 		POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-		<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getNiftyAdvanced() }} </span> <br>
+		<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getNiftyAdvanced() }} </span> <br>
 		
 		NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-		<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getNiftyDeclines() }} </span><br>
+		<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{ getNiftyDeclines() }} </span><br>
 		
 		UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 		<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getNiftyUnchange() }} </span> <br>
@@ -197,13 +197,13 @@ setInterval(blinker, 1000);
 			            <div ng-app="myApp" ng-controller="BankNiftyController">
 			            
 			TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-			<span style="color: blue; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  12 </span>  <br>
+			<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  12 </span>  <br>
 			
 			POSITIVE(+)  <span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-			<span style="color: green; font-weight: bold; font-size: 18px; "> {{ getBankNiftyAdvanced() }} </span> <br>
+			<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getBankNiftyAdvanced() }} </span> <br>
 			
 			NEGATIVE(-)   <span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-			<span  style="color: red; font-weight: bold; font-size: 18px; "> {{ getBankNiftyDeclines() }} </span><br>
+			<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{ getBankNiftyDeclines() }} </span><br>
 			
 			UNCHANGED <span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 			<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
