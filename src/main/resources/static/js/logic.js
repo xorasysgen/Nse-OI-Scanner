@@ -1,105 +1,6 @@
 	var myApp = angular.module('myApp', []);
 
-	myApp.controller('GreetingController', [ '$scope', '$http',
-			function($scope, $http) {
-				$scope.greeting = 'Hola!';
-
-				$http({
-					method : 'GET',
-					url : 'https://jsr101.herokuapp.com/advances_declines'
-				}).then(function successCallback(response) {
-					//console.log(response.data);
-					$scope.posts = response.data.rows
-					$scope.getTrend = function(){
-					    var trend = "None";
-					    for(var i = 0; i < $scope.posts.length; i++){
-					        var row = $scope.posts[i];
-					        var bull_per=(row.advances/row.total)*100;
-					        var bear_per=(row.declines/row.total)*100;
-					        var unchanged_per=(row.unchanged/row.total)*100;
-					        var adr=row.advances/row.declines;
-					        console.log("OverALl bull_per# " + bull_per);
-				        	console.log("OverALl bear_per# " + bear_per);
-				        	console.log("OverALl adr# " + adr);
- 	   		        	    
- 	   		        	    if(bull_per >= 55 && adr>=2){
- 	   		        	    	trend= "Extremely Bullish(+)";
- 	   		        	    }
- 	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
-				        	trend= "Bullish(+)";
- 	   		        		}
- 	   		        	    else if(bear_per>=55 && adr <=1){
-				        	trend= "Extremely Bearish(-)";
- 	   		        	    }
-					        else if(bear_per>=50 && bear_per<55){
-					        	trend= "Bearish(-)";
-					        }
-					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
-					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
-					        }
-					        else  if(bull_per>45 && bull_per<=49 && adr>=1.30){
-					        	trend= "little Bullish(+) with SideWays Market";
-					        }
-					        else
-					        	trend="No Clear Trend";
-					        
-					    }
-					    return trend;
-					    
-					}
-					
-					$scope.getAdvanced = function(){
-					    var result = "None";
-					    for(var i = 0; i < $scope.posts.length; i++){
-					        var row = $scope.posts[i];
-					        result =  row.advances;
-					    }
-					    return result;
-					    
-					}
-					
-					$scope.getDeclines = function(){
-					    var result = "None";
-					    for(var i = 0; i < $scope.posts.length; i++){
-					        var row = $scope.posts[i];
-					        result =  row.declines;
-					    }
-					    return result;
-					    
-					}
-					
-					$scope.getUnchange = function(){
-					    var result = "None";
-					    for(var i = 0; i < $scope.posts.length; i++){
-					        var row = $scope.posts[i];
-					        result =  row.unchanged;
-					    }
-					    return result;
-					    
-					}
-					$scope.getTotal = function(){
-					    var result = "None";
-					    for(var i = 0; i < $scope.posts.length; i++){
-					        var row = $scope.posts[i];
-					        result =  row.total;
-					    }
-					    return result;
-					    
-					}
-					
-					
-					// this callback will be called asynchronously
-					// when the response is available
-				}, function errorCallback(response) {
-					// called asynchronously if an error occurs
-					// or server returns response with an error status.
-				});
-
-			} ]);
-	
-	
-	
-	
+		
 	myApp.controller('GreetingController', [ '$scope', '$http',
 	                             			function($scope, $http) {
 	                             				$scope.greeting = 'Hola!';
@@ -123,10 +24,10 @@
 	                             					       console.log("OverALl adr# " + adr);
 	                            	   		        	    
 	                              	   		        	    
-		                              	   		        	 if(bull_per >= 55 && adr>=2){
+	                             					 	 if(bull_per >= 60 && adr>=2){
 		                          	   		        	    	trend= "Extremely Bullish(+)";
 		                          	   		        	    }
-		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                          	   		        	    else if(bull_per >= 50 && bull_per <= 59 && adr>=1.50){
 		                         				        	trend= "Bullish(+)";
 		                          	   		        		}
 		                          	   		        	    else if(bear_per>=55 && adr <=1){
@@ -138,9 +39,12 @@
 	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
-	                             					        else  if(bull_per>45 && bull_per<=49 && adr>=1.30){
-	                             					        	trend= "little Bullish(+) with SideWays Market";
-	                             					        }
+	                             					       else  if(bull_per>45 && bull_per<=49 && adr<=1.25){
+	                           					        	trend= "little Bullish(+) with SideWays Market";
+	                           					        }
+	                           					        else  if(bull_per>=50 && bull_per<=59 && adr>=1.25){
+	                           					        	trend= "Bullish(+) with  Volatile Market";
+	                           					        }
 	                             					        else
 	                             					        	trend="No Clear Trend";
 	                             					        
@@ -187,6 +91,11 @@
 	                             					    return result;
 	                             					    
 	                             					}
+
+	                             					$scope.getAdr = function(){
+	                             					        return adr;
+	                             					    
+	                             					}
 	                             					
 	                             					
 	                             					// this callback will be called asynchronously
@@ -225,10 +134,10 @@
 	                             					       console.log("Nifty adr# " + adr);
 	                            	   		        	    
 	                              	   		        	    
-		                              	   		        	 if(bull_per >= 55 && adr>=2){
+		                              	   		        	 if(bull_per > 65 && adr>=1.8){
 		                          	   		        	    	trend= "Extremely Bullish(+)";
 		                          	   		        	    }
-		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                          	   		        	    else if(bull_per >= 50 && bull_per <= 65 && adr>=1.50 && adr<1.8){
 		                         				        	trend= "Bullish(+)";
 		                          	   		        		}
 		                          	   		        	    else if(bear_per>=55 && adr <=1){
@@ -237,12 +146,15 @@
 		                         					        else if(bear_per>=50 && bear_per<55){
 		                         					        	trend= "Bearish(-)";
 		                         					        }
-	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
+	                             					        else if(bear_per>=40 && bear_per<=49 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
-	                             					        else  if(bull_per>45 && bull_per<=49 && adr>=1.30){
-	                             					        	trend= "little Bullish(+) with SideWays Market";
-	                             					        }
+	                             					       else  if(bull_per>45 && bull_per<=49 && adr<=1.25){
+	                           					        	trend= "little Bullish(+) with SideWays Market";
+	                           					        }
+	                           					        else  if(bull_per>=50 && bull_per<=59 && adr>=1.25){
+	                           					        	trend= "Bullish(+) with  Volatile Market";
+	                           					        }
 	                             					        else
 	                             					        	trend="No Clear Trend";
 	                             					        
@@ -266,6 +178,11 @@
 	                             					$scope.getNiftyUnchange = function(){
 	                             					    var result = response.data.unchanged;
 	                             					    return result;
+	                             					    
+	                             					}
+
+	                             					$scope.getNiftyAdr = function(){
+	                             					        return adr;
 	                             					    
 	                             					}
 	                             					
@@ -303,24 +220,27 @@
 	                             					       console.log("bank Nifty adr# " + adr);
 	                            	   		        	    
 	                              	   		        	    
-		                              	   		        	 if(bull_per >= 55 && adr>=2.2){
+		                              	   		        	 if(bull_per >= 60 && adr>=2.2){
 		                          	   		        	    	trend= "Extremely Bullish(+)";
 		                          	   		        	    }
-		                          	   		        	    else if(bull_per >= 50 && bull_per < 55 && adr>=1.50){
+		                          	   		        	    else if(bull_per >= 50 && bull_per < 59 && adr>=1.50){
 		                         				        	trend= "Bullish(+)";
 		                          	   		        		}
-		                          	   		        	    else if(bear_per>=55 && adr <=1){
+		                          	   		        	    else if(bear_per>=60 && adr <=1){
 		                         				        	trend= "Extremely Bearish(-)";
 		                          	   		        	    }
-		                         					        else if(bear_per>=50 && bear_per<55){
+		                         					        else if(bear_per>50 && bear_per<59){
 		                         					        	trend= "Bearish(-)";
 		                         					        }
-	                             					        else if(bull_per>=40 && bull_per<=45 && adr <1.25){
+	                             					        else if(bear_per>=40 && bear_per<=50 && adr <1.25){
 	                             					        	trend= "Little Bearish(-) and Bearish to Choppy Market";
 	                             					        }
-	                             					        else  if(bull_per>45 && bull_per<=49 && adr>=1.30){
-	                             					        	trend= "little Bullish(+) with SideWays Market";
-	                             					        }
+		                             					       else  if(bull_per>=40 && bull_per<=49 && adr>=1.25){
+		                           					        	trend= "little Bullish(+) with SideWays Market";
+		                           					        }
+		                           					        else  if(bull_per>=50 && bull_per<59 && adr>=1.25 && adr<1.50){
+		                           					        	trend= "Bullish(+) with Volatile Market";
+		                           					        }
 	                             					        else
 	                             					        	trend="No Clear Trend";
 	                             					        
@@ -344,6 +264,11 @@
 	                             					$scope.getBankNiftyUnchange = function(){
 	                             					    var result = response.data.unchanged;
 	                             					    return result;
+	                             					    
+	                             					}
+
+	                             					$scope.getBankNiftyAdr = function(){
+	                             					        return adr;
 	                             					    
 	                             					}
 	                             					
