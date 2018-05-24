@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 
 import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.DatFileReader;
+import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.GainerLosser;
@@ -30,6 +31,7 @@ import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
+import nse.skbh.springboot.pojo.Pcr;
 
 @RestController
 public class WebBoot {
@@ -37,14 +39,19 @@ public class WebBoot {
 	@RequestMapping("/mkt_open_status")
 	public String smeNormalMktStatus() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity(
-				"https://nseindia.com/emerge/homepage/smeNormalMktStatus.json",
-				String.class);
+		ResponseEntity<String> response = restTemplate
+				.getForEntity("https://nseindia.com/emerge/homepage/smeNormalMktStatus.json", String.class);
 		String string = response.getBody();
 		return string;
 
 	}
-	
+
+	@RequestMapping("/option_chain_reader")
+	public Pcr getOptionChainData() {
+		return OptionChainReader.getOptionDataPCR();
+
+	}
+
 	@RequestMapping("/future_stocks_spike_volume")
 	public ParentStocksFutures futOPTSTK() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -55,7 +62,7 @@ public class WebBoot {
 		return string;
 
 	}
-	
+
 	@RequestMapping("/future_stocks_spike_value")
 	public ParentStocksFutures futOPTSTKValue() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -66,8 +73,7 @@ public class WebBoot {
 		return string;
 
 	}
-	
-	
+
 	@RequestMapping("/security_wise_deliverable_positions_data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
 		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();

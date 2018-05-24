@@ -71,7 +71,7 @@
 <legend>Security Wise Deliverable Positions Data - Bhav Copy</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Securities - Deliverable - Percentage</h3>
+        <h3 class="panel-title">Did You Know# The higher the Percent of Deliverable Quantity to Traded Quantity the better - it indicates that most buyers are expecting the price of the share to go up.</h3>
     </div>
     <div class="panel-body">
 	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">

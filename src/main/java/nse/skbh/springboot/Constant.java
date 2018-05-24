@@ -33,8 +33,9 @@ final class Constant {
 	private static final String advances_declines_nifty = "/advances_declines_nifty";
 	private static final String security_wise_deliverable_positions_data = "/security_wise_deliverable_positions_data";
 	private static final String security_var = "/security_var";
-	private static final String future_stocks_spike_volume="/future_stocks_spike_volume";
-	private static final String future_stocks_spike_value="/future_stocks_spike_value";
+	private static final String future_stocks_spike_volume = "/future_stocks_spike_volume";
+	private static final String future_stocks_spike_value = "/future_stocks_spike_value";
+	private static final String option_chain_reader = "/option_chain_reader";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -68,6 +69,7 @@ final class Constant {
 		list.add(security_var);
 		list.add(future_stocks_spike_value);
 		list.add(future_stocks_spike_volume);
+		list.add(option_chain_reader);
 		return list;
 
 	}
