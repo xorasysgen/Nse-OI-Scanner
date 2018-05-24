@@ -49,9 +49,7 @@
 	                             					        	trend="No Clear Trend";
 	                             					        
 	                             					    }
-	                             					    return trend;
-	                             					    
-	                             					}
+	                             					
 	                             					
 	                             					$scope.getAdvanced = function(){
 	                             					    var result = "None";
@@ -93,10 +91,21 @@
 	                             					}
 
 	                             					$scope.getAdr = function(){
-	                             					        return adr;
+                             					        return adr;
 	                             					    
 	                             					}
 	                             					
+	                             					$scope.getBulls = function(){
+                             					        return bull_per;
+	                             					}
+	                             					
+	                             					$scope.getBears = function(){
+                             					        return bear_per;
+	                             					}
+	                             					
+	                             				    return trend;
+                             					    
+	                             					}
 	                             					
 	                             					// this callback will be called asynchronously
 	                             					// when the response is available
@@ -159,9 +168,7 @@
 	                             					        	trend="No Clear Trend";
 	                             					        
 	                             					  
-	                             					    return trend;
-	                             					    
-	                             					}
+	                             					 
 	                             					
 	                             					$scope.getNiftyAdvanced = function(){
 	                             					    var result = response.data.advances;
@@ -182,8 +189,20 @@
 	                             					}
 
 	                             					$scope.getNiftyAdr = function(){
-	                             					        return adr;
+                             					        return adr;
 	                             					    
+	                             					}
+	                             					
+	                             					$scope.getNiftybulls = function(){
+                             					        return bull_per;
+	                             					}
+	                             					
+	                             					$scope.getNiftyBear = function(){
+                             					        return bear_per;
+	                             					}
+	                             					
+	                             				   return trend;
+                            					    
 	                             					}
 	                             					
 	                             					// this callback will be called asynchronously
@@ -244,10 +263,7 @@
 	                             					        else
 	                             					        	trend="No Clear Trend";
 	                             					        
-	                             					  
-	                             					    return trend;
-	                             					    
-	                             					}
+	                             				
 	                             					
 	                             					$scope.getBankNiftyAdvanced = function(){
 	                             					    var result = response.data.advances;
@@ -268,8 +284,19 @@
 	                             					}
 
 	                             					$scope.getBankNiftyAdr = function(){
-	                             					        return adr;
-	                             					    
+                             					        return adr;
+	                             					}
+	                             					
+	                             					$scope.getBankNiftybulls = function(){
+                             					        return bull_per;
+	                             					}
+	                             					
+	                             					$scope.getBankNiftyBear = function(){
+                             					        return bear_per;
+	                             					}
+	                             					
+	                             				   return trend;
+                            					    
 	                             					}
 	                             					
 	                             					// this callback will be called asynchronously

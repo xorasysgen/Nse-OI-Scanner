@@ -150,7 +150,7 @@ setInterval(blinker, 1000);
             <script type="text/javascript">window.onload = startTime();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Boot Dashboard# Market Trend - Overall Advances Declines Ratio - ARD</h3>
+        <h3 class="panel-title">Boot Dashboard# Market Breadth &amp; Trend - Advance/Decline Ratio - ADR # ADR>=1.25 is <span style="color: #00e676;">+ve(Bullish) </span> otherwise <span style="color: #ff3d00;">-ve(Bearish)</span></h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
     <div class="panel-body">
@@ -159,17 +159,29 @@ setInterval(blinker, 1000);
 			    <div class="row">
 			    
 			        <div class="col-md-4">
-							TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+							TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;
 							<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
 							           
-							POSITIVE(+)  &nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getAdvanced() }} </span> <br>
+							POSITIVE(+)  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: #00e676;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color: #00e676; font-weight: bold; font-size: 18px; ">{{ getAdvanced() }} </span> <br>
 							
-							NEGATIVE(-)   &nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{getDeclines()}} </span><br>
+							NEGATIVE(-)   &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: #b71c1c;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; ">{{getDeclines()}} </span><br>
 							
-							UNCHANGED &nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-							<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{getUnchange()}} </span> <br>
+							UNCHANGED &nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+							<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp;&nbsp;{{getUnchange()}} </span> <br>
+							
+							OVERALL ADR &nbsp;&nbsp;&nbsp;
+							<span class="glyphicon glyphicon-random" style="font-size: 16px; color: #4a148c;"></span>
+							<span style="color: #4a148c; font-weight: bold; font-size: 18px;">&nbsp; {{getAdr() | limitTo : 4 : 0}} </span> <br>
+							
+							OVERALL BULLS
+							<span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #00e676;"></span>
+							<span style="color: #00e676; font-weight: bold; font-size: 18px;">&nbsp; {{getBulls() | limitTo : 4 : 0 }}% </span> <br>
+							
+							OVERALL BEARS 
+							<span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #d50000;"></span>
+							<span style="color: #d50000; font-weight: bold; font-size: 18px;">&nbsp; {{getBears() | limitTo : 4 : 0}}% </span> <br>
 							
 							OVERALL TREND # <span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getTrend() }}  </span> 
 			      </div>
@@ -179,17 +191,29 @@ setInterval(blinker, 1000);
 		        <div class="col-md-4">
 		            <div ng-app="myApp" ng-controller="NiftyController">
 		            
-					TOTAL STOCKS &nbsp;&nbsp;&nbsp;
-					<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  50 </span>  <br>
+					TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;
+					<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  &nbsp;50 </span>  <br>
 					
-					POSITIVE(+)  &nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+					POSITIVE(+)  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: #00e676;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 					<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getNiftyAdvanced() }} </span> <br>
 					
-					NEGATIVE(-)  &nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+					NEGATIVE(-)  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 					<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{ getNiftyDeclines() }} </span><br>
 					
-					UNCHANGED &nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-					<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getNiftyUnchange() }} </span> <br>
+					UNCHANGED &nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+					<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp;&nbsp; {{ getNiftyUnchange() }} </span> <br>
+					
+					NIFTY ADR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<span class="glyphicon glyphicon-random" style="font-size: 16px; color: #4a148c;"></span>
+					<span style="color: #4a148c; font-weight: bold; font-size: 18px;">&nbsp; {{getNiftyAdr() | limitTo : 4 : 0 }} </span> <br>
+					
+					NIFTY BULLS &nbsp;&nbsp;
+					<span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #00e676;"></span>
+							<span style="color: #00e676; font-weight: bold; font-size: 18px;">&nbsp; {{getNiftybulls() | limitTo : 4 : 0 }}% </span> <br>
+							
+					NIFTY BEARS &nbsp;
+					<span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #d50000;"></span>
+					<span style="color: #d50000; font-weight: bold; font-size: 18px;">&nbsp; {{getNiftyBear() | limitTo : 4 : 0}}% </span> <br>
 					
 					NIFTY TREND #<span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getNiftyTrend() }}  </span>
 					 
@@ -203,17 +227,27 @@ setInterval(blinker, 1000);
 			        <span class="border-top border-dark">
 			            <div ng-app="myApp" ng-controller="BankNiftyController">
 			            
-						TOTAL STOCKS &nbsp;&nbsp;&nbsp;
+						TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;
 						<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  12 </span>  <br>
 						
-						POSITIVE(+) &nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: green;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+						POSITIVE(+) &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: #00e676;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 						<span style="color: #00e676; font-weight: bold; font-size: 18px; "> {{ getBankNiftyAdvanced() }} </span> <br>
 						
-						NEGATIVE(-)  &nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: red;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+						NEGATIVE(-)  &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: #b71c1c;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 						<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; "> {{ getBankNiftyDeclines() }} </span><br>
 						
-						UNCHANGED &nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
-						<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
+						UNCHANGED &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+						<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp;&nbsp; {{ getBankNiftyUnchange() }} </span> <br>
+						
+						BANKNIFTY ADR&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-random" style="font-size: 16px; color: #4a148c;"></span>
+							<span style="color: #4a148c; font-weight: bold; font-size: 18px;">&nbsp;&nbsp;&nbsp; {{getBankNiftyAdr() | limitTo : 4 : 0 }} </span> <br>
+							
+						BANKNIFTY BULLS &nbsp;<span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #00e676;"></span>
+							<span style="color: #00e676; font-weight: bold; font-size: 18px;">&nbsp; {{getBankNiftybulls() | limitTo : 4 : 0 }}% </span> <br>
+							
+						BANKNIFTY BEARS <span class="glyphicon glyphicon-bullhorn" style="font-size: 18px; color: #d50000;"></span>
+							<span style="color: #d50000; font-weight: bold; font-size: 18px;">&nbsp; {{getBankNiftyBear() | limitTo : 4 : 0}}% </span> <br>
+						
 						
 						BANKNIFTY TREND #<span style="color: #00b8d4; font-weight: bold; font-size: 18px; ">  {{ getBankNiftyTrend() }}  </span>
 						 
