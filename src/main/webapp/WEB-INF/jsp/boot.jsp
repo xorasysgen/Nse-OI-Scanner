@@ -48,6 +48,25 @@
 
 </script>
 
+
+<script>
+        $.ajax({
+        	type:'Get',
+        	url: 'https://jsr101.herokuapp.com/option_chain_reader',
+        	success: function(result){
+        		var json = result.pcrOI;
+        		if(json>1)
+        			text="<span class='blinking' style='color: #00c853; font-weight: bold; font-size: 20px;'> &nbsp;" +json+ "</span>";
+        			else
+        			text="<span class='blinking' style='color: #CC0000; font-weight: bold; font-size: 20px;'> &nbsp;" +json+ "</span>";
+        			
+          		 $("#OptionsNiftyPCR").html(text);
+        	
+        }
+        })
+
+</script>
+
 <script>
 function date_time(id)
 {
@@ -150,7 +169,9 @@ setInterval(blinker, 1000);
             <script type="text/javascript">window.onload = startTime();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Boot Dashboard# Market Breadth &amp; Trend - Advance/Decline Ratio - ADR # ADR>=1.25 is <span style="color: #00e676;">+ve(Bullish) </span> otherwise <span style="color: #ff3d00;">-ve(Bearish)</span></h3>
+        <h3 class="panel-title">Boot Dashboard# Market Breadth &amp; Trend - Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #00e676;">+ve(Bullish) </span>
+        Otherwise <span style="color: #ff3d00;">-ve(Bearish)</span> &nbsp; -
+        Nifty Put-Call-Ratio (PCR)# <span style="color: #00e676;" id="OptionsNiftyPCR"></span></h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
     <div class="panel-body">
