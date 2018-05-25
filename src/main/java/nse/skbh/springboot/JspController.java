@@ -66,6 +66,11 @@ public class JspController {
 		return "most_active_intraday";
 	}
 
+	@RequestMapping("/option_chain_nifty_fifty")
+	public String optionChainNifty() {
+		return "nifty_option_chain";
+	}
+
 	@RequestMapping("/active_fo_call")
 	public String ActiveFoCall() {
 		return "active_fo_call";
@@ -140,8 +145,7 @@ public class JspController {
 	public String getSecurity_var_public() {
 		return "security_var_nse";
 	}
-	
-	
+
 	@RequestMapping("/most_active_future_value_public")
 	public String most_active_future_value_public() {
 		return "most_active_future_value";

@@ -57,6 +57,8 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <span class="badge">6</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="option_chain_nifty_fifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain</a></li>
+           <li role="separator" class="divider"></li>
             <li><a href="derivative_call_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All Calls-CE</a></li>
             <li><a href="derivative_call_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty Calls-CE</a></li>
             <li><a href="derivative_call_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty Calls-CE</a></li>
@@ -64,8 +66,7 @@
             <li><a href="derivative_put_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All Puts-PE</a></li>
             <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty Puts-PE</a></li>
             <li><a href="derivative_put_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty Puts-PE</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more To do...</a></li>
+           
           </ul>
           
           
