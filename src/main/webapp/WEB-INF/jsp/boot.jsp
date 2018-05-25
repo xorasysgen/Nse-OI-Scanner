@@ -56,11 +56,38 @@
         	success: function(result){
         		var json = result.pcrOI;
         		if(json>1)
-        			text="<span class='blinking' style='color: #00c853; font-weight: bold; font-size: 20px;'> &nbsp;" +json+ "</span>";
+        			text="<span class='blinking' style='color: #00c853; font-weight: bold; font-size: 18px;'>" +json+ "</span>";
         			else
-        			text="<span class='blinking' style='color: #CC0000; font-weight: bold; font-size: 20px;'> &nbsp;" +json+ "</span>";
+        			text="<span class='blinking' style='color: #CC0000; font-weight: bold; font-size: 18px;'>" +json+ "</span>";
         			
           		 $("#OptionsNiftyPCR").html(text);
+        	
+        }
+        })
+
+</script>
+
+<script>
+        $.ajax({
+        	type:'Get',
+        	url: 'https://jsr101.herokuapp.com/indices',
+        	success: function(result){
+        		var lastPrice = result.data[5].lastPrice;
+        		var pChange=result.data[5].pChange;
+        		 if(pChange>0){
+        			plain="<span style='color: #004d40; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+       				text="<span  style='color: #FF8800; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+           			text1="<span  style='color: #00e676; font-weight: bold; font-size: 16px;'>" + pChange + "%</span>";
+        			}
+        			else{
+        			plain="<span style='color: #004d40; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+        			text="<span  style='color: #00e676; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+        			text1="<span style='color: #FF8800; font-weight: bold; font-size: 16px;'>" + pChange + "%</span>";
+        			}
+        			
+          		 $("#IndiaVix").html(text);
+          		 $("#IndiaVixInfo").html(plain); 
+          		 $("#IndiaVixPerChange").html(text1);
         	
         }
         })
@@ -176,16 +203,14 @@ setInterval(blinker1, 900);
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
-        <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #00e676;">+ve(Bullish) </span>
-        Otherwise <span style="color: #ff3d00;">-ve(Bearish)</span> &nbsp; <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
-        Nifty Put-Call-Ratio (PCR)# <span style="color: #00e676;" id="OptionsNiftyPCR"></span></h3>
+        <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
+        Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;]</h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
     <div class="panel-body">
-
+			    
 			<!-- <div class="container"> -->
 			    <div class="row">
-			    
 			        <div class="col-md-4">
 							TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
@@ -285,6 +310,8 @@ setInterval(blinker1, 900);
 			 
 			 
     </div>
+    <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
+   	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span> 
 <!-- </div> --> <!-- container offline -->
 
 
