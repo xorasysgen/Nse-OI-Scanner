@@ -71,6 +71,11 @@ public class JspController {
 		return "nifty_option_chain";
 	}
 
+	@RequestMapping("/option_chain_nifty_fifty_mobile")
+	public String optionChainNifty_mobile() {
+		return "nifty_option_chain_mobile";
+	}
+
 	@RequestMapping("/active_fo_call")
 	public String ActiveFoCall() {
 		return "active_fo_call";

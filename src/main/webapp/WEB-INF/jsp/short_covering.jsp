@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 7, "desc" ]],
             "ajax": "https://jsr101.herokuapp.com/oi_spurts_rise_in_price_slide_in_oi",
             "columns": [
                 { "data": "symbol" },

@@ -11,7 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "order": [[ 5, "desc" ]],
+            "order": [[ 4, "asc" ]],
             "ajax": "https://jsr101.herokuapp.com/oi_spurts",
             "columns": [
                  { "data": "symbol",

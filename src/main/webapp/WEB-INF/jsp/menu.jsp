@@ -58,6 +58,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <span class="badge">6</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="option_chain_nifty_fifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain</a></li>
+             <li><a href="option_chain_nifty_fifty_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain Mobile</a></li>
            <li role="separator" class="divider"></li>
             <li><a href="derivative_call_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All Calls-CE</a></li>
             <li><a href="derivative_call_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty Calls-CE</a></li>

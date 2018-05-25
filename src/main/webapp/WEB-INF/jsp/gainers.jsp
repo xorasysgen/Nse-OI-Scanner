@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 6, "desc" ]],
             "ajax": "https://jsr101.herokuapp.com/top_gainer/",
             "columns": [
                 { "data": "symbol" ,

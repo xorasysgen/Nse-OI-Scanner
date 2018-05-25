@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "order": [[ 1, "desc" ]],
             "ajax": "https://jsr101.herokuapp.com/advances_declines_bank_nifty",
             "columns": [
                 { "data": "symbol" ,
