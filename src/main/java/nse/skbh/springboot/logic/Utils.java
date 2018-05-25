@@ -64,7 +64,7 @@ public class Utils {
 		c.set(year, month - 1, date); // month start from 0 - 11
 		Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 		if (dayOfWeek == Calendar.FRIDAY) {
-			c.add(Calendar.DATE, 0); // If it's Friday don`t skip to Monday
+			c.add(Calendar.DATE, 0); // If it's Friday does not skip to Monday
 		} else if (dayOfWeek == Calendar.SATURDAY) {
 			c.add(Calendar.DATE, 2); // If it's Saturday so skip to Monday
 		} else {

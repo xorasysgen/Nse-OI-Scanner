@@ -31,6 +31,7 @@ import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
+import nse.skbh.springboot.pojo.ParentsOI;
 import nse.skbh.springboot.pojo.Pcr;
 
 @RestController
@@ -49,6 +50,12 @@ public class WebBoot {
 	@RequestMapping("/option_chain_reader")
 	public Pcr getOptionChainData() {
 		return OptionChainReader.getOptionDataPCR();
+
+	}
+	
+	@RequestMapping("/option_chain_nifty")
+	public ParentsOI getOptionChainNiftyData() {
+		return OptionChainReader.getNiftyOptionChain();
 
 	}
 
