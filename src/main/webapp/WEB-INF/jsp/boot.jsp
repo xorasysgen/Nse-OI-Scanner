@@ -37,9 +37,9 @@
         	success: function(result){
         		var json = $.parseJSON(result);
         		if(json.NormalMktStatus=="open")
-        			text="<span class='blinking' style='color: #00c853; font-weight: bold; font-size: 14px;'>Normal Market is Open</span>";
+        			text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>Normal Market is Open</span>";
         		else 
-        			text = "<span class='blinking' style='color: #CC0000; font-weight: bold; font-size: 14px;'>Normal Market has Closed</span>";
+        			text = "<span class='blinking1' style='color: #CC0000; font-weight: bold; font-size: 14px;'>Normal Market has Closed</span>";
         		
             $("#mktStatus").html(text);
         	
@@ -120,6 +120,12 @@ function blinker() {
 }
 setInterval(blinker, 1000);
 
+function blinker1() {
+	$('.blinking1').fadeOut(700);
+	$('.blinking1').fadeIn(700);
+}
+setInterval(blinker1, 900);
+
 </script>
 <style type="text/css">
 .time-frame {
@@ -169,8 +175,9 @@ setInterval(blinker, 1000);
             <script type="text/javascript">window.onload = startTime();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Boot Dashboard# Market Breadth &amp; Trend - Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #00e676;">+ve(Bullish) </span>
-        Otherwise <span style="color: #ff3d00;">-ve(Bearish)</span> &nbsp; -
+        <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
+        <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #00e676;">+ve(Bullish) </span>
+        Otherwise <span style="color: #ff3d00;">-ve(Bearish)</span> &nbsp; <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
         Nifty Put-Call-Ratio (PCR)# <span style="color: #00e676;" id="OptionsNiftyPCR"></span></h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
@@ -180,7 +187,7 @@ setInterval(blinker, 1000);
 			    <div class="row">
 			    
 			        <div class="col-md-4">
-							TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;
+							TOTAL STOCKS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<span style="color: #1976d2; font-weight: bold; font-size: 18px; display:inline-block; width:TWO-TAB-WIDTH;">  {{getTotal()}} </span>  <br>
 							           
 							POSITIVE(+)  &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-up" style="font-size: 18px; color: #00e676;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -189,7 +196,7 @@ setInterval(blinker, 1000);
 							NEGATIVE(-)   &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-thumbs-down" style="font-size: 18px; color: #b71c1c;"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 							<span  style="color: #b71c1c; font-weight: bold; font-size: 18px; ">{{getDeclines()}} </span><br>
 							
-							UNCHANGED &nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
+							UNCHANGED &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right" style="font-size: 18px; color: orange;"></span>
 							<span style="color: orange; font-weight: bold; font-size: 18px;">&nbsp;&nbsp;{{getUnchange()}} </span> <br>
 							
 							OVERALL ADR &nbsp;&nbsp;&nbsp;

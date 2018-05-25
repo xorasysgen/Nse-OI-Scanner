@@ -29,7 +29,9 @@ public class OptionChainReader {
 				calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
 				oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
 
+				try{
 				DecimalFormat df = new DecimalFormat("#.##");
+				
 				Pcr pcr = new Pcr();
 				pcr.setPuts(oi_puts);
 				pcr.setPutsVolume(puts_volume);
@@ -38,7 +40,10 @@ public class OptionChainReader {
 				pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
 				pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
 				return pcr;
-			}
+				}catch(RuntimeException e) {
+					 return new Pcr();
+					}
+				}
 		} catch (IOException e) {
 			e.printStackTrace();
 			return new Pcr();
