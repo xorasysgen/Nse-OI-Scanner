@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Intraday Top Put Nifty Bank</title>
+    <title>Nifty Options Chain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
    
