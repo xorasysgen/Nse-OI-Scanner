@@ -74,16 +74,17 @@
         	success: function(result){
         		var lastPrice = result.data[5].lastPrice;
         		var pChange=result.data[5].pChange;
-        		 if(pChange>0){
-        			plain="<span style='color: #004d40; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+        		if(pChange>=0.0){
+        			plain="<span style='color: #FF8800; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
        				text="<span  style='color: #FF8800; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
            			text1="<span  style='color: #00e676; font-weight: bold; font-size: 16px;'>" + pChange + "%</span>";
         			}
         			else{
-        			plain="<span style='color: #004d40; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
+        			plain="<span style='color: #00e676; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
         			text="<span  style='color: #00e676; font-weight: bold; font-size: 16px;'>" +lastPrice+ "</span>";
         			text1="<span style='color: #FF8800; font-weight: bold; font-size: 16px;'>" + pChange + "%</span>";
         			}
+
         			
           		 $("#IndiaVix").html(text);
           		 $("#IndiaVixInfo").html(plain); 
@@ -310,6 +311,7 @@ setInterval(blinker1, 900);
 			 
 			 
     </div>
+    <br>
     <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
    	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span> 
 <!-- </div> --> <!-- container offline -->

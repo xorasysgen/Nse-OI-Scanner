@@ -237,7 +237,10 @@
 	                             					       console.log("Bank Nifty bull_per# " + bull_per);
 	                             					       console.log("Bank Nifty bear_per# " + bear_per);
 	                             					       console.log("bank Nifty adr# " + adr);
-	                            	   		        	    
+	                            	   		        	    if(adr=='Infinity'){
+	                            	   		        	    	adr=12;
+	                            	   		        	    }
+	                            	   		        	 console.log("after error bank Nifty adr# " + adr);
 	                              	   		        	    
 		                              	   		        	 if(bull_per >= 60 && adr>=2.2){
 		                          	   		        	    	trend= "Extremely Bullish(+)";
