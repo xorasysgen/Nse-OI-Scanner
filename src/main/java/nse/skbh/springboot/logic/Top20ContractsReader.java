@@ -29,7 +29,7 @@ public class Top20ContractsReader {
 				Elements row = table.select("tr");
 			for (int i = 1; i < row.size()-1; i++) {
 				String rowValues=row.get(i).text();
-				System.out.println(rowValues);
+				/*System.out.println(rowValues);*/
 				Top20Contract oi=new Top20Contract();
 				String dataValue[]=rowValues.split("\\s+");
 						 oi.setInstrumentType(dataValue[0] + dataValue[1]);

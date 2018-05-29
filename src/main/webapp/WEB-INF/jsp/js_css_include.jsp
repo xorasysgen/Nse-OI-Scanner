@@ -35,7 +35,7 @@
 color: #263238;
 font-weight: bold;
 }
-orange{
+.orange{
 color: #FF8800;
 font-weight: bold;
 }
