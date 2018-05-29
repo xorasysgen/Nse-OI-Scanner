@@ -37,6 +37,7 @@ final class Constant {
 	private static final String future_stocks_spike_value = "/future_stocks_spike_value";
 	private static final String option_chain_reader = "/option_chain_reader";
 	private static final String option_chain_nifty="/option_chain_nifty";
+	private static final String top_20_contracts_nse_fo="/top_20_contracts_nse_fo";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -72,6 +73,7 @@ final class Constant {
 		list.add(future_stocks_spike_volume);
 		list.add(option_chain_reader);
 		list.add(option_chain_nifty);
+		list.add(top_20_contracts_nse_fo);
 		return list;
 
 	}

@@ -15,6 +15,7 @@ import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
+import nse.skbh.springboot.logic.Top20ContractsReader;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.IndicesData;
 import nse.skbh.springboot.pojo.Nse;
@@ -30,6 +31,7 @@ import nse.skbh.springboot.pojo.ParentOIChangeData;
 import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
+import nse.skbh.springboot.pojo.ParentTop20Contract;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
 import nse.skbh.springboot.pojo.ParentsOI;
 import nse.skbh.springboot.pojo.Pcr;
@@ -56,6 +58,12 @@ public class WebBoot {
 	@RequestMapping("/option_chain_nifty")
 	public ParentsOI getOptionChainNiftyData() {
 		return OptionChainReader.getNiftyOptionChain();
+
+	}
+	
+	@RequestMapping("/top_20_contracts_nse_fo")
+	public ParentTop20Contract getTop20Contracts() {
+		return Top20ContractsReader.getTop20ContractsNSE();
 
 	}
 
