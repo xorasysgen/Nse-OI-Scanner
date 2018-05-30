@@ -30,6 +30,34 @@ setInterval(blinker, 1000);
 
 </script>
 
+<script type="text/javascript">
+function date_time(){
+document.getElementById('timer').innerHTML =
+	  05 + ":" + 01;
+	startTimer();
+
+	function startTimer() {
+	  var presentTime = document.getElementById('timer').innerHTML;
+	  var timeArray = presentTime.split(/[:]+/);
+	  var m = timeArray[0];
+	  var s = checkSecond((timeArray[1] - 1));
+	  if(s==59){m=m-1}
+	  //if(m<0){alert('timer completed')}
+	  
+	  document.getElementById('timer').innerHTML =
+	    m + ":" + s;
+	  setTimeout(startTimer, 1000);
+	}
+
+	function checkSecond(sec) {
+	  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+	  if (sec < 0) {sec = "59"};
+	  return sec;
+	}
+}
+</script>
+
+
 <script>
         $.ajax({
         	type:'Get',
@@ -218,7 +246,8 @@ setInterval(blinker, 1000);
   
   
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Option Chain (Equity Derivatives)  <span style="color: #0099CC;"><sup>Auto Sync# 5 Mins.</sup></span> </legend>
+<legend>Option Chain (Equity Derivatives)<span class="pink"><sub>AutoSync# <span id="timer"></span> </sub></span></legend>
+<script type="text/javascript">window.onload = date_time('timer');</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
