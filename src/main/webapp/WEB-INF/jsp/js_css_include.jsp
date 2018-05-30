@@ -31,6 +31,39 @@
  
  
   <style>
+.darksalmon{
+color: darksalmon;
+font-weight: bold;
+}
+
+
+.navy{
+color: navy;
+font-weight: bold;
+font-size: 16px;
+}
+
+.olive{
+color: green;
+font-weight: bold;
+font-size: 16px;
+animation: blinker 1s linear infinite;
+}
+
+  
+.pink{
+color: fuchsia;
+font-weight: bold;
+font-size: 16px;
+animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+  
 .dark{
 color: #263238;
 font-weight: bold;
@@ -43,6 +76,11 @@ font-weight: bold;
 .cyan{
 color: #0099CC;
 font-weight: bold;
+}
+
+.darkviolet{
+color:darkviolet;
+font-weight: bold; 
 }
   
 .liteGreen{
@@ -60,7 +98,7 @@ font-weight: bold;
 }
  
 .yellow {
-color: #ffc107;
+color: orangered;
 font-weight: bold;
 } 
  

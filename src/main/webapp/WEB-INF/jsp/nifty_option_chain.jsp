@@ -4,6 +4,7 @@
     <title>Nifty Options Chain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
+
    
 <script>
         $.ajax({
@@ -71,9 +72,9 @@ setInterval(blinker, 1000);
                     	render: function ( data, type, row ) {
                     		data=data.split(',').join('');//remove comma
                             if (data >= 5000000) {
-                              return '<span class="liteGreen">'+data+'</span>';
+                              return '<span class="olive">'+data+'</span>';
                             } else	if (data >= 3000000 && data < 5000000) {
-                            	 return '<span class="yellow">'+data+'</span>';
+                            	 return '<span class="darkviolet">'+data+'</span>';
                             } else {
                               return '<span>'+data+'</span>';
                             }
@@ -83,14 +84,17 @@ setInterval(blinker, 1000);
                   	render: function ( data, type, row ) {
                 		data=data.split(',').join('');//remove comma
                         if (data >= 1000000) {
-                          return '<span class="cyan">'+data+'</span>';
+                          return '<span class="pink">'+data+'</span>';
                         } else	if (data >= 500000 && data < 1000000) {
-                        	 return '<span class="yellow">'+data+'</span>';
-                        } else if (data<0){
+                        	 return '<span class="cyan">'+data+'</span>';
+                        } else if (data<=-200000){
                         	return '<span class="negative">'+data+'</span>';
                         }
+                        else if (data>=0 && data<500000){
+                        	return '<span class="cyan">'+data+'</span>';
+                        }
                         else{
-                          return '<span>'+data+'</span>';
+                          return '<span class="darksalmon">'+data+'</span>';
                         }
                       }
                   },
@@ -99,14 +103,14 @@ setInterval(blinker, 1000);
                   { "data": "ltp_call" ,
                      	 render: function ( data, type, row ) {
                            
-                           return '<span class="symbol">'+data+'</span>';
+                           return '<span class="navy">'+data+'</span>';
                          
                        }
                   },
                   { "data": "net_chng_call" ,
                     	render: function ( data, type, row ) {
                             if (data >= 0) {
-                              return '<span class="liteGreen">'+data+'</span>';
+                              return '<span class="positive">'+data+'</span>';
                             } else {
                               return '<span class="negative">'+data+'</span>';
                             }
@@ -119,7 +123,7 @@ setInterval(blinker, 1000);
                   { "data": "strikePrice",
                  	 render: function ( data, type, row ) {
                          
-                         return '<span class="symbol">'+data.split('.')[0]+'</span>';
+                         return '<span class="navy">'+data.split('.')[0]+'</span>';
                        
                      } 
                   },
@@ -130,7 +134,7 @@ setInterval(blinker, 1000);
                   { "data": "net_chng_put" ,
                   	render: function ( data, type, row ) {
                         if (data >= 0) {
-                          return '<span class="liteGreen">'+data+'</span>';
+                          return '<span class="positive">'+data+'</span>';
                         } else {
                           return '<span class="negative">'+data+'</span>';
                         }
@@ -139,7 +143,7 @@ setInterval(blinker, 1000);
                   { "data": "ltp_put" ,
                   	 render: function ( data, type, row ) {
                          
-                         return '<span class="symbol">'+data+'</span>';
+                         return '<span class="navy">'+data+'</span>';
                        
                      }
                   },
@@ -149,13 +153,16 @@ setInterval(blinker, 1000);
                     	render: function ( data, type, row ) {
                     		data=data.split(',').join('');//remove comma
                             if (data >= 1000000) {
-                              return '<span class="cyan">'+data+'</span>';
+                              return '<span class="pink">'+data+'</span>';
                             } else	if (data >= 500000 && data < 1000000) {
-                            	 return '<span class="yellow">'+data+'</span>';
-                            }else if (data<0){
+                            	 return '<span class="cyan">'+data+'</span>';
+                            }else if (data<=-200000){
                             	return '<span class="negative">'+data+'</span>';
+                            }
+                            else if (data>=0 && data<500000){
+                            	return '<span class="cyan">'+data+'</span>';
                             } else {
-                              return '<span>'+data+'</span>';
+                              return '<span class="darksalmon">'+data+'</span>';
                             }
                           }
                   },
@@ -163,9 +170,9 @@ setInterval(blinker, 1000);
                   	render: function ( data, type, row ) {
                 		data=data.split(',').join('');//remove comma
                         if (data >= 5000000) {
-                          return '<span class="liteGreen">'+data+'</span>';
+                          return '<span class="olive">'+data+'</span>';
                         } else	if (data >= 3000000 && data < 5000000) {
-                        	 return '<span class="yellow">'+data+'</span>';
+                        	 return '<span class="darkviolet">'+data+'</span>';
                         } else {
                           return '<span>'+data+'</span>';
                         }
@@ -185,17 +192,18 @@ setInterval(blinker, 1000);
  
   </head>
   <body>
+  <% response.addHeader("Refresh","300"); %>
   <jsp:include page="menu.jsp"/>
   
   
   
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Option Chain (Equity Derivatives)</legend>
+<legend>Option Chain (Equity Derivatives)  <span style="color: #0099CC;"><sup>Auto Sync# 5 Mins.</sup></span> </legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
-        Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;]</h3>
+        Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;] </h3>
     </div>
     <div class="panel-body">
 	<table id="example"	class="display compact table-striped table-bordered dt-responsive" style="width: 100%">
