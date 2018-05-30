@@ -67,33 +67,36 @@ setInterval(blinker, 1000);
             "pageLength": 100,
             "ajax": "https://jsr101.herokuapp.com/option_chain_nifty",
             "columns": [
-            	  { "data": "oi_call" ,
-                    	render: function ( data, type, row ) {
-                    		data=data.split(',').join('');//remove comma
-                            if (data >= 5000000) {
-                              return '<span class="liteGreen">'+data+'</span>';
-                            } else	if (data >= 3000000 && data < 5000000) {
-                            	 return '<span class="yellow">'+data+'</span>';
-                            } else {
-                              return '<span>'+data+'</span>';
-                            }
-                          }
-            	  },
-                  { "data": "chng_in_oi_call" ,
-                  	render: function ( data, type, row ) {
+            	{ "data": "oi_call" ,
+                	render: function ( data, type, row ) {
                 		data=data.split(',').join('');//remove comma
-                        if (data >= 1000000) {
-                          return '<span class="cyan">'+data+'</span>';
-                        } else	if (data >= 500000 && data < 1000000) {
-                        	 return '<span class="yellow">'+data+'</span>';
-                        } else if (data<0){
-                        	return '<span class="negative">'+data+'</span>';
-                        }
-                        else{
+                        if (data >= 5000000) {
+                          return '<span class="olive">'+data+'</span>';
+                        } else	if (data >= 3000000 && data < 5000000) {
+                        	 return '<span class="darkviolet">'+data+'</span>';
+                        } else {
                           return '<span>'+data+'</span>';
                         }
                       }
-                  },
+        	  },
+        	  { "data": "chng_in_oi_call" ,
+                	render: function ( data, type, row ) {
+              		data=data.split(',').join('');//remove comma
+                      if (data >= 1000000) {
+                        return '<span class="pink">'+data+'</span>';
+                      } else	if (data >= 500000 && data < 1000000) {
+                      	 return '<span class="cyan">'+data+'</span>';
+                      } else if (data<=-200000){
+                      	return '<span class="negative">'+data+'</span>';
+                      }
+                      else if (data>=0 && data<500000){
+                      	return '<span class="cyan">'+data+'</span>';
+                      }
+                      else{
+                        return '<span class="darksalmon">'+data+'</span>';
+                      }
+                    }
+                },
                   { "data": "ltp_call" ,
                      	 render: function ( data, type, row ) {
                            
@@ -136,33 +139,52 @@ setInterval(blinker, 1000);
                      }
                   },
                   { "data": "chng_in_oi_put" ,
-                    	render: function ( data, type, row ) {
-                    		data=data.split(',').join('');//remove comma
-                            if (data >= 1000000) {
-                              return '<span class="cyan">'+data+'</span>';
-                            } else	if (data >= 500000 && data < 1000000) {
-                            	 return '<span class="yellow">'+data+'</span>';
-                            }else if (data<0){
-                            	return '<span class="negative">'+data+'</span>';
-                            } else {
-                              return '<span>'+data+'</span>';
-                            }
-                          }
-                  },
-                  { "data": "oi_put" ,
                   	render: function ( data, type, row ) {
-                		data=data.split(',').join('');//remove comma
-                        if (data >= 5000000) {
-                          return '<span class="liteGreen">'+data+'</span>';
-                        } else	if (data >= 3000000 && data < 5000000) {
-                        	 return '<span class="yellow">'+data+'</span>';
-                        } else {
-                          return '<span>'+data+'</span>';
+                  		data=data.split(',').join('');//remove comma
+                          if (data >= 1000000) {
+                            return '<span class="pink">'+data+'</span>';
+                          } else	if (data >= 500000 && data < 1000000) {
+                          	 return '<span class="cyan">'+data+'</span>';
+                          }else if (data<=-200000){
+                          	return '<span class="negative">'+data+'</span>';
+                          }
+                          else if (data>=0 && data<500000){
+                          	return '<span class="cyan">'+data+'</span>';
+                          } else {
+                            return '<span class="darksalmon">'+data+'</span>';
+                          }
                         }
-                      }
-                  }
+                },
+                  { "data": "oi_put" ,
+                    	render: function ( data, type, row ) {
+                  		data=data.split(',').join('');//remove comma
+                          if (data >= 5000000) {
+                            return '<span class="olive">'+data+'</span>';
+                          } else	if (data >= 3000000 && data < 5000000) {
+                          	 return '<span class="darkviolet">'+data+'</span>';
+                          } else {
+                            return '<span>'+data+'</span>';
+                          }
+                        }
+                    }
             ]
         } );
+        
+		var selected = [];
+    	
+    	$('#example tbody').on('click', 'tr', function () {
+            var id = this.id;
+            var index = $.inArray(id, selected);
+     
+            if ( index === -1 ) {
+                selected.push( id );
+            } else {
+                selected.splice( index, 1 );
+            }
+     
+            $(this).toggleClass('selected');
+        } );
+    	
     } );
     </script>
     

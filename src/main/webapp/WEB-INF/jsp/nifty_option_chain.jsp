@@ -62,11 +62,12 @@ setInterval(blinker, 1000);
     <script type="text/javascript">
 
     $(document).ready(function() {
-        $('#example').DataTable( {
+    	var table= $('#example').DataTable( {
             "processing": true,
-            "order": [[ 10, "asc" ]],
+            "order": [[ 9, "asc" ]],
             "pageLength": 100,
             "ajax": "https://jsr101.herokuapp.com/option_chain_nifty",
+            "responsive" : true,
             "columns": [
             	  { "data": "oi_call" ,
                     	render: function ( data, type, row ) {
@@ -99,7 +100,6 @@ setInterval(blinker, 1000);
                       }
                   },
                   { "data": "volume_call" },
-                  { "data": "iv_call" },
                   { "data": "ltp_call" ,
                      	 render: function ( data, type, row ) {
                            
@@ -147,7 +147,6 @@ setInterval(blinker, 1000);
                        
                      }
                   },
-                  { "data": "iv_put" },
                   { "data": "volume_put" },
                   { "data": "chng_in_oi_put" ,
                     	render: function ( data, type, row ) {
@@ -180,6 +179,23 @@ setInterval(blinker, 1000);
                   }
             ]
         } );
+        
+    	var selected = [];
+    	
+    	$('#example tbody').on('click', 'tr', function () {
+            var id = this.id;
+            var index = $.inArray(id, selected);
+     
+            if ( index === -1 ) {
+                selected.push( id );
+            } else {
+                selected.splice( index, 1 );
+            }
+     
+            $(this).toggleClass('selected');
+        } );
+        
+        
     } );
     </script>
     
@@ -188,6 +204,10 @@ setInterval(blinker, 1000);
  div.container {
         width: 80%;
     }
+    
+    td.highlight {
+    background-color: whitesmoke !important;
+}
  </style>
  
   </head>
@@ -206,13 +226,13 @@ setInterval(blinker, 1000);
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;] </h3>
     </div>
     <div class="panel-body">
-	<table id="example"	class="display compact table-striped table-bordered dt-responsive" style="width: 100%">
+	<table id="example"	class="display compact row-border table-bordered dt-responsive" style="width: 100%">
 		<thead>
 		 <tr>
                 <th rowspan="2">OI</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="9">CALLS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="8">CALLS</th>
                 <th colspan="1">Strike</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="9">PUTS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="8">PUTS</th>
                 <th rowspan="2">OI</th>
             </tr>
 		
@@ -220,7 +240,6 @@ setInterval(blinker, 1000);
 							<!-- <th>OI</th> -->
 							<th style="text-align:center;  vertical-align:middle;">Chng<br/>OI</th>
 							<th style="text-align:center;  vertical-align:middle;">Vol</th>
-							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">LTP</th>
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
@@ -234,7 +253,6 @@ setInterval(blinker, 1000);
 							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">LTP</th>
-							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">Vol</th>
 							<th style="text-align:center;  vertical-align:middle;">Chng<br/>OI</th>
 							<!-- <th>OI</th> -->
