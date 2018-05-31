@@ -292,6 +292,15 @@ document.getElementById('timer').innerHTML =
 
 		</div>
 	</div>
+	
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="olive">Color Code#</span> Major Support/Resistance and Higher Built Open Interest Positions<span class="olive">(OI >=5000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="darkviolet">Color Code#</span> Immediate Support/Resistance and Open Interest Built Positions<span class="darkviolet">(OI >=3000000 && OI<5000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="pink">Color Code#</span> Intraday new added Open Interest/Very Active Built Positions<span class="pink">(OI >=1000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="cyan">Color Code#</span> Normal Open Interest Built Positions<span class="cyan">(OI >=500000 && data < 1000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="navy">Color Code#</span> Strike and Strike Price<br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="positive">Color Code#</span> Positive Values<br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="negative">Color Code#</span> Negative Values<br>
+	
 	</fieldset>
 </body>
 </html>
