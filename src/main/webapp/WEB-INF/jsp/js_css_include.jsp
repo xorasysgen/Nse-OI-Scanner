@@ -48,7 +48,7 @@ font-size: 16px;
 .olive{
 color: green;
 font-weight: bold;
-font-size: 16px;
+font-size: 17px;
 animation: blinker 1s linear infinite;
 }
 
