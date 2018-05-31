@@ -113,9 +113,9 @@ document.getElementById('timer').innerHTML =
                   	render: function ( data, type, row ) {
                 		data=data.split(',').join('');//remove comma
                         if (data >= 1000000) {
-                          return '<span class="pink">'+data+'</span>';
+                          return '<span class="pink">+'+data+'</span>';
                         } else	if (data >= 500000 && data < 1000000) {
-                        	 return '<span class="cyan">'+data+'</span>';
+                        	 return '<span class="cyan">+'+data+'</span>';
                         } else if (data<=-200000){
                         	return '<span class="negative">'+data+'</span>';
                         }
@@ -180,9 +180,9 @@ document.getElementById('timer').innerHTML =
                     	render: function ( data, type, row ) {
                     		data=data.split(',').join('');//remove comma
                             if (data >= 1000000) {
-                              return '<span class="pink">'+data+'</span>';
+                              return '<span class="pink">+'+data+'</span>';
                             } else	if (data >= 500000 && data < 1000000) {
-                            	 return '<span class="cyan">'+data+'</span>';
+                            	 return '<span class="cyan">+'+data+'</span>';
                             }else if (data<=-200000){
                             	return '<span class="negative">'+data+'</span>';
                             }
