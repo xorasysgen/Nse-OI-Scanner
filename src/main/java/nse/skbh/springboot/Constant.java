@@ -38,6 +38,8 @@ final class Constant {
 	private static final String option_chain_reader = "/option_chain_reader";
 	private static final String option_chain_nifty="/option_chain_nifty";
 	private static final String top_20_contracts_nse_fo="/top_20_contracts_nse_fo";
+	private static final String banknifty_option_chain_reader="/banknifty_option_chain_reader";
+	private static final String banknifty_option_chain_nifty="/banknifty_option_chain_nifty";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -74,6 +76,8 @@ final class Constant {
 		list.add(option_chain_reader);
 		list.add(option_chain_nifty);
 		list.add(top_20_contracts_nse_fo);
+		list.add(banknifty_option_chain_reader);
+		list.add(banknifty_option_chain_nifty);
 		return list;
 
 	}
