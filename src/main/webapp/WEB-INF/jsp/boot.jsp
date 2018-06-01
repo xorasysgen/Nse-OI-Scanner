@@ -29,6 +29,35 @@
     height:100%;
 }
 </style>
+
+<script type="text/javascript">
+function date_time_auto_sync(){
+document.getElementById('timer').innerHTML =
+	  05 + ":" + 01;
+	startTimer();
+
+	function startTimer() {
+	  var presentTime = document.getElementById('timer').innerHTML;
+	  var timeArray = presentTime.split(/[:]+/);
+	  var m = timeArray[0];
+	  var s = checkSecond((timeArray[1] - 1));
+	  if(s==59){m=m-1}
+	  //if(m<0){alert('timer completed')}
+	  
+	  document.getElementById('timer').innerHTML =
+	    m + ":" + s;
+	  setTimeout(startTimer, 1000);
+	}
+
+	function checkSecond(sec) {
+	  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+	  if (sec < 0) {sec = "59"};
+	  return sec;
+	}
+}
+</script>
+
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  <!-- jquery lib -->
 <script>
         $.ajax({
@@ -188,9 +217,8 @@ setInterval(blinker1, 900);
 <legend>
  <span style="color: #6c757d; font-size: 18px;">The Trading<span style="color: orange; font-size: 18px;"> &amp; </span>Investing Engine for F&amp;O equity analysis by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101 - v.1.46.5.3</span></small></sup>
 <sup><span style="color: #17a2b8; font-weight: bold; font-size: 14px;"> #Last sync : <small><span id="txt"></span></small></span>  
-		&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 14px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 14px;" id="date_time"></span></small></sup>
+		&nbsp;<span class="pink" style="color: #17a2b8; font-weight: bold; font-size: 12px;">AutoSync# <span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 14px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 14px;" id="date_time"></span></small></sup>
 		<sup><i><span id="mktStatus"></span></i></sup>
-
  
 </legend>
 <% response.addHeader("Refresh","300"); %>
@@ -201,6 +229,7 @@ setInterval(blinker1, 900);
 		 -->
             <script type="text/javascript">window.onload = date_time('date_time');</script>
             <script type="text/javascript">window.onload = startTime();</script>
+			<script type="text/javascript">window.onload = date_time_auto_sync();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend

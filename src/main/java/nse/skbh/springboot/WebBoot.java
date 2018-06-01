@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 
+import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
 import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.OptionChainReader;
@@ -55,9 +56,22 @@ public class WebBoot {
 
 	}
 	
+	
 	@RequestMapping("/option_chain_nifty")
 	public ParentsOI getOptionChainNiftyData() {
 		return OptionChainReader.getNiftyOptionChain();
+
+	}
+	
+	@RequestMapping("/banknifty_option_chain_reader")
+	public Pcr getbankNiftyOptionChainData() {
+		return BankNiftyOptionChainReader.getBankNiftyOptionDataPCR();
+		
+	}
+	
+	@RequestMapping("/banknifty_option_chain_nifty")
+	public ParentsOI getBankNiftyOptionChainNiftyData() {
+		return BankNiftyOptionChainReader.getBankNiftyOptionChain();
 
 	}
 	
