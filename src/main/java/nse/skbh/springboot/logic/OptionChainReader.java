@@ -25,7 +25,7 @@ public class OptionChainReader {
 			doc = Jsoup.connect(url).get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
-						for (int i = 2; i < row.size()-1; i++) {
+						for (int i = 52; i < row.size()-1; i++) {
 							String rowValues=row.get(i).text();
 							//System.out.println(rowValues);
 							OI oi=new OI();
