@@ -23,6 +23,10 @@ public class CORSFilter implements Filter {
 		response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
 		response.setHeader("Access-Control-Max-Age", "3600");
 		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		response.setHeader("X-Frame-Options", "SAMEORIGIN");
+		response.setHeader("web-serivces-powered-by", "Spring Boot 2.0");
+		response.setHeader("ownership", "SKBH");
+		response.setHeader("copyright-infringement-email-contact", "xorasysgen@yahoo.com");
 		chain.doFilter(req, res);
 	}
 
