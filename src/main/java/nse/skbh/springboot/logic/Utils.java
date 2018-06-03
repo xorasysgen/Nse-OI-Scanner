@@ -101,6 +101,34 @@ public class Utils {
 		return formatedPreparedDate;
 
 	}
+	
+	
+	public static String getSecurityVarDateBasedOnNSEVaRFile() {
+
+		Calendar c = Calendar.getInstance();
+		// Set the calendar to the current date
+		c.clear();
+		String fDate = formatDate_ddMMyyyy(new Date());
+		Integer year = Integer.parseInt(fDate.substring(04, 8));
+		Integer month = Integer.parseInt(fDate.substring(02, 04));
+		Integer date = Integer.parseInt(fDate.substring(0, 2));
+		c.set(year, month - 1, date); // month start from 0 - 11
+		Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		if (dayOfWeek == Calendar.FRIDAY) {
+			c.add(Calendar.DATE, -1); // If it's Friday does not skip to Monday
+		} else if (dayOfWeek == Calendar.SATURDAY) {
+			c.add(Calendar.DATE, -1); // If it's Saturday so skip to Monday
+		} else if (dayOfWeek == Calendar.SUNDAY) {
+			c.add(Calendar.DATE, -2); // If it's Saturday so skip to Monday
+		}
+		else {
+			c.add(Calendar.DATE, 0);
+		}
+		Date preparedDate = c.getTime();
+		String formatedPreparedDate = formatDate_ddMMyyyy(preparedDate);
+		return formatedPreparedDate;
+
+	}
 
 	public static String getTimeZoneOfServer() {
 		String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";

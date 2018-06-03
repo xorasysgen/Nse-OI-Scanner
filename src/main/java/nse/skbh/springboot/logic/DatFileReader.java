@@ -14,13 +14,13 @@ import nse.skbh.springboot.pojo.SecurityVaR;
 public class DatFileReader {
 
 	public ParentSecurityVaR getSecurityVar() {
-		String DDMMYYYY = Utils.getDateBasedOnNSEVaRFile();
+		String DDMMYYYY = Utils.getSecurityVarDateBasedOnNSEVaRFile();
 		String fileName = "C_VAR1_" + DDMMYYYY + "_1.DAT";
 		System.out.println("fileName" + fileName);
 
 		try {
 			String myUrl = "https://www.nseindia.com/archives/nsccl/var/" + fileName;
-			System.out.println(myUrl);
+			//System.out.println(myUrl);
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
@@ -29,6 +29,7 @@ public class DatFileReader {
 			// System.out.println(new Gson().toJson(results));
 			return results;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 
@@ -102,6 +103,7 @@ public class DatFileReader {
 
 			}
 			parentSecurityVaR.setData(data);
+			parentSecurityVaR.setPublishedDate(Utils.getSecurityVarDateBasedOnNSEVaRFile());
 			return parentSecurityVaR;
 		} catch (Exception e) {
 			e.printStackTrace();
