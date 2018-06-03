@@ -50,6 +50,12 @@ public class JspController {
 	public String MostActive_securities_volume() {
 		return "most_active_securities_volume";
 	}
+	
+	@RequestMapping("/market_capitalisation_most_active_year_wise_public")
+	public String marketCapitalisationMostActiveYearWise() {
+		return "market_capitalisation_most_active_year_wise";
+	}
+	
 
 	@RequestMapping("/fostocks")
 	public String fostocks() {

@@ -8,7 +8,7 @@ public class MarketCapitalisation {
 	private String totturnover;
 	private String security;
 	private String mktcap;
-	private String FY;
+	private String fy;
 	
 	public String getRank() {
 		return rank;
@@ -46,13 +46,12 @@ public class MarketCapitalisation {
 	public void setMktcap(String mktcap) {
 		this.mktcap = mktcap;
 	}
-	public String getFY() {
-		return FY;
+	public String getFy() {
+		return fy;
 	}
-	public void setFY(String fY) {
-		FY = fY;
+	public void setFy(String fy) {
+		this.fy = fy;
 	}
-
 	
 	
 }
