@@ -19,6 +19,7 @@ import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Top20ContractsReader;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.IndicesData;
+import nse.skbh.springboot.pojo.MarketCapitalisation;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentAdvanceDecline;
@@ -26,6 +27,7 @@ import nse.skbh.springboot.pojo.ParentDeliveryBhavData;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndices;
 import nse.skbh.springboot.pojo.ParentIndicesData;
+import nse.skbh.springboot.pojo.ParentMarketCapitalisation;
 import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
@@ -220,6 +222,7 @@ public class WebBoot {
 		return parentMostActive;
 	}
 
+	
 	@RequestMapping("/most_active_value")
 	public ParentMostActive mostActiveSecuritiesByValue() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -230,6 +233,26 @@ public class WebBoot {
 		return parentMostActive;
 	}
 
+	@RequestMapping("/most_active_securities_market_capitalisation")
+	public ParentMarketCapitalisation MostActiveSecuritiesMarketCapitalisationReader() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate.getForEntity(
+				"https://nseindia.com/products/dynaContent/equities/equities/json/mostActiveYearly.json",
+				String.class);
+		
+		if (response.getBody() != null) {
+			ParentMarketCapitalisation marketCapitalisation  = new Gson().fromJson(response.getBody().toString(),
+					ParentMarketCapitalisation.class);
+			List<MarketCapitalisation> data=marketCapitalisation.getData();
+			for (MarketCapitalisation marketCapitalisation2 : data) {
+				marketCapitalisation2.setTotmkt(marketCapitalisation2.getTotmkt()!=null?marketCapitalisation2.getTotmkt().trim():"");
+				marketCapitalisation2.setTotturnover(marketCapitalisation2.getTotturnover()!=null?marketCapitalisation2.getTotturnover().trim():"");
+			}
+			return marketCapitalisation;
+		}
+		return new ParentMarketCapitalisation();
+	}
+	
 	@RequestMapping("/indices")
 	public ParentIndices allIndices() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
