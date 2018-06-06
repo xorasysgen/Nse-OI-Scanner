@@ -44,8 +44,8 @@
             <li><a href="short_covering"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Short Covering</a></li>
             <li><a href="long_unwinding"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Long Unwinding</a></li>
                 
-            <li role="separator" class="divider"></li>
-            <li><a href="top_open_interest"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Top Hot Open Interest</a></li>
+             <li role="separator" class="divider"></li>
+            <li><a href="top_open_interest"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Top Hot Open Interest</a></li> 
             <li role="separator" class="divider"></li>
             <li><a href="active_fo_call"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Active F&amp;O Stocks Call</a></li>
             <li><a href="active_fo_put"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Active F&amp;O Stocks Put</a></li>
@@ -97,17 +97,20 @@
 
 
 		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <span class="badge">2</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <span class="badge">4</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
+         
             <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable Positions</a></li>
             <li><a href="security_var_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security VaR</a></li>
             <li role="separator" class="divider"></li>
+            
             <li><a href="market_capitalisation_most_active_year_wise_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Most Active This Year</a></li>
+            <li><a href="broad_market_indices_all_sectors"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Broad Market Indices</a></li>
            <!-- 
             <li><a href="derivative_put_nifty_bank"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Bank Nifty PUT(CE)</a></li>
             <li><a href="derivative_put_nifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Nifty PUT (PE)</a></li>
             <li role="separator" class="divider"></li> -->
-            <li><a href="#">To do...</a></li>
+           <!--  <li><a href="#">To do...</a></li> -->
           </ul>
           
           

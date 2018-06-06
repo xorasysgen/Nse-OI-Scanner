@@ -11,6 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
+            "pageLength": 50,
             "ajax": "https://jsr101.herokuapp.com/open_interest/",
             "columns": [
                 { "data": "date" },

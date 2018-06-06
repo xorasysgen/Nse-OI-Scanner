@@ -177,5 +177,10 @@ public class JspController {
 	public String most_active_future_volume_public() {
 		return "most_active_future_volume";
 	}
-
+	
+	@RequestMapping("/broad_market_indices_all_sectors")
+	public String getJspBroadMarketIndicesPublic() {
+		return "broad_market_indices_public";
+	}
+	
 }
