@@ -12,6 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 5, "desc" ]],
+            "pageLength": 50,
             "ajax": "https://jsr101.herokuapp.com/most_active_intraday/",
             "columns": [
                         { "data": "fo_SYMBOL" ,

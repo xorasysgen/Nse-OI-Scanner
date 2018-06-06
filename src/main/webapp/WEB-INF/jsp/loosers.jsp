@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>My AngularJS App</title>
+    <title>Top Looser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp" />
  
@@ -57,7 +57,7 @@
 <legend>Intraday Top Ten Loosers</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Top Loosers</h3>
+        <h3 class="panel-title">Top Looser</h3>
     </div>
     <div class="panel-body">
 	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
