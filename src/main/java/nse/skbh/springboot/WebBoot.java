@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import com.google.gson.Gson;
 
 import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
+import nse.skbh.springboot.logic.BroadMarketIndices;
 import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.OptionChainReader;
@@ -355,5 +356,11 @@ public class WebBoot {
 		}
 		return null;
 	}
+	
+	@RequestMapping("/broad_market_indices")
+	public String getBroadMarketIndices() {
+		return BroadMarketIndices.getBroadMarketIndices();
+	}
+	
 
 }
