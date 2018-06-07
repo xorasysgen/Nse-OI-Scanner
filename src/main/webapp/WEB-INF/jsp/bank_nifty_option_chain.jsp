@@ -100,9 +100,11 @@ document.getElementById('timer').innerHTML =
             	  { "data": "oi_call" ,
                     	render: function ( data, type, row ) {
                     		data=data.split(',').join('');//remove comma
-                            if (data >= 500000) {
+                    		 if (data >= 2000000) {
+                                 return '<span class="superolive">'+data+'</span>';
+                            }else if (data >= 1000000 && data < 2000000) {
                               return '<span class="olive">'+data+'</span>';
-                            } else	if (data >= 300000 && data < 500000) {
+                            } else	if (data >= 500000 && data < 1000000) {
                             	 return '<span class="darkviolet">'+data+'</span>';
                             } else {
                               return '<span>'+data+'</span>';
@@ -195,9 +197,11 @@ document.getElementById('timer').innerHTML =
                   { "data": "oi_put" ,
                   	render: function ( data, type, row ) {
                 		data=data.split(',').join('');//remove comma
-                        if (data >= 500000) {
+                		 if (data >= 2000000) {
+                             return '<span class="superolive">'+data+'</span>';
+                        }else  if (data >= 1000000 && data< 2000000) {
                           return '<span class="olive">'+data+'</span>';
-                        } else	if (data >= 300000 && data < 500000) {
+                        } else	if (data >= 500000 && data < 1000000) {
                         	 return '<span class="darkviolet">'+data+'</span>';
                         } else {
                           return '<span>'+data+'</span>';
@@ -291,9 +295,9 @@ document.getElementById('timer').innerHTML =
 
 		</div>
 	</div>
-	
-	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="olive">Color Code#</span> Major Support/Resistance and Higher Built Open Interest Positions<span class="olive">(OI >=500000)</span><br>
-	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="darkviolet">Color Code#</span> Immediate Support/Resistance and Open Interest Built Positions<span class="darkviolet">(OI >=200000  && OI<300000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="olive">Color Code#</span> Major Support/Resistance and Higher Built Open Interest Positions<span class="olive">(OI >=2000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="olive">Color Code#</span> Major Support/Resistance and Higher Built Open Interest Positions<span class="olive">(OI >=1000000 && OI < 2000000)</span><br>
+	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="darkviolet">Color Code#</span> Immediate Support/Resistance and Open Interest Built Positions<span class="darkviolet">(OI >=500000  && OI<1000000)</span><br>
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="pink">Color Code#</span> Intraday new added Open Interest/Very Active Built Positions<span class="pink">(OI >=300000)</span><br>
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="cyan">Color Code#</span> Normal Open Interest Built Positions<span class="cyan">(OI <=200000)</span><br>
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="navy">Color Code#</span> Strike and Strike Price<br>
