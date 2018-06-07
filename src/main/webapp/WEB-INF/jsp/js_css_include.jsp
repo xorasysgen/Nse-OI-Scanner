@@ -32,7 +32,7 @@
 </script>
  
  
-  <style>
+<style>
 .darksalmon{
 color: darksalmon;
 font-weight: bold;
@@ -47,10 +47,10 @@ font-size: 16px;
 
 
 .superolive{
-color: #000000;
+color: #005BF9;
 font-weight: bold;
 font-size: 18px;
-animation: blinker 1s linear infinite;
+animation: blinker 2s linear infinite;
 }
 
 
