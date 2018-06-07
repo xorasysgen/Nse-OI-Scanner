@@ -45,6 +45,15 @@ font-weight: bold;
 font-size: 16px;
 }
 
+
+.superolive{
+color: #000000;
+font-weight: bold;
+font-size: 18px;
+animation: blinker 1s linear infinite;
+}
+
+
 .olive{
 color: green;
 font-weight: bold;
