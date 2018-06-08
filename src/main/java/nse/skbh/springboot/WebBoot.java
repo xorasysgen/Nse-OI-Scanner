@@ -13,11 +13,13 @@ import com.google.gson.Gson;
 import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
 import nse.skbh.springboot.logic.BroadMarketIndices;
 import nse.skbh.springboot.logic.CsvReader;
+import nse.skbh.springboot.logic.CsvReaderForthComingDividend;
 import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Top20ContractsReader;
+import nse.skbh.springboot.pojo.ForthComingDividend;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.IndicesData;
 import nse.skbh.springboot.pojo.MarketCapitalisation;
@@ -117,6 +119,13 @@ public class WebBoot {
 		ParentSecurityVaR results = new DatFileReader().getSecurityVar();
 		return results;
 	}
+	
+	@RequestMapping("/forthcoming_dividends")
+	public ForthComingDividend ForthcomingDividends() {
+		ForthComingDividend results = new CsvReaderForthComingDividend().getForthComingDividendFromNSEOnline();
+		return results;
+	}
+	
 
 	@RequestMapping("/open_interest")
 	public OIData home() {
