@@ -213,6 +213,8 @@ setInterval(blinker1, 900);
 </script> -->
 
 <body>
+<jsp:include page="menu.jsp" />
+<% response.addHeader("Refresh","300"); %>
 <fieldset style="margin-left:28px;margin-right:28px;">
 <legend>
  <span style="color: #6c757d; font-size: 16px;">The Trading<span style="color: orange; font-size: 16px;"> &amp; </span>Investing Engine for F&amp;O equity analysis by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.3.RELEASE</span></small></sup>
@@ -221,8 +223,6 @@ setInterval(blinker1, 900);
 		<sup><i><span id="mktStatus"></span></i></sup>
  
 </legend>
-<% response.addHeader("Refresh","300"); %>
-<jsp:include page="menu.jsp" />
 
 <!-- <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 		<legend><span style="color: #17a2b8;">Market Trend - Overall Advances/Declines Ratio</span></legend>

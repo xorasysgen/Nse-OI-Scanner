@@ -183,4 +183,9 @@ public class JspController {
 		return "broad_market_indices_public";
 	}
 	
+	@RequestMapping("/forthcoming_dividends_public")
+	public String getForthcomingDividendsPublicc() {
+		return "forthcoming_dividends_nse";
+	}
+	
 }
