@@ -34,6 +34,7 @@ import nse.skbh.springboot.pojo.ParentMarketCapitalisation;
 import nse.skbh.springboot.pojo.ParentMostActive;
 import nse.skbh.springboot.pojo.ParentMostActiveUnderlying;
 import nse.skbh.springboot.pojo.ParentOIChangeData;
+import nse.skbh.springboot.pojo.ParentPcr;
 import nse.skbh.springboot.pojo.ParentRiseInOpenInterestRiseInPrice;
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
@@ -58,6 +59,12 @@ public class WebBoot {
 	@RequestMapping("/option_chain_reader")
 	public Pcr getOptionChainData() {
 		return OptionChainReader.getOptionDataPCR();
+
+	}
+	
+	@RequestMapping("/option_chain_reader_all")
+	public ParentPcr getThreeMonthOptionDataPCR() {
+		return OptionChainReader.getThreeMonthOptionDataPCR();
 
 	}
 	

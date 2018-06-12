@@ -3,6 +3,7 @@ package nse.skbh.springboot.logic;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.jsoup.Jsoup;
@@ -11,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import nse.skbh.springboot.pojo.OI;
+import nse.skbh.springboot.pojo.ParentPcr;
 import nse.skbh.springboot.pojo.ParentsOI;
 import nse.skbh.springboot.pojo.Pcr;
 
@@ -105,4 +107,135 @@ public class OptionChainReader {
 		return null;
 
 	}
+	
+	public static ParentPcr getThreeMonthOptionDataPCR() {
+		List<Pcr> pcrList=new LinkedList<Pcr>();
+		String url1 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=28JUN2018";
+		Document doc = null;
+		try {
+			doc = Jsoup.connect(url1).get();
+			Elements content = doc.getElementsByClass("nobg");
+			if (content != null && content.size() > 0) {
+				Integer lastIndex = content.size() - 1;
+				String oi_puts = (content.get(lastIndex - 0).text());
+				String puts_volume = (content.get(lastIndex - 1).text());
+				String calls_volume = (content.get(lastIndex - 2).text());
+				String oi_calls = (content.get(lastIndex - 3).text());
+
+				oi_puts = oi_puts != null ? oi_puts.replace(",", "") : "0";
+				puts_volume = puts_volume != null ? puts_volume.replace(",", "") : "0";
+				calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
+				oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
+
+				try{
+				DecimalFormat df = new DecimalFormat("#.##");
+				
+				Pcr pcr = new Pcr();
+				pcr.setPuts(oi_puts);
+				pcr.setPutsVolume(puts_volume);
+				pcr.setCallsVolume(calls_volume);
+				pcr.setCalls(oi_calls);
+				pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
+				pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
+				pcrList.add(pcr);
+				}catch(RuntimeException e) {
+					 return null;
+					}
+				}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+		String url2 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=26JUL2018";
+		try {
+			doc = Jsoup.connect(url2).get();
+			Elements content = doc.getElementsByClass("nobg");
+			if (content != null && content.size() > 0) {
+				Integer lastIndex = content.size() - 1;
+				String oi_puts = (content.get(lastIndex - 0).text());
+				String puts_volume = (content.get(lastIndex - 1).text());
+				String calls_volume = (content.get(lastIndex - 2).text());
+				String oi_calls = (content.get(lastIndex - 3).text());
+
+				oi_puts = oi_puts != null ? oi_puts.replace(",", "") : "0";
+				puts_volume = puts_volume != null ? puts_volume.replace(",", "") : "0";
+				calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
+				oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
+
+				try{
+				DecimalFormat df = new DecimalFormat("#.##");
+				
+				Pcr pcr = new Pcr();
+				pcr.setPuts(oi_puts);
+				pcr.setPutsVolume(puts_volume);
+				pcr.setCallsVolume(calls_volume);
+				pcr.setCalls(oi_calls);
+				pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
+				pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
+				pcrList.add(pcr);
+				}catch(RuntimeException e) {
+					 return null;
+					}
+				}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+		String url3 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=30AUG2018";
+		try {
+			doc = Jsoup.connect(url3).get();
+			Elements content = doc.getElementsByClass("nobg");
+			if (content != null && content.size() > 0) {
+				Integer lastIndex = content.size() - 1;
+				String oi_puts = (content.get(lastIndex - 0).text());
+				String puts_volume = (content.get(lastIndex - 1).text());
+				String calls_volume = (content.get(lastIndex - 2).text());
+				String oi_calls = (content.get(lastIndex - 3).text());
+
+				oi_puts = oi_puts != null ? oi_puts.replace(",", "") : "0";
+				puts_volume = puts_volume != null ? puts_volume.replace(",", "") : "0";
+				calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
+				oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
+
+				try{
+				DecimalFormat df = new DecimalFormat("#.##");
+				
+				Pcr pcr = new Pcr();
+				pcr.setPuts(oi_puts);
+				pcr.setPutsVolume(puts_volume);
+				pcr.setCallsVolume(calls_volume);
+				pcr.setCalls(oi_calls);
+				pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
+				pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
+				pcrList.add(pcr);
+				}catch(RuntimeException e) {
+					 return null;
+					}
+				}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+		Long calls=new Long(0);
+		Long puts=new Long(0);
+		for (Pcr pcr : pcrList) {
+			calls=Long.parseLong(pcr!=null? pcr.getCalls(): "0") + calls;
+			puts=Long.parseLong(pcr!=null?pcr.getPuts():"0") + puts;
+		}
+		Double d=Double.parseDouble(puts.toString()) / Double.parseDouble(calls.toString());
+		ParentPcr parentPcr=new ParentPcr();
+		parentPcr.setData(pcrList);
+		parentPcr.setOverAllPcr(d!=null? (d.toString().substring(0, 4)):"");
+		return parentPcr;
+
+	}
+	
+	
+	/*public static void main(String[] args) {
+		System.out.println(new Gson().toJson(getThreeMonthOptionDataPCR()));
+	}*/
 }
