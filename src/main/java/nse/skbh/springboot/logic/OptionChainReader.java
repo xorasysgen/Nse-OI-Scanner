@@ -231,14 +231,30 @@ public class OptionChainReader {
 		}
 		Long calls=new Long(0);
 		Long puts=new Long(0);
+		Long callsVolume=new Long(0);
+		Long putsVolume=new Long(0);
+		
 		for (PcrDetail pcr : pcrList) {
 			calls=Long.parseLong(pcr!=null? pcr.getCalls(): "0") + calls;
 			puts=Long.parseLong(pcr!=null?pcr.getPuts():"0") + puts;
+			callsVolume=Long.parseLong(pcr!=null?pcr.getCallsVolume():"0") + callsVolume;
+			putsVolume=Long.parseLong(pcr!=null?pcr.getPutsVolume():"0") + putsVolume;
 		}
+		DecimalFormat df = new DecimalFormat("#.##");
 		Double d=Double.parseDouble(puts.toString()) / Double.parseDouble(calls.toString());
+		String allPcr=d!=null? (d.toString().substring(0, 4)):"";
+		PcrDetail pcr = new PcrDetail();
+		pcr.setMonth("Combined Months");
+		pcr.setPuts(puts.toString());
+		pcr.setPutsVolume(putsVolume.toString());
+		pcr.setCallsVolume(callsVolume.toString());
+		pcr.setCalls(calls.toString());
+		pcr.setPcrOI(allPcr);
+		pcr.setPcrVolume(df.format(Double.parseDouble(putsVolume.toString()) / Double.parseDouble(callsVolume.toString())));
+		pcrList.add(pcr);
 		ParentPcr parentPcr=new ParentPcr();
 		parentPcr.setData(pcrList);
-		parentPcr.setOverAllPcr(d!=null? (d.toString().substring(0, 4)):"");
+		parentPcr.setOverAllPcr(allPcr);
 		return parentPcr;
 
 	}
