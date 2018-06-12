@@ -188,4 +188,10 @@ public class JspController {
 		return "forthcoming_dividends_nse";
 	}
 	
+	@RequestMapping("/option_chain_pcr_reader_months_all")
+	public String getOptionChainPcrReader3Months() {
+		return "option_chain_pcr_reader_3_months";
+	}
+	
+	
 }
