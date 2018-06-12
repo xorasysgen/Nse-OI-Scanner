@@ -15,6 +15,7 @@ import nse.skbh.springboot.pojo.OI;
 import nse.skbh.springboot.pojo.ParentPcr;
 import nse.skbh.springboot.pojo.ParentsOI;
 import nse.skbh.springboot.pojo.Pcr;
+import nse.skbh.springboot.pojo.PcrDetail;
 
 public class OptionChainReader {
 
@@ -109,8 +110,13 @@ public class OptionChainReader {
 	}
 	
 	public static ParentPcr getThreeMonthOptionDataPCR() {
-		List<Pcr> pcrList=new LinkedList<Pcr>();
-		String url1 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=28JUN2018";
+		List<String> listOfDate= LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth();
+		String firstMonth=listOfDate.get(0);
+		String secondMonth=listOfDate.get(1);
+		String thirdMonth=listOfDate.get(2);
+		
+		List<PcrDetail> pcrList=new LinkedList<PcrDetail>();
+		String url1 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" +firstMonth;
 		Document doc = null;
 		try {
 			doc = Jsoup.connect(url1).get();
@@ -130,7 +136,8 @@ public class OptionChainReader {
 				try{
 				DecimalFormat df = new DecimalFormat("#.##");
 				
-				Pcr pcr = new Pcr();
+				PcrDetail pcr = new PcrDetail();
+				pcr.setMonth(firstMonth);
 				pcr.setPuts(oi_puts);
 				pcr.setPutsVolume(puts_volume);
 				pcr.setCallsVolume(calls_volume);
@@ -148,7 +155,7 @@ public class OptionChainReader {
 		}
 		
 		
-		String url2 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=26JUL2018";
+		String url2 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date="+secondMonth;
 		try {
 			doc = Jsoup.connect(url2).get();
 			Elements content = doc.getElementsByClass("nobg");
@@ -167,7 +174,8 @@ public class OptionChainReader {
 				try{
 				DecimalFormat df = new DecimalFormat("#.##");
 				
-				Pcr pcr = new Pcr();
+				PcrDetail pcr = new PcrDetail();
+				pcr.setMonth(secondMonth);
 				pcr.setPuts(oi_puts);
 				pcr.setPutsVolume(puts_volume);
 				pcr.setCallsVolume(calls_volume);
@@ -185,7 +193,7 @@ public class OptionChainReader {
 		}
 		
 		
-		String url3 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=30AUG2018";
+		String url3 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" + thirdMonth;
 		try {
 			doc = Jsoup.connect(url3).get();
 			Elements content = doc.getElementsByClass("nobg");
@@ -204,7 +212,8 @@ public class OptionChainReader {
 				try{
 				DecimalFormat df = new DecimalFormat("#.##");
 				
-				Pcr pcr = new Pcr();
+				PcrDetail pcr = new PcrDetail();
+				pcr.setMonth(thirdMonth);
 				pcr.setPuts(oi_puts);
 				pcr.setPutsVolume(puts_volume);
 				pcr.setCallsVolume(calls_volume);
@@ -222,7 +231,7 @@ public class OptionChainReader {
 		}
 		Long calls=new Long(0);
 		Long puts=new Long(0);
-		for (Pcr pcr : pcrList) {
+		for (PcrDetail pcr : pcrList) {
 			calls=Long.parseLong(pcr!=null? pcr.getCalls(): "0") + calls;
 			puts=Long.parseLong(pcr!=null?pcr.getPuts():"0") + puts;
 		}
