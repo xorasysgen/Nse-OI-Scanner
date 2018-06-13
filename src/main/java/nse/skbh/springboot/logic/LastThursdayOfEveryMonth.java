@@ -33,7 +33,7 @@ public class LastThursdayOfEveryMonth {
         GregorianCalendar c1 = new GregorianCalendar(yearNext, 0, 1);
         for (String mon : new DateFormatSymbols(Locale.US).getShortMonths()) {
             if (!mon.isEmpty()) {
-                Integer totalDaysOfMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+                Integer totalDaysOfMonth = c1.getActualMaximum(Calendar.DAY_OF_MONTH);
                 c1.set(Calendar.DAY_OF_MONTH, totalDaysOfMonth);
  
                 Integer daysToRollBack = (c1.get(Calendar.DAY_OF_WEEK) + 1) % 7;

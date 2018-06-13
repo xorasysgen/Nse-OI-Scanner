@@ -11,8 +11,8 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "order": [[ 4, "desc" ]],
-            "pageLength": 50,
+            "order": [],
+            "pageLength": 100,
             "ajax": "https://jsr101.herokuapp.com/forthcoming_dividends",
             "columns": [
                 		{ "data": "symbol" ,
