@@ -187,6 +187,10 @@ public class JspController {
 	public String getForthcomingDividendsPublicc() {
 		return "forthcoming_dividends_nse";
 	}
+	@RequestMapping("/forthcoming_results_public")
+	public String getForthComingResultsPublicc() {
+		return "forthcoming_results_nse";
+	}
 	
 	@RequestMapping("/option_chain_pcr_reader_months_all")
 	public String getOptionChainPcrReader3Months() {

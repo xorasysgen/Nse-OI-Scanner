@@ -104,6 +104,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" style="color:#33b5e5;"></span> Watcher <span class="badge">1</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 					<li><a href="forthcoming_dividends_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Dividends</a></li>
+					<li><a href="forthcoming_results_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Results</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="#">To do...</a></li>
 	          </ul>

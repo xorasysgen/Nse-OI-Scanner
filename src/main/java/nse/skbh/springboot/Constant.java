@@ -43,6 +43,7 @@ final class Constant {
 	private static final String banknifty_option_chain_nifty="/banknifty_option_chain_nifty";
 	private static final String most_active_securities_market_capitalisation="/most_active_securities_market_capitalisation";
 	private static final String forthcoming_dividends="/forthcoming_dividends"; 
+	private static final String forthcoming_results="/forthcoming_results";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -84,6 +85,7 @@ final class Constant {
 		list.add(banknifty_option_chain_nifty);
 		list.add(most_active_securities_market_capitalisation);
 		list.add(forthcoming_dividends);
+		list.add(forthcoming_results);
 		return list;
 
 	}

@@ -14,6 +14,7 @@ import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
 import nse.skbh.springboot.logic.BroadMarketIndices;
 import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.CsvReaderForthComingDividend;
+import nse.skbh.springboot.logic.CsvReaderResultsForthComingFY;
 import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
@@ -40,6 +41,7 @@ import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
 import nse.skbh.springboot.pojo.ParentTop20Contract;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
+import nse.skbh.springboot.pojo.ParentsForthComingResultsFY;
 import nse.skbh.springboot.pojo.ParentsOI;
 import nse.skbh.springboot.pojo.Pcr;
 
@@ -130,6 +132,13 @@ public class WebBoot {
 	@RequestMapping("/forthcoming_dividends")
 	public ForthComingDividend ForthcomingDividends() {
 		ForthComingDividend results = new CsvReaderForthComingDividend().getForthComingDividendFromNSEOnline();
+		return results;
+	}
+	
+	
+	@RequestMapping("/forthcoming_results")
+	public ParentsForthComingResultsFY ForthComingResults() {
+		ParentsForthComingResultsFY results = new CsvReaderResultsForthComingFY().getForthComingResultsFYFromNSEOnline();
 		return results;
 	}
 	
