@@ -94,7 +94,7 @@ document.getElementById('timer').innerHTML =
             "processing": true,
             "order": [[ 9, "asc" ]],
             "pageLength": 100,
-            "ajax": "https://jsr101.herokuapp.com/banknifty_option_chain_nifty",
+            "ajax": "http://localhost:8080/banknifty_option_chain_nifty",
             "responsive" : true,
             "columns": [
             	  { "data": "oi_call" ,
@@ -147,8 +147,6 @@ document.getElementById('timer').innerHTML =
                   },
                   { "data": "bid_qty_call" },
                   { "data": "bid_price_call" },
-                  { "data": "ask_price_call" },
-                  { "data": "ask_qty_call" },
                   { "data": "strikePrice",
                  	 render: function ( data, type, row ) {
                          
@@ -158,8 +156,6 @@ document.getElementById('timer').innerHTML =
                   },
                   { "data": "bid_qty_put" },
                   { "data": "bid_price_put" },
-                  { "data": "ask_price_put" },
-                  {"data" : "ask_qty_put"},
                   { "data": "net_chng_put" ,
                   	render: function ( data, type, row ) {
                         if (data >= 0) {
@@ -262,9 +258,9 @@ document.getElementById('timer').innerHTML =
 		<thead>
 		 <tr>
                 <th rowspan="2">OI</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="8">CALLS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="6">CALLS</th>
                 <th colspan="1">Strike</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="8">PUTS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="6">PUTS</th>
                 <th rowspan="2">OI</th>
             </tr>
 		
@@ -276,13 +272,9 @@ document.getElementById('timer').innerHTML =
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Strike</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">LTP</th>
 							<th style="text-align:center;  vertical-align:middle;">Vol</th>
