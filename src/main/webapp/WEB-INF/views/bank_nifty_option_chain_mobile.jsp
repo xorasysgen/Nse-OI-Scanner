@@ -9,7 +9,7 @@
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/banknifty_option_chain_reader',
+        	url: 'https://jsr101.herokuapp.com/banknifty_option_chain_reader', 
         	success: function(result){
         		var json = result.pcrOI;
         		if(json>1)
@@ -92,7 +92,7 @@ document.getElementById('timer').innerHTML =
     $(document).ready(function() {
     	var table= $('#example').DataTable( {
             "processing": true,
-            "order": [[ 7, "asc" ]],
+            "order": [[ 5, "asc" ]],
             "pageLength": 100,
             "ajax": "https://jsr101.herokuapp.com/banknifty_option_chain_nifty",
             "responsive" : true,
@@ -145,8 +145,6 @@ document.getElementById('timer').innerHTML =
                             }
                           }
                   },
-                  { "data": "bid_qty_call" },
-                  { "data": "bid_price_call" },
                   { "data": "strikePrice",
                  	 render: function ( data, type, row ) {
                          
@@ -154,8 +152,6 @@ document.getElementById('timer').innerHTML =
                        
                      } 
                   },
-                  { "data": "bid_qty_put" },
-                  { "data": "bid_price_put" },
                   { "data": "net_chng_put" ,
                   	render: function ( data, type, row ) {
                         if (data >= 0) {
@@ -258,29 +254,25 @@ document.getElementById('timer').innerHTML =
 		<thead>
 		 <tr>
                 <th rowspan="2">OI</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="6">CALLS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="4">CALLS</th>
                 <th colspan="1">Strike</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="6">PUTS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="4">PUTS</th>
                 <th rowspan="2">OI</th>
             </tr>
 		
 			<tr>
-							<!-- <th>OI</th> -->
-							<th style="text-align:center;  vertical-align:middle;">Chng<br/>OI</th>
-							<th style="text-align:center;  vertical-align:middle;">Vol</th>
-							<th style="text-align:center;  vertical-align:middle;">LTP</th>
-							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Strike</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
-							<th style="text-align:center;  vertical-align:middle;">LTP</th>
-							<th style="text-align:center;  vertical-align:middle;">Vol</th>
-							<th style="text-align:center;  vertical-align:middle;">Chng<br/>OI</th>
-							<!-- <th>OI</th> -->
-						</tr>
+							<!-- <th>OI</th>  -->
+							<th>Chng OI</th>
+							<th>Vol</th>
+							<th>LTP</th>
+							<th>Net Chng</th>
+							<th>Strike</th>
+							<th>Net Chng</th>
+							<th>LTP</th>
+							<th>Vol</th>
+							<th>Chng OI</th>
+							<!-- <th>OI</th>  -->
+			</tr>
 		</thead>
 
 	</table>
