@@ -306,5 +306,6 @@ document.getElementById('timer').innerHTML =
 	
 	
 	</fieldset>
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>

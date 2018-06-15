@@ -80,5 +80,6 @@
 		</div>
 	</div>
 	</fieldset>
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>

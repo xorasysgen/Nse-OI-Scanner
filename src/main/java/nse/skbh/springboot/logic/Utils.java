@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.commons.codec.binary.Base64;
+
 public class Utils {
 
 	private static Date dayBeforeYesterday(int dayBack) {
@@ -135,6 +137,16 @@ public class Utils {
 		DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 		String result = dateFormat.format(new Date()).concat(" ").concat(dateFormat.getTimeZone().getID());
 		return result;
+	}
+	
+	public static String encoder(String cipher) {
+		byte[] encodedBytes = Base64.encodeBase64(cipher.getBytes());
+		return new String(encodedBytes);
+	}
+	
+	public static String decoder(byte[]  encodedBytes) {
+		byte[] decodedBytes = Base64.decodeBase64(encodedBytes);
+		return new String(decodedBytes);
 	}
 
 }

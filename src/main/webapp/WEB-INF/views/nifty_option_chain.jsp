@@ -302,5 +302,6 @@ document.getElementById('timer').innerHTML =
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="negative">Color Code#</span> Negative Values<br>
 	
 	</fieldset>
+	<jsp:include page="footer.jsp" />	
 </body>
 </html>

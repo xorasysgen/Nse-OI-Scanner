@@ -1,7 +1,9 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<sec:csrfInput /> 
 <!doctype html>
 <html>
 <head>
-<title>Boot F&amp;O Equity Analysis Platform - The Trading and Investing Engine that simplify Trades-JSR101 - v.1.46.5.3</title>
+<title>Boot F&amp;O Equity Analysis Platform - The Trading and Investing Engine that simplify Trades-JSR101-1.8.5.RELEASE</title>
 <meta charset="utf-8">
 <meta name="viewport"	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -42,7 +44,12 @@ document.getElementById('timer').innerHTML =
 	  var m = timeArray[0];
 	  var s = checkSecond((timeArray[1] - 1));
 	  if(s==59){m=m-1}
-	  //if(m<0){alert('timer completed')}
+	  if(m<0)
+	  {
+		  m=4;//min clock reset
+		  s=59;//sec clock reset
+		  //console.log('5 mins timer completed')
+		}
 	  
 	  document.getElementById('timer').innerHTML =
 	    m + ":" + s;
@@ -217,9 +224,9 @@ setInterval(blinker1, 900);
 <% response.addHeader("Refresh","300"); %>
 <fieldset style="margin-left:28px;margin-right:28px;">
 <legend>
- <span style="color: #6c757d; font-size: 16px;">The Trading<span style="color: orange; font-size: 16px;"> &amp; </span>Investing Engine for F&amp;O equity analysis by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.3.RELEASE</span></small></sup>
+ <span style="color: #6c757d; font-size: 16px;">The Trading<span style="color: orange; font-size: 16px;"> &amp; </span>Investing Engine for F&amp;O equity analysis by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup>
 <sup><span style="color: #17a2b8; font-weight: bold; font-size: 12px;"> #Last sync : <span id="txt"></span></span>  
-		&nbsp;<span class="pink" style="color: #17a2b8; font-weight: bold; font-size: 12px;">AutoSync# <span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 12px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 12px;" id="date_time"></span></small></sup>
+		&nbsp;<span style="color: #17a2b8; font-weight: bold; font-size: 12px;">#AutoSync : </span><span class="pink" style="color: #17a2b8; font-weight: bold; font-size: 12px;"><span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 12px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 12px;" id="date_time"></span></small></sup>
 		<sup><i><span id="mktStatus"></span></i></sup>
  
 </legend>
@@ -360,7 +367,7 @@ setInterval(blinker1, 900);
 
 <!-- </fieldset> -->
 
-
+<jsp:include page="footer.jsp" />	
 </body>
 
 </html>

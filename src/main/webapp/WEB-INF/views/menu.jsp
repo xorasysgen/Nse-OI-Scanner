@@ -1,3 +1,6 @@
+<style>
+a.menu_links { cursor: pointer; }
+</style>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,14 +11,14 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="boot"><span class="glyphicon glyphicon-home" style="color:#28a745;"></span><span style="color:#28a745;"> Boot</span><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span></a>
+      <a class="navbar-brand" href="boot"><span class="glyphicon glyphicon-home" style="color:#28a745;"></span> <span style="color:#28a745;"> Boot</span><!--<span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> --></a>
       <!-- <img alt="Brand" src="https://bgasparotto.com/wp-content/uploads/2017/12/spring-logo.png" height="20%" width="20%"> -->	
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-    	   	 <li class="active"><a href="most_active_underlying"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Most Active Stocks<span class="sr-only">(current)</span></a></li>
+    	   	 <li class="active"><a href="most_active_underlying"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Most Active<span class="sr-only">(current)</span></a></li>
 	         <li class="dropdown">
          	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <span class="badge">7</span><span class="caret"></span></a>
          <ul class="dropdown-menu">
@@ -26,8 +29,8 @@
 	          <li><a href="losers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Losers</a></li>
 	          <li><a href="25_volume_gainers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> 25 Volume Gainers</a></li>
 	          <li role="separator" class="divider"></li>
-	          <li><a href="most_active_securities_value"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Securities Value</a></li>
-	          <li><a href="most_active_securities_volume"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Securities Volume</a></li>
+	          <li><a href="most_active_securities_value"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Stocks Val</a></li>
+	          <li><a href="most_active_securities_volume"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Most Active Stocks Vol</a></li>
          </ul>
           
           
@@ -82,14 +85,14 @@
 		            <li><a href="most_active_future_volume_public"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> Active Future Volume Wise</a></li>
 		            <li><a href="most_active_future_value_public"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> Active Future Value Wise</a></li>
 		            <li role="separator" class="divider"></li>
-		            <li><a href="#">To do...</a></li>
+		            <li><a href="#"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> To do...</a></li>
 	          </ul>
         </li>
         
       		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <span class="badge">4</span> <span class="caret"></span></a>
        	   <ul class="dropdown-menu">
-	            <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable Positions</a></li>
+	            <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable</a></li>
 	            <li><a href="security_var_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security VaR</a></li>
 	            <li role="separator" class="divider"></li>
 	            <li><a href="market_capitalisation_most_active_year_wise_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Most Active This Year</a></li>
@@ -101,18 +104,28 @@
                 
     
       <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" style="color:#33b5e5;"></span> Watcher <span class="badge">1</span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" style="color:#33b5e5;"></span> Watcher <span class="badge">2</span> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 					<li><a href="forthcoming_dividends_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Dividends</a></li>
 					<li><a href="forthcoming_results_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Results</a></li>
 		            <li role="separator" class="divider"></li>
-		            <li><a href="#">To do...</a></li>
+		            <li><a href="#"> <span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> To do...</a></li>
 	          </ul>
        </li>
+       
+       <li class="nav-item">
+       		 <a class="menu_links" onclick="document.forms['logoutForm'].submit()" onmouseover="" style="cursor: pointer;">
+				<span class="glyphicon glyphicon-log-out" style="color:#ff4444;"></span> Log out
+			</a>
+      </li>
+       
         
       </ul>
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+  
+  
+<form id="logoutForm" method="POST" action="${contextPath}/logout"></form>
   
