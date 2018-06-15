@@ -94,7 +94,7 @@ document.getElementById('timer').innerHTML =
             "processing": true,
             "order": [[ 9, "asc" ]],
             "pageLength": 100,
-            "ajax": "http://localhost:8080/banknifty_option_chain_nifty",
+            "ajax": "https://jsr101.herokuapp.com/banknifty_option_chain_nifty",
             "responsive" : true,
             "columns": [
             	  { "data": "oi_call" ,
