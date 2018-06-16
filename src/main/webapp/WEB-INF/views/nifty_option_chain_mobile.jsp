@@ -8,7 +8,7 @@
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/option_chain_reader',
+        	url: 'option_chain_reader',
         	success: function(result){
         		var json = result.pcrOI;
         		if(json>1)
@@ -32,7 +32,7 @@ setInterval(blinker, 1000);
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/indices',
+        	url: 'indices',
         	success: function(result){
         		var lastPrice = result.data[5].lastPrice;
         		var pChange=result.data[5].pChange;
@@ -65,7 +65,7 @@ setInterval(blinker, 1000);
             "processing": true,
             "order": [[ 5, "asc" ]],
             "pageLength": 100,
-            "ajax": "https://jsr101.herokuapp.com/option_chain_nifty",
+            "ajax": "option_chain_nifty",
             "columns": [
             	{ "data": "oi_call" ,
                 	render: function ( data, type, row ) {

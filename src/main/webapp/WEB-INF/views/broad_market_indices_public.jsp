@@ -9,7 +9,7 @@
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/broad_market_indices',
+        	url: 'broad_market_indices',
         	success: function(result){
             $("#broad_market_indices").html(result);
         	

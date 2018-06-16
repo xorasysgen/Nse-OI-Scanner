@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "pageLength": 50,
-            "ajax": "https://jsr101.herokuapp.com/open_interest/",
+            "ajax": "open_interest",
             "columns": [
                 { "data": "date" },
                 { "data": "name",

@@ -11,7 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "ajax": "https://jsr101.herokuapp.com/security_var",
+            "ajax": "security_var",
             "columns": [
                         { "data": "symbol" },
                         { "data": "series" },

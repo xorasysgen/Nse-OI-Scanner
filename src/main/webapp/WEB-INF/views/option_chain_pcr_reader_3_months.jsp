@@ -13,7 +13,7 @@
             "processing": true,
             "order": [],
             "pageLength": 10,
-            "ajax": "https://jsr101.herokuapp.com/option_chain_reader_all",
+            "ajax": "option_chain_reader_all",
             "columns": [
                 { "data": "month",
                   	 render: function ( data, type, row ) {

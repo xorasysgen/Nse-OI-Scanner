@@ -13,7 +13,7 @@
             "processing": true,
             "order": [],
             "pageLength": 100,
-            "ajax": "https://jsr101.herokuapp.com/forthcoming_dividends",
+            "ajax": "forthcoming_dividends",
             "columns": [
                 		{ "data": "symbol" ,
                 			render: function ( data, type, row ) {

@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 2, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/most_active_value",
+            "ajax": "most_active_value",
             "columns": [
                 { "data": "series" },
                 { "data": "symbol",

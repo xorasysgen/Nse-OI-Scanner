@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 2, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/volume_gainers/",
+            "ajax": "volume_gainers",
             "columns": [
                 { "data": "sym" },
                 { "data": "name",

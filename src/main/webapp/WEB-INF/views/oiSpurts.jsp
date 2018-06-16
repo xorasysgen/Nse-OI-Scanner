@@ -13,7 +13,7 @@
             "processing": true,
             "order": [[ 4, "desc" ]],
             "pageLength": 50,
-            "ajax": "https://jsr101.herokuapp.com/oi_spurts",
+            "ajax": "oi_spurts",
             "columns": [
                  { "data": "symbol",
                    	 render: function ( data, type, row ) {

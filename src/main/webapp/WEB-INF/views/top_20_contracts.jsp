@@ -13,7 +13,7 @@
             "processing": true,
             "order": [[ 4, "desc" ]],
             "pageLength": 25,
-            "ajax": "https://jsr101.herokuapp.com/top_20_contracts_nse_fo",
+            "ajax": "top_20_contracts_nse_fo",
             "columns": [
                 { "data": "underlying" ,
                 	render: function ( data, type, row ) {

@@ -13,7 +13,7 @@
             "processing": true,
             "order": [],
             "pageLength": 50,
-            "ajax": "https://jsr101.herokuapp.com/forthcoming_results",
+            "ajax": "forthcoming_results",
             "columns": [
                 		{ "data": "symbol" ,
                 			render: function ( data, type, row ) {

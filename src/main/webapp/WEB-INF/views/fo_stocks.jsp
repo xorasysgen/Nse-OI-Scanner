@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 6, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/fo_stocks/",
+            "ajax": "fo_stocks",
             "columns": [
                 { "data": "symbol" ,
                	 render: function ( data, type, row ) {

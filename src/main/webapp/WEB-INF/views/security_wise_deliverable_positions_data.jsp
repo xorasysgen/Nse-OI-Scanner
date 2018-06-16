@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 12, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/security_wise_deliverable_positions_data",
+            "ajax": "security_wise_deliverable_positions_data",
             "columns": [
                         { "data": "date" },
                 		{ "data": "symbol" ,

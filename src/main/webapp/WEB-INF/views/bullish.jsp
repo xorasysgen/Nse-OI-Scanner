@@ -13,7 +13,7 @@
             "processing": true,
             "order": [[ 7, "desc" ]],
             "pageLength": 50,
-            "ajax": "https://jsr101.herokuapp.com/oi_spurts_rise_oi_rise_price/",
+            "ajax": "oi_spurts_rise_oi_rise_price",
             "columns": [
 					{ "data": "symbol" },
 					{ "data": "instrument" },

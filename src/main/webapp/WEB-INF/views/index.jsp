@@ -28,7 +28,7 @@
       
       $http({
     	  method: 'GET',
-    	  url: 'https://jsr101.herokuapp.com/top_gainer/'
+    	  url: 'top_gainer'
     	}).then(function successCallback(response) {
     		console.log(response.data);
     		$scope.posts=response.data.data

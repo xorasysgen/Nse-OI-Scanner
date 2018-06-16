@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 3, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/future_stocks_spike_volume",
+            "ajax": "future_stocks_spike_volume",
             "columns": [
                 { "data": "instrumentType" },
                 { "data": "expiryDate" },

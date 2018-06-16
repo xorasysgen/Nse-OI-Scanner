@@ -13,7 +13,7 @@
             "processing": true,
             "order": [[ 0, "asc" ]],
             "pageLength": 25,
-            "ajax": "https://jsr101.herokuapp.com/most_active_securities_market_capitalisation",
+            "ajax": "most_active_securities_market_capitalisation",
             "columns": [
                         { "data": "rank" },
                 		{ "data": "security" ,

@@ -12,7 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 5, "desc" ]],
-            "ajax": "https://jsr101.herokuapp.com/derivative/put/put_nifty",
+            "ajax": "derivative/put/put_nifty",
             "columns": [
             	  { "data": "instrumentType" },
                   { "data": "symbol",

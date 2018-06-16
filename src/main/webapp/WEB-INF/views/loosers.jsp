@@ -13,7 +13,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 6, "asc" ]],
-            "ajax": "https://jsr101.herokuapp.com/top_looser/",
+            "ajax": "top_looser",
             "columns": [
                 { "data": "symbol",
                   	 render: function ( data, type, row ) {

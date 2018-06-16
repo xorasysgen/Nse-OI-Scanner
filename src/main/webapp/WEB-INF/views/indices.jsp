@@ -11,7 +11,7 @@
     $(document).ready(function() {
         $('#example').DataTable( {
             "processing": true,
-            "ajax": "https://jsr101.herokuapp.com/indices/",
+            "ajax": "indices",
             "columns": [
                 { "data": "name" ,
                	 render: function ( data, type, row ) {
