@@ -69,7 +69,7 @@ document.getElementById('timer').innerHTML =
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/mkt_open_status',
+        	url: 'mkt_open_status',
         	success: function(result){
         		var json = $.parseJSON(result);
         		if(json.NormalMktStatus=="open")
@@ -88,7 +88,7 @@ document.getElementById('timer').innerHTML =
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/option_chain_reader',
+        	url: 'option_chain_reader',
         	success: function(result){
         		var json = result.pcrOI;
         		if(json>1)
@@ -106,7 +106,7 @@ document.getElementById('timer').innerHTML =
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'https://jsr101.herokuapp.com/indices',
+        	url: 'indices',
         	success: function(result){
         		var lastPrice = result.data[5].lastPrice;
         		var pChange=result.data[5].pChange;

@@ -7,7 +7,7 @@
 
 	                             				$http({
 	                             					method : 'GET',
-	                             					url : 'https://jsr101.herokuapp.com/advances_declines'
+	                             					url : 'advances_declines'
 	                             				}).then(function successCallback(response) {
 	                             					//console.log(response.data);
 	                             					$scope.posts = response.data.rows
@@ -124,7 +124,7 @@
 
 	                             				$http({
 	                             					method : 'GET',
-	                             					url : 'https://jsr101.herokuapp.com/advances_declines_nifty/'
+	                             					url : 'advances_declines_nifty'
 	                             				}).then(function successCallback(response) {
 	                             					//console.log(response.data);
 	                             					console.log(response.data.advances);
@@ -220,7 +220,7 @@
 
 	                             				$http({
 	                             					method : 'GET',
-	                             					url : 'https://jsr101.herokuapp.com/advances_declines_bank_nifty/'
+	                             					url : 'advances_declines_bank_nifty'
 	                             				}).then(function successCallback(response) {
 	                             					//console.log(response.data);
 	                             					console.log(response.data.advances);

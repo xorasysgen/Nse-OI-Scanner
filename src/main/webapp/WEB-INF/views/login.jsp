@@ -63,7 +63,7 @@ img.avatar {
 }
 
 .container {
-    padding: 16px;
+    padding: 15px;
 }
 
 span.psw {
@@ -88,8 +88,7 @@ span.psw {
 <body>
 
 <div class="container">
-
-    <h2 class="form-heading"><span style="color: #FF8800; font-size: 22px;"> The Trading &amp; Investing Engine for F&amp;O equity analysis Powered by</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup></h2>
+    <h2 class="form-heading"><span style="color: #FF8800; font-size: 22px; text-align: right;" >Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup></h2>
     <form method="POST" action="${contextPath}/login" class="form-signin">
      <div class="imgcontainer">
     <img src="images/banner.gif" style="height:120px; width:150px;" alt="Avatar" class="avatar">
@@ -98,7 +97,7 @@ span.psw {
         <div class="form-group ${error != null ? 'has-error' : ''}">
             <span  style="color:#00C851;">${msg}<br></span>
             <label for="uname"><b>Username</b></label>
-            <input name="username" type="text" class="form-control" placeholder="Username"    autofocus="true" required="required"/>
+            <input name="username" type="text" class="form-control" placeholder="Username"  autofocus="autofocus"  required="required"/>
             <label for="psw"><b>Password</b></label>
             <input name="password" type="password" class="form-control" placeholder="Password" required="required"/>
             <span  style="color:#ff4444;">${errorMsg}<br></span>

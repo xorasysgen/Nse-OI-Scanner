@@ -5,7 +5,7 @@ var advances,declines,unchanged,total;
       function drawChart() {
     	   $.ajax( {
     	  	  type:'Get',
-    	  	  url:'https://jsr101.herokuapp.com/advances_declines',
+    	  	  url:'advances_declines',
     	  	  success:function(data) {
     	  	  // console.log(data);
     	  	   abc(data);
