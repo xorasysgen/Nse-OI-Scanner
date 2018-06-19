@@ -99,6 +99,12 @@ public class JspController {
 	public String Top20ContractsIntraday() {
 		return "top_20_contracts";
 	}
+	
+	@RequestMapping("/nifty_50_options_public")
+	public String getnifty_50_options() {
+		return "nifty_50_options";
+	}
+	
 
 	@RequestMapping("/active_fo_call")
 	public String ActiveFoCall() {

@@ -16,6 +16,7 @@ import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.CsvReaderForthComingDividend;
 import nse.skbh.springboot.logic.CsvReaderResultsForthComingFY;
 import nse.skbh.springboot.logic.DatFileReader;
+import nse.skbh.springboot.logic.Nifty50Options;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
@@ -94,6 +95,11 @@ public class WebBoot {
 		return Top20ContractsReader.getTop20ContractsNSE();
 
 	}
+	@RequestMapping("/nifty_50_Options")
+	public ParentTop20Contract getNifty50Options() {
+		return Nifty50Options.getNifty50OOptionsContractsNSE();
+	}
+	
 
 	@RequestMapping("/future_stocks_spike_volume")
 	public ParentStocksFutures futOPTSTK() {

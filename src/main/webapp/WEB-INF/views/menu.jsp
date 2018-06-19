@@ -54,9 +54,10 @@ a.menu_links { cursor: pointer; }
         </li>
         
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <span class="badge">12</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <span class="badge">13</span> <span class="caret"></span></a>
           <ul class="dropdown-menu">
 	            <li><a href="top_20_contracts_intraday"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Top 20 Contracts</a></li>
+	            <li><a href="nifty_50_options_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty50 Contracts</a></li>
 	           	<li role="separator" class="divider"></li>
 	           	<li><a href="option_chain_nifty_fifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain</a></li>
 	           	<li><a href="option_chain_nifty_fifty_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain Mobile</a></li>

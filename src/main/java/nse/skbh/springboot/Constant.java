@@ -39,6 +39,7 @@ final class Constant {
 	private static final String option_chain_reader_all = "/option_chain_reader_all";
 	private static final String option_chain_nifty="/option_chain_nifty";
 	private static final String top_20_contracts_nse_fo="/top_20_contracts_nse_fo";
+	private static final String nifty_50_Options="/nifty_50_Options";
 	private static final String banknifty_option_chain_reader="/banknifty_option_chain_reader";
 	private static final String banknifty_option_chain_nifty="/banknifty_option_chain_nifty";
 	private static final String most_active_securities_market_capitalisation="/most_active_securities_market_capitalisation";
@@ -81,6 +82,7 @@ final class Constant {
 		list.add(option_chain_reader_all);
 		list.add(option_chain_nifty);
 		list.add(top_20_contracts_nse_fo);
+		list.add(nifty_50_Options);
 		list.add(banknifty_option_chain_reader);
 		list.add(banknifty_option_chain_nifty);
 		list.add(most_active_securities_market_capitalisation);
