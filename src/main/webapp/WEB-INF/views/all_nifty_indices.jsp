@@ -60,8 +60,7 @@
                  	 render: function ( data, type, row ) {
                         return '<span class="negative">'+data+'</span>';
                     } 
-                },
-                { "data": "indexOrder"}      
+                }
                 
             ]
         } );
@@ -95,7 +94,6 @@
 	              <th>PerChange</th>
 	              <th>Year High</th>
 	              <th>Year Low</th>
-	              <th>Order</th>
 	              
 			</tr>
 		</thead>

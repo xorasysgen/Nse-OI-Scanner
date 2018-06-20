@@ -75,6 +75,10 @@ animation: blinker 1s linear infinite;
   }
 }
   
+.hidden{
+visibility: hidden;
+}
+
 .dark{
 color: #263238;
 font-weight: bold;
