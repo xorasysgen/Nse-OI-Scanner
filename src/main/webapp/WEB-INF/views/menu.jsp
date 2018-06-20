@@ -20,9 +20,10 @@ a.menu_links { cursor: pointer; }
       <ul class="nav navbar-nav">
     	   	 <li class="active"><a href="most_active_underlying"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Most Active<span class="sr-only">(current)</span></a></li>
 	         <li class="dropdown">
-         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <span class="badge">7</span><span class="caret"></span></a>
+         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <sup><span class="badge">8</span></sup><span class="caret"></span></a>
          <ul class="dropdown-menu">
 	          <li><a href="bank_nifty_page"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Bank Nifty</a></li>
+	          <li><a href="all_nifty_indices_nse"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Nifty Indices</a></li>
 	          <li><a href="indices_nse"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Indices</a></li>
 	          <li role="separator" class="divider"></li>
 	          <li><a href="gainers"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Top Gainers</a></li>
@@ -37,7 +38,7 @@ a.menu_links { cursor: pointer; }
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-eye-open" style="color:#0277bd; font-size: 14px;"></span> Open-Interest <span class="badge">8</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-eye-open" style="color:#0277bd; font-size: 14px;"></span> Open-Interest <sup><span class="badge">8</span></sup> <span class="caret"></span></a>
           <ul class="dropdown-menu">
 	            <li><a href="oispurts"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> OI Spurts</a></li>
 	            <li role="separator" class="divider"></li>
@@ -54,7 +55,7 @@ a.menu_links { cursor: pointer; }
         </li>
         
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <span class="badge">13</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <sup><span class="badge">13</span></sup> <span class="caret"></span></a>
           <ul class="dropdown-menu">
 	            <li><a href="top_20_contracts_intraday"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Top 20 Contracts</a></li>
 	            <li><a href="nifty_50_options_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty50 Contracts</a></li>
@@ -81,7 +82,7 @@ a.menu_links { cursor: pointer; }
 
 
  		<li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-fire" style="color:#CC0000;"></span> Hot Futures <span class="badge">3</span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-fire" style="color:#CC0000;"></span> Hot Futures <sup><span class="badge">3</span></sup> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 					<li><a href="fostocks"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"></span> Future &amp; Options Stocks</a></li>
 		            <li role="separator" class="divider"></li>
@@ -93,7 +94,7 @@ a.menu_links { cursor: pointer; }
         </li>
         
       		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <span class="badge">4</span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <sup><span class="badge">4</span></sup> <span class="caret"></span></a>
        	   <ul class="dropdown-menu">
 	            <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable</a></li>
 	            <li><a href="security_var_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security VaR</a></li>
@@ -107,7 +108,7 @@ a.menu_links { cursor: pointer; }
                 
     
       <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" style="color:#33b5e5;"></span> Watcher <span class="badge">2</span> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-calendar" style="color:#33b5e5;"></span> Watcher <sup><span class="badge">2</span></sup> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 					<li><a href="forthcoming_dividends_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Dividends</a></li>
 					<li><a href="forthcoming_results_public"><span class="glyphicon glyphicon-chevron-right" style="color:#33b5e5;"></span> ForthComing Results</a></li>

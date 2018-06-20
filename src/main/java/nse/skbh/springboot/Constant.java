@@ -13,6 +13,7 @@ final class Constant {
 	private static final String mostActiveVolume = "/most_active_volume";
 	private static final String mostActiveValue = "/most_active_value";
 	private static final String indices = "/indices";
+	private static final String all_nifty_indices="/all_nifty_indices";
 	private static final String advancesDeclines = "/advances_declines";
 	private static final String volumeGainers = "/volume_gainers";
 	private static final String most_active_intraday = "/most_active_intraday";
@@ -56,6 +57,7 @@ final class Constant {
 		list.add(mostActiveVolume);
 		list.add(mostActiveValue);
 		list.add(indices);
+		list.add(all_nifty_indices);
 		list.add(advancesDeclines);
 		list.add(advances_declines_bank_nifty);
 		list.add(advances_declines_nifty);

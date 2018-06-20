@@ -170,7 +170,11 @@ public class JspController {
 	public String listIndices() {
 		return "indices";
 	}
-
+	@RequestMapping("/all_nifty_indices_nse")
+	public String listAllIndices() {
+		return "all_nifty_indices";
+	}
+	
 	@RequestMapping("/security_wise_deliverable_positions")
 	public String get_security_wise_deliverable_positions_data() {
 		return "security_wise_deliverable_positions_data";
