@@ -147,7 +147,8 @@ document.getElementById('timer').innerHTML =
                   { "data": "bid_qty_call" },
                   { "data": "bid_price_call" },
                   { "data": "ask_price_call" },
-                  { "data": "ask_qty_call" },
+                  /* { "data": "ask_qty_call" }, */
+                  { "data": "iv_call" },
                   { "data": "strikePrice",
                  	 render: function ( data, type, row ) {
                          
@@ -155,11 +156,12 @@ document.getElementById('timer').innerHTML =
                        
                      } 
                   },
-                  { "data": "bid_qty_put" },
-                  { "data": "bid_price_put" },
+                 { "data": "iv_put" },
                   { "data": "ask_price_put" },
-                  {"data" : "ask_qty_put"},
-                  { "data": "net_chng_put" ,
+                  { "data": "bid_price_put" },
+                  { "data": "bid_qty_put" },
+                 /*  {"data" : "ask_qty_put"}, */
+                 { "data": "net_chng_put" ,
                   	render: function ( data, type, row ) {
                         if (data >= 0) {
                           return '<span class="positive">'+data+'</span>';
@@ -274,12 +276,12 @@ document.getElementById('timer').innerHTML =
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
 							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Qty</th>
+							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">Strike</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
-							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
+							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Price</th>
-							<th style="text-align:center;  vertical-align:middle;">Ask<br/>Qty</th>
+							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
+							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">LTP</th>
 							<th style="text-align:center;  vertical-align:middle;">Vol</th>

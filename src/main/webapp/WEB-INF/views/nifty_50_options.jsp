@@ -41,7 +41,11 @@
                       }
                 },
                 { "data": "strikePrice" },
-                { "data": "premiumTurnoverLacs" },
+                { "data": "premiumTurnoverLacs" , 
+	               	 render: function ( data, type, row ) {
+	                     return '<span class="navy">'+data+'</span>';
+	                 } 
+        	    },
                 { "data": "prevClose" , 
                 	 render: function ( data, type, row ) {
                          return '<span class="orange">'+data+'</span>';
@@ -63,7 +67,7 @@
                          return '<span class="liteGreen">'+data+'</span>';
                      } 
                 },
-            /*     { "data": "volumeContracts" }, */
+               { "data": "volumeContracts" }, 
                 { "data": "turnoverLacs" },
                 {"data": "underlyingValue",
                   	 render: function ( data, type, row ) {
@@ -98,7 +102,7 @@
         <h3 class="panel-title">ALL Nifty 50 Options Contracts Order By Premium (Lacs) </h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
+	<table id="example"	class="display compact row-border table-bordered dt-responsive" style="width: 100%">
 		<thead>
 			<tr>
 				 <th>Underlying</th>
@@ -111,7 +115,7 @@
 	              <th>HighPrice</th>
 	              <th>LowPrice</th>
 	              <th>LastPrice</th>
-	            <!--   <th>volumeContracts</th> -->
+	              <th>volumeContracts</th>
 	              <th>Turnover<br>Lacs</th>
 	              <th>Price</th>
 	              

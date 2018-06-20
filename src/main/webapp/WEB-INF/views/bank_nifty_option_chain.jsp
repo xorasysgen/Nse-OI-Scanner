@@ -92,7 +92,7 @@ document.getElementById('timer').innerHTML =
     $(document).ready(function() {
     	var table= $('#example').DataTable( {
             "processing": true,
-            "order": [[ 7, "asc" ]],
+            "order": [[ 8, "asc" ]],
             "pageLength": 100,
             "ajax": "banknifty_option_chain_nifty",
             "responsive" : true,
@@ -147,6 +147,7 @@ document.getElementById('timer').innerHTML =
                   },
                   { "data": "bid_qty_call" },
                   { "data": "bid_price_call" },
+                  { "data": "iv_call" },
                   { "data": "strikePrice",
                  	 render: function ( data, type, row ) {
                          
@@ -154,6 +155,7 @@ document.getElementById('timer').innerHTML =
                        
                      } 
                   },
+                  { "data": "iv_put" },
                   { "data": "bid_qty_put" },
                   { "data": "bid_price_put" },
                   { "data": "net_chng_put" ,
@@ -258,9 +260,9 @@ document.getElementById('timer').innerHTML =
 		<thead>
 		 <tr>
                 <th rowspan="2">OI</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="6">CALLS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="7">CALLS</th>
                 <th colspan="1">Strike</th>
-                <th style="text-align:center;  vertical-align:middle;" colspan="6">PUTS</th>
+                <th style="text-align:center;  vertical-align:middle;" colspan="7">PUTS</th>
                 <th rowspan="2">OI</th>
             </tr>
 		
@@ -272,7 +274,9 @@ document.getElementById('timer').innerHTML =
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
+							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">Strike</th>
+							<th style="text-align:center;  vertical-align:middle;">IV</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Qty</th>
 							<th style="text-align:center;  vertical-align:middle;">Bid<br/>Price</th>
 							<th style="text-align:center;  vertical-align:middle;">Net<br/>Chng</th>
