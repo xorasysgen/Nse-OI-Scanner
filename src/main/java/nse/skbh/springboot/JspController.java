@@ -11,10 +11,6 @@ public class JspController {
 		return "boot";
 	}
 
-	@RequestMapping("/index")
-	public String index() {
-		return "index";
-	}
 
 	@RequestMapping("/bank_nifty_page")
 	public String bankNifty() {
