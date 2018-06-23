@@ -59,6 +59,18 @@ public class WebBoot {
 		return string;
 
 	}
+	
+	@RequestMapping("/next_trading_date")
+	public String getNextTradingDate() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate
+				.getForEntity("https://www.nseindia.com/homeNextDate.htm", String.class);
+		String string = response.getBody();
+		return string;
+
+	}
+	
+	
 
 	@RequestMapping("/option_chain_reader")
 	public Pcr getOptionChainData() {

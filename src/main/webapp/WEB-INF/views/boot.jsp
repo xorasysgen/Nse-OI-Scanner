@@ -84,6 +84,75 @@ document.getElementById('timer').innerHTML =
 
 </script>
 
+<script>
+        $.ajax({
+        	type:'Get',
+        	url: 'next_trading_date',
+        	success: function(result){
+        			text="<span style='color: #33b5e5; font-weight: bold; font-size: 12px;'>"+result+"</span>";
+           			 $("#nextTradingDate").html(text);
+        	
+        }
+        })
+
+</script>
+
+<script>
+        $.ajax({
+        	type:'Get',
+        	url: 'currency/usd_inr',
+        	success: function(result){
+        		var ltp = result.ltp.toString().substring(0, 5);
+        		var open=result.open.toString().substring(0, 5);
+        		var high=result.high.toString().substring(0, 5);
+        		var low=result.low.toString().substring(0, 5);
+        		var close=result.close.toString().substring(0, 5);
+        		var pChangeValue=open-ltp;
+        		pChangeValue=pChangeValue.toString().substring(0, 4);
+        		var currencyTrend="";
+        		if(open==high){
+        			currencyTrend="Bearish";
+        			currencyTrendText="<span class='blinking2' style='color: red; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        		}
+        		else if(open==low){
+        			currencyTrend="Bullish";
+        			currencyTrendText="<span class='blinking2' style='color: green; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        		}else if(ltp>open){
+        			currencyTrend="Positive";
+        			currencyTrendText="<span class='blinking2' style='color: green; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        		}else if(ltp<low){
+        			currencyTrend="Negative";
+        			currencyTrendText="<span class='blinking2' style='color: red; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        		}
+        		else{
+        			currencyTrend="sideways";
+        			currencyTrendText="<span class='blinking2' style='color: blue; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        		}
+        		
+        		if(ltp>open){
+        			text="<span style='color: green; font-weight: bold; font-size: 14px;'>" +ltp+ "</span>";
+        			text1="<span style='color: green; font-weight: bold; font-size: 14px;'>" + pChangeValue + "</span>";
+        			}
+        			else{
+        				text="<span style='color: red; font-weight: bold; font-size: 14px;'>" +ltp+ "</span>";
+            			text1="<span style='color: red; font-weight: bold; font-size: 14px;'>" + pChangeValue + "</span>";
+        			}
+        		open="<span style='color: #0d47a1; font-weight: bold; font-size: 14px;'>" +open+ "</span>";
+    			high="<span style='color: green; font-weight: bold; font-size: 14px;'>" + high + "</span>";
+    			low="<span style='color: red; font-weight: bold; font-size: 14px;'>" + low + "</span>";
+
+        			
+          		$("#currencyLtp").html(text);
+          		$("#currencyPriceChange").html(text1);
+          		$("#currencyPriceOpen").html(open); 
+          		$("#currencyPriceHigh").html(high); 
+          		$("#currencyPriceLow").html(low);
+          		$("#currencyTrend").html(currencyTrendText);
+        	
+        }
+        })
+
+</script>
 
 <script>
         $.ajax({
@@ -190,6 +259,12 @@ function blinker1() {
 }
 setInterval(blinker1, 900);
 
+function blinker2() {
+	$('.blinking2').fadeOut(800);
+	$('.blinking2').fadeIn(800);
+}
+setInterval(blinker2, 1200);
+
 </script>
 <style type="text/css">
 .time-frame {
@@ -229,6 +304,18 @@ setInterval(blinker1, 900);
 <sup><span style="color: #17a2b8; font-weight: bold; font-size: 12px;"> #Last sync : <span id="txt"></span></span>  
 		&nbsp;<span style="color: #17a2b8; font-weight: bold; font-size: 12px;">#AutoSync : </span><span class="pink" style="color: #ff4444; font-weight: bold; font-size: 12px;"><span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 12px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 12px;" id="date_time"></span></small></sup>
 		<sup><i><span id="mktStatus"></span></i></sup>
+		<sup><i><span id="nextTradingDate"></span></i></sup><br>
+		<sub>
+		<span style="color: #9c27b0; font-weight: bold; font-size: 12px;">
+	 USD<span class="glyphicon glyphicon-usd" style="color: #007E33;"></span>INR&nbsp;&nbsp;
+     LTP [ <span id="currencyLtp"></span> ]&nbsp;
+     Open [ <span id="currencyPriceOpen"></span> ]&nbsp;
+     High [ <span id="currencyPriceHigh"></span> ]&nbsp;
+     Low [ <span id="currencyPriceLow"></span> ]&nbsp;
+     Change [ <span id="currencyPriceChange"></span> ]&nbsp;
+     Currency Trend# [ <span id="currencyTrend"></span> ]
+     </span>
+     </sub>
  
 </legend>
 
@@ -349,7 +436,9 @@ setInterval(blinker1, 900);
 			 
     </div>
     <br>
-    <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
+    		
+        
+     <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
    	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span> 
 <!-- </div> --> <!-- container offline -->
 
