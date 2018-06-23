@@ -13,7 +13,7 @@ public class CsvReaderCurrency {
 	public USDINRCurrency getForthComingResultsFYFromNSEOnline() {
 		String expiryDate=new CsvReadertoGetExpiryDateCurrency().GetExpiryDateCurrency();
 		try {
-			String myUrl = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getCIDHistoricalData.jsp?underlying=USDINR&instrument=FUTCUR&expiry="+expiryDate+"&type=-&strike=0&fromDate=undefined&toDate=undefined&datePeriod=1day&fileDnld=true";
+			String myUrl = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getCIDHistoricalData.jsp?underlying=USDINR&instrument=FUTCUR&expiry="+expiryDate+"&type=-&strike=0&fromDate=undefined&toDate=undefined&datePeriod=week&fileDnld=true";
 			//System.out.println(myUrl);
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
@@ -97,5 +97,6 @@ public class CsvReaderCurrency {
 			}
 		}
 	}
+	
 	
 }
