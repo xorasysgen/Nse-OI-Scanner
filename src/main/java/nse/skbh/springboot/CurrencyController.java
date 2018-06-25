@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nse.skbh.springboot.logic.CsvReaderCurrency;
+import nse.skbh.springboot.logic.CsvReaderToGetCurrencyLive;
+import nse.skbh.springboot.pojo.CurrencyFutureLive;
 import nse.skbh.springboot.pojo.USDINRCurrency;
 
 @RestController
@@ -15,6 +17,13 @@ public class CurrencyController {
 	@ResponseBody
 	public USDINRCurrency getUSDINRCurrency() {
 		return new CsvReaderCurrency().getForthComingResultsFYFromNSEOnline();
+
+	}
+	
+	@RequestMapping("/intraday_usd_inr_live")
+	@ResponseBody
+	public CurrencyFutureLive getIntradayUSDINRCurrency() {
+		return new CsvReaderToGetCurrencyLive().getCsvReaderToGetCurrencyLive();
 
 	}
 

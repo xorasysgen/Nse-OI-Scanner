@@ -100,53 +100,40 @@ document.getElementById('timer').innerHTML =
 <script>
         $.ajax({
         	type:'Get',
-        	url: 'currency/usd_inr',
+        	url: 'currency/intraday_usd_inr_live',
         	success: function(result){
-        		var ltp = result.ltp.toString().substring(0, 5);
-        		var open=result.open.toString().substring(0, 5);
-        		var high=result.high.toString().substring(0, 5);
-        		var low=result.low.toString().substring(0, 5);
-        		var close=result.close.toString().substring(0, 5);
-        		var pChangeValue=open-ltp;
-        		pChangeValue=pChangeValue.toString().substring(0, 4);
+        		var ltp = result.ltp;
+        		var expiryDate=result.expiryDate;
+        		var changeValue=result.change;
+        		var changePercentage=result.changePercentage;
+        		var date=result.todayDate;
         		var currencyTrend="";
-        		if(open==high){
-        			currencyTrend="Bearish";
-        			currencyTrendText="<span class='blinking2' style='color: red; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
-        		}
-        		else if(open==low){
-        			currencyTrend="Bullish";
-        			currencyTrendText="<span class='blinking2' style='color: green; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
-        		}else if(ltp>open){
+        		
+        		 latestPrice="<span style='color: #0d47a1; font-weight: bold; font-size: 14px;'>" + ltp + "</span>";
+       			 expiryDate="<span style='color: #0d47a1; font-weight: bold; font-size: 14px;'>" + expiryDate + "</span>";
+    			 priceDate="<span style='color: #0d47a1; font-weight: bold; font-size: 14px;'>" + date + "</span>";
+    			 
+        		if(changeValue>=0){
         			currencyTrend="Positive";
         			currencyTrendText="<span class='blinking2' style='color: green; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
-        		}else if(ltp<low){
+        			changeValueHtml="<span style='color: green; font-weight: bold; font-size: 14px;'>" + changeValue + "</span>";
+        			changePercentageHtml="<span style='color: green; font-weight: bold; font-size: 14px;'>" + changePercentage + "%</span>";
+        		}else
+        		{
         			currencyTrend="Negative";
         			currencyTrendText="<span class='blinking2' style='color: red; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
-        		}
-        		else{
-        			currencyTrend="sideways";
-        			currencyTrendText="<span class='blinking2' style='color: blue; font-weight: bold; font-size: 14px;'>" +currencyTrend+ "</span>";
+        			changeValueHtml="<span style='color: red; font-weight: bold; font-size: 14px;'>" + changeValue + "</span>";
+        			changePercentageHtml="<span style='color: red; font-weight: bold; font-size: 14px;'>" + changePercentage + "%</span>";
         		}
         		
-        		if(ltp>open){
-        			text="<span style='color: green; font-weight: bold; font-size: 14px;'>" +ltp+ "</span>";
-        			text1="<span style='color: green; font-weight: bold; font-size: 14px;'>" + pChangeValue + "</span>";
-        			}
-        			else{
-        				text="<span style='color: red; font-weight: bold; font-size: 14px;'>" +ltp+ "</span>";
-            			text1="<span style='color: red; font-weight: bold; font-size: 14px;'>" + pChangeValue + "</span>";
-        			}
-        		open="<span style='color: #0d47a1; font-weight: bold; font-size: 14px;'>" +open+ "</span>";
-    			high="<span style='color: green; font-weight: bold; font-size: 14px;'>" + high + "</span>";
-    			low="<span style='color: red; font-weight: bold; font-size: 14px;'>" + low + "</span>";
+        		
 
         			
-          		$("#currencyLtp").html(text);
-          		$("#currencyPriceChange").html(text1);
-          		$("#currencyPriceOpen").html(open); 
-          		$("#currencyPriceHigh").html(high); 
-          		$("#currencyPriceLow").html(low);
+          		$("#currencyLtp").html(latestPrice);
+          		$("#currencyPriceDate").html(priceDate);
+          		$("#currencyExpiryDate").html(expiryDate); 
+          		$("#currencyChangeValue").html(changeValueHtml); 
+          		$("#currencyChangePercentage").html(changePercentageHtml);
           		$("#currencyTrend").html(currencyTrendText);
         	
         }
@@ -300,6 +287,7 @@ setInterval(blinker2, 1200);
 <fieldset style="margin-left:28px;margin-right:28px;">
 <legend>
 
+
  <span style="color: #6c757d; font-size: 16px;">Welcome [ <span style="color:#007E33;"><strong> <sec:authentication property="principal.username" /></strong></span> ] Logged as a <span style="color:#4a148c;"> <sec:authentication property="principal.authorities"/> </span> #The I<span style="color: orange; font-size: 16px;">&amp;</span>T Engine Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup><br>
 <sup><span style="color: #17a2b8; font-weight: bold; font-size: 12px;"> #Last sync : <span id="txt"></span></span>  
 		&nbsp;<span style="color: #17a2b8; font-weight: bold; font-size: 12px;">#AutoSync : </span><span class="pink" style="color: #ff4444; font-weight: bold; font-size: 12px;"><span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 12px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 12px;" id="date_time"></span></small></sup>
@@ -307,12 +295,11 @@ setInterval(blinker2, 1200);
 		<sup><i><span id="nextTradingDate"></span></i></sup><br>
 		<sub>
 		<span style="color: #9c27b0; font-weight: bold; font-size: 12px;">
-	 USD<span class="glyphicon glyphicon-usd" style="color: #007E33;"></span>INR&nbsp;&nbsp;
+	 <span class="glyphicon glyphicon-usd"></span>USDINR&nbsp;&nbsp;
+     Expiry [ <span id="currencyExpiryDate"></span> ]&nbsp;
      LTP [ <span id="currencyLtp"></span> ]&nbsp;
-     Open [ <span id="currencyPriceOpen"></span> ]&nbsp;
-     High [ <span id="currencyPriceHigh"></span> ]&nbsp;
-     Low [ <span id="currencyPriceLow"></span> ]&nbsp;
-     Change [ <span id="currencyPriceChange"></span> ]&nbsp;
+     Chng  [ <span id="currencyChangeValue"></span> ]&nbsp;
+     Chng  [ <span id="currencyChangePercentage"></span> ]&nbsp;
      Currency Trend# [ <span id="currencyTrend"></span> ] <a href="https://in.finance.yahoo.com/chart/%5ENSEI#eyJpbnRlcnZhbCI6ImRheSIsInBlcmlvZGljaXR5IjoxLCJjYW5kbGVXaWR0aCI6MTkuNDc3NjExOTQwMjk4NTEsInZvbHVtZVVuZGVybGF5Ijp0cnVlLCJjcm9zc2hhaXIiOnRydWUsImNoYXJ0VHlwZSI6ImxpbmUiLCJleHRlbmRlZCI6ZmFsc2UsIm1hcmtldFNlc3Npb25zIjp7fSwiYWdncmVnYXRpb25UeXBlIjoib2hsYyIsImNoYXJ0U2NhbGUiOiJsb2ciLCJwYW5lbHMiOnsiY2hhcnQiOnsicGVyY2VudCI6MSwiZGlzcGxheSI6Il5OU0VJIiwiY2hhcnROYW1lIjoiY2hhcnQiLCJ0b3AiOjB9fSwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJsaW5lV2lkdGgiOjIsInN0cmlwZWRCYWNrZ3JvdWQiOmZhbHNlLCJldmVudHMiOmZhbHNlLCJjb2xvciI6IiMyYmJjZmYiLCJzeW1ib2xzIjpbeyJzeW1ib2wiOiJeTlNFSSIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJeTlNFSSJ9LCJwZXJpb2RpY2l0eSI6MSwiaW50ZXJ2YWwiOiJkYXkiLCJzZXRTcGFuIjp7Im11bHRpcGxpZXIiOjMsImJhc2UiOiJtb250aCIsInBlcmlvZGljaXR5Ijp7InBlcmlvZCI6MSwiaW50ZXJ2YWwiOiJkYXkifX19LHsic3ltYm9sIjoiSU5SPVgiLCJzeW1ib2xPYmplY3QiOnsic3ltYm9sIjoiSU5SPVgifSwicGVyaW9kaWNpdHkiOjEsImludGVydmFsIjoiZGF5Iiwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJpZCI6IklOUj1YIiwicGFyYW1ldGVycyI6eyJpc0NvbXBhcmlzb24iOnRydWUsImNvbG9yIjoiI2ZmMzMzYSIsIndpZHRoIjoyLCJjaGFydE5hbWUiOiJjaGFydCIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJJTlI9WCJ9LCJwYW5lbCI6ImNoYXJ0IiwiYWN0aW9uIjpudWxsLCJzaGFyZVlBeGlzIjp0cnVlLCJzeW1ib2wiOiJJTlI9WCIsImdhcERpc3BsYXlTdHlsZSI6InRyYW5zcGFyZW50IiwibmFtZSI6IkpJUkM0SjczRlYiLCJvdmVyQ2hhcnQiOnRydWUsInVzZUNoYXJ0TGVnZW5kIjp0cnVlLCJoZWlnaHRQZXJjZW50YWdlIjowLjcsIm9wYWNpdHkiOjEsImhpZ2hsaWdodGFibGUiOnRydWUsInR5cGUiOiJsaW5lIiwic3R5bGUiOiJzdHhfbGluZV9jaGFydCJ9fV0sIndpZHRoIjoyLCJjdXN0b21SYW5nZSI6bnVsbCwic3R1ZGllcyI6eyJ2b2wgdW5kciI6eyJ0eXBlIjoidm9sIHVuZHIiLCJpbnB1dHMiOnsiaWQiOiJ2b2wgdW5kciIsImRpc3BsYXkiOiJ2b2wgdW5kciJ9LCJvdXRwdXRzIjp7IlVwIFZvbHVtZSI6IiMwMGIwNjEiLCJEb3duIFZvbHVtZSI6IiNGRjMzM0EifSwicGFuZWwiOiJjaGFydCIsInBhcmFtZXRlcnMiOnsid2lkdGhGYWN0b3IiOjAuNDUsImNoYXJ0TmFtZSI6ImNoYXJ0In19fX0%3D"
      target="_blank">View Chart</a> &nbsp; 
      <a href="https://in.investing.com/indices/indices-futures" target="_blank">World Market</a>
