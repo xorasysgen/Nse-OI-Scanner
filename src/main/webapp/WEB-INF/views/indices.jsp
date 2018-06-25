@@ -12,6 +12,8 @@
         $('#example').DataTable( {
             "processing": true,
             "ajax": "indices",
+            "pageLength": 100,
+            "order": [],
             "columns": [
                 { "data": "name" ,
                	 render: function ( data, type, row ) {
