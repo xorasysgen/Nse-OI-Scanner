@@ -40,7 +40,8 @@ public class ReadURI {
 	}
 
 	public static List<Nse> unpackArchive() throws IOException {
-		String date = Utils.getDateToIgnoreWeekEndClose();
+		String date = Utils.getDateToIgnoreWeekEndCloseOpenInterest();
+		System.out.println(date);
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
 		System.out.println("ftpUrl" + ftpUrl);
@@ -114,7 +115,7 @@ public class ReadURI {
 			// System.out.println(new Gson().toJson(nse));
 			Collections.sort(nse, new CompratorClass());
 			Collections.reverse(nse);
-			System.out.println(nse);
+			//System.out.println(nse);
 			return nse;
 		} catch (IOException e) {
 		} finally {
