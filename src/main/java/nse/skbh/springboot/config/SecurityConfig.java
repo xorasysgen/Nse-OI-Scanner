@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import nse.skbh.springboot.Users;
+import nse.skbh.springboot.logic.EncryptionCodec;
 import nse.skbh.springboot.logic.Utils;
 
 
@@ -57,12 +58,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 public void configureGlobal(AuthenticationManagerBuilder authenticationMgr) throws Exception {
 	 authenticationMgr
 	 .inMemoryAuthentication()
-	 .withUser("root").password("{noop}" + Utils.decoder(Users.root.getBytes())).authorities("ROLE_USER").and()  //{noop}
-	 .withUser("jsr").password("{noop}"+Utils.decoder(Users.jsr.getBytes())).authorities("ROLE_USER", "ROLE_ADMIN").and()
-	 .withUser("sandeep").password("{noop}" + Utils.decoder(Users.sandeep.getBytes())).authorities("ROLE_USER").and()
-	 .withUser("dinesh").password("{noop}" + Utils.decoder(Users.dinesh.getBytes())).authorities("ROLE_USER").and()
-	 .withUser("ranjeet").password("{noop}" + Utils.decoder(Users.ranjeet.getBytes())).authorities("ROLE_USER").and()
-	 .withUser("bimlesh").password("{noop}" + Utils.decoder(Users.bimlesh.getBytes())).authorities("ROLE_USER");
+	 .withUser("root").password("{noop}" + 
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.root).getBytes())).authorities("ROLE_USER").and()  //{noop}
+	 .withUser("jsr").password("{noop}" + 
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.jsr).getBytes())).authorities("ROLE_USER", "ROLE_ADMIN").and()
+	 .withUser("sandeep").password("{noop}" +
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.sandeep).getBytes())).authorities("ROLE_USER").and()
+	 .withUser("dinesh").password("{noop}" +
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.dinesh).getBytes())).authorities("ROLE_USER").and()
+	 .withUser("ranjeet").password("{noop}" +
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.ranjeet).getBytes())).authorities("ROLE_USER").and()
+	 .withUser("bimlesh").password("{noop}" +
+	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.bimlesh).getBytes())).authorities("ROLE_USER");
 	}
 	 
 	 
