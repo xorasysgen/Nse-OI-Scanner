@@ -84,7 +84,5 @@ public class EncryptionCodec {
 		}
 	}
 	
-	public static void main(String[] args) {
-		System.out.println((new EncryptionCodec().excuteCodec().getDataMap().get("root")));
-	}
+
 }
