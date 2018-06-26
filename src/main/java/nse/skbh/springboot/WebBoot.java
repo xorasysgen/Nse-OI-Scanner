@@ -1,7 +1,10 @@
 package nse.skbh.springboot;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,7 @@ import nse.skbh.springboot.logic.CsvReader;
 import nse.skbh.springboot.logic.CsvReaderForthComingDividend;
 import nse.skbh.springboot.logic.CsvReaderResultsForthComingFY;
 import nse.skbh.springboot.logic.DatFileReader;
+import nse.skbh.springboot.logic.HoldingFinderService;
 import nse.skbh.springboot.logic.Nifty50Options;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
@@ -338,6 +342,37 @@ public class WebBoot {
 		ParentIndicesData parentIndicesData = response.getBody();
 		return parentIndicesData;
 	}
+	
+	
+	@RequestMapping("/nifty_top_10_weightage_holdings")
+	public ParentIndicesData getNifty10Holdings() {
+	Map<String,String> map=new HoldingFinderService().getTempCalulationNIFTY50Top10HoldingsDateFile();
+	RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+	ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+			"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+			ParentIndicesData.class);
+	ParentIndicesData parentIndicesData = response.getBody();
+	List<IndicesData> data=parentIndicesData.getData();
+	if(map!=null) {
+	List<IndicesData> newData=new ArrayList<IndicesData>();
+	for (Iterator<IndicesData> iterator = data.iterator(); iterator.hasNext();) {
+		IndicesData indicesData = (IndicesData) iterator.next();
+		if(map!=null) {
+			String w=map.get(indicesData.getSymbol());
+			if(w!=null) {
+				indicesData.setWeightage(w.trim());
+				newData.add(indicesData);
+			}
+		}
+	}
+	parentIndicesData.setData(newData);
+	}
+	return parentIndicesData;
+	
+	}
+	
+	
+	
 
 	@RequestMapping("/advances_declines_bank_nifty")
 	public ParentIndicesData AdvancesDeclinesBankNifty() {

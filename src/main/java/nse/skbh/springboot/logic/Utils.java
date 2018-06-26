@@ -61,6 +61,13 @@ public class Utils {
 		return dateFormat.format(date);
 
 	}
+	
+	
+	public static String formatDate_ddMMyy(Date date) {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyy");
+		return dateFormat.format(date);
+
+	}
 
 	public static String getDateBasedOnNSEVaRFile() {
 
@@ -169,6 +176,38 @@ public class Utils {
 
 	}
 
+	
+	
+	public static String getNIFTY50Top10HoldingsDateFormatddMMyy() {
+
+		Calendar c = Calendar.getInstance();
+		// Set the calendar to the current date
+		c.clear();
+		String fDate = formatDate_ddMMyyyy(new Date());
+		Integer year = Integer.parseInt(fDate.substring(04, 8));
+		Integer month = Integer.parseInt(fDate.substring(02, 04));
+		Integer date = Integer.parseInt(fDate.substring(0, 2));
+		c.set(year, month - 1, date); // month start from 0 - 11
+		Integer dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+		if (dayOfWeek == Calendar.FRIDAY) {
+			c.add(Calendar.DATE, -1); // If it's Friday  skip to Thursday
+		} else if (dayOfWeek == Calendar.SATURDAY) {
+			c.add(Calendar.DATE, -1); // If it's Saturday so skip to Monday
+		} else if (dayOfWeek == Calendar.SUNDAY) {
+			c.add(Calendar.DATE, -2); // If it's Sunday so skip to Monday
+		}else if (dayOfWeek == Calendar.MONDAY) {
+			c.add(Calendar.DATE, -3); // If it's Sunday so skip to Monday
+		}
+		else {
+			c.add(Calendar.DATE, -1);
+		}
+		Date preparedDate = c.getTime();
+		String formatedPreparedDate = formatDate_ddMMyy(preparedDate);
+		return formatedPreparedDate;
+
+	}
+	
+	
 	public static String getTimeZoneOfServer() {
 		String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";
 		DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
@@ -220,4 +259,6 @@ public class Utils {
 		
 		return new String(plainText, "UTF-8");
 	}
+	
+	
 }

@@ -32,6 +32,7 @@ final class Constant {
 	private static final String oi_spurts_slide_in_price_slide_in_oi = "/oi_spurts_slide_in_price_slide_in_oi";
 	private static final String advances_declines_bank_nifty = "/advances_declines_bank_nifty";
 	private static final String advances_declines_nifty = "/advances_declines_nifty";
+	private static final String nifty_top_10_weightage_holdings="/nifty_top_10_weightage_holdings";
 	private static final String security_wise_deliverable_positions_data = "/security_wise_deliverable_positions_data";
 	private static final String security_var = "/security_var";
 	private static final String future_stocks_spike_volume = "/future_stocks_spike_volume";
@@ -63,6 +64,7 @@ final class Constant {
 		list.add(advancesDeclines);
 		list.add(advances_declines_bank_nifty);
 		list.add(advances_declines_nifty);
+		list.add(nifty_top_10_weightage_holdings);
 		list.add(volumeGainers);
 		list.add(most_active_intraday);
 		list.add(bankNiftyVolume);

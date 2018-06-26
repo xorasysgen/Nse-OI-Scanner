@@ -57,6 +57,11 @@ public class JspController {
 	public String fostocks() {
 		return "fo_stocks";
 	}
+	@RequestMapping("/nifty_top_ten_heroes_weightage")
+	public String getNiftyTopTenWeightage() {
+		return "nifty_top_ten_weightage";
+	}
+	
 
 	@RequestMapping("/top_open_interest")
 	public String topOpenInterest() {
