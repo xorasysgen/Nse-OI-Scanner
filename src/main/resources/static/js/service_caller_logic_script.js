@@ -117,7 +117,85 @@ document.getElementById('timer').innerHTML =
         })
 
 /*---------------------------------------------------------------------------------*/
-<!-- end get nifty and bank nifty data -->
+        <!-- begins get nifty and bank nifty data -->
+        
+        
+        <!-- begins get curreny  and dollar index data -->
+        /*---------------------------------------------------------------------------------*/
+                $.ajax({
+                	type:'Get',
+                	url: 'currency/dollar_index_brent_usd_inr',
+                	success: function(result){
+                		var json = result;
+                		var BrentOilName=json.data[1].index;
+                		var BrentOilltp=json.data[1].ltp;
+                		var BrentOilChange=json.data[1].change;
+                		var BrentOilchangePercentage=json.data[1].changePercentage;
+                		
+                			text0="<span style='color: #9c27b0; font-weight: bold; font-size: 16px;'>" +BrentOilName+"</span>";
+                			if(BrentOilChange>0){
+                				text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + BrentOilltp + "</span>" +
+                				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+                				text1="<span  style='color: #00c853; font-weight: bold; font-size: 14px;'>" + BrentOilChange + "</span>";
+                			}
+                			else{
+                				text="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + BrentOilltp + "</span>" + 
+                				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+                				text1="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilChange + "</span>";
+                			}
+                			
+                			if(BrentOilchangePercentage>0){
+                				text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "</span>";
+                			}
+                			else{
+                				text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "</span>";
+                			}
+                			
+                			var USDINRName=json.data[2].index;
+                			var USDINR=json.data[2].ltp;
+                   			var USDINRChange=json.data[2].change;
+                   			var USDINRchangePercentage=json.data[2].changePercentage;
+                   			
+                   				text10="<span style='color: #9c27b0; font-weight: bold; font-size: 16px;'>" +USDINRName+"</span>";
+                    			if(USDINRChange>0){
+                    				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + USDINR + "</span>" + 
+                    				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+                    				text4="<span  style='color: #00c853; font-weight: bold; font-size: 14px;'>" + USDINRChange + "</span>";
+                    			}
+                    			else{
+                    				text3="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + USDINR + "</span>" + 
+                    				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+                    				text4="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + USDINRChange + "</span>";
+                    			}
+                    			
+                    			if(USDINRchangePercentage>0){
+                    				text5="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "</span>";
+                    			}
+                    			else{
+                    				text5="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "</span>";
+                    			}
+                    
+                    $("#BrentOilName").html(text0);	
+                    $("#BrentOilPrice").html(text);
+                    $("#BrentOilPriceChange").html(text1);
+                    $("#BrentOilChangePercentage").html(text2);
+                    
+                    $("#USDINRName").html(text10);	
+                    $("#USDINR").html(text3);
+                    $("#USDINRChange").html(text4);
+                    $("#USDINRchangePercentage").html(text5);
+                	
+                }
+                })
+
+        /*---------------------------------------------------------------------------------*/
+        <!-- end get curreny  and dollar index data -->
+        
+        
+        
+        
+        
+        
 
 /*---------------------------------------------------------------------------------*/
         $.ajax({

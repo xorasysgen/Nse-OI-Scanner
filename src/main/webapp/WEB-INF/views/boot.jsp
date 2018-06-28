@@ -80,14 +80,29 @@
 		<sup><i><span id="mktStatus"></span></i></sup>
 		<sup><i><span id="nextTradingDate"></span></i></sup><br>
 		<sub>
-		<span style="color: #9c27b0; font-weight: bold; font-size: 16px;">
-     NIFTY 50 [ <span id="niftyPrice"></span> <sup><span id="niftyPriceChangePercentage"></span>&nbsp;&nbsp;<span id="niftyPriceChange"></span>) </sup>]  &nbsp; &nbsp; &nbsp;
-     BANK NIFTY [ <span id="bankNiftyPrice"></span><sup><span id="bankNiftyPriceChangePercentage"></span>&nbsp;&nbsp;<span id="bankNiftyPriceChange"></span></sup> ]  &nbsp; &nbsp; &nbsp;
-     USDINR [ <span id="currencyLtp"></span><sup><span id="currencyChangePercentage"></span>&nbsp;&nbsp;<span id="currencyChangeValue"></span></sup> ]
+		<span style="color: #9c27b0; font-weight: bold; font-size: 15px;">
+     NIFTY50 [ <span id="niftyPrice"></span> <sup><span id="niftyPriceChangePercentage"></span>&nbsp;&nbsp;<span id="niftyPriceChange"></span>) </sup>] &nbsp;
+     BANK NIFTY [ <span id="bankNiftyPrice"></span><sup><span id="bankNiftyPriceChangePercentage"></span>&nbsp;&nbsp;<span id="bankNiftyPriceChange"></span></sup> ]&nbsp;
+     USDINR-FUT [ <span id="currencyLtp"></span><sup><span id="currencyChangePercentage"></span>&nbsp;&nbsp;<span id="currencyChangeValue"></span></sup> ]&nbsp;
+     
+      <span id="USDINRName"></span> [ <span id="USDINR"></span><sup><span id="USDINRchangePercentage"></span>&nbsp;&nbsp;<span id="USDINRChange"></span></sup> ]&nbsp;
+      <span id="BrentOilName"></span> [ <span id="BrentOilPrice"></span><sup><span id="BrentOilChangePercentage"></span>&nbsp;&nbsp;<span id="BrentOilPriceChange"></span></sup> ]
+      
      </span>
      </sub>
 </legend>
 
+
+  
+              <!--       $("#BrentOilName").html(text0);	
+                    $("#BrentOilPrice").html(text);
+                    $("#BrentOilPriceChange").html(text1);
+                    $("#BrentOilChangePercentage").html(text2);
+                    
+                    $("#USDINRName").html(text10);	
+                    $("#USDINR").html(text3);
+                    $("#USDINRChange").html(text4);
+                    $("#USDINRchangePercentage").html(text5); -->
 <!-- <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 		<legend><span style="color: #17a2b8;">Market Trend - Overall Advances/Declines Ratio</span></legend> -->
 		
