@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nse.skbh.springboot.logic.CsvReaderCurrency;
 import nse.skbh.springboot.logic.CsvReaderToGetCurrencyLive;
+import nse.skbh.springboot.logic.DollarIndexBrentUSDINRReader;
 import nse.skbh.springboot.pojo.CurrencyFutureLive;
+import nse.skbh.springboot.pojo.ParentDollarIndexBrentUSDINR;
 import nse.skbh.springboot.pojo.USDINRCurrency;
 
 @RestController
@@ -24,6 +26,14 @@ public class CurrencyController {
 	@ResponseBody
 	public CurrencyFutureLive getIntradayUSDINRCurrency() {
 		return new CsvReaderToGetCurrencyLive().getCsvReaderToGetCurrencyLive();
+
+	}
+	
+	
+	@RequestMapping("/dollar_index_brent_usd_inr")
+	@ResponseBody
+	public ParentDollarIndexBrentUSDINR getDollarIndexBrentUSDINR() {
+		return DollarIndexBrentUSDINRReader.dollarIndexBrentUSDINRProcessor();
 
 	}
 
