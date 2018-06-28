@@ -253,7 +253,8 @@ document.getElementById('timer').innerHTML =
     <div class="panel-heading">
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
-        Bank Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;] </h3>
+        Bank Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
+      <span class="supsub"><span style="color: #00e676;"><strong>0.53</strong></span><br /><span style="color: #ffc107;"><strong>1.50</strong></span></span> </h3>
     </div>
     <div class="panel-body">
 	<table id="example"	class="display compact row-border table-bordered dt-responsive" style="width: 100%">

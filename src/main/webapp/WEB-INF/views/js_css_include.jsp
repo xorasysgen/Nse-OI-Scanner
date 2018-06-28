@@ -33,6 +33,20 @@
  
  
 <style>
+
+.nobr {
+   white-space: nowrap;
+}
+.supsub {
+   display: inline-block;
+   margin: -9em 0;
+   vertical-align: -0.55em;
+   line-height: 1.35em;
+   font-size: 85%;
+   text-align: left;
+}
+
+
 .darksalmon{
 color: darksalmon;
 font-weight: bold;
