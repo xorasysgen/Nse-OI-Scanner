@@ -91,18 +91,6 @@
      </span>
      </sub>
 </legend>
-
-
-  
-              <!--       $("#BrentOilName").html(text0);	
-                    $("#BrentOilPrice").html(text);
-                    $("#BrentOilPriceChange").html(text1);
-                    $("#BrentOilChangePercentage").html(text2);
-                    
-                    $("#USDINRName").html(text10);	
-                    $("#USDINR").html(text3);
-                    $("#USDINRChange").html(text4);
-                    $("#USDINRchangePercentage").html(text5); -->
 <!-- <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 		<legend><span style="color: #17a2b8;">Market Trend - Overall Advances/Declines Ratio</span></legend> -->
 		
