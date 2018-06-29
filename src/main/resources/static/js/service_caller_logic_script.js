@@ -144,11 +144,12 @@ document.getElementById('timer').innerHTML =
                 				text1="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilChange + "</span>";
                 			}
                 			
+                			BrentOilchangePercentage=BrentOilchangePercentage.toString().substring(0,5);
                 			if(BrentOilchangePercentage>0){
-                				text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "</span>";
+                				text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "%</span>";
                 			}
                 			else{
-                				text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "</span>";
+                				text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "%</span>";
                 			}
                 			
                 			var USDINRName=json.data[2].index;
@@ -168,11 +169,12 @@ document.getElementById('timer').innerHTML =
                     				text4="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + USDINRChange + "</span>";
                     			}
                     			
+                    			USDINRchangePercentage=USDINRchangePercentage.toString().substring(0,5);
                     			if(USDINRchangePercentage>0){
-                    				text5="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "</span>";
+                    				text5="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "%</span>";
                     			}
                     			else{
-                    				text5="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "</span>";
+                    				text5="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + USDINRchangePercentage + "%</span>";
                     			}
                     
                     $("#BrentOilName").html(text0);	
