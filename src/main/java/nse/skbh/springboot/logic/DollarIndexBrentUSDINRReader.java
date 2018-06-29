@@ -68,7 +68,7 @@ public class DollarIndexBrentUSDINRReader {
 		ParentDollarIndexBrentUSDINR parentDollarIndexBrentUSDINR=new ParentDollarIndexBrentUSDINR();
 		List<DollarIndexBrentUSDINR> data=new ArrayList<DollarIndexBrentUSDINR>();
 		Map<String,String> map=DollarIndexBrentUSDINRReader.getDollarIndexBrentUSDINRReader();
-		System.out.println(map);
+		//System.out.println(map);
 		if(map!=null) {
 		for(Entry<String, String> mapValue:map.entrySet()) {
 			if(mapValue.getKey().equals("US_Dollar_Index")) {
