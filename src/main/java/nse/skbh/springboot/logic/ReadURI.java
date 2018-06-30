@@ -34,7 +34,7 @@ public class ReadURI {
 			return true;
 		} catch (FileNotFoundException fe) {
 			System.out.println("File Not Found! : " + file_name);
-			System.out.println("Attemping to search file in current directory... " + file_name);
+			System.out.println("Attemping to download previous day file from NSE... " + file_name);
 			return false;
 		}
 	}
@@ -42,6 +42,7 @@ public class ReadURI {
 	public static List<Nse> unpackArchive() throws IOException {
 		String date = Utils.getDateToIgnoreWeekEndCloseOpenInterest();
 		System.out.println(date);
+		String hitAndTrialURL="https://www.nseindia.com/archives/nsccl/mwpl/";
 		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
 		System.out.println("ftpUrl" + ftpUrl);
@@ -50,10 +51,17 @@ public class ReadURI {
 		boolean status = downloadUsingStream(url, file_name);
 		try {
 			if (!status) {
-				int loop_rolling = 2;
-				while (true) {
+				int loop_rolling = 1;
+				status=false;
+				while (!status) {
 					date = Utils.getdayBeforeYesterdayDateString(loop_rolling++);
 					file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
+					ftpUrl=hitAndTrialURL +file_name;
+					url = new URL(ftpUrl);
+					/*System.out.println("hitAndTrialURL#" + ftpUrl);
+					System.out.println("hitAndTrialURL file_name#" + file_name);
+					System.out.println("hitAndTrialURL status#" + status);*/
+					status = downloadUsingStream(url, file_name);
 					File f = new File(file_name);
 					boolean file_status = f.exists();
 					if (file_status == false) {
@@ -71,15 +79,15 @@ public class ReadURI {
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			ZipInputStream zis = new ZipInputStream(bis);
 			ZipEntry entry = null;
-			System.out.println("inside zipo reader" + url.toString());
+			//System.out.println("inside zipo reader" + url.toString());
 			File zipFile = new File(file_name);
-			System.out.println(zipFile.getAbsoluteFile());
+			//System.out.println(zipFile.getAbsoluteFile());
 			@SuppressWarnings("resource")
 			ZipFile zip = new ZipFile(zipFile);
 			List<Nse> nse = new LinkedList<Nse>();
 			while ((entry = zis.getNextEntry()) != null) {
-				System.out.println("entry: " + entry.getName() + ", " + entry.getSize());
-				System.out.println(entry.getComment());
+				//System.out.println("entry: " + entry.getName() + ", " + entry.getSize());
+				//System.out.println(entry.getComment());
 				BufferedReader bufferedeReader = new BufferedReader(new InputStreamReader(zip.getInputStream(entry)));
 				String line = bufferedeReader.readLine();
 				int i = 0;

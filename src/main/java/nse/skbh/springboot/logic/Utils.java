@@ -11,6 +11,9 @@ public class Utils {
 
 	private static Date dayBeforeYesterday(int dayBack) {
 		final Calendar cal = Calendar.getInstance();
+		if (dayBack == 1)
+			dayBack = -1;
+		
 		if (dayBack == 2)
 			dayBack = -2;
 
