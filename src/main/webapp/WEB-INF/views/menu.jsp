@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <style>
 a.menu_links { cursor: pointer; }
 </style>
@@ -132,5 +133,7 @@ a.menu_links { cursor: pointer; }
 </nav>
   
   
-<form id="logoutForm" method="POST" action="${contextPath}/logout"></form>
+<form id="logoutForm" method="POST" action="${contextPath}/logout">
+<sec:csrfInput /> 
+</form>
   

@@ -1,5 +1,4 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:csrfInput /> 
 <!doctype html>
 <html>
 <head>
@@ -238,7 +237,7 @@
 </div>
 
 </fieldset>
-
+<sec:csrfInput /> 
 <!-- </fieldset> -->
 
 <jsp:include page="footer.jsp" />

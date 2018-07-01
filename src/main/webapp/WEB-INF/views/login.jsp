@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:csrfInput />  
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -90,6 +90,7 @@ span.psw {
 <div class="container">
     <h2 class="form-heading"><span style="color: #FF8800; font-size: 22px; text-align: right;" >Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup></h2>
     <form method="POST" action="${contextPath}/login" class="form-signin">
+     <sec:csrfInput /> 
      <div class="imgcontainer">
     <img src="images/banner.gif" style="height:120px; width:150px;" alt="Avatar" class="avatar">
   	</div>
@@ -103,13 +104,15 @@ span.psw {
             <span  style="color:#ff4444;">${errorMsg}<br></span>
 
             <label>
-      			<input type="checkbox" checked="checked" name="remember">  Stay signed in
+      			<input type="checkbox" checked="checked" name="remember-me" id="remember-me">  Stay Signed In/Remember Me
     		</label>
             <button class="btn btn-lg btn-success btn-block" type="submit">Log In</button><br>
             <span class="psw"><a href="#">Forgot the password?</a></span>
         </div>
 
     </form>
+  <%--  <input type="hidden" name="${_csrf.parameterName}"	value="${_csrf.token}"/> --%>
+     
 
 </div>
 <!-- /container -->

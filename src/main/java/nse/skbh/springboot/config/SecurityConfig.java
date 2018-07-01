@@ -19,7 +19,8 @@ import nse.skbh.springboot.logic.Utils;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+    
+	@Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
     
     @Autowired
@@ -43,14 +44,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//.antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
-		.loginPage("/login").permitAll().and().logout().permitAll()
+		.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me").permitAll()
 		.and()
+        .rememberMe()
+        .and()
         .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
-		http.csrf().disable();
 		http.sessionManagement()
 		.maximumSessions(1)
 		.expiredUrl("/login")
 		.maxSessionsPreventsLogin(false);
+		/*http.csrf().disable();*/
 		
 	}
 
