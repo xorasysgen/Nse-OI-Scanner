@@ -20,6 +20,7 @@ import nse.skbh.springboot.logic.CsvReaderForthComingDividend;
 import nse.skbh.springboot.logic.CsvReaderResultsForthComingFY;
 import nse.skbh.springboot.logic.DatFileReader;
 import nse.skbh.springboot.logic.HoldingFinderService;
+import nse.skbh.springboot.logic.HtmlReaderindices;
 import nse.skbh.springboot.logic.Nifty50Options;
 import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
@@ -46,6 +47,7 @@ import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.ParentStocksFutures;
 import nse.skbh.springboot.pojo.ParentTop20Contract;
 import nse.skbh.springboot.pojo.ParentVolumeGainer25;
+import nse.skbh.springboot.pojo.ParentWorldFutureIndex;
 import nse.skbh.springboot.pojo.ParentsForthComingResultsFY;
 import nse.skbh.springboot.pojo.ParentsNiftyIndices;
 import nse.skbh.springboot.pojo.ParentsOI;
@@ -453,5 +455,10 @@ public class WebBoot {
 		return BroadMarketIndices.getBroadMarketIndices();
 	}
 	
+	
+	@RequestMapping("/world_market_indices")
+	public ParentWorldFutureIndex getWorldMarketIndices() {
+		return HtmlReaderindices.getParentWorldFutureIndex();
+	}
 
 }

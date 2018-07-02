@@ -30,7 +30,7 @@ public class OptionChainReader {
 				Elements row = table.select("tr");
 						for (int i = 2; i < row.size()-1; i++) {
 							String rowValues=row.get(i).text();
-							System.out.println(rowValues);
+							//System.out.println(rowValues);
 							OI oi=new OI();
 							String dataValue[]=rowValues.split("\\s+");
 									 oi.setOi_call(dataValue[0]);

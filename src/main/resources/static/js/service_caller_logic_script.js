@@ -258,6 +258,52 @@ document.getElementById('timer').innerHTML =
 
 /*---------------------------------------------------------------------------------*/
 
+         <!-- begins world index data -->
+        /*---------------------------------------------------------------------------------*/
+                $.ajax({
+                	type:'Get',
+                	url: 'world_market_indices',
+                	success: function(result){
+                		var json = result;
+                		var dow30Name=json.data[0].index;
+                		var dow30ltp=json.data[0].ltp;
+                		var dow30Change=json.data[0].chg;
+                		var dow30changePercentage=json.data[0].chgPer;
+                		
+                			text0="<span style='color: #9c27b0; font-weight: bold; font-size: 16px;'>" +dow30Name+"</span>";
+                			if(dow30Change>0){
+                				text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + dow30ltp + "</span>" +
+                				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+                				text1="<span  style='color: #00c853; font-weight: bold; font-size: 14px;'>" + dow30Change + "</span>";
+                			}
+                			else{
+                				text="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + dow30ltp + "</span>" + 
+                				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+                				text1="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + dow30Change + "</span>";
+                			}
+                			
+                			dow30changePercentage=dow30changePercentage.toString().substring(0,5);
+                			if(dow30changePercentage>0){
+                				text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>" + dow30changePercentage + "%</span>";
+                			}
+                			else{
+                				text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + dow30changePercentage + "%</span>";
+                			}
+                			
+                			
+                    
+                    $("#Dow30Name").html(text0);	
+                    $("#Dow30Price").html(text);
+                    $("#Dow30PriceChange").html(text1);
+                    $("#Dow30ChangePercentage").html(text2);
+                    
+                	
+                }
+                })
+
+        
+         <!-- begins world index data -->
+        
 /*---------------------------------------------------------------------------------*/
         $.ajax({
         	type:'Get',

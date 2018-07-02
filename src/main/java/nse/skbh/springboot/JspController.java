@@ -216,4 +216,9 @@ public class JspController {
 	}
 	
 	
+	@RequestMapping("/world_market_futures")
+	public String getWorldMarketFuturesIndices() {
+		return "world_market_indices";
+	}
+	
 }
