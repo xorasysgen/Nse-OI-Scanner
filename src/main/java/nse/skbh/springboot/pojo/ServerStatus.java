@@ -1,5 +1,8 @@
 package nse.skbh.springboot.pojo;
 
+import java.util.List;
+
+import nse.skbh.springboot.health.CheckServerStatusService;
 import nse.skbh.springboot.logic.Utils;
 
 public class ServerStatus {
@@ -13,6 +16,7 @@ public class ServerStatus {
 	private final String appOwnerEmail;
 	private final String appGoal;
 	private final String message;
+	private final Health health;
 
 	public ServerStatus() {
 		this.serverDate = Utils.getTimeZoneOfServer();
@@ -24,8 +28,16 @@ public class ServerStatus {
 		this.appOwnerEmail = "xorasysgen@yahoo.com";
 		this.appGoal = "F&O equity analysis platform - The Trading & Investing Engine that simplify trades";
 		this.message = "JSR101 Boot Micro Service is Running Ok.200";
+		List<Long> jvmMemoryList=CheckServerStatusService.getSimpleJVMMemoryDetail();
+		Health health=new Health();
+			health.setUsedHeapSizeMemory(jvmMemoryList.get(0));
+			health.setFreeHeapSizeMemory(jvmMemoryList.get(1));
+			health.setTotalHeapHeapSizeMemory(jvmMemoryList.get(2));
+			health.setMaximumHeapHeapSizeMemory(jvmMemoryList.get(3));
+			this.health=health;
+	
 	}
-
+	
 	public String getServerDate() {
 		return serverDate;
 	}
@@ -60,6 +72,10 @@ public class ServerStatus {
 
 	public String getMessage() {
 		return message;
+	}
+
+	public Health getHealth() {
+		return health;
 	}
 
 }
