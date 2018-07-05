@@ -18,16 +18,16 @@
                 { "data": "underlying" ,
                 	render: function ( data, type, row ) {
                         if (data == 'NIFTY') {
-                          return '<span class="liteGreen">'+data+'</span>';
+                          return '<span class="nifty">'+data+'</span>';
                         } else {
-                          return '<span class="positive">'+data+'</span>';
+                          return '<span class="bankNifty">'+data+'</span>';
                         }
                       }
                 },
                 { "data": "expiryDate",
                   	 render: function ( data, type, row ) {
                          
-                         return '<span class="symbol">'+data+'</span>';
+                         return '<span class="black">'+data+'</span>';
                        
                      } 
                 },
@@ -40,7 +40,13 @@
                         }
                       }
                 },
-                { "data": "strikePrice" },
+                { "data": "strikePrice" ,
+                  	 render: function ( data, type, row ) {
+                         
+                         return '<span class="symbol">'+data+'</span>';
+                       
+                     } 
+                },
                 { "data": "premiumTurnoverLacs" , 
 	               	 render: function ( data, type, row ) {
 	                     return '<span class="navy">'+data+'</span>';
@@ -54,7 +60,7 @@
                 { "data": "openPrice" },
                 { "data": "highPrice" , 
                	 render: function ( data, type, row ) {
-                     return '<span class="darkGreen">'+data+'</span>';
+                     return '<span class="positive">'+data+'</span>';
                  } 
                 },
                 { "data": "lowPrice" , 
@@ -68,14 +74,18 @@
                      } 
                 },
                 { "data": "volumeContracts" }, 
-                { "data": "turnoverLacs" },
+                { "data": "turnoverLacs" , 
+	               	 render: function ( data, type, row ) {
+	                     return '<span class="navy">'+data+'</span>';
+	                 } 
+                },
                 {"data": "underlyingValue",
                   	 render: function ( data, type, row ) {
                   		if (data >= 7000 && data<=12500) {
-                         return '<span class="liteGreen">'+data+'</span>';
+                         return '<span class="nifty">'+data+'</span>';
                   		}
                   		else{
-                  			return '<span class="positive">'+data+'</span>';
+                  			return '<span class="bankNifty">'+data+'</span>';
                   		}
                   			
                        
@@ -84,7 +94,26 @@
                 
             ]
         } );
+        
+var selected = [];
+    	
+    	$('#example tbody').on('click', 'tr', function () {
+            var id = this.id;
+            var index = $.inArray(id, selected);
+     
+            if ( index === -1 ) {
+                selected.push( id );
+            } else {
+                selected.splice( index, 1 );
+            }
+     
+            $(this).toggleClass('selected');
+        } );
+        
+        
     } );
+    
+    
     </script>
     
     

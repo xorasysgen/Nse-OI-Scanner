@@ -34,6 +34,22 @@
  
 <style>
 
+.black {
+color:black;
+font-weight: bold;
+}
+
+.nifty {
+color:#FF8800;
+font-weight: bold;
+}
+
+.bankNifty {
+color:#f50057; /* primary-color-dark-pink*/
+font-weight: bold;
+}
+
+
 .nobr {
    white-space: nowrap;
 }
