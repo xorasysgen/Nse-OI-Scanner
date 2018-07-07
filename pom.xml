@@ -100,19 +100,30 @@
 
 	<build>
 	
-	<resources>
-        <resource>
-            <directory>src/main/resources</directory>
-            <filtering>true</filtering>
-        </resource>
-    </resources>
-    
 		<plugins>
 			<plugin>
 				<!-- Build an executable JAR -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
+							<profile>
+								<id>heroku</id>
+								<activation>
+									<activeByDefault>true</activeByDefault>
+								</activation>
+								<properties>
+									<spring.profiles.active>heroku</spring.profiles.active>
+									<log4j.level>DEBUG</log4j.level>
+								</properties>
+								<build>
+									<resources>
+										<resource>
+											<directory>src/main/resources</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</build>
+							</profile>
 					<archive>
 						<manifest>
 							<mainClass>nse.skbh.springboot.NseBoot</mainClass>
