@@ -95,35 +95,62 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	
 
-
+<profiles>
+    <profile>
+        <id>heroku</id>
+        <activation>
+            <property>
+                <name>heroku</name>
+            </property>
+        </activation>
 	<build>
-	
+	<plugins>
+                <plugin>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <version>1.1.1</version>
+                    <configuration>
+                        <appName>NSE Research Application api</appName>
+                        <includeTarget>false</includeTarget>
+                        <includes>
+                            <include>${full-artifact-name}</include>
+                        </includes>
+                        <jdkVersion>1.8</jdkVersion>
+                        <processTypes>
+                            <web>java $JAVA_OPTS -jar ${full-artifact-name} --spring.profiles.active=heroku</web>
+                        </processTypes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+	</build>
+	</profile>
+
+
+
+<!-- <profiles>
+    <profile>
+        <id>heroku</id>
+        <activation>
+            <property>
+                <name>heroku</name>
+            </property>
+        </activation>
+	<build>
 		<plugins>
 			<plugin>
-				<!-- Build an executable JAR -->
+				Build an executable JAR
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-							<profile>
-								<id>heroku</id>
-								<activation>
-									<activeByDefault>true</activeByDefault>
-								</activation>
-								<properties>
-									<spring.profiles.active>heroku</spring.profiles.active>
-									<log4j.level>DEBUG</log4j.level>
-								</properties>
-								<build>
-									<resources>
-										<resource>
-											<directory>src/main/resources</directory>
-											<filtering>true</filtering>
-										</resource>
-									</resources>
-								</build>
-							</profile>
 					<archive>
 						<manifest>
 							<mainClass>nse.skbh.springboot.NseBoot</mainClass>
@@ -138,4 +165,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	</profile> -->
+</profiles>
 </project>
