@@ -8,20 +8,27 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
-import nse.skbh.springboot.Users;
-import nse.skbh.springboot.logic.EncryptionCodec;
-import nse.skbh.springboot.logic.Utils;
+import nse.skbh.springboot.boot.backend.mongo.service.LoginUserDetailsService;
+
 
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	
 	@Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
+	
+	@Autowired
+	private LoginUserDetailsService loginUserDetailsService;
     
     @Autowired
 	private UserAuthenticationSuccessHandler successHandler;
@@ -34,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers("/api/**", "/static/**", "/css/**", "/js/**", "/images/**");
 	}
 
 	@Override
@@ -57,7 +64,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 
-	 @Autowired
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	    UserDetailsService userDetailsService = mongoUserDetails();
+	    auth
+	        .userDetailsService(userDetailsService)
+	        .passwordEncoder(bCryptPasswordEncoder);
+
+	}
+	
+	
+	/* @Autowired
 	 public void configureGlobal(AuthenticationManagerBuilder authenticationMgr) throws Exception {
 	 authenticationMgr
 	 .inMemoryAuthentication()
@@ -73,11 +91,61 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.ranjeet).getBytes())).authorities("ROLE_USER").and()
 	 .withUser("bimlesh").password("{noop}" +
 	 Utils.decoder(new EncryptionCodec().excuteCodec().getDataMap().get(Users.bimlesh).getBytes())).authorities("ROLE_USER");
+	}*/
+	 
+	 
+	
+	@Bean
+	public UserDetailsService mongoUserDetails() {
+	    return new LoginUserDetailsService();
 	}
-	 
-	 
-	/* @Bean
-	 public PasswordEncoder passwordEncoder() {
-	     return new BCryptPasswordEncoder();
-	 }*/
+	
+
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+	    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+	    return bCryptPasswordEncoder;
+	}
+
+
+	public BCryptPasswordEncoder getbCryptPasswordEncoder() {
+		return bCryptPasswordEncoder;
+	}
+
+
+	public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	}
+
+
+	public LoggingAccessDeniedHandler getAccessDeniedHandler() {
+		return accessDeniedHandler;
+	}
+
+
+	public void setAccessDeniedHandler(LoggingAccessDeniedHandler accessDeniedHandler) {
+		this.accessDeniedHandler = accessDeniedHandler;
+	}
+
+
+	public LoginUserDetailsService getLoginUserDetailsService() {
+		return loginUserDetailsService;
+	}
+
+
+	public void setLoginUserDetailsService(LoginUserDetailsService loginUserDetailsService) {
+		this.loginUserDetailsService = loginUserDetailsService;
+	}
+
+
+	public UserAuthenticationSuccessHandler getSuccessHandler() {
+		return successHandler;
+	}
+
+
+	public void setSuccessHandler(UserAuthenticationSuccessHandler successHandler) {
+		this.successHandler = successHandler;
+	}
+
+
 }
