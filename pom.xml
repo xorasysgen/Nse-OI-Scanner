@@ -33,12 +33,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		
-
 
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
@@ -87,7 +81,12 @@
 		    <artifactId>commons-codec</artifactId>
 		    </dependency>
 	
-</dependencies>
+	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+	</dependencies>
 
 
 	<properties>
@@ -95,16 +94,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+	
 
 
-<profiles>
-    <profile>
-        <id>heroku</id>
-        <activation>
-            <property>
-                <name>heroku</name>
-            </property>
-        </activation>
 	<build>
 		<plugins>
 			<plugin>
@@ -119,12 +111,11 @@
 					</archive>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-	</profile>
-</profiles>
 </project>
