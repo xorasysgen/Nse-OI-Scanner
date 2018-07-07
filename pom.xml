@@ -117,10 +117,8 @@
 							<mainClass>nse.skbh.springboot.NseBoot</mainClass>
 						</manifest>
 					</archive>
-					<jvmArguments>-Dspring.profiles.active=heroku</jvmArguments>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
