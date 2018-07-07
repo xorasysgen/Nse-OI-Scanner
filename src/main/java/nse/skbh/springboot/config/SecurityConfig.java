@@ -73,9 +73,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        .passwordEncoder(bCryptPasswordEncoder);
 
 	}
+
 	
-	
-	/* @Autowired
+/*	 @Autowired
 	 public void configureGlobal(AuthenticationManagerBuilder authenticationMgr) throws Exception {
 	 authenticationMgr
 	 .inMemoryAuthentication()
