@@ -23,7 +23,7 @@ public class LastThursdayOfEveryMonth {
                 c.set(Calendar.DAY_OF_MONTH, --day); // to get thursday
                 
                 String date=day.toString().concat(mon.toUpperCase()).concat(year.toString());
-               // System.out.println(date);
+               //System.out.println(date);
                 lm.put(i++,date);
                 c.set(year, c.get(Calendar.MONTH) + 1, 1);
             }
@@ -47,13 +47,20 @@ public class LastThursdayOfEveryMonth {
                 c1.set(year, c.get(Calendar.MONTH) + 1, 1);
             }
         }
-		Integer currentMonth=Calendar.DAY_OF_MONTH;
+		Integer currentMonth=Calendar.getInstance().get(Calendar.MONTH);
+		System.out.println(currentMonth);
         result.add(lm.get(currentMonth));
         result.add(lm.get(++currentMonth));
         result.add(lm.get(++currentMonth));
 		return result;
         
     }
+    
+    /*public static void main(String[] args) {
+    	System.out.println(LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth());
+
+	}*/
+    
     
     
 }

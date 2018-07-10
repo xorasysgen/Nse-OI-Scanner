@@ -51,6 +51,8 @@ final class Constant {
 	private static final String intraday_usd_inr_live="/currency/intraday_usd_inr_live";
 	private static final String dollar_index_brent_usd_inr="/currency/dollar_index_brent_usd_inr";
 	private static final String world_market_indices="/world_market_indices";
+	private static final String nifty_future_oi="/nifty_future_oi";
+	private static final String bank_nifty_future_oi="/bank_nifty_future_oi";
 
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -100,6 +102,8 @@ final class Constant {
 		list.add(intraday_usd_inr_live);
 		list.add(dollar_index_brent_usd_inr);
 		list.add(world_market_indices);
+		list.add(nifty_future_oi);
+		list.add(bank_nifty_future_oi);
 		return list;
 
 	}

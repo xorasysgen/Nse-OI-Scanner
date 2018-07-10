@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 
+import nse.skbh.springboot.logic.BankNiftyFutureOIReader;
 import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
 import nse.skbh.springboot.logic.BroadMarketIndices;
 import nse.skbh.springboot.logic.CsvReader;
@@ -33,6 +34,7 @@ import nse.skbh.springboot.pojo.MarketCapitalisation;
 import nse.skbh.springboot.pojo.Nse;
 import nse.skbh.springboot.pojo.OIData;
 import nse.skbh.springboot.pojo.ParentAdvanceDecline;
+import nse.skbh.springboot.pojo.ParentBankNiftyFuture;
 import nse.skbh.springboot.pojo.ParentDeliveryBhavData;
 import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndices;
@@ -459,6 +461,16 @@ public class WebBoot {
 	@RequestMapping("/world_market_indices")
 	public ParentWorldFutureIndex getWorldMarketIndices() {
 		return HtmlReaderindices.getParentWorldFutureIndex();
+	}
+	
+	@RequestMapping("/nifty_future_oi")
+	public ParentBankNiftyFuture getNiftyFutureOI() {
+		return BankNiftyFutureOIReader.getNiftyFutureOIReader();
+	}
+	
+	@RequestMapping("/bank_nifty_future_oi")
+	public ParentBankNiftyFuture getBankNiftyFutureOI() {
+		return BankNiftyFutureOIReader.getBankNiftyFutureOIReader();
 	}
 
 }
