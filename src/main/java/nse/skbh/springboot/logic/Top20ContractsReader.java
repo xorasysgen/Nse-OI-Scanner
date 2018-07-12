@@ -1,7 +1,9 @@
 package nse.skbh.springboot.logic;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -57,6 +59,44 @@ public class Top20ContractsReader {
 			return new ParentTop20Contract();
 		}
 
+	}
+	
+	private static String convertOptionType(String target) {
+		if(target.equalsIgnoreCase("PE"))
+			return "CE";
+		else if(target.equalsIgnoreCase("CE"))
+			return "PE";
+		return "";
+		
+	}
+	
+	public static Map<String,String> bankNiftyOptionFinder(){
+		Map<String,String> filter=new LinkedHashMap<>();
+		List<Top20Contract> t=Top20ContractsReader.getTop20ContractsNSE().getData();
+		
+		if(t!=null) {
+			String optionType=convertOptionType(t.get(0).getOptionType());
+			String strikePrice=t.get(0).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+			filter.put("1", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=convertOptionType(t.get(1).getOptionType());
+				String strikePrice=t.get(1).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("2", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=convertOptionType(t.get(2).getOptionType());
+				String strikePrice=t.get(2).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("3", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=convertOptionType(t.get(3).getOptionType());
+				String strikePrice=t.get(3).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("4	", strikePrice.concat("-").concat(optionType));
+			}
+		
+		return filter;
+		
 	}
 		
 }

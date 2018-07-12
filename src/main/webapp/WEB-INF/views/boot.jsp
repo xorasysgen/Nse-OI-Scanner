@@ -251,6 +251,24 @@
 
 </div>
 
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Suggestion <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>
+    </div>
+<div>
+ <sub>
+		<span style="color: #9c27b0; font-weight: bold; font-size: 15px;">
+			Bank Nifty Prediction 1 [ <span id="Predictionfirst"></span> ]<br>
+			Bank Nifty Prediction 2 [ <span id="Predictionsecond"></span> ]<br>
+			Bank Nifty Prediction 3 [ <span id="Predictionthird"></span> ]<br>
+			Bank Nifty Prediction 4 [ <span id="Predictionfour"></span> ]<br>
+	     </span>
+     </sub>	
+
+</div>
+</div>
+
+
 </fieldset>
 <sec:csrfInput /> 
 <!-- </fieldset> -->

@@ -193,7 +193,36 @@
         /*---------------------------------------------------------------------------------*/
         /*end get bank nifty future data*/ 
         
-        
+        /* begins get bank nifty suggestion data*/
+/*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/bank_nifty_expiry_day_option_suggestion',
+        	success: function(result){
+        		var json = result;
+        		
+        		var first=json.data[0].optionTypeStrikePrice;
+        		var second=json.data[1].optionTypeStrikePrice;
+        		var third=json.data[2].optionTypeStrikePrice;
+        		var four=json.data[3].optionTypeStrikePrice;
+        		
+    				text0="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + first + "</span>";
+    				
+    				text1="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + second + "</span>"; 
+    				
+    				text2="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + third + "</span>"; 
+    				
+    				text3="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + four + "</span>";
+        	
+        		
+            $("#Predictionfirst").html(text0);
+            $("#Predictionsecond").html(text1);
+            $("#Predictionthird").html(text2);
+            $("#Predictionfour").html(text3);
+        	
+        }
+        })
+
         
         
  
