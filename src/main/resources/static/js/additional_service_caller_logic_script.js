@@ -3,7 +3,7 @@
 /*---------------------------------------------------------------------------------*/
         $.ajax({
         	type:'Get',
-        	url: 'indices',
+        	url: 'nifty_future_oi',
         	success: function(result){
         		var json = result;
         		var lastUpdateTime=json.lastUpdateTime;
@@ -21,8 +21,8 @@
         		var pChange=json.data[0].pChange;
         		var change=json.data[0].change;
         		
-        			
-        		if(openPrice>prevClose){
+        		var vwapText="<span  style='color: black; font-weight: bold; font-size: 14px;'>" + vwap + "</span>";
+        		if(openPrice>prevClose && lastPrice>openPrice){
         			var trend="Positive";
     				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
@@ -53,7 +53,9 @@
         			}
         			
         			var openInterest=json.data[0].openInterest;
+        			openInterest=openInterest.replace(/,/g , "");
             		var changeinOpenInterest=json.data[0].changeinOpenInterest;
+            		changeinOpenInterest=changeinOpenInterest.replace(/,/g , "");
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
            			
             			
@@ -75,6 +77,7 @@
             				text5="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + pchangeinOpenInterest + "%</span>";
             			}
         		
+            $("#niftyvwap").html(vwapText);
             $("#niftyFUTTrend").html(text0);
             $("#niftyFUTlastUpdateTime").html(lastUpdateTime);
             $("#niftyFUTLastPrice").html(text);
@@ -97,7 +100,7 @@
         /*---------------------------------------------------------------------------------*/
         $.ajax({
         	type:'Get',
-        	url: 'indices',
+        	url: 'bank_nifty_future_oi',
         	success: function(result){
         		var json = result;
         		var lastUpdateTime=json.lastUpdateTime;
@@ -115,7 +118,7 @@
         		var pChange=json.data[0].pChange;
         		var change=json.data[0].change;
         		
-        		if(openPrice>prevClose){
+        		if(openPrice>prevClose && lastPrice>=openPrice){
         			var trend="Positive";
     				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
@@ -146,10 +149,13 @@
         			}
         			
         			var openInterest=json.data[0].openInterest;
+        			openInterest=openInterest.replace(/,/g , "");
             		var changeinOpenInterest=json.data[0].changeinOpenInterest;
+            		changeinOpenInterest=changeinOpenInterest.replace(/,/g , "");
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
            			
-            			
+           			
+            			var vwapText="<span  style='color: black; font-weight: bold; font-size: 14px;'>" + vwap + "</span>";
             			if(changeinOpenInterest>0){
             				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
             				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
@@ -168,6 +174,7 @@
             				text5="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + pchangeinOpenInterest + "%</span>";
             			}
         		
+            $("#bankNiftyvwap").html(vwapText);
             $("#bankNiftyFUTTrend").html(text0);
             $("#bankNiftyFUTlastUpdateTime").html(lastUpdateTime);
             $("#bankNiftyFUTLastPrice").html(text);

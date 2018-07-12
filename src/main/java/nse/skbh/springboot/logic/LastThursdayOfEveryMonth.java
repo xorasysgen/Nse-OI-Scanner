@@ -48,7 +48,6 @@ public class LastThursdayOfEveryMonth {
             }
         }
 		Integer currentMonth=Calendar.getInstance().get(Calendar.MONTH);
-		System.out.println(currentMonth);
         result.add(lm.get(currentMonth));
         result.add(lm.get(++currentMonth));
         result.add(lm.get(++currentMonth));
