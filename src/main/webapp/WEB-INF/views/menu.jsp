@@ -98,13 +98,15 @@ a.menu_links { cursor: pointer; }
         </li>
         
       		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <sup><span class="badge">4</span></sup> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-leaf" style="color:#28a745;"></span> Post Market Analysis <sup><span class="badge">5</span></sup> <span class="caret"></span></a>
        	   <ul class="dropdown-menu">
 	            <li><a href="security_wise_deliverable_positions"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security Deliverable</a></li>
 	            <li><a href="security_var_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Security VaR</a></li>
 	            <li role="separator" class="divider"></li>
 	            <li><a href="market_capitalisation_most_active_year_wise_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Most Active This Year</a></li>
 	            <li><a href="broad_market_indices_all_sectors"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Broad Market Indices</a></li>
+	            <li><a href="cal_sha_avg_price"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> Average Calculator</a></li>
+	            
           </ul>
           
           

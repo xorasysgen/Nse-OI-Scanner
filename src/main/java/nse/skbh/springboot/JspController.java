@@ -89,8 +89,6 @@ public class JspController {
 	}
 
 	
-	
-	
 	@RequestMapping("/option_chain_nifty_fifty_mobile")
 	public String optionChainNifty_mobile() {
 		return "nifty_option_chain_mobile";
@@ -215,10 +213,16 @@ public class JspController {
 		return "option_chain_pcr_reader_3_months";
 	}
 	
-	
 	@RequestMapping("/world_market_futures")
 	public String getWorldMarketFuturesIndices() {
 		return "world_market_indices";
 	}
+	
+	@RequestMapping("/cal_sha_avg_price")
+	public String getCalShaAvgPrice() {
+		return "calculate_shares_average_price";
+	}
+	
+	
 	
 }

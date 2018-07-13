@@ -28,7 +28,7 @@ var advances,declines,unchanged,total;
     	    	           ]);
     	    	                                                  
     	    	          var options = {
-    	    	          title: 'Overall Advances & Declines Ratio Chart',
+    	    	          title: 'Market breadth & Overall Advances & Declines Ratio Chart',
     	    	          is3D: true,
     	    	          chartArea: {
     	                      left: "10%",
