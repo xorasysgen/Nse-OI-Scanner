@@ -224,5 +224,159 @@
         })
 
         
-        
+/* begins support and resistance bank nifty future data*/
+        /*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/banknifty_and_nifty_support_resistance',
+        	success: function(result){
+        		var json = result;
+        		var ltpDataPointcordinateNifty=json.data[0].ltpDataPointcordinate;
+        		var niftyltp=json.data[0].ltp;
+        		var symbol=json.data[0].symbol;
+        		var name=json.data[0].name;
+        		var s3=json.data[0].s3;
+        		var s2=json.data[0].s2
+        		var s1=json.data[0].s1;
+        		var pivotPoints=json.data[0].pivotPoints;
+        		var r1=json.data[0].r1;
+        		var r2=json.data[0].r2;
+        		var r3=json.data[0].r3;
+        		  
+        		var symbolNifty="<span class='nifty' style='font-weight: bold; font-size: 16px;'>" + symbol + "</span>";
+        		
+        		if(ltpDataPointcordinateNifty=="s3"){
+        			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} 
+        		else {
+        			var nifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s3 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s2"){
+        			var nifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} 
+        		else {
+        			var nifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s2 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s1"){
+        			var nifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		}
+        		else{
+        			var nifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s1 + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="pivotPoints"){
+        			var nifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + pivotPoints + "</span>";
+        		} 
+        		else{
+        			var nifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + pivotPoints + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="r1"){
+        			var nifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else{
+        			var nifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r1 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r2"){
+        			var nifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		}
+        		else{
+        			var nifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r2 + "</span>";
+        		}
+        		if(ltpDataPointcordinateNifty=="r3"){
+        			var nifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		}
+        		else{
+        			var nifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r3 + "</span>";
+        		}
+                $("#niftySymbolName").html(symbolNifty);
+                $("#niftyS3").html(nifty1);
+                $("#niftyS2").html(nifty2);
+                $("#niftyS1").html(nifty3);
+                $("#niftyP1").html(nifty4);
+                $("#niftyR1").html(nifty5);
+                $("#niftyR2").html(nifty6);
+                $("#niftyR3").html(nifty7);
+                
+                var ltpDataPointcordinateBankNifty=json.data[1].ltpDataPointcordinate;
+                var bankNiftyltp=json.data[1].ltp;
+        		var symbolbankNifty=json.data[1].symbol;
+        		var name=json.data[1].name;
+        		var s33=json.data[1].s3;
+        		var s22=json.data[1].s2
+        		var s11=json.data[1].s1;
+        		var pivotPoints11=json.data[1].pivotPoints;
+        		var r11=json.data[1].r1;
+        		var r22=json.data[1].r2;
+        		var r33=json.data[1].r3;
+        		
+        		var symbolBank="<span class='bankNifty' style='font-weight: bold; font-size: 16px;'>" + symbolbankNifty + "</span>";
+        		
+        		if(ltpDataPointcordinateBankNifty=="s3"){
+        			var bankNifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s33 + "</span>";
+        		} 
+        		else {
+        			var bankNifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s33 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateBankNifty=="s2"){
+        			var bankNifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s22 + "</span>";
+        		} 
+        		else {
+        			var bankNifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s22 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateBankNifty=="s1"){
+        			var bankNifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s11 + "</span>";
+        		}
+        		else{
+        			var bankNifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s11 + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateBankNifty=="pivotPoints"){
+        			var bankNifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + pivotPoints11 + "</span>";
+        		} 
+        		else{
+        			var bankNifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + pivotPoints11 + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateBankNifty=="r1"){
+        			var bankNifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r11 + "</span>";
+        		} else{
+        			var bankNifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r11 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateBankNifty=="r2"){
+        			var bankNifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r22 + "</span>";
+        		}
+        		else{
+        			var bankNifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r22 + "</span>";
+        		}
+        		if(ltpDataPointcordinateBankNifty=="r3"){
+        			var bankNifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r33 + "</span>";
+        		}
+        		else{
+        			var bankNifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r33 + "</span>";
+        		}
+        		
+        		
+        		
+        		$("#BankNiftySymbolName").html(symbolBank);
+        		$("#BankNiftyS3").html(bankNifty1);
+        		$("#BankNiftyS2").html(bankNifty2);
+        		$("#BankNiftyS1").html(bankNifty3);
+        		$("#BankNiftyP1").html(bankNifty4);
+        		$("#BankNiftyR1").html(bankNifty5);
+        		$("#BankNiftyR2").html(bankNifty6);
+        		$("#BankNiftyR3").html(bankNifty7);
+        	
+        }
+        })
+
  

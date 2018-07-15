@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import nse.skbh.springboot.logic.NiftyAndBankNiftySupportResistance;
 import nse.skbh.springboot.logic.Top20ContractsReader;
 import nse.skbh.springboot.pojo.OptionSuggestion;
 import nse.skbh.springboot.pojo.ParentOptionSuggestion;
+import nse.skbh.springboot.pojo.ParentsDataPoints;
 
 @RestController
 @RequestMapping("/suggestions")
@@ -33,5 +35,12 @@ public class ArtificialIIntelligenceStrategies {
 		return parentOptionSuggestion;
 
 	}
+	
+	@GetMapping("/banknifty_and_nifty_support_resistance")
+	public ParentsDataPoints getDataPointsNiftyAndBankNifty() {
+		return NiftyAndBankNiftySupportResistance.excuteParallelProcess();
+	}
+	
+	
 	
 }

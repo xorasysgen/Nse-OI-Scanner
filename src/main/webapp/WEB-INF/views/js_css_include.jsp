@@ -76,6 +76,14 @@ font-size: 16px;
 }
 
 
+.navyBlinker{
+color: #005BF9;
+font-weight: bold;
+font-size: 18px;
+animation: blinker 1s linear infinite;
+}
+
+
 .superolive{
 color: #005BF9;
 font-weight: bold;

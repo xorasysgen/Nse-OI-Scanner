@@ -249,11 +249,54 @@
     </div>
     
     
+    
      <div class="panel panel-success">
 		    <div class="panel-heading">
 		         <h3 class="panel-title">Artificial Intelligence Prediction <span class="glyphicon glyphicon-equalizer" style="font-size: 14px; color: #ffbb33;"></span></h3>
 		    </div>
 		    <div class="panel-body"> <!-- panel-body  start-->
+	<h4>Support &amp; Resistance Hourly</h4>
+			<div class="table-responsive-md">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Indices</th>
+										<th>S1</th>
+										<th>S2</th>
+										<th>S3</th>
+										<th>PivotPoint</th>
+										<th>R1</th>
+										<th>R2</th>
+										<th>R3</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span id="niftySymbolName"></span></td>
+										<td class="success"><span id="niftyS3"></span></td>
+										<td class="success"><span id="niftyS2"></span></td>
+										<td class="success"><span id="niftyS1"></span></td>
+										<td class="warning" style="font-weight: bold;"><span id="niftyP1"></span></td>
+										<td class="danger"><span id="niftyR1"></span></td>
+										<td class="danger"><span id="niftyR2"></span></td>
+										<td class="danger"><span id="niftyR3"></span></td>
+									</tr>
+									<tr>
+										<td><span id="BankNiftySymbolName"></span></td>
+										<td class="success"><span id="BankNiftyS3"></span></td>
+										<td class="success"><span id="BankNiftyS2"></span></td>
+										<td class="success"><span id="BankNiftyS1"></span></td>
+										<td class="warning" class="warning" style="font-weight: bold;"><span id="BankNiftyP1"></span></td>
+										<td class="danger"><span id="BankNiftyR1"></span></td>
+										<td class="danger"><span id=BankNiftyR2></span></td>
+										<td class="danger"><span id="BankNiftyR3"></span></td>
+									</tr>
+								</tbody>
+							</table>
+			</div>
+</div>
+
+						<div class="panel-body"> <!-- panel-body  start-->
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<ul class="list-group">
  				 <li class="list-group-item">

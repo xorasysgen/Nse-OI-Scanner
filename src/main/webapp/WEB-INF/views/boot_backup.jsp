@@ -34,6 +34,7 @@
 <!-- high level configuration don't change from here -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  <!-- jquery lib -->
 <script src="js/service_caller_logic_script.js"></script>
+<script src="js/additional_service_caller_logic_script.js"></script>
 <%-- <jsp:include page="script_support_js.jsp" /> --%>
 <!-- high level configuration don't change till here -->
 
@@ -84,7 +85,7 @@
     
      <span id="Dow30Name"></span> [ <span id="Dow30Price"></span><sup><span id="Dow30ChangePercentage"></span>&nbsp;&nbsp;<span id="Dow30PriceChange"></span></sup> ]&nbsp;
      <span id="USDINRName"></span> [ <span id="USDINR"></span><sup><span id="USDINRchangePercentage"></span>&nbsp;&nbsp;<span id="USDINRChange"></span></sup> ]&nbsp;
-      <span id="BrentOilName"></span> [ <span id="BrentOilPrice"></span><sup><span id="BrentOilChangePercentage"></span>&nbsp;&nbsp;<span id="BrentOilPriceChange"></span></sup> ]
+     <span id="BrentOilName"></span> [ <span id="BrentOilPrice"></span><sup><span id="BrentOilChangePercentage"></span>&nbsp;&nbsp;<span id="BrentOilPriceChange"></span></sup> ]
       
      </span>
      </sub>
@@ -206,24 +207,78 @@
 			 </div>
 			 
 			 
+</div>
+ <br>   
+ <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
+ <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span>
+      
+      <div class="panel panel-info">
+		    <div class="panel-heading">
+		        <h3 class="panel-title">Nifty and Bank Nifty Future <span class='blinking'><span class="glyphicon glyphicon-eye-open" style="font-size: 16px; color: #0d47a1;"></span></span></h3>
+		    </div>
+		    <div class="panel-body"> <!-- panel-body  start-->
+				<span style="color: #9c27b0; font-weight: bold; font-size: 14px;">
+			<ul class="list-group">
+ 				 <li class="list-group-item">
+					 	NIFTY50-FUT [ <span id="niftyFUTLastPrice"></span><sup><span id="niftyFUTPChange"></span>&nbsp;&nbsp;<span id="niftyFUTChange"></span></sup> ]
+						NIFTY50-OI [ <span id="NiftyFUTOpenInterest"></span><sup><span id="NiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="NiftyFUTChangeinOpenInterest"></span></sup> ]
+						&nbsp;&nbsp; Trend [ <span id="niftyFUTTrend"></span> ] &nbsp;&nbsp; VWAP [ <span id="niftyvwap"></span> ]
+  				</li>
+  				
+  				<li class="list-group-item">
+  						BANK NIFTY-FUT [ <span id="bankNiftyFUTLastPrice"></span><sup><span id="bankNiftyFUTPChange"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChange"></span></sup> ]
+						BANK NIFTY-OI [ <span id="bankNiftyFUTOpenInterest"></span><sup><span id="bankNiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChangeinOpenInterest"></span></sup> ]
+						&nbsp;&nbsp; Trend [ <span id="bankNiftyFUTTrend"></span> ] &nbsp;&nbsp; VWAP [ <span id="bankNiftyvwap"></span> ]
+  				</li>
+  				
+  				<li class="list-group-item">
+  					USDINR&nbsp;&nbsp;
+		     		Expiry [ <span id="currencyExpiryDate"></span> ]&nbsp;
+		     		USDINR-FUT [ <span id="currencyLtp"></span><sup><span id="currencyChangePercentage"></span>&nbsp;&nbsp;<span id="currencyChangeValue"></span></sup> ]&nbsp; 
+		     		Currency Trend# [ <span id="currencyTrend"></span> ] 
+		     		<a href="https://in.finance.yahoo.com/chart/%5ENSEI#eyJpbnRlcnZhbCI6ImRheSIsInBlcmlvZGljaXR5IjoxLCJjYW5kbGVXaWR0aCI6MTkuNDc3NjExOTQwMjk4NTEsInZvbHVtZVVuZGVybGF5Ijp0cnVlLCJjcm9zc2hhaXIiOnRydWUsImNoYXJ0VHlwZSI6ImxpbmUiLCJleHRlbmRlZCI6ZmFsc2UsIm1hcmtldFNlc3Npb25zIjp7fSwiYWdncmVnYXRpb25UeXBlIjoib2hsYyIsImNoYXJ0U2NhbGUiOiJsb2ciLCJwYW5lbHMiOnsiY2hhcnQiOnsicGVyY2VudCI6MSwiZGlzcGxheSI6Il5OU0VJIiwiY2hhcnROYW1lIjoiY2hhcnQiLCJ0b3AiOjB9fSwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJsaW5lV2lkdGgiOjIsInN0cmlwZWRCYWNrZ3JvdWQiOmZhbHNlLCJldmVudHMiOmZhbHNlLCJjb2xvciI6IiMyYmJjZmYiLCJzeW1ib2xzIjpbeyJzeW1ib2wiOiJeTlNFSSIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJeTlNFSSJ9LCJwZXJpb2RpY2l0eSI6MSwiaW50ZXJ2YWwiOiJkYXkiLCJzZXRTcGFuIjp7Im11bHRpcGxpZXIiOjMsImJhc2UiOiJtb250aCIsInBlcmlvZGljaXR5Ijp7InBlcmlvZCI6MSwiaW50ZXJ2YWwiOiJkYXkifX19LHsic3ltYm9sIjoiSU5SPVgiLCJzeW1ib2xPYmplY3QiOnsic3ltYm9sIjoiSU5SPVgifSwicGVyaW9kaWNpdHkiOjEsImludGVydmFsIjoiZGF5Iiwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJpZCI6IklOUj1YIiwicGFyYW1ldGVycyI6eyJpc0NvbXBhcmlzb24iOnRydWUsImNvbG9yIjoiI2ZmMzMzYSIsIndpZHRoIjoyLCJjaGFydE5hbWUiOiJjaGFydCIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJJTlI9WCJ9LCJwYW5lbCI6ImNoYXJ0IiwiYWN0aW9uIjpudWxsLCJzaGFyZVlBeGlzIjp0cnVlLCJzeW1ib2wiOiJJTlI9WCIsImdhcERpc3BsYXlTdHlsZSI6InRyYW5zcGFyZW50IiwibmFtZSI6IkpJUkM0SjczRlYiLCJvdmVyQ2hhcnQiOnRydWUsInVzZUNoYXJ0TGVnZW5kIjp0cnVlLCJoZWlnaHRQZXJjZW50YWdlIjowLjcsIm9wYWNpdHkiOjEsImhpZ2hsaWdodGFibGUiOnRydWUsInR5cGUiOiJsaW5lIiwic3R5bGUiOiJzdHhfbGluZV9jaGFydCJ9fV0sIndpZHRoIjoyLCJjdXN0b21SYW5nZSI6bnVsbCwic3R1ZGllcyI6eyJ2b2wgdW5kciI6eyJ0eXBlIjoidm9sIHVuZHIiLCJpbnB1dHMiOnsiaWQiOiJ2b2wgdW5kciIsImRpc3BsYXkiOiJ2b2wgdW5kciJ9LCJvdXRwdXRzIjp7IlVwIFZvbHVtZSI6IiMwMGIwNjEiLCJEb3duIFZvbHVtZSI6IiNGRjMzM0EifSwicGFuZWwiOiJjaGFydCIsInBhcmFtZXRlcnMiOnsid2lkdGhGYWN0b3IiOjAuNDUsImNoYXJ0TmFtZSI6ImNoYXJ0In19fX0%3D"
+		     		target="_blank">View Chart</a> &nbsp; 
+			     <a href="https://in.investing.com/indices/indices-futures" target="_blank">World Market</a>
+  				</li>
+  				
+		 </ul>
+			
+		     
+	     </span>
+		    </div> <!-- panel-body  end-->
     </div>
     
-     <br>
-    <sub>
-	<span style="color: #9c27b0; font-weight: bold; font-size: 14px;">
-	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>
-	 USDINR&nbsp;&nbsp;
-     Expiry [ <span id="currencyExpiryDate"></span> ]&nbsp;
-     USDINR-FUT [ <span id="currencyLtp"></span><sup><span id="currencyChangePercentage"></span>&nbsp;&nbsp;<span id="currencyChangeValue"></span></sup> ]&nbsp; 
-     Currency Trend# [ <span id="currencyTrend"></span> ] 
-     <a href="https://in.finance.yahoo.com/chart/%5ENSEI#eyJpbnRlcnZhbCI6ImRheSIsInBlcmlvZGljaXR5IjoxLCJjYW5kbGVXaWR0aCI6MTkuNDc3NjExOTQwMjk4NTEsInZvbHVtZVVuZGVybGF5Ijp0cnVlLCJjcm9zc2hhaXIiOnRydWUsImNoYXJ0VHlwZSI6ImxpbmUiLCJleHRlbmRlZCI6ZmFsc2UsIm1hcmtldFNlc3Npb25zIjp7fSwiYWdncmVnYXRpb25UeXBlIjoib2hsYyIsImNoYXJ0U2NhbGUiOiJsb2ciLCJwYW5lbHMiOnsiY2hhcnQiOnsicGVyY2VudCI6MSwiZGlzcGxheSI6Il5OU0VJIiwiY2hhcnROYW1lIjoiY2hhcnQiLCJ0b3AiOjB9fSwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJsaW5lV2lkdGgiOjIsInN0cmlwZWRCYWNrZ3JvdWQiOmZhbHNlLCJldmVudHMiOmZhbHNlLCJjb2xvciI6IiMyYmJjZmYiLCJzeW1ib2xzIjpbeyJzeW1ib2wiOiJeTlNFSSIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJeTlNFSSJ9LCJwZXJpb2RpY2l0eSI6MSwiaW50ZXJ2YWwiOiJkYXkiLCJzZXRTcGFuIjp7Im11bHRpcGxpZXIiOjMsImJhc2UiOiJtb250aCIsInBlcmlvZGljaXR5Ijp7InBlcmlvZCI6MSwiaW50ZXJ2YWwiOiJkYXkifX19LHsic3ltYm9sIjoiSU5SPVgiLCJzeW1ib2xPYmplY3QiOnsic3ltYm9sIjoiSU5SPVgifSwicGVyaW9kaWNpdHkiOjEsImludGVydmFsIjoiZGF5Iiwic2V0U3BhbiI6eyJtdWx0aXBsaWVyIjozLCJiYXNlIjoibW9udGgiLCJwZXJpb2RpY2l0eSI6eyJwZXJpb2QiOjEsImludGVydmFsIjoiZGF5In19LCJpZCI6IklOUj1YIiwicGFyYW1ldGVycyI6eyJpc0NvbXBhcmlzb24iOnRydWUsImNvbG9yIjoiI2ZmMzMzYSIsIndpZHRoIjoyLCJjaGFydE5hbWUiOiJjaGFydCIsInN5bWJvbE9iamVjdCI6eyJzeW1ib2wiOiJJTlI9WCJ9LCJwYW5lbCI6ImNoYXJ0IiwiYWN0aW9uIjpudWxsLCJzaGFyZVlBeGlzIjp0cnVlLCJzeW1ib2wiOiJJTlI9WCIsImdhcERpc3BsYXlTdHlsZSI6InRyYW5zcGFyZW50IiwibmFtZSI6IkpJUkM0SjczRlYiLCJvdmVyQ2hhcnQiOnRydWUsInVzZUNoYXJ0TGVnZW5kIjp0cnVlLCJoZWlnaHRQZXJjZW50YWdlIjowLjcsIm9wYWNpdHkiOjEsImhpZ2hsaWdodGFibGUiOnRydWUsInR5cGUiOiJsaW5lIiwic3R5bGUiOiJzdHhfbGluZV9jaGFydCJ9fV0sIndpZHRoIjoyLCJjdXN0b21SYW5nZSI6bnVsbCwic3R1ZGllcyI6eyJ2b2wgdW5kciI6eyJ0eXBlIjoidm9sIHVuZHIiLCJpbnB1dHMiOnsiaWQiOiJ2b2wgdW5kciIsImRpc3BsYXkiOiJ2b2wgdW5kciJ9LCJvdXRwdXRzIjp7IlVwIFZvbHVtZSI6IiMwMGIwNjEiLCJEb3duIFZvbHVtZSI6IiNGRjMzM0EifSwicGFuZWwiOiJjaGFydCIsInBhcmFtZXRlcnMiOnsid2lkdGhGYWN0b3IiOjAuNDUsImNoYXJ0TmFtZSI6ImNoYXJ0In19fX0%3D"
-     target="_blank">View Chart</a> &nbsp; 
-     <a href="https://in.investing.com/indices/indices-futures" target="_blank">World Market</a>
-     </span>
-     </sub>	
-      <br>
-     <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
-   	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span> 
+    
+     <div class="panel panel-success">
+		    <div class="panel-heading">
+		         <h3 class="panel-title">Artificial Intelligence Prediction <span class="glyphicon glyphicon-equalizer" style="font-size: 14px; color: #ffbb33;"></span></h3>
+		    </div>
+		    <div class="panel-body"> <!-- panel-body  start-->
+				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
+			<ul class="list-group">
+ 				 <li class="list-group-item">
+					 	Bank Nifty Prediction 1 [ <span id="Predictionfirst"></span> ]
+  				</li>
+  				
+  				<li class="list-group-item">
+  						Bank Nifty Prediction 2 [ <span id="Predictionsecond"></span> ]
+  				</li>
+  				
+  				<li class="list-group-item">
+  					Bank Nifty Prediction 3 [ <span id="Predictionthird"></span> ]
+  				</li>
+  				
+  					<li class="list-group-item">
+  					Bank Nifty Prediction 4 [ <span id="Predictionfour"></span> ]
+  				</li>
+  				
+		 </ul>
+			
+		     
+	     </span>
+		    </div> <!-- panel-body  end-->
+    </div>
+    
 <!-- </div> --> <!-- container offline -->
 
 
@@ -235,7 +290,9 @@
 		
 </div> <!-- angular js controller -->
 
-</div>
+
+
+</div>  <!-- root div -->
 
 </fieldset>
 <sec:csrfInput /> 
