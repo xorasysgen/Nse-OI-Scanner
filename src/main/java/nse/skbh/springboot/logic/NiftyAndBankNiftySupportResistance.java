@@ -16,6 +16,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.google.gson.Gson;
+
 import nse.skbh.springboot.pojo.DataPoints;
 import nse.skbh.springboot.pojo.ParentsDataPoints;
 
@@ -164,7 +166,7 @@ public class NiftyAndBankNiftySupportResistance {
 		return parentsDataPoints;
 	}
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println(new Gson().toJson(NiftyAndBankNiftySupportResistance.excuteParallelProcess()));
-	}*/
+	}
 }
