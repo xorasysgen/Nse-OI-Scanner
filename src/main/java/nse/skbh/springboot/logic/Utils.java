@@ -2,15 +2,20 @@ package nse.skbh.springboot.logic;
 import java.security.MessageDigest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -267,7 +272,7 @@ public class Utils {
 	}
 	
 	@SuppressWarnings("unused")
-	private static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> unsortMap) {
+	public  static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> unsortMap) {
 
         List<Map.Entry<K, V>> list =
                 new LinkedList<Map.Entry<K, V>>(unsortMap.entrySet());
@@ -286,5 +291,44 @@ public class Utils {
         return result;
 
     }
+	
+	public static LinkedHashMap<Integer, String> sortHashMapByValues(
+	        HashMap<Integer, String> passedMap) {
+	    List<Integer> mapKeys = new ArrayList<>(passedMap.keySet());
+	    List<String> mapValues = new ArrayList<>(passedMap.values());
+	    Collections.sort(mapKeys);
+	    Collections.sort(mapValues);
+
+	    LinkedHashMap<Integer, String> sortedMap =
+	        new LinkedHashMap<>();
+
+	    Iterator<String> valueIt = mapValues.iterator();
+	    while (valueIt.hasNext()) {
+	        String val = valueIt.next();
+	        Iterator<Integer> keyIt = mapKeys.iterator();
+
+	        while (keyIt.hasNext()) {
+	            Integer key = keyIt.next();
+	            String comp1 = passedMap.get(key);
+	            String comp2 = val;
+
+	            if (comp1.equals(comp2)) {
+	                keyIt.remove();
+	                sortedMap.put(key, val);
+	                break;
+	            }
+	        }
+	    }
+	    return sortedMap;
+	}
+	
+	public static Map<Object, Object> sortTwoStringKeyValueHashMapByValues(HashMap<String, Float> map) {
+	 Map<Object, Object> sortedMap = 
+			 map.entrySet().stream()
+		    .sorted(Entry.comparingByValue())
+		    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+		                              (e1, e2) -> e1, LinkedHashMap::new));
+	return sortedMap;
+	}
 	
 }

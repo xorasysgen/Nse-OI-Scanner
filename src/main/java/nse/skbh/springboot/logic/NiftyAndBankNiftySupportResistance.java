@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -24,7 +23,7 @@ public class NiftyAndBankNiftySupportResistance {
 	private static DataPoints getNiftyAndBankNiftySupportResistance(String url) {
 		Document doc = null;
 		DataPoints dataPoints=new DataPoints();
-		Map<String,Float> map=new TreeMap<String,Float>();
+		HashMap<String,Float> map=new HashMap<String,Float>();
 		try {
 			doc = Jsoup.connect(url).get();
 				Element ltdElement = doc.getElementById("last_last");
@@ -55,9 +54,11 @@ public class NiftyAndBankNiftySupportResistance {
 					map.put("r1", Math.abs(Float.parseFloat(dataPoints.getR1())-ltp_float));
 					map.put("r2", Math.abs(Float.parseFloat(dataPoints.getR2())-ltp_float));
 					map.put("r3", Math.abs(Float.parseFloat(dataPoints.getR3())-ltp_float));
-					Map.Entry<String,Float> entry = map.entrySet().iterator().next();
-					 String key = entry.getKey();
+					 Map<Object, Object> sortedMap= Utils.sortTwoStringKeyValueHashMapByValues(map);
+					 Map.Entry<Object,Object> entry = sortedMap.entrySet().iterator().next();
+					 String key = entry.getKey().toString();
 					 dataPoints.setLtpDataPointcordinate(key);
+					 //System.out.println("sorted" + sortedMap);
 				}
 				
 			return dataPoints;
@@ -163,11 +164,7 @@ public class NiftyAndBankNiftySupportResistance {
 		return parentsDataPoints;
 	}
 	
-/*	
-	
-	
-	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		System.out.println(new Gson().toJson(NiftyAndBankNiftySupportResistance.excuteParallelProcess()));
 	}*/
 }
