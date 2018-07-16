@@ -211,6 +211,7 @@
  <br>   
  <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Advance/Decline Ratio ADR #if ADR>=1.25 then <span style="color: #004d40; font-weight: bold;">+ve(Bullish)</span>	Otherwise <span style="color: #ff3d00; font-weight: bold;">-ve(Bearish)</span><br>
  <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;Low IndiaVIX <span style="color: #00e676;" id="IndiaVixInfo"></span> indicates <span style="color: #004d40; font-weight: bold;">stability</span> in the market while higher value indicated <span style="color: #ff3d00; font-weight: bold;">stress, fear and anxiety.</span>
+
       
       <div class="panel panel-info">
 		    <div class="panel-heading">
@@ -221,17 +222,18 @@
 			<ul class="list-group">
  				 <li class="list-group-item">
 					 	NIFTY50-FUT [ <span id="niftyFUTLastPrice"></span><sup><span id="niftyFUTPChange"></span>&nbsp;&nbsp;<span id="niftyFUTChange"></span></sup> ]
-					 	
+					 	&nbsp;&nbsp;  VWAP [ <span id="niftyvwap"></span> ] &nbsp;&nbsp;
 						NIFTY50-OI [ <span id="NiftyFUTOpenInterest"></span><sup><span id="NiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="NiftyFUTChangeinOpenInterest"></span></sup> ]
-						&nbsp;&nbsp; Trend [ <span id="niftyFUTTrend"></span> ] &nbsp;&nbsp; VWAP [ <span id="niftyvwap"></span> ]&nbsp;&nbsp;
-					 	[<span id="niftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="niftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;"><strong><span id="niftyLow"></span></strong></span></span>
+						&nbsp;&nbsp; Signal [ <span id="niftyFUTTrend"></span> ] &nbsp;&nbsp;&nbsp;
+					 	[ <span id="niftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="niftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;"><strong><span id="niftyLow"></span></strong></span></span></span>
   				</li>
   				
   				<li class="list-group-item">
   						BANK NIFTY-FUT [ <span id="bankNiftyFUTLastPrice"></span><sup><span id="bankNiftyFUTPChange"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChange"></span></sup> ]
+  						&nbsp;&nbsp; VWAP [ <span id="bankNiftyvwap"></span> ]
 						BANK NIFTY-OI [ <span id="bankNiftyFUTOpenInterest"></span><sup><span id="bankNiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChangeinOpenInterest"></span></sup> ]
-						&nbsp;&nbsp; Trend [ <span id="bankNiftyFUTTrend"></span> ] &nbsp;&nbsp; VWAP [ <span id="bankNiftyvwap"></span> ]&nbsp;&nbsp;
-						[<span id="bankNiftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="bankNiftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;" ><strong><span id="bankNiftyLow"></span></strong></span></span>
+						&nbsp;&nbsp; Signal [ <span id="bankNiftyFUTTrend"></span> ] &nbsp;&nbsp;&nbsp;
+						[ <span id="bankNiftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="bankNiftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;" ><strong><span id="bankNiftyLow"></span></strong></span></span></span>
   				</li>
   				
   				<li class="list-group-item">
@@ -248,6 +250,8 @@
 			
 		     
 	     </span>
+		     <span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp;if nifty future is trading above <strong>VWAP</strong> and <strong>Open Interest</strong> shows addition of shares then, nifty future has added net long position.<span style="color: #004d40; font-weight: bold;">+ve(Bullish) Trend</span> 
+		     Similarly if nifty future is below <strong>VWAP</strong> and <strong>Open Interest</strong> shows addition then Traders conclusion is nifty future added short positions.<span style="color: #ff3d00; font-weight: bold;">-ve(Bearish) Trend</span>
 		    </div> <!-- panel-body  end-->
     </div>
     

@@ -76,6 +76,21 @@ font-size: 16px;
 }
 
 
+.vwapGreenBlinker{
+color: #d500f9;
+font-weight: bold;
+font-size: 16px;
+animation: blinker 1s linear infinite;
+}
+
+.vwapRedBlinker{
+color: #d500f9;
+font-weight: bold;
+font-size: 16px;
+animation: blinker 2s linear infinite;
+}
+
+
 .navyBlinker{
 color: #005BF9;
 font-weight: bold;
