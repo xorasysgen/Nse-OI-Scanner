@@ -279,13 +279,13 @@
         		var third=json.data[2].optionTypeStrikePrice;
         		var four=json.data[3].optionTypeStrikePrice;
         		
-    				text0="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + first + "</span>";
+    				text0="<span class='superolive'>" + first + "</span>";
     				
-    				text1="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + second + "</span>"; 
+    				text1="<span class='superolive'>" + second + "</span>"; 
     				
-    				text2="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + third + "</span>"; 
+    				text2="<span class='superolive'>" + third + "</span>"; 
     				
-    				text3="<span class='superolive' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + four + "</span>";
+    				text3="<span class='superolive'>" + four + "</span>";
         	
         		
             $("#Predictionfirst").html(text0);
