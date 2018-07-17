@@ -1,6 +1,8 @@
 package nse.skbh.springboot.logic;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +14,20 @@ import org.jsoup.select.Elements;
 
 import nse.skbh.springboot.pojo.ParentTop20Contract;
 import nse.skbh.springboot.pojo.Top20Contract;
+
+class Top20ContractsReaderComparator implements Comparator<Top20Contract>{
+	
+	@Override
+	public int compare(Top20Contract o1, Top20Contract o2) {
+		// TODO Auto-generated method stub
+		boolean t=Float.parseFloat(o1.getPremiumTurnoverLacs().replace(",", ""))<Float.parseFloat(o2.getPremiumTurnoverLacs().replace(",", ""));
+		if(t) {
+		return 1;
+		}
+		else
+			return -1;
+	}
+}
 
 
 public class Top20ContractsReader {
@@ -98,5 +114,40 @@ public class Top20ContractsReader {
 		return filter;
 		
 	}
+	
+	public static Map<String,String> bankNiftyOptionFinderNonExpiryDay(){
+		Map<String,String> filter=new LinkedHashMap<>();
+		ParentTop20Contract parentTop20Contract=Top20ContractsReader.getTop20ContractsNSE();
+		List<Top20Contract> data=parentTop20Contract.getData();
+		Collections.sort(data, new Top20ContractsReaderComparator());
+		parentTop20Contract.setData(data);
+		
+		List<Top20Contract> t=data;
+		
+		if(t!=null) {
+			String optionType=t.get(0).getOptionType();
+			String strikePrice=t.get(0).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+			filter.put("1", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=t.get(1).getOptionType();
+				String strikePrice=t.get(1).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("2", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=t.get(2).getOptionType();
+				String strikePrice=t.get(2).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("3", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=t.get(3).getOptionType();
+				String strikePrice=t.get(3).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("4	", strikePrice.concat("-").concat(optionType));
+			}
+		
+		return filter;
+		
+	}
+
 		
 }

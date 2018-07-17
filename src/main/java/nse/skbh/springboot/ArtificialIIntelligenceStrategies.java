@@ -19,8 +19,26 @@ import nse.skbh.springboot.pojo.ParentsDataPoints;
 public class ArtificialIIntelligenceStrategies {
 	
 	@GetMapping("/bank_nifty_expiry_day_option_suggestion")
-	public ParentOptionSuggestion getThreeMonthOptionDataPCR() {
+	public ParentOptionSuggestion getbankNiftyOptionFinderExpiryDay() {
 		Map<String,String> map=Top20ContractsReader.bankNiftyOptionFinder();
+		ParentOptionSuggestion parentOptionSuggestion=new ParentOptionSuggestion();
+		List<OptionSuggestion> data=null;
+		if(map!=null) {
+			data=new LinkedList<>();
+			for(Map.Entry<String, String> temp:map.entrySet()) {
+				OptionSuggestion optionSuggestion=new OptionSuggestion();
+				optionSuggestion.setOptionTypeStrikePrice(temp.getValue());
+				data.add(optionSuggestion);
+			}
+		}
+		parentOptionSuggestion.setData(data);
+		return parentOptionSuggestion;
+
+	}
+	
+	@GetMapping("/bank_nifty_expiry_day_option_suggestion/non_expiry_day")
+	public ParentOptionSuggestion getbankNiftyOptionFinderNonExpiryDay() {
+		Map<String,String> map=Top20ContractsReader.bankNiftyOptionFinderNonExpiryDay();
 		ParentOptionSuggestion parentOptionSuggestion=new ParentOptionSuggestion();
 		List<OptionSuggestion> data=null;
 		if(map!=null) {

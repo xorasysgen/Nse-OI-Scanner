@@ -297,6 +297,37 @@
         })
 
         
+        
+        /*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/bank_nifty_expiry_day_option_suggestion/non_expiry_day',
+        	success: function(result){
+        		var json = result;
+        		
+        		var first=json.data[0].optionTypeStrikePrice;
+        		var second=json.data[1].optionTypeStrikePrice;
+        		var third=json.data[2].optionTypeStrikePrice;
+        		var four=json.data[3].optionTypeStrikePrice;
+        		
+    				text0="<span class='navyBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + first + "</span>";
+    				
+    				text1="<span class='navyBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + second + "</span>"; 
+    				
+    				text2="<span class='navyBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + third + "</span>"; 
+    				
+    				text3="<span class='navyBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + four + "</span>";
+        	
+        		
+            $("#nonExpiry1").html(text0);
+            $("#nonExpiry2").html(text1);
+            $("#nonExpiry3").html(text2);
+            $("#nonExpiry4").html(text3);
+        	
+        }
+        })
+        
+        
 /* begins support and resistance bank nifty future data*/
         /*---------------------------------------------------------------------------------*/
         $.ajax({

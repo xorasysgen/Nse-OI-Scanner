@@ -262,7 +262,11 @@
 		         <h3 class="panel-title">Artificial Intelligence Prediction <span class="glyphicon glyphicon-equalizer" style="font-size: 14px; color: #ffbb33;"></span></h3>
 		    </div>
 		    <div class="panel-body"> <!-- panel-body  start-->
-	<h4>Support &amp; Resistance Hourly</h4>
+	<h4 align="center">Hourly Support &amp; Resistance <span style="font-size: 14px; color: red;">SELL&nbsp;&nbsp;</span>
+	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span>
+	&nbsp;&nbsp;PivotPoint&nbsp;&nbsp;
+	<span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
+	<span style="font-size: 14px; color: green;">&nbsp;&nbsp;BUY</span></h4>
 			<div class="table-responsive-md">
 							<table class="table table-hover">
 								<thead>
@@ -307,19 +311,23 @@
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<ul class="list-group">
  				 <li class="list-group-item">
-					 	Bank Nifty Prediction 1 [ <span id="Predictionfirst"></span> ]
+					 	<strong>Regular Day </strong>Prediction 1 [ <span id="nonExpiry1"></span> ]  &nbsp;&nbsp;&nbsp;&nbsp;
+					 	Expiry Day Prediction 1 [ <span id="Predictionfirst"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
-  						Bank Nifty Prediction 2 [ <span id="Predictionsecond"></span> ]
+  						<strong>Regular Day </strong>Prediction 2 [ <span id="nonExpiry2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						Expiry Day Bank Nifty Prediction 2 [ <span id="Predictionsecond"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
-  					Bank Nifty Prediction 3 [ <span id="Predictionthird"></span> ]
+	  					<strong>Regular Day </strong>Prediction 3 [ <span id="nonExpiry3"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+	  					Expiry Day Bank Nifty Prediction 3 [ <span id="Predictionthird"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
-  					Bank Nifty Prediction 4 [ <span id="Predictionfour"></span> ]
+	  					<strong>Regular Day </strong>Prediction 4 [ <span id="nonExpiry4"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+	  					Expiry Day Bank Nifty Prediction 4 [ <span id="Predictionfour"></span> ] 
   				</li>
   				
 		 </ul>
