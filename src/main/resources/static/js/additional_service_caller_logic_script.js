@@ -283,9 +283,9 @@
     				
     				text1="<span class='superolive'>" + second + "</span>"; 
     				
-    				text2="<span class='superolive'>" + third + "</span>"; 
+    				text2="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + third + "</span>"; 
     				
-    				text3="<span class='superolive'>" + four + "</span>";
+    				text3="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + four + "</span>";
         	
         		
             $("#Predictionfirst").html(text0);
@@ -310,13 +310,13 @@
         		var third=json.data[2].optionTypeStrikePrice;
         		var four=json.data[3].optionTypeStrikePrice;
         		
-    				text0="<span class='navyBlinker'>" + first + "</span>";
+    				text0="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + first + "</span>";
     				
-    				text1="<span class='navyBlinker'>" + second + "</span>"; 
+    				text1="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + second + "</span>"; 
     				
-    				text2="<span class='navyBlinker'>" + third + "</span>"; 
+    				text2="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + third + "</span>"; 
     				
-    				text3="<span class='navyBlinker'>" + four + "</span>";
+    				text3="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + four + "</span>";
         	
         		
             $("#nonExpiry1").html(text0);

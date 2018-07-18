@@ -94,13 +94,13 @@ animation: blinker 2s linear infinite;
 .navyBlinker{
 color: #005BF9;
 font-weight: bold;
-font-size: 18px;
+font-size: 16px;
 animation: blinker 1s linear infinite;
 }
 
 
 .superolive{
-color: #005BF9;
+color: #f50057;
 font-weight: bold;
 font-size: 18px;
 animation: blinker 2s linear infinite;

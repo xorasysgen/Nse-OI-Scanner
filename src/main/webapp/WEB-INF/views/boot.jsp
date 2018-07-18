@@ -311,23 +311,23 @@
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<ul class="list-group">
  				 <li class="list-group-item">
-					 	<strong>Regular Day </strong>Prediction 1 [ <span id="nonExpiry1"></span> ]  &nbsp;&nbsp;&nbsp;&nbsp;
-					 	Expiry Day Prediction 1 [ <span id="Predictionfirst"></span> ] 
+					 	<strong>Expiry Day [WED-THU] Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+					 	Regular Days[FRI-MON-TUE] Prediction 1 [ <span id="nonExpiry1"></span> ]  
   				</li>
   				
   				<li class="list-group-item">
-  						<strong>Regular Day </strong>Prediction 2 [ <span id="nonExpiry2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-  						Expiry Day Bank Nifty Prediction 2 [ <span id="Predictionsecond"></span> ] 
+  						<strong>Expiry Day [WED-THU] Strong Prediction 2 </strong>[ <span id="Predictionsecond"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						Regular Days[FRI-MON-TUE] Prediction 2 [ <span id="nonExpiry2"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
-	  					<strong>Regular Day </strong>Prediction 3 [ <span id="nonExpiry3"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-	  					Expiry Day Bank Nifty Prediction 3 [ <span id="Predictionthird"></span> ] 
+	  					Expiry Day [WED-THU] Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Regular Days[FRI-MON-TUE] Prediction 3 [ <span id="nonExpiry3"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
-	  					<strong>Regular Day </strong>Prediction 4 [ <span id="nonExpiry4"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-	  					Expiry Day Bank Nifty Prediction 4 [ <span id="Predictionfour"></span> ] 
+	  					Expiry Day [WED-THU]  Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Regular Days[FRI-MON-TUE] Prediction 4 [ <span id="nonExpiry4"></span> ] 
   				</li>
   				
 		 </ul>
