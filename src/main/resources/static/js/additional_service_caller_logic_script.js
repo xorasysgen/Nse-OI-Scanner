@@ -221,7 +221,7 @@
            			}
            			else{
            				var vwapText="<span class='vwapRedBlinker'>" + vwap + "</span>" +
-           				"<span style='color: red; font-weight: bold; font-size: 14px;'> Sell</span>" + 
+           				"<span style='color: red; font-weight: bold; font-size: 14px;'> SELL</span>" + 
            				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
            				
            			}

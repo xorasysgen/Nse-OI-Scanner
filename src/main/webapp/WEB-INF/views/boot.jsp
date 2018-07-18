@@ -321,12 +321,12 @@
   				</li>
   				
   				<li class="list-group-item">
-	  					Expiry Day [WED-THU] Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Expiry Day [WED-THU] Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  					Regular Days[FRI-MON-TUE] Prediction 3 [ <span id="nonExpiry3"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
-	  					Expiry Day [WED-THU]  Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Expiry Day [WED-THU]  Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  					Regular Days[FRI-MON-TUE] Prediction 4 [ <span id="nonExpiry4"></span> ] 
   				</li>
   				
