@@ -224,5 +224,11 @@ public class JspController {
 	}
 	
 	
+	@RequestMapping("/wd_gann_pred")
+	public String getGannAngle() {
+		return "gann_angle";
+	}
+	
+	
 	
 }
