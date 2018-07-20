@@ -47,7 +47,11 @@ public class Top20ContractsReader {
 				Elements row = table.select("tr");
 			for (int i = 1; i < row.size()-1; i++) {
 				String rowValues=row.get(i).text();
-				/*System.out.println(rowValues);*/
+				if(rowValues.contains("-")) {
+					//System.out.println(rowValues);
+					continue;
+				}
+					else {
 				Top20Contract oi=new Top20Contract();
 				String dataValue[]=rowValues.split("\\s+");
 						 oi.setInstrumentType(dataValue[0] + dataValue[1]);
@@ -68,6 +72,7 @@ public class Top20ContractsReader {
 			}
 			
 			parentTop20Contract.setData(data);
+			}
 			}
 			return parentTop20Contract;
 		} catch (Exception e) {
