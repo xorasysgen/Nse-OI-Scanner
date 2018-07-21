@@ -35,6 +35,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  <!-- jquery lib -->
 <script src="js/service_caller_logic_script.js"></script>
 <script src="js/additional_service_caller_logic_script.js"></script>
+<script src="js/wd.js"></script>
 <%-- <jsp:include page="script_support_js.jsp" /> --%>
 <!-- high level configuration don't change till here -->
 
@@ -101,7 +102,7 @@
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
-      <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85</strong></span></span>
+      <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85</strong></span></span></span>
         </h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
@@ -262,7 +263,7 @@
 		         <h3 class="panel-title">Artificial Intelligence Prediction <span class="glyphicon glyphicon-equalizer" style="font-size: 14px; color: #ffbb33;"></span></h3>
 		    </div>
 		    <div class="panel-body"> <!-- panel-body  start-->
-	<h4 align="center">Hourly Support &amp; Resistance <span style="font-size: 14px; color: red;">SELL&nbsp;&nbsp;</span>
+	<h4 align="center">Fibonacci Pivot Point Hourly Support &amp; Resistance <span style="font-size: 14px; color: red;">SELL&nbsp;&nbsp;</span>
 	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span>
 	&nbsp;&nbsp;PivotPoint&nbsp;&nbsp;
 	<span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
@@ -272,13 +273,13 @@
 								<thead>
 									<tr>
 										<th>Indices</th>
-										<th>S1</th>
-										<th>S2</th>
-										<th>S3</th>
+										<th>S1-38.2%</th>
+										<th>S2-61.8%</th>
+										<th>S3-100%</th>
 										<th>PivotPoint</th>
-										<th>R1</th>
-										<th>R2</th>
-										<th>R3</th>
+										<th>R1-38.2%</th>
+										<th>R2-61.8%</th>
+										<th>R3-100%</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -306,6 +307,9 @@
 							</table>
 			</div>
 </div>
+
+
+<jsp:include page="_auto_addon_gann_target_finder.jsp" />
 
 						<div class="panel-body"> <!-- panel-body  start-->
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">

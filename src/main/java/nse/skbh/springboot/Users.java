@@ -9,5 +9,7 @@ public interface Users {
 	public static final String dinesh="dinesh";
 	public static final String ranjeet="ranjeet";
 	public static final String bimlesh="bimlesh";
+	public static final String key="U2VjcmV0S2V5";
+	public static final String apiURL="bQtqK7CFSgEiEY/J3HLg8/GFNyFE0VnI3UBtHlBZtmEUEhu0y+u8uQ==";
 
 }

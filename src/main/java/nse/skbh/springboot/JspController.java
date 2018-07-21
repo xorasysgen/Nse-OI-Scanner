@@ -229,6 +229,10 @@ public class JspController {
 		return "gann_angle";
 	}
 	
-	
+	@RequestMapping("/index")
+	public String index() {
+		return "index";
+	}
+
 	
 }

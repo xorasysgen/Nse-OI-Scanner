@@ -271,7 +271,6 @@ public class Utils {
 		return new String(plainText, "UTF-8");
 	}
 	
-	@SuppressWarnings("unused")
 	public  static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> unsortMap) {
 
         List<Map.Entry<K, V>> list =

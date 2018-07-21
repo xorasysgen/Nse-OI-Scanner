@@ -46,7 +46,7 @@
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
         		var textHigh="<span style='color: green; font-weight: bold; font-size: 11px;'>" + highPrice + "</span>";
         		
-        		if(buyResult >=0 && buyResult <=9 && booleanValue==true) {
+        		if(buyResult >=0 && buyResult <=11 && booleanValue==true) {
         			var trend="Strong BUY";
         			text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
    				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
