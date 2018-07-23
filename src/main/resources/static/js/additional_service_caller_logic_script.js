@@ -13,10 +13,19 @@
         		var dailyVolatility=json.data[0].dailyVolatility;
         		
         		var prevClose=json.data[0].prevClose;
+        		prevClose=prevClose.replace(/,/g , "")
+        		
         		var openPrice=json.data[0].openPrice;
+        		openPrice=openPrice.replace(/,/g , "")
+        		
         		var highPrice=json.data[0].highPrice;
+        		highPrice=highPrice.replace(/,/g , "")
+        		
         		var lowPrice=json.data[0].lowPrice;
+        		lowPrice=lowPrice.replace(/,/g , "")
+        		
         		var lastPrice=json.data[0].lastPrice;
+        		lastPrice=lastPrice.replace(/,/g , "")
         		
         		var pChange=json.data[0].pChange;
         		var change=json.data[0].change;
@@ -38,9 +47,12 @@
         		
         		var buyResult=Math.abs(openPrice.replace(/,/g , "")-lowPrice.replace(/,/g , ""));
         		var sellResult=Math.abs(openPrice.replace(/,/g , "")-highPrice.replace(/,/g , ""));
+        		var diffNiftyOpenPrevOpen=Math.abs(openPrice.replace(/,/g , "")-prevClose.replace(/,/g , ""));
+        		var diffNiftyOpenPrevOpenResult=false;
+        		if(diffNiftyOpenPrevOpen>=1 && diffNiftyOpenPrevOpen<=3){
+        			diffNiftyOpenPrevOpenResult=true
+        		}
         		
-        		console.log("sellResult" + sellResult)
-        		console.log("buyResult" + buyResult)
         		
         		var textOpen="<span style='color: black; font-weight: bold; font-size: 14px;'>" + openPrice + "</span>";
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
@@ -60,6 +72,10 @@
         			var trend="BUY";
     				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    			}else if(diffNiftyOpenPrevOpenResult==true && booleanValue==true && lastPrice>openPrice){
+    				var trend="BUY On Decline";
+    				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
+   				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
     			}
     			else{
     				var trend="SELL";
@@ -150,19 +166,45 @@
         		var dailyVolatility=json.data[0].dailyVolatility;
         		
         		var prevClose=json.data[0].prevClose;
+        		prevClose=prevClose.replace(/,/g , "")
+        		
         		var openPrice=json.data[0].openPrice;
+        		openPrice=openPrice.replace(/,/g , "")
+        		
         		var highPrice=json.data[0].highPrice;
+        		highPrice=highPrice.replace(/,/g , "")
+        		
         		var lowPrice=json.data[0].lowPrice;
+        		lowPrice=lowPrice.replace(/,/g , "")
+        		
         		var lastPrice=json.data[0].lastPrice;
+        		lastPrice=lastPrice.replace(/,/g , "")
+        		
         		
         		var pChange=json.data[0].pChange;
         		var change=json.data[0].change;
         		
+        		
+        		
         		var buyResult=Math.abs(openPrice.replace(/,/g , "")-lowPrice.replace(/,/g , ""));
         		var sellResult=Math.abs(openPrice.replace(/,/g , "")-highPrice.replace(/,/g , ""));
         		
-        		console.log("sellResult" + sellResult)
-        		console.log("buyResult" + buyResult)
+        		var booleanValue=false;
+        		
+       			if(vwap.replace(/,/g , "") <= lastPrice.replace(/,/g , "")){
+       				var vwapText="<span class='vwapGreenBlinker'>" + vwap + "</span>" +
+       				"<span style='color: green; font-weight: bold; font-size: 14px;'> Buy</span>" +
+       				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+       				booleanValue=true;
+       				
+       			}
+       			else{
+       				var vwapText="<span class='vwapRedBlinker'>" + vwap + "</span>" +
+       				"<span style='color: red; font-weight: bold; font-size: 14px;'> SELL</span>" + 
+       				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+       				booleanValue=false;
+       				
+       			}
         		
         		var textOpen="<span style='color: black; font-weight: bold; font-size: 14px;'>" + openPrice + "</span>";
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
@@ -176,16 +218,20 @@
         			var trend="Strong SELL";
         			text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
     				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-        		}else if(openPrice>prevClose && lastPrice>=openPrice){
+        		}else if(openPrice>prevClose && lastPrice>=openPrice && booleanValue==true){
         			var trend="BUY";
     				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
-    			}
-    			else{
-    				var trend="SELL";
-    				text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
-    				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-    			}
+    			}else if(booleanValue==true && lastPrice>openPrice){
+    				var trend="BUY On Decline";
+				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
+				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+			}
+			else{
+				var trend="SELL";
+				text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
+				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+			}
         		
         		
         			if(change>0){
@@ -212,19 +258,6 @@
             		changeinOpenInterest=changeinOpenInterest.replace(/,/g , "");
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
             		
-            		
-           			if(vwap.replace(/,/g , "") <= lastPrice.replace(/,/g , "")){
-           				var vwapText="<span class='vwapGreenBlinker'>" + vwap + "</span>" +
-           				"<span style='color: green; font-weight: bold; font-size: 14px;'> Buy</span>" +
-           				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
-           				
-           			}
-           			else{
-           				var vwapText="<span class='vwapRedBlinker'>" + vwap + "</span>" +
-           				"<span style='color: red; font-weight: bold; font-size: 14px;'> SELL</span>" + 
-           				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-           				
-           			}
             			if(changeinOpenInterest>0){
             				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
             				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";

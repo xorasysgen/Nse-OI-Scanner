@@ -3,7 +3,7 @@
   	type:'Get',
   	url: 'appfeeds/nifty',
   	success: function(result){
-  		console.log(result);
+  		//console.log(result);
   		var json = JSON.parse(result);
 		var prevclose=json.indices.prevclose;
 		prevclose=prevclose.replace(/,/g , "");
@@ -30,7 +30,7 @@
 			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
 		}
 		
-		console.log(prevclose);
+		//console.log(prevclose);
     		var ltp = prevclose;
             var squareRoot = Math.floor(Math.sqrt(ltp));
             var startNumber = 1;
