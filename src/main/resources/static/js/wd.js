@@ -19,15 +19,24 @@
 		
 		var direction=json.indices.direction;
 		
+	
 		if(direction==1){
 			var trend="Day-Positive";
 			text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
 			"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+			lastprice="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" +
+			 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+			
+			text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>+" + percentchange + "</span>";
 		}
 		else{
 			var trend="Day-Negative";
 			text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
 			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+			
+			var lastprice=text="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" + 
+			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+			text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + percentchange + "</span>";
 		}
 		
 		//console.log(prevclose);
@@ -84,7 +93,7 @@
             $("#Nhigh").html(high);
             $("#Nlow").html(low);
             $("#Nlastprice").html(lastprice);
-            $("#Npercentchange").html(percentchange);
+            $("#Npercentchange").html(text2);
             
             $("#Nyearlyhigh").html(yearlyhigh);
             $("#Nyearlylow").html(yearlylow);
@@ -125,11 +134,17 @@
     			var trend="Day-Positive";
     			text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     			"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    			lastprice="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" +
+   			 	"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    			text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>+" + percentchange + "</span>";
     		}
     		else{
     			var trend="Day-Negative";
     			text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
 				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    			var lastprice=text="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" + 
+    			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    			text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + percentchange + "</span>";
     		}
     		
     		var ltp = prevclose;
@@ -185,7 +200,7 @@
               $("#BNhigh").html(high);
               $("#BNlow").html(low);
               $("#BNlastprice").html(lastprice);
-              $("#BNpercentchange").html(percentchange);
+              $("#BNpercentchange").html(text2);
               
               $("#BNyearlyhigh").html(yearlyhigh);
               $("#BNyearlylow").html(yearlylow);

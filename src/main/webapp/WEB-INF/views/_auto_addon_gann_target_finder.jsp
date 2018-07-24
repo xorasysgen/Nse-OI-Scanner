@@ -3,7 +3,7 @@
     <div class="panel panel-info">
 		    <div class="panel-heading">
 		        <h3 class="panel-title">Nifty Prediction
-		        <span style="font-size: 14px;">&nbsp;&nbsp; [ LTP ]</span><sup><span style="font-size: 14px; color: blue;" id="Nlastprice"></span>&nbsp;&nbsp;
+		        <span style="font-size: 14px;">&nbsp;&nbsp; [ LTP ]</span><sup><span id="Nlastprice"></span>&nbsp;&nbsp;
 		        [ <span style="font-size: 14px;" id="Npercentchange"></span> ]
 				<span style="font-size: 14px; color: green;" id="NTrend"></span>
 	</sup>
@@ -128,7 +128,7 @@
     <div class="panel panel-info">
 		    <div class="panel-heading">
 		        <h3 class="panel-title">Bank Nifty Prediction
-		        <span style="font-size: 14px;">&nbsp;&nbsp; [ LTP ]</span><sup><span style="font-size: 14px; color: blue;" id="BNlastprice"></span>&nbsp;&nbsp;
+		        <span style="font-size: 14px;">&nbsp;&nbsp; [ LTP ]</span><sup><span id="BNlastprice"></span>&nbsp;&nbsp;
 		        [ <span style="font-size: 14px;" id="BNpercentchange"></span> ]
 				<span style="font-size: 14px; color: green;" id="BNTrend"></span>
 	</sup>
