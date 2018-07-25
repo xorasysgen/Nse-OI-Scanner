@@ -24,6 +24,14 @@
  
 <style>
 
+.extendedTarget{
+color: #4a148c;
+font-weight: bold;
+font-size: 17px;
+animation: blinker 3s linear infinite;
+}
+
+
 .black {
 color:black;
 font-weight: bold;

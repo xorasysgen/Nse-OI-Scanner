@@ -64,6 +64,9 @@
             var sellStoploss = (Math.floor(Math.pow(sup1Factor + 0.125, 2) * 100) / 100);
             var buy = (Math.floor(Math.pow(sup1Factor + 0.25, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.375, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.5, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.625, 2) * 99.95) / 100);
             var sell = (Math.floor(Math.pow(sup1Factor - 0.125, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.25, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.375, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.5, 2) * 100.05) / 100);
+            
+            var extendedBuy =  (Math.floor(Math.pow(sup1Factor + 0.75, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.875, 2) * 99.95) / 100);
+  			var extendedSell = (Math.floor(Math.pow(sup1Factor - 0.625, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.75, 2) * 100.05) / 100);
            
 	    
 	 
@@ -83,6 +86,9 @@
             $("#buyAt").html(buyAt);
             $("#buy").html(buy);
             $("#buyStoploss").html(buyStoploss);
+            
+            $("#extendedBuy").html(extendedBuy);
+            $("#extendedSell").html(extendedSell);
             
             $("#sellAt").html(sellAt);
             $("#sell").html(sell);
@@ -172,6 +178,9 @@
               var buy = (Math.floor(Math.pow(sup1Factor + 0.25, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.375, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.5, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.625, 2) * 99.95) / 100);
               var sell = (Math.floor(Math.pow(sup1Factor - 0.125, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.25, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.375, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.5, 2) * 100.05) / 100);
              
+              var extendedBuy =  (Math.floor(Math.pow(sup1Factor + 0.75, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.875, 2) * 99.95) / 100);
+    		  var extendedSell = (Math.floor(Math.pow(sup1Factor - 0.625, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.75, 2) * 100.05) / 100);
+             
   	    
   	 
   	    
@@ -190,6 +199,9 @@
               $("#buyAt0").html(buyAt);
               $("#buy0").html(buy);
               $("#buyStoploss0").html(buyStoploss);
+              
+              $("#extendedBuy0").html(extendedBuy);
+              $("#extendedSell0").html(extendedSell);
               
               $("#sellAt0").html(sellAt);
               $("#sell0").html(sell);

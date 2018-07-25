@@ -35,6 +35,8 @@
 					 	
 					 	<span style="font-size: 18px; text-align:center;" class ="vwapRedBlinker"> Targets: [ <span id="buy"></span> ] </span> &nbsp;&nbsp;
 					 	
+					 	<span style="font-size: 16px; text-align:center;" class ="extendedTarget">  Extended Targets: [ <span id="extendedBuy"></span> ] </span> 
+					 	
 					 	
 					 	
   				</li>
@@ -46,6 +48,8 @@
 					<span style="font-size: 16px; color: red; text-align:center;">Stop Loss: [ <span id="sellStoploss"></span> ] </span>&nbsp;&nbsp;
 						
 					<span style="font-size: 18px; color: #880e4f; text-align:center;" class ="vwapGreenBlinker"> Targets: [ <span id="sell"></span> ] </span> &nbsp;&nbsp;
+					
+					<span style="font-size: 16px; text-align:center;" class ="extendedTarget"> Extended Targets: [ <span id="extendedSell"></span> ] </span> 
 					 	
   			
   				</li>
@@ -159,6 +163,7 @@
 					 	
 					 	<span style="font-size: 18px; text-align:center;" class ="vwapRedBlinker"> Targets: [ <span id="buy0"></span> ] </span> &nbsp;&nbsp;
 					 	
+					 	<span style="font-size: 16px; text-align:center;" class ="extendedTarget">  Extended Targets: [ <span id="extendedBuy0"></span> ] </span>
 					 	
 					 	
   				</li>
@@ -170,6 +175,8 @@
 					<span style="font-size: 16px; color: red; text-align:center;">Stop Loss: [ <span id="sellStoploss0"></span> ] </span>&nbsp;&nbsp;
 						
 					<span style="font-size: 18px; color: #880e4f; text-align:center;" class ="vwapGreenBlinker"> Targets: [ <span id="sell0"></span> ] </span> &nbsp;&nbsp;
+					
+					<span style="font-size: 16px;  text-align:center;" class ="extendedTarget"> Extended Targets: [ <span id="extendedSell0"></span> ] </span> 
 					 	
   			
   				</li>

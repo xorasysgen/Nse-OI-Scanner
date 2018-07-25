@@ -64,6 +64,9 @@ $(document).ready(function(){
             setValue("sellStoploss", Math.floor(Math.pow(sup1Factor + 0.125, 2) * 100) / 100);
             setValue("buy", Math.floor(Math.pow(sup1Factor + 0.25, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.375, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.5, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.625, 2) * 99.95) / 100);
             setValue("sell", Math.floor(Math.pow(sup1Factor - 0.125, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.25, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.375, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.5, 2) * 100.05) / 100);
+            
+            setValue("extendedBuy", Math.floor(Math.pow(sup1Factor + 0.75, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.875, 2) * 99.95) / 100);
+            setValue("extendedSell", Math.floor(Math.pow(sup1Factor - 0.625, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.75, 2) * 100.05) / 100);
             for (var i = 1; i <= 8; i++) {
                 document.getElementById("blankBlock" + i).style.backgroundColor = "#ff4444";
                 setValue("blankBlock" + i, "&nbsp;")
@@ -132,7 +135,7 @@ $(document).ready(function(){
         <div class="input-group-addon">
         	<i class="fa fa-dollar"></i>
       	</div> 
-          <div class="input-group-addon">Closed/Opening Price i,e 10986</div> 
+          <div class="input-group-addon">Closed/Open Price</div> 
           <input id="text1" name="text1" placeholder="Best Result would be Closed Price 10986" type="text" class="form-control" onkeyup="return IsNumeric(event,'text11')" autocomplete="off" >
           <div id="error1"></div>
           <span id="text11" style="color: Red; display: none">* Numbers only, no special character and not in decimals</span>
@@ -167,6 +170,8 @@ $(document).ready(function(){
 					 	
 					 	<span style="font-size: 18px; text-align:center;" class ="vwapRedBlinker"> Targets: [ <span id="buy"></span> ] </span> &nbsp;&nbsp;
 					 	
+					 	<span style="font-size: 16px; text-align:center;" class ="extendedTarget">  Extended Targets: [ <span id="extendedBuy"></span> ] </span>
+					 	
 					 	
 					 	
   				</li>
@@ -178,6 +183,8 @@ $(document).ready(function(){
 					<span style="font-size: 16px; color: red; text-align:center;">Stop Loss: [ <span id="sellStoploss"></span> ] </span>&nbsp;&nbsp;
 						
 					<span style="font-size: 18px; color: #880e4f; text-align:center;" class ="vwapGreenBlinker"> Targets: [ <span id="sell"></span> ] </span> &nbsp;&nbsp;
+					
+					<span style="font-size: 16px;  text-align:center;" class ="extendedTarget"> Extended Targets: [ <span id="extendedSell"></span> ] </span> 
 					 	
   			
   				</li>
