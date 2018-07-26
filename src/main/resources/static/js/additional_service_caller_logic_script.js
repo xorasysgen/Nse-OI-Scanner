@@ -186,14 +186,8 @@
         		
         		var shortCovringOrLongUnwinding=false;
         		
-        		var pChangeEvo=pChange.replace("%" , "");
-        		var changeEvo=change;
-        		
-        		
         		var price;
         		var oi;
-        		
-        		       		
         		
         		var buyResult=Math.abs(openPrice.replace(/,/g , "")-lowPrice.replace(/,/g , ""));
         		var sellResult=Math.abs(openPrice.replace(/,/g , "")-highPrice.replace(/,/g , ""));
@@ -219,23 +213,22 @@
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
         		var textHigh="<span style='color: green; font-weight: bold; font-size: 11px;'>" + highPrice + "</span>";
         		
+        	
+        		
         		if(buyResult >=0 && buyResult <=30) {
         			var trend="Strong BUY";
         			text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
         			"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
-        			price=1;
         			
         		}else if(sellResult >=0 && sellResult <=30) {
         			var trend="Strong SELL";
         			text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
     				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-        			price=-1;
         			
         		}else if(openPrice>prevClose && lastPrice>=openPrice && booleanValue==true){
         			var trend="BUY";
     				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
     				 "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
-    				price=1;
     			}else if(booleanValue==true && lastPrice>openPrice){
     				var trend="BUY On Decline";
 				text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
@@ -247,7 +240,6 @@
 				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
 				
 			}
-        		
         		
         			if(change>0){
         				text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + lastPrice + "</span>" +
@@ -273,17 +265,33 @@
             		changeinOpenInterest=changeinOpenInterest.replace(/,/g , "");
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
             		
+            		
+            		
+            		var pChangeEvo1=pChange.replace("%" , "");
+            		console.log("pChangeEvo1" + pChangeEvo1);
+            		
+            		var changeEvo1=change;
+            		console.log("changeEvo1" + changeEvo1);
+            		
+            		
+            		var pChangeEvo=pchangeinOpenInterest.replace("%" , "");
+            		console.log("pChangeEvo" + pChangeEvo);
+            		
+            		var changeEvo=changeinOpenInterest;
+            		console.log("changeEvo" + changeinOpenInterest);
+
+            		
             			if(changeinOpenInterest>0){
             				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
             				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
             				text4="<span  style='color: #00c853; font-weight: bold; font-size: 14px;'>" + changeinOpenInterest + "</span>";
-            				oi=1;
+            				oi="+";
             			}
             			else{
             				text3="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
             				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
             				text4="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + changeinOpenInterest + "</span>";
-            				oi=-1;
+            				oi="-";
             			}
             			
             			if(pchangeinOpenInterest>0){
@@ -294,16 +302,79 @@
             			}
         		
             			
-            			if(price==-1 && oi==-1){
-            				text11="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>SHORT COVERING</span>";
+            			
+            			if(changeEvo1>50 && booleanValue==true){
+                			price="+";
                 		}
-            			else{
-            				text11="<span class='blinking1' style='color: #CC0000; font-weight: bold; font-size: 14px;'>LONG UNWINDING</span>";
+                		else{
+                			price="-";
+                		}
+                		
+                		if(changeEvo<0 && pChangeEvo<-5){
+                			shortCovringOrLongUnwinding=true;
+                		}
+                		else{
+                			shortCovringOrLongUnwinding=false;
+                		}
+            			console.log("price" + price);
+            			console.log("oi" + oi);
+            			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
+                		
+            			var text11="No clear trend in future";
+            			var display="+";
+                		if(price=="+" && oi=="+"){
+            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>LONG</span>";
+            				display="+";
+                		}
+            			else if (price=="-" && oi=="+"){
+            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 14px;'>SHORT</span>";
+            				display="-";
+            			}else if(price=="+" && oi=="-" && shortCovringOrLongUnwinding){
+            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>SHORT COVERING</span>";
+            				display="+";
+                		}
+            			else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding){
+            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 14px;'>LONG UNWINDING</span>";
+            				display="-";
             			}
             			
-            			  $("#bankNiftyOpen").html(textOpen);
-            			  $("#bankNiftyLow").html(textLow);
-            			  $("#bankNiftyHigh").html(textHigh);
+            			
+                		if(display=="+"){
+                			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
+                			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html(text3);
+                            $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
+                            $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
+                            $("#ShortsOrLongRemarkPlus").html(text11);
+                		}
+                		else{
+                			$("#bankNiftyShortsOrLongFUTNamePlus").html("");
+                			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html("");
+                            $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html("");
+                            $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html("");
+                            $("#ShortsOrLongRemarkPlus").html("");
+                		}
+                		
+                		
+                		
+                		if(display=="-"){
+                			$("#bankNiftyShortsOrLongFUTNameMinus").html("BANK NIFTY-OI");
+                			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html(text3);
+                            $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(text4);
+                            $("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html(text5);
+                            $("#ShortsOrLongRemarkMinus").html(text11);
+                		}
+                		else{
+                			$("#bankNiftyShortsOrLongFUTNameMinus").html("");
+                			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html("");
+                            $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
+                            $("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html("");
+                            $("#ShortsOrLongRemarkMinus").html("");
+                		}
+                		
+            			
+            $("#bankNiftyOpen").html(textOpen);
+            $("#bankNiftyLow").html(textLow);
+            $("#bankNiftyHigh").html(textHigh);
                     		
             $("#bankNiftyvwap").html(vwapText);
             $("#bankNiftyFUTTrend").html(text0);
@@ -317,10 +388,7 @@
             $("#bankNiftyFUTChangeinOpenInterest").html(text4);
             $("#bankNiftyFUTPchangeinOpenInterest").html(text5);
             
-            $("#bankNiftyShortsOrLongFUTOpenInterest").html(text3);
-            $("#bankNiftyShortsOrLongChangeinOpenInterest").html(text4);
-            $("#bankNiftyShortsOrLongPerchangeinOpenInterest").html(text5);
-            $("#ShortsOrLongRemark").html(text11);
+            
         	
         }
         })

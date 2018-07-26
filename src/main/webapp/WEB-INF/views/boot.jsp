@@ -325,42 +325,78 @@
 
 						<div class="panel-body"> <!-- panel-body  start-->
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
-			<ul class="list-group">
+			<div class="row">
+        <div class="col-xs-6">
+          <ul class="list-group">
 			<li class="list-group-item">
-			<span id="ShortsOrLongRemark"></span>&nbsp; &nbsp; &nbsp; &nbsp;
-			BANK NIFTY-OI [ <span id="bankNiftyShortsOrLongFUTOpenInterest"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterest"></span></sup> ]
+			<span id="ShortsOrLongRemarkMinus"></span>&nbsp; &nbsp; &nbsp; &nbsp;
+			<span id="bankNiftyShortsOrLongFUTNameMinus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestMinus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestMinus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestMinus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
 					 	<span class='superolive'>
-					 	[ Case of Long Unwinding(-) ] </span>
-					 	<strong class="navy">Entry ( 1:10Pm And 02:10Pm ) Exit ( 02:26Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
-					 	<span class="greenBlinker">[ Case of Short Covering(+) ]</span>
-					 	<strong class="navy">Entry ( 10:02Am And 02:10Pm ) Exit( 10:59Am to 11:02Am )</strong> 
-					 	<strong class="navy">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
-  				</li>
+					 	Chittori Sena Attack Long Unwinding(-)  </span><br>
+					 	<strong class="navy12">Entry ( 1:10Pm And 02:10Pm ) Exit ( 02:26Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
+							</li>
 			
  				 <li class="list-group-item">
-					 	<strong>Expiry Day  Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-					 	Regular Days Prediction 1 [ <span id="nonExpiry1"></span> ]  
+					 	<strong>Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+					 
   				</li>
   				
   				<li class="list-group-item">
-  						<strong>Expiry Day  Strong Prediction 2 </strong>[ <span id="Predictionsecond"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-  						Regular Days Prediction 2 [ <span id="nonExpiry2"></span> ] 
+  						<strong>Strong Prediction 2 </strong>[ <span id="Predictionsecond"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						
   				</li>
   				
   				<li class="list-group-item">
-	  					Expiry Day Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  					Regular Days Prediction 3 [ <span id="nonExpiry3"></span> ] 
+	  					Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					
   				</li>
   				
   					<li class="list-group-item">
-	  					Expiry Day Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  					Regular Days Prediction 4 [ <span id="nonExpiry4"></span> ] 
+	  					Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					
   				</li>
   				
 		 </ul>
 			
+        </div>
+        <div class="col-xs-6">
+            <ul class="list-group">
+			<li class="list-group-item">
+			<span id="ShortsOrLongRemarkPlus"></span>&nbsp; &nbsp; &nbsp; &nbsp;
+			<span id="bankNiftyShortsOrLongFUTNamePlus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestPlus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestPlus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestPlus"></span></sup> 
+			</li>
+			 <li class="list-group-item">
+					 	<span class="greenBlinker">Hulk Smash Short Covering(+) </span><br>
+					 	<strong class="navy12">Entry ( 10:02Am And 02:10Pm ) Exit( 10:59Am to 11:02Am )</strong> 
+					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
+  				</li>
+			
+ 				 <li class="list-group-item">
+					
+					 	Strong Prediction 1 [ <span id="nonExpiry1"></span> ]  
+  				</li>
+  				
+  				<li class="list-group-item">
+  						
+  						Strong Prediction 2 [ <span id="nonExpiry2"></span> ] 
+  				</li>
+  				
+  				<li class="list-group-item">
+	  					
+	  					Prediction 3 [ <span id="nonExpiry3"></span> ] 
+  				</li>
+  				
+  					<li class="list-group-item">
+	  					
+	  					Prediction 4 [ <span id="nonExpiry4"></span> ] 
+  				</li>
+  				
+		 </ul>
+			
+        </div>
+    </div>
 		     
 	     </span>
 		    </div> <!-- panel-body  end-->

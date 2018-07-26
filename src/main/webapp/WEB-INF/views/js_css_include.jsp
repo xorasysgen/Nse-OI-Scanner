@@ -74,6 +74,12 @@ font-size: 16px;
 }
 
 
+.navy12{
+color: navy;
+font-weight: bold;
+font-size: 12px;
+}
+
 .vwapGreenBlinker{
 color: #d500f9;
 font-weight: bold;
