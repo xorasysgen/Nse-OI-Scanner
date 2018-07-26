@@ -89,6 +89,14 @@ animation: blinker 2s linear infinite;
 }
 
 
+
+.greenBlinker{
+color: #00C851;
+font-weight: bold;
+font-size: 17px;
+animation: blinker 1s linear infinite;
+}
+
 .navyBlinker{
 color: #005BF9;
 font-weight: bold;

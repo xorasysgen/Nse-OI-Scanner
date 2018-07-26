@@ -102,7 +102,7 @@
         <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
-      <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85</strong></span></span></span>
+      <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85&nbsp;exp#2.18</strong></span></span></span>
         </h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
@@ -326,24 +326,37 @@
 						<div class="panel-body"> <!-- panel-body  start-->
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<ul class="list-group">
+			<li class="list-group-item">
+			<span id="ShortsOrLongRemark"></span>&nbsp; &nbsp; &nbsp; &nbsp;
+			BANK NIFTY-OI [ <span id="bankNiftyShortsOrLongFUTOpenInterest"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterest"></span></sup> ]
+			</li>
+			 <li class="list-group-item">
+					 	<span class='superolive'>
+					 	[ Case of Long Unwinding(-) ] </span>
+					 	<strong class="navy">Entry ( 1:10Pm And 02:10Pm ) Exit ( 02:26Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
+					 	<span class="greenBlinker">[ Case of Short Covering(+) ]</span>
+					 	<strong class="navy">Entry ( 10:02Am And 02:10Pm ) Exit( 10:59Am to 11:02Am )</strong> 
+					 	<strong class="navy">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
+  				</li>
+			
  				 <li class="list-group-item">
-					 	<strong>Expiry Day [WED-THU] Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-					 	Regular Days[FRI-MON-TUE] Prediction 1 [ <span id="nonExpiry1"></span> ]  
+					 	<strong>Expiry Day  Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+					 	Regular Days Prediction 1 [ <span id="nonExpiry1"></span> ]  
   				</li>
   				
   				<li class="list-group-item">
-  						<strong>Expiry Day [WED-THU] Strong Prediction 2 </strong>[ <span id="Predictionsecond"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-  						Regular Days[FRI-MON-TUE] Prediction 2 [ <span id="nonExpiry2"></span> ] 
+  						<strong>Expiry Day  Strong Prediction 2 </strong>[ <span id="Predictionsecond"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						Regular Days Prediction 2 [ <span id="nonExpiry2"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
-	  					Expiry Day [WED-THU] Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  					Regular Days[FRI-MON-TUE] Prediction 3 [ <span id="nonExpiry3"></span> ] 
+	  					Expiry Day Prediction 3 [ <span id="Predictionthird"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Regular Days Prediction 3 [ <span id="nonExpiry3"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
-	  					Expiry Day [WED-THU]  Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  					Regular Days[FRI-MON-TUE] Prediction 4 [ <span id="nonExpiry4"></span> ] 
+	  					Expiry Day Prediction 4 [ <span id="Predictionfour"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  					Regular Days Prediction 4 [ <span id="nonExpiry4"></span> ] 
   				</li>
   				
 		 </ul>
