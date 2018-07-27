@@ -323,28 +323,31 @@
             			var text11="No clear trend in future";
             			var display="+";
                 		if(price=="+" && oi=="+"){
-            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>LONG</span>";
+            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 16px;'>LONG</span>";
             				display="+";
                 		}
             			else if (price=="-" && oi=="+"){
-            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 14px;'>SHORT</span>";
+            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>SHORT</span>";
             				display="-";
             			}else if(price=="+" && oi=="-" && shortCovringOrLongUnwinding){
-            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 14px;'>SHORT COVERING</span>";
+            				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 16px;'>SHORT COVERING</span>";
             				display="+";
                 		}
             			else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding){
-            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 14px;'>LONG UNWINDING</span>";
+            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>LONG UNWINDING</span>";
             				display="-";
             			}
             			
-            			
+                		var bullImage="<img src='images/bull-head.png' style='height:25px; width:32px;'>";
+                		var bearImage="<img src='images/bear-head.png' style='height:25px; width:32px;'>";
+                		
                 		if(display=="+"){
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html(text3);
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
+                            $("#bull").html(bullImage)
                 		}
                 		else{
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("");
@@ -352,6 +355,7 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html("");
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html("");
                             $("#ShortsOrLongRemarkPlus").html("");
+                            $("#bull").html("")
                 		}
                 		
                 		
@@ -362,13 +366,14 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html(text5);
                             $("#ShortsOrLongRemarkMinus").html(text11);
+                            $("#bear").html(bearImage)
                 		}
                 		else{
                 			$("#bankNiftyShortsOrLongFUTNameMinus").html("");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html("");
                             $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html("");
-                            $("#ShortsOrLongRemarkMinus").html("");
+                            $("#bear").html("");
                 		}
                 		
             			
