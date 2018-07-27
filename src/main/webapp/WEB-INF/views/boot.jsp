@@ -329,6 +329,7 @@
         <div class="col-xs-6">
           <ul class="list-group">
 			<li class="list-group-item">
+			<span id="mark1"></span>
 			<span id="bear"></span><span id="ShortsOrLongRemarkMinus"></span>&nbsp; &nbsp; &nbsp; &nbsp;
 			<span id="bankNiftyShortsOrLongFUTNameMinus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestMinus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestMinus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestMinus"></span></sup> 
 			</li>
@@ -364,33 +365,34 @@
         <div class="col-xs-6">
             <ul class="list-group">
 			<li class="list-group-item">
+			<span id="mark0"></span>
 			<span id="bull"></span><span id="ShortsOrLongRemarkPlus"></span>&nbsp; &nbsp; &nbsp; &nbsp;
 			<span id="bankNiftyShortsOrLongFUTNamePlus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestPlus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestPlus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestPlus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
 					 	<span class="greenBlinker">Hulk Smash Long OR Short Covering(+) </span><br>
-					 	<strong class="navy12">Entry ( 10:02Am And 02:10Pm ) Exit( 10:59Am to 11:02Am )</strong> 
+					 	<strong class="navy12">Entry ( 10:02Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> 
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
 			
  				 <li class="list-group-item">
-					
-					 	Strong Prediction 1 [ <span id="nonExpiry1"></span> ]  
+						Quick Money Strong Prediction 1 [ <span id="quick1"></span> ]  &nbsp;&nbsp;&nbsp;&nbsp;
+					 	Strong Prediction 5 [ <span id="nonExpiry1"></span> ]  
   				</li>
   				
   				<li class="list-group-item">
-  						
-  						Strong Prediction 2 [ <span id="nonExpiry2"></span> ] 
+  						Quick Money Strong Prediction 2[ <span id="quick2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						Strong Prediction 5 [ <span id="nonExpiry2"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
-	  					
-	  					Prediction 3 [ <span id="nonExpiry3"></span> ] 
+	  					Quick Money Strong Prediction 3 [ <span id="quick3"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+	  					Strong Safe Buy 1 [ <span id="nonExpiry3"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
-	  					
-	  					Prediction 4 [ <span id="nonExpiry4"></span> ] 
+	  					Quick Money Strong Prediction 4 [ <span id="quick4"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+	  					Strong Safe Buy 2 [ <span id="nonExpiry4"></span> ] 
   				</li>
   				
 		 </ul>

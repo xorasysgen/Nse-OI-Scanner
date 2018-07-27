@@ -40,6 +40,32 @@ public class ArtificialIIntelligenceStrategies {
 	public ParentOptionSuggestion getbankNiftyOptionFinderNonExpiryDay() {
 		Map<String,String> map=Top20ContractsReader.bankNiftyOptionFinderNonExpiryDay();
 		ParentOptionSuggestion parentOptionSuggestion=new ParentOptionSuggestion();
+		List<OptionSuggestion> data=new LinkedList<OptionSuggestion>();
+		if(map!=null) {
+			for(Map.Entry<String, String> temp:map.entrySet()) {
+				OptionSuggestion optionSuggestion=new OptionSuggestion();
+				optionSuggestion.setOptionTypeStrikePrice(temp.getValue());
+				data.add(optionSuggestion);
+			}
+		}
+		
+		Map<String,String> maptemp=Top20ContractsReader.bankNiftyOptionaAggressiveFinder();
+		if(maptemp!=null) {
+			for(Map.Entry<String, String> temp:maptemp.entrySet()) {
+				OptionSuggestion optionSuggestion=new OptionSuggestion();
+				optionSuggestion.setOptionTypeStrikePrice(temp.getValue());
+				data.add(optionSuggestion);
+			}
+		}
+		parentOptionSuggestion.setData(data);
+		return parentOptionSuggestion;
+
+	}
+	
+	@GetMapping("/bank_nifty_expiry_day_option_suggestion/aggressive_calls")
+	public ParentOptionSuggestion getbankNiftyOptionFinderAggressiveCalls() {
+		Map<String,String> map=Top20ContractsReader.bankNiftyOptionaAggressiveFinder();
+		ParentOptionSuggestion parentOptionSuggestion=new ParentOptionSuggestion();
 		List<OptionSuggestion> data=null;
 		if(map!=null) {
 			data=new LinkedList<>();
@@ -53,6 +79,7 @@ public class ArtificialIIntelligenceStrategies {
 		return parentOptionSuggestion;
 
 	}
+	
 	
 	@GetMapping("/banknifty_and_nifty_support_resistance")
 	public ParentsDataPoints getDataPointsNiftyAndBankNifty() {

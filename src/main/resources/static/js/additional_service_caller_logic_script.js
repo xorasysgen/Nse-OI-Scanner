@@ -350,6 +350,7 @@
                             $("#bull").html(bullImage)
                 		}
                 		else{
+                			$("#mark0").html("Not Recommended");
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html("");
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html("");
@@ -369,6 +370,7 @@
                             $("#bear").html(bearImage)
                 		}
                 		else{
+                			$("#mark1").html("Not Recommended");
                 			$("#bankNiftyShortsOrLongFUTNameMinus").html("");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html("");
                             $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
@@ -446,6 +448,22 @@
         		var third=json.data[2].optionTypeStrikePrice;
         		var four=json.data[3].optionTypeStrikePrice;
         		
+        		
+        		var quick1=json.data[4].optionTypeStrikePrice;
+        		var quick2=json.data[5].optionTypeStrikePrice;
+        		var quick3=json.data[6].optionTypeStrikePrice;
+        		var quick4=json.data[7].optionTypeStrikePrice;
+        		
+        		
+        		text000="<span class='greenBlinker'>" + quick1 + "</span>";
+				
+				text111="<span class='greenBlinker'>" + quick2 + "</span>"; 
+				
+				text222="<span class='greenBlinker'>"  + quick3 + "</span>"; 
+				
+				text333="<span class='greenBlinker'>"  + quick4 + "</span>";
+        		
+        		
     				text0="<span class='greenBlinker'>" + first + "</span>";
     				
     				text1="<span class='greenBlinker'>" + second + "</span>"; 
@@ -455,6 +473,12 @@
     				text3="<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + four + "</span>";
         	
         		
+            $("#quick1").html(text000);
+            $("#quick2").html(text111);
+            $("#quick3").html(text222);
+            $("#quick4").html(text333);
+            
+            
             $("#nonExpiry1").html(text0);
             $("#nonExpiry2").html(text1);
             $("#nonExpiry3").html(text2);

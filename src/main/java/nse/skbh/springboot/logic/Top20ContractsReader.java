@@ -15,6 +15,9 @@ import org.jsoup.select.Elements;
 import nse.skbh.springboot.pojo.ParentTop20Contract;
 import nse.skbh.springboot.pojo.Top20Contract;
 
+
+
+
 class Top20ContractsReaderComparator implements Comparator<Top20Contract>{
 	
 	@Override
@@ -153,6 +156,38 @@ public class Top20ContractsReader {
 		return filter;
 		
 	}
-
+	
+	
+	public static Map<String,String> bankNiftyOptionaAggressiveFinder(){
+		Map<String,String> filter=new LinkedHashMap<>();
+		List<Top20Contract> t=Top20ContractsReader.getTop20ContractsNSE().getData();
+		
+		if(t!=null) {
+			String optionType=(t.get(0).getOptionType());
+			String strikePrice=t.get(0).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+			filter.put("1", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=(t.get(1).getOptionType());
+				String strikePrice=t.get(1).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("2", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=(t.get(2).getOptionType());
+				String strikePrice=t.get(2).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("3", strikePrice.concat("-").concat(optionType));
+			}
+			if(t!=null) {
+				String optionType=(t.get(3).getOptionType());
+				String strikePrice=t.get(3).getStrikePrice().replaceAll("\\,", "").split("\\.")[0];
+				filter.put("4	", strikePrice.concat("-").concat(optionType));
+			}
+		
+		return filter;
+		
+	}
+public static void main(String[] args) {
+	System.out.println(bankNiftyOptionaAggressiveFinder());
+}
 		
 }
