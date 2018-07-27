@@ -1,6 +1,7 @@
 package nse.skbh.springboot.logic;
 import java.security.MessageDigest;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -187,6 +188,26 @@ public class Utils {
 
 	}
 
+	
+	public static Integer compareDates(String date) {
+		SimpleDateFormat sf=new SimpleDateFormat("ddMMMyy");
+		Date expiry = null;
+		try {
+			expiry = sf.parse(date);
+		} catch (ParseException exceptionObject) {
+			exceptionObject.printStackTrace();
+		}
+		Date current=new Date();
+		String string=sf.format(current);
+		try {
+			current=sf.parse(string);
+		} catch (ParseException exceptionObject) {
+			exceptionObject.printStackTrace();
+		}
+		
+		return current.compareTo(expiry);
+		
+	}
 	
 	
 	public static String getNIFTY50Top10HoldingsDateFormatddMMyy() {

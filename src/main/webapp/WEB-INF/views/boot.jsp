@@ -334,7 +334,7 @@
 			</li>
 			 <li class="list-group-item">
 					 	<span class='superolive'>
-					 	Chittori Sena Attack Long Unwinding(-)  </span><br>
+					 	Chittori Sena Attack Short Or Long Unwinding(-)  </span><br>
 					 	<strong class="navy12">Entry ( 1:10Pm And 02:10Pm ) Exit ( 02:26Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
 							</li>
 			
@@ -368,7 +368,7 @@
 			<span id="bankNiftyShortsOrLongFUTNamePlus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestPlus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestPlus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestPlus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
-					 	<span class="greenBlinker">Hulk Smash Short Covering(+) </span><br>
+					 	<span class="greenBlinker">Hulk Smash Long OR Short Covering(+) </span><br>
 					 	<strong class="navy12">Entry ( 10:02Am And 02:10Pm ) Exit( 10:59Am to 11:02Am )</strong> 
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
