@@ -339,7 +339,7 @@
             			}
             			
                 		var bullImage="<img src='images/bull-head.png' style='height:25px; width:32px;'>";
-                		var bearImage="<img src='images/bear-head.png' style='height:25px; width:32px;'>";
+                		var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
                 		
                 		if(display=="+"){
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
