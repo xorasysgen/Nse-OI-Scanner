@@ -225,15 +225,18 @@
 					 	NIFTY50-FUT [ <span id="niftyFUTLastPrice"></span><sup><span id="niftyFUTPChange"></span>&nbsp;&nbsp;<span id="niftyFUTChange"></span></sup> ]
 					 	&nbsp;&nbsp;  VWAP [ <span id="niftyvwap"></span> ] &nbsp;&nbsp;
 						&nbsp; Signal [ <span id="niftyFUTTrend"></span> ] &nbsp;&nbsp;&nbsp;
-					 	[ <span id="niftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="niftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;"><strong><span id="niftyLow"></span></strong></span></span></span>&nbsp;&nbsp;&nbsp;
+					 	[ <span id="niftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="niftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;"><strong><span id="niftyLow"></span></strong></span></span></span>
+					 	Prev Close[ <span id="niftyPreviousClose"></span> ] &nbsp;&nbsp;&nbsp;
 						NIFTY50-OI [ <span id="NiftyFUTOpenInterest"></span><sup><span id="NiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="NiftyFUTChangeinOpenInterest"></span></sup> ]
+						 
   				</li>
   				
   				<li class="list-group-item">
   						BANK NIFTY-FUT [ <span id="bankNiftyFUTLastPrice"></span><sup><span id="bankNiftyFUTPChange"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChange"></span></sup> ]
   						&nbsp;&nbsp; VWAP [ <span id="bankNiftyvwap"></span> ]
 						&nbsp;&nbsp; Signal [ <span id="bankNiftyFUTTrend"></span> ] &nbsp;&nbsp;&nbsp;
-						[ <span id="bankNiftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="bankNiftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;" ><strong><span id="bankNiftyLow"></span></strong></span></span></span>&nbsp;&nbsp;&nbsp;
+						[ <span id="bankNiftyOpen"></span><span class="nobr"> ] <span class="supsub"><span style="color: #00e676; font-size: 10px;"><strong><span id="bankNiftyHigh"></span></strong></span><br /><span style="color: #ffc107; font-size: 10px;" ><strong><span id="bankNiftyLow"></span></strong></span></span></span>
+						Prev Close[ <span id="bankNiftyPreviousClose"></span> ]&nbsp;&nbsp;&nbsp;
 						BANK NIFTY-OI [ <span id="bankNiftyFUTOpenInterest"></span><sup><span id="bankNiftyFUTPchangeinOpenInterest"></span>&nbsp;&nbsp;<span id="bankNiftyFUTChangeinOpenInterest"></span></sup> ]
   				</li>
   				

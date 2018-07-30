@@ -9,6 +9,7 @@
         		var lastUpdateTime=json.lastUpdateTime;
         		var tradedDate=json.tradedDate;
         		var expiryDate=json.data[0].expiryDate;
+        		var previousClose=json.data[0].prevClose;
         		var vwap=json.data[0].vwap;
         		var dailyVolatility=json.data[0].dailyVolatility;
         		
@@ -57,6 +58,7 @@
         		var textOpen="<span style='color: black; font-weight: bold; font-size: 14px;'>" + openPrice + "</span>";
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
         		var textHigh="<span style='color: green; font-weight: bold; font-size: 11px;'>" + highPrice + "</span>";
+        		var textPreviousClose="<span style='color: green; font-weight: bold; font-size: 11px;'>" + previousClose + "</span>";
         		
         		if(buyResult >=0 && buyResult <=11 && booleanValue==true) {
         			var trend="Strong BUY";
@@ -128,7 +130,7 @@
             			}
         		
             			
-
+            		 $("#niftyPreviousClose").html(textPreviousClose); 	
           			  $("#niftyOpen").html(textOpen);
           			  $("#niftyLow").html(textLow);
           			  $("#niftyHigh").html(textHigh); 	
@@ -163,6 +165,7 @@
         		var tradedDate=json.tradedDate;
         		var expiryDate=json.data[0].expiryDate;
         		var vwap=json.data[0].vwap;
+        		var previousClose=json.data[0].prevClose.replace(/,/g , "");
         		var dailyVolatility=json.data[0].dailyVolatility;
         		
         		var prevClose=json.data[0].prevClose;
@@ -212,7 +215,7 @@
         		var textOpen="<span style='color: black; font-weight: bold; font-size: 14px;'>" + openPrice + "</span>";
         		var textLow="<span style='color: red; font-weight: bold; font-size: 11px;'>" + lowPrice + "</span>";
         		var textHigh="<span style='color: green; font-weight: bold; font-size: 11px;'>" + highPrice + "</span>";
-        		
+        		var textPreviousClose="<span style='color: green; font-weight: bold; font-size: 11px;'>" + previousClose + "</span>";
         	
         		
         		if(buyResult >=0 && buyResult <=30) {
@@ -378,7 +381,7 @@
                             $("#bear").html("");
                 		}
                 		
-            			
+            $("#bankNiftyPreviousClose").html(textPreviousClose); 	 			
             $("#bankNiftyOpen").html(textOpen);
             $("#bankNiftyLow").html(textLow);
             $("#bankNiftyHigh").html(textHigh);
