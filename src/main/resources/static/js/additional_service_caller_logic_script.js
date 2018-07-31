@@ -50,7 +50,7 @@
         		var sellResult=Math.abs(openPrice.replace(/,/g , "")-highPrice.replace(/,/g , ""));
         		var diffNiftyOpenPrevOpen=Math.abs(openPrice.replace(/,/g , "")-prevClose.replace(/,/g , ""));
         		var diffNiftyOpenPrevOpenResult=false;
-        		if(diffNiftyOpenPrevOpen>=1 && diffNiftyOpenPrevOpen<=3){
+        		if(diffNiftyOpenPrevOpen>=1 && diffNiftyOpenPrevOpen<=11){
         			diffNiftyOpenPrevOpenResult=true
         		}
         		
