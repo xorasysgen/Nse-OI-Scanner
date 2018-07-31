@@ -313,7 +313,7 @@
                 			price="-";
                 		}
                 		
-                		if(changeEvo<0 && pChangeEvo<-5){
+                		if(changeEvo<0 && pChangeEvo<-2){
                 			shortCovringOrLongUnwinding=true;
                 		}
                 		else{
