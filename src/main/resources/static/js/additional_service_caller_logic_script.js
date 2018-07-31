@@ -323,7 +323,12 @@
             			console.log("oi" + oi);
             			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
                 		
-            			var text11="No clear trend in future";
+            			var text11="No Clear Trend, Bulls are still waiting";
+            			var bullImage="<img src='images/bull-head.png' style='height:25px; width:32px;'>";
+            			var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
+            			var dogImage="<img src='images/dog.png' style='height:30px; width:35px;'>";
+            			text11 = text11 + " " + dogImage;
+            			
             			var display="+";
                 		if(price=="+" && oi=="+"){
             				text11="<span class='greenBlinker' style='color: #00c853; font-weight: bold; font-size: 16px;'>LONG</span>";
@@ -337,13 +342,11 @@
             				display="+";
                 		}
             			else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding){
-            				text11="<span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>LONG UNWINDING</span>";
+            				text11=dogImage + " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>LONG UNWINDING</span>";
             				display="-";
             			}
             			
-                		var bullImage="<img src='images/bull-head.png' style='height:25px; width:32px;'>";
-                		var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
-                		
+            			
                 		if(display=="+"){
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html(text3);
@@ -380,6 +383,7 @@
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html("");
                             $("#bear").html("");
                 		}
+                		
                 		
             $("#bankNiftyPreviousClose").html(textPreviousClose); 	 			
             $("#bankNiftyOpen").html(textOpen);
