@@ -306,7 +306,7 @@
         		
             			
             			
-            			if(changeEvo1>50 && booleanValue==true){
+            			if(changeEvo1>10 && booleanValue==true){
                 			price="+";
                 		}
                 		else{
