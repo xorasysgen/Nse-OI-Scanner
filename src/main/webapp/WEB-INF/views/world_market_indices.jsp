@@ -94,8 +94,8 @@
 	              <th>LTP</th>
 	              <th>chg</th>
 	              <th>PerChange</th>
-	              <th>High</th>
 	              <th>Low</th>
+	              <th>High</th>
 	              <th>Time</th>
 	              
 			</tr>

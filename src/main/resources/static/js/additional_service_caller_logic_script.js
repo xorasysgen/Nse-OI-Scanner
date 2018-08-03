@@ -650,5 +650,338 @@
         	
         }
         })
+        
+        
+        /* begins road map Nifty data*/
+        /*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/nifty_roadMap',
+        	success: function(result){
+        		var json = result;
+        		var ltpDataPointcordinateNifty=json.ltpDataPointcordinate;
+        		var symbol=json.symbol;
+        		
+        		var s0Open=json.s0Open;
+        		var s7=json.s7;
+        		var s6=json.s6;
+        		var s5=json.s5;
+        		var s4=json.s4;
+        		var s3=json.s3;
+        		var s2=json.s2
+        		var s1=json.s1;
+        		var r0open=json.r0open;
+        		var r1=json.r1;
+        		var r2=json.r2;
+        		var r3=json.r3;
+        		var r4=json.r4;
+        		var r5=json.r5;
+        		var r6=json.r6;
+        		var r7=json.r7;
+        		  
+        		var symbolNifty="<span class='nifty' style='font-weight: bold; font-size: 16px;'>" + symbol + "</span>";
+        		
+        		if(ltpDataPointcordinateNifty=="s0Open"){
+        			var nifty0="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} 
+        		else {
+        			var nifty0="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s0Open + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s1"){
+        			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		} 
+        		else {
+        			var nifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s1 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s2"){
+        			var nifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} 
+        		else {
+        			var nifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s2 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s3"){
+        			var nifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} 
+        		else {
+        			var nifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s3 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s4"){
+        			var nifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} 
+        		else {
+        			var nifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s4 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s5"){
+        			var nifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		} 
+        		else {
+        			var nifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s5 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s6"){
+        			var nifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		} 
+        		else {
+        			var nifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s6 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s7"){
+        			var nifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		} 
+        		else {
+        			var nifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s7 + "</span>";
+        		}
+        		
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="r0open"){
+        			var nifty8="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+        		} 
+        		else{
+        			var nifty8="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r0open + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="r1"){
+        			var nifty9="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else{
+        			var nifty9="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r1 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r2"){
+        			var nifty10="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		}
+        		else{
+        			var nifty10="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r2 + "</span>";
+        		}
+        		if(ltpDataPointcordinateNifty=="r3"){
+        			var nifty11="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		}
+        		else{
+        			var nifty11="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r3 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r4"){
+        			var nifty12="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		}
+        		else{
+        			var nifty12="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r4 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r5"){
+        			var nifty13="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+        		}
+        		else{
+        			var nifty13="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r5 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r6"){
+        			var nifty14="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		}
+        		else{
+        			var nifty14="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r6 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r7"){
+        			var nifty15="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		}
+        		else{
+        			var nifty15="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r7 + "</span>";
+        		}
+        		
+                $("#niftySymbolName").html(symbolNifty);
+                $("#niftyMapS0").html(nifty0);
+                $("#niftyMapS1").html(nifty1);
+                $("#niftyMapS2").html(nifty2);
+                $("#niftyMapS3").html(nifty3);
+                $("#niftyMapS4").html(nifty4);
+                $("#niftyMapS5").html(nifty5);
+                $("#niftyMapS6").html(nifty6);
+                $("#niftyMapS7").html(nifty7);
+                
+                $("#niftyMapR0").html(nifty8);
+                $("#niftyMapR1").html(nifty9);
+                $("#niftyMapR2").html(nifty10);
+                $("#niftyMapR3").html(nifty11);
+                $("#niftyMapR4").html(nifty12);
+                $("#niftyMapR5").html(nifty13);
+                $("#niftyMapR6").html(nifty14);
+                $("#niftyMapR7").html(nifty15);
+                
+                                       	
+        }
+        })
+
+
+        
+        /* begins road map Nifty data*/
+        /*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/bank_nifty_roadMap',
+        	success: function(result){
+        		var json = result;
+        		var ltpDataPointcordinateNifty=json.ltpDataPointcordinate;
+        		var symbol=json.symbol;
+        		
+        		var s0Open=json.s0Open;
+        		var s7=json.s7;
+        		var s6=json.s6;
+        		var s5=json.s5;
+        		var s4=json.s4;
+        		var s3=json.s3;
+        		var s2=json.s2
+        		var s1=json.s1;
+        		var r0open=json.r0open;
+        		var r1=json.r1;
+        		var r2=json.r2;
+        		var r3=json.r3;
+        		var r4=json.r4;
+        		var r5=json.r5;
+        		var r6=json.r6;
+        		var r7=json.r7;
+        		  
+        		var symbolNifty="<span class='nifty' style='font-weight: bold; font-size: 16px;'>" + symbol + "</span>";
+        		
+        		if(ltpDataPointcordinateNifty=="s0Open"){
+        			var nifty0="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} 
+        		else {
+        			var nifty0="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s0Open + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s1"){
+        			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		} 
+        		else {
+        			var nifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s1 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s2"){
+        			var nifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} 
+        		else {
+        			var nifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s2 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s3"){
+        			var nifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} 
+        		else {
+        			var nifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s3 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s4"){
+        			var nifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} 
+        		else {
+        			var nifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s4 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s5"){
+        			var nifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		} 
+        		else {
+        			var nifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s5 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s6"){
+        			var nifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		} 
+        		else {
+        			var nifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s6 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="s7"){
+        			var nifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		} 
+        		else {
+        			var nifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s7 + "</span>";
+        		}
+        		
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="r0open"){
+        			var nifty8="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+        		} 
+        		else{
+        			var nifty8="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r0open + "</span>";
+        		}
+        		
+        		
+        		if(ltpDataPointcordinateNifty=="r1"){
+        			var nifty9="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else{
+        			var nifty9="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r1 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r2"){
+        			var nifty10="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		}
+        		else{
+        			var nifty10="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r2 + "</span>";
+        		}
+        		if(ltpDataPointcordinateNifty=="r3"){
+        			var nifty11="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		}
+        		else{
+        			var nifty11="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r3 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r4"){
+        			var nifty12="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		}
+        		else{
+        			var nifty12="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r4 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r5"){
+        			var nifty13="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+        		}
+        		else{
+        			var nifty13="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r5 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r6"){
+        			var nifty14="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		}
+        		else{
+        			var nifty14="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r6 + "</span>";
+        		}
+        		
+        		if(ltpDataPointcordinateNifty=="r7"){
+        			var nifty15="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		}
+        		else{
+        			var nifty15="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r7 + "</span>";
+        		}
+        		
+                $("#BankNiftySymbolName").html(symbolNifty);
+                $("#BankNiftyMapS0").html(nifty0);
+                $("#BankNiftyMapS1").html(nifty1);
+                $("#BankNiftyMapS2").html(nifty2);
+                $("#BankNiftyMapS3").html(nifty3);
+                $("#BankNiftyMapS4").html(nifty4);
+                $("#BankNiftyMapS5").html(nifty5);
+                $("#BankNiftyMapS6").html(nifty6);
+                $("#BankNiftyMapS7").html(nifty7);
+                
+                $("#BankNiftyMapR0").html(nifty8);
+                $("#BankNiftyMapR1").html(nifty9);
+                $("#BankNiftyMapR2").html(nifty10);
+                $("#BankNiftyMapR3").html(nifty11);
+                $("#BankNiftyMapR4").html(nifty12);
+                $("#BankNiftyMapR5").html(nifty13);
+                $("#BankNiftyMapR6").html(nifty14);
+                $("#BankNiftyMapR7").html(nifty15);
+                
+                                       	
+        }
+        })
 
  

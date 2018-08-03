@@ -425,7 +425,7 @@
 </fieldset>
 <sec:csrfInput /> 
 <!-- </fieldset> -->
-
+<jsp:include page="road_map.jsp" />
 <jsp:include page="footer.jsp" />
 
 	
