@@ -324,9 +324,10 @@
             			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
                 		
             			var text11="No Clear Trend, Bulls are still waiting";
-            			var bullImage="<img src='images/bull-head.png' style='height:25px; width:32px;'>";
+            			var bullImage="<img src='images/png_bull.png' style='height:35px; width:35px;'>";
             			var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
             			var dogImage="<img src='images/dog.png' style='height:30px; width:35px;'>";
+            			var hulkImage="<img src='images/hulk.gif' style='height:35px; width:35px;'>";
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -353,7 +354,7 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
-                            $("#bull").html(bullImage)
+                            $("#bull").html(hulkImage+bullImage + " ");
                 		}
                 		else{
                 			$("#mark0").html("Not Recommended");
