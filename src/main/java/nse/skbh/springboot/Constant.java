@@ -57,6 +57,8 @@ final class Constant {
 	private static final String banknifty_and_nifty_support_resistance="/suggestions/banknifty_and_nifty_support_resistance";
 	private static final String non_expiry_day="/suggestions/bank_nifty_expiry_day_option_suggestion/non_expiry_day"; 
 	private static final String aggressive_calls="/suggestions/bank_nifty_expiry_day_option_suggestion/aggressive_calls";
+	private static final String nifty_roadMap="/suggestions/nifty_roadMap";
+	private static final String bank_nifty_roadMap="/suggestions/bank_nifty_roadMap";
 	
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -112,6 +114,8 @@ final class Constant {
 		list.add(banknifty_and_nifty_support_resistance);
 		list.add(non_expiry_day);
 		list.add(aggressive_calls);
+		list.add(nifty_roadMap);
+		list.add(bank_nifty_roadMap);
 		return list;
 
 	}

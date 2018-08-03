@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.WeakHashMap;
 import java.util.stream.Collectors;
 
 import javax.crypto.Cipher;
@@ -349,6 +350,15 @@ public class Utils {
 		    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
 		                              (e1, e2) -> e1, LinkedHashMap::new));
 	return sortedMap;
+	}
+	
+	public static Map<Object, Object> sortTwoStringKeyValueHashMapByValuesDoubleType(WeakHashMap<String, Double> map) {
+		 Map<Object, Object> sortedMap = 
+				 map.entrySet().stream()
+			    .sorted(Entry.comparingByValue())
+			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
+			                              (e1, e2) -> e1, LinkedHashMap::new));
+		return sortedMap;
 	}
 	
 }

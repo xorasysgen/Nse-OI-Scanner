@@ -61,7 +61,7 @@ public class AppFeedsJsonApiController {
 	
 	
 	
-	private  static String URIHelper() {
+	public static String URIHelper() {
 		String key=Utils.decoder(Users.key.getBytes());
 		String apiURL=null;
 		try {
@@ -72,6 +72,5 @@ public class AppFeedsJsonApiController {
 		return apiURL;
 	}
 	/*----------------------------------------------------------------------------------------*/
-	
 	
 }
