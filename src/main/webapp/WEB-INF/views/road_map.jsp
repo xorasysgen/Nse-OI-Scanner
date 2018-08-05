@@ -2,14 +2,18 @@
     
     <div class="panel panel-info">
 		    <div class="panel-heading">
-		        <h3 class="panel-title">Nifty RoadMap</h3>
+		        <h3 class="panel-title">Nifty RoadMap - 
+		        <span class='superolive' style='font-weight: bold; font-size: 16px;'>Previous Closed price</span> &nbsp; &nbsp;
+		        <span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>Open price</span> &nbsp; &nbsp;
+		        <span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>Current price</span> &nbsp; &nbsp;
+		        </h3>
 		    </div>
 		    <div class="panel-body">
 
    <div class="panel-body"> <!-- panel-body  start-->
 	
 	<fieldset>
-		<legend><span class="navyBlinker">RoadMap GANN Support &amp; Resistance:</span><span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
+		<legend><span class="black">RoadMap GANN Support &amp; Resistance:</span><span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
 	<span style="font-size: 14px; color: green;"></span>\|/<span style="font-size: 14px; color: red;"></span>
 	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></legend>
 	
@@ -61,22 +65,14 @@
 				<th style="font-size: 18px; color: green; text-align:center;">
 	<span class="glyphicon glyphicon-hand-up" style="font-size: 14px; color: red;"></span></th>
 	
-	<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS0"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS1"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS2"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS3"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS4"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS5"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS6"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS7"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-hand-left" style="font-size: 16px; color: red;"></span></th>
+	<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS0"></span><span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS1"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS2"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS3"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS4"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS5"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS6"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="niftyMapS7"></span>	<span class="glyphicon glyphicon-hand-left" style="font-size: 16px; color: green;"></span></th>
 										
 									</tr>
 									
@@ -106,7 +102,7 @@
    <div class="panel-body"> <!-- panel-body  start-->
 	
 	<fieldset>
-		<legend><span class="navyBlinker">RoadMap GANN Support &amp; Resistance:</span><span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
+		<legend><span class="black">RoadMap GANN Support &amp; Resistance:</span><span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
 	<span style="font-size: 14px; color: green;"></span>\|/<span style="font-size: 14px; color: red;"></span>
 	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></legend>
 	
@@ -158,22 +154,14 @@
 				<th style="font-size: 18px; color: green; text-align:center;">
 	<span class="glyphicon glyphicon-hand-up" style="font-size: 14px; color: red;"></span></th>
 	
-	<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS0"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS1"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS2"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS3"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS4"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS5"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS6"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
-										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS7"></span><span style="font-size: 14px; color: red;"></span>
-	<span class="glyphicon glyphicon-hand-left" style="font-size: 16px; color: red;"></span></th>
+	<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS0"></span><span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS1"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS2"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS3"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS4"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS5"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS6"></span>	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="BankNiftyMapS7"></span>	<span class="glyphicon glyphicon-hand-left" style="font-size: 16px; color: green;"></span></th>
 										
 									</tr>
 									

@@ -2,6 +2,8 @@ package nse.skbh.springboot.logic;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -22,11 +24,12 @@ public class GannRoadMap {
 	/**
 	 * @throws NumberFormatException
 	 */
-	public static RoadMapDataPoints roadMap(String ltp_input,String close_input,String symbolName) throws NumberFormatException {
+	public static RoadMapDataPoints roadMap(String ltp_input,String close_input,String open_input,String symbolName) throws NumberFormatException {
 		Double ltp_double=Double.parseDouble(ltp_input);
 		Double close=Double.parseDouble(close_input);
 		Double sqrt=Math.sqrt(close);
 		WeakHashMap<String,Double> map=new WeakHashMap<String,Double>();
+		List<Double> dataPoints=new LinkedList<Double>();
 		
 		Double up0=sqrt+degree_0P0625;
 		up0=new BigDecimal(up0*up0).round(MathContext.DECIMAL32).doubleValue();
@@ -64,6 +67,24 @@ public class GannRoadMap {
 		Double down7=sqrt-degree_0P1;
 		down7=new BigDecimal(down7*down7).round(MathContext.DECIMAL32).doubleValue();
 		
+	
+		dataPoints.add(down0);
+		dataPoints.add(down1);
+		dataPoints.add(down2);
+		dataPoints.add(down3);
+		dataPoints.add(down4);
+		dataPoints.add(down5);
+		dataPoints.add(down6);
+		dataPoints.add(down7);
+		dataPoints.add(up0);
+		dataPoints.add(up1);
+		dataPoints.add(up2);
+		dataPoints.add(up3);
+		dataPoints.add(up4);
+		dataPoints.add(up5);
+		dataPoints.add(up6);
+		dataPoints.add(up7);
+		
 		map.put("s0open", Math.abs(down0-ltp_double));
 		map.put("s1", Math.abs(down1-ltp_double));
 		map.put("s2", Math.abs(down2-ltp_double));
@@ -84,6 +105,8 @@ public class GannRoadMap {
 		 Map.Entry<Object,Object> entry = sortedMap.entrySet().iterator().next();
 		 String key = entry.getKey().toString();
 		 
+		 String openDistance=findNearValueObject(dataPoints,open_input);
+		 String closeDistance=findNearValueObject(dataPoints,close_input);
 		 RoadMapDataPoints roadMapDataPoints=new RoadMapDataPoints();
 		 roadMapDataPoints.setR0open(up0.toString());
 		 roadMapDataPoints.setR1(up1.toString());
@@ -103,12 +126,42 @@ public class GannRoadMap {
 		 roadMapDataPoints.setS7(down7.toString());
 		 roadMapDataPoints.setSymbol(symbolName);
 		 roadMapDataPoints.setLtpDataPointcordinate(key);
-		 
+		 roadMapDataPoints.setCloseDataPointcordinate(closeDistance);
+		 roadMapDataPoints.setOpenDataPointcordinate(openDistance);
+		 map.clear();
+		 dataPoints.clear();
 		 
 		 return roadMapDataPoints;
 	}
 	
 	
+	
+	private static String findNearValueObject(List<Double> dataPoints,String price) {
+		WeakHashMap<String,Double> map=new WeakHashMap<String,Double>();
+		Double customPrice=Double.parseDouble(price);
+		
+		map.put("s0open", Math.abs(dataPoints.get(0)-customPrice));
+		map.put("s1", Math.abs(dataPoints.get(1)-customPrice));
+		map.put("s2", Math.abs(dataPoints.get(2)-customPrice));
+		map.put("s3", Math.abs(dataPoints.get(3)-customPrice));
+		map.put("s4", Math.abs(dataPoints.get(4)-customPrice));
+		map.put("s5", Math.abs(dataPoints.get(5)-customPrice));
+		map.put("s6", Math.abs(dataPoints.get(6)-customPrice));
+		map.put("s7", Math.abs(dataPoints.get(7)-customPrice));
+		map.put("r0open", Math.abs(dataPoints.get(8)-customPrice));
+		map.put("r1", Math.abs(dataPoints.get(9)-customPrice));
+		map.put("r2", Math.abs(dataPoints.get(10)-customPrice));
+		map.put("r3", Math.abs(dataPoints.get(11)-customPrice));
+		map.put("r4", Math.abs(dataPoints.get(12)-customPrice));
+		map.put("r5", Math.abs(dataPoints.get(13)-customPrice));
+		map.put("r6", Math.abs(dataPoints.get(14)-customPrice));
+		map.put("r7", Math.abs(dataPoints.get(15)-customPrice));
+		
+		 Map<Object, Object> sortedMap= Utils.sortTwoStringKeyValueHashMapByValuesDoubleType(map);
+		 Map.Entry<Object,Object> entry = sortedMap.entrySet().iterator().next();
+		 String keyDistance = entry.getKey().toString();
+		return keyDistance;
+	}
 	/*public static void main(String[] args) {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
 		ResponseEntity<String> response = restTemplate

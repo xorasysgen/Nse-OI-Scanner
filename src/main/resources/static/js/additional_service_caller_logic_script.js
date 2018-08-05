@@ -661,6 +661,9 @@
         		var json = result;
         		var ltpDataPointcordinateNifty=json.ltpDataPointcordinate;
         		var symbol=json.symbol;
+        		var closeDataPointcordinate=json.closeDataPointcordinate;
+        		var openDataPointcordinate=json.openDataPointcordinate;
+        		var direction=json.direction;
         		
         		var s0Open=json.s0Open;
         		var s7=json.s7;
@@ -681,8 +684,12 @@
         		  
         		var symbolNifty="<span class='nifty' style='font-weight: bold; font-size: 16px;'>" + symbol + "</span>";
         		
-        		if(ltpDataPointcordinateNifty=="s0Open"){
+        		if(ltpDataPointcordinateNifty=="s0open"){
         			var nifty0="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} else if(openDataPointcordinate=="s0open"){
+        			var nifty0="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} else if(closeDataPointcordinate=="s0open"){
+        			var nifty0="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
         		} 
         		else {
         			var nifty0="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s0Open + "</span>";
@@ -690,6 +697,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s1"){
         			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		}  else if(openDataPointcordinate=="s1"){
+        			var nifty1="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		} else if(closeDataPointcordinate=="s1"){
+        			var nifty1="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
         		} 
         		else {
         			var nifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s1 + "</span>";
@@ -697,6 +708,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s2"){
         			var nifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} else if(openDataPointcordinate=="s2"){
+        			var nifty2="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} else if(closeDataPointcordinate=="s2"){
+        			var nifty2="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
         		} 
         		else {
         			var nifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s2 + "</span>";
@@ -704,6 +719,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s3"){
         			var nifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} else if(openDataPointcordinate=="s3"){
+        			var nifty3="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} else if(closeDataPointcordinate=="s3"){
+        			var nifty3="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
         		} 
         		else {
         			var nifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s3 + "</span>";
@@ -711,6 +730,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s4"){
         			var nifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} else if(openDataPointcordinate=="s4"){
+        			var nifty4="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} else if(closeDataPointcordinate=="s4"){
+        			var nifty4="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
         		} 
         		else {
         			var nifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s4 + "</span>";
@@ -718,6 +741,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s5"){
         			var nifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		} else if(openDataPointcordinate=="s5"){
+        			var nifty5="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		}  else if(closeDataPointcordinate=="s5"){
+        			var nifty5="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
         		} 
         		else {
         			var nifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s5 + "</span>";
@@ -725,14 +752,21 @@
         		
         		if(ltpDataPointcordinateNifty=="s6"){
         			var nifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
-        		} 
-        		else {
+        		} else if(openDataPointcordinate=="s6"){
+        			var nifty6="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		} else if(closeDataPointcordinate=="s6"){
+        			var nifty6="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		}else {
         			var nifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s6 + "</span>";
         		}
         		
         		if(ltpDataPointcordinateNifty=="s7"){
         			var nifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
-        		} 
+        		} else if(openDataPointcordinate=="s7"){
+        			var nifty7="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		}  else if(closeDataPointcordinate=="s7"){
+        			var nifty7="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		}  
         		else {
         			var nifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s7 + "</span>";
         		}
@@ -741,7 +775,11 @@
         		
         		if(ltpDataPointcordinateNifty=="r0open"){
         			var nifty8="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
-        		} 
+        		} else if(openDataPointcordinate=="r0open"){
+            			var nifty8="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+            		} else if(closeDataPointcordinate=="r0open"){
+            			var nifty8="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+            		}
         		else{
         			var nifty8="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r0open + "</span>";
         		}
@@ -749,18 +787,31 @@
         		
         		if(ltpDataPointcordinateNifty=="r1"){
         			var nifty9="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else if(openDataPointcordinate=="r1"){
+        			var nifty9="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else if(closeDataPointcordinate=="r1"){
+        			var nifty9="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
         		} else{
         			var nifty9="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r1 + "</span>";
         		}
         		
         		if(ltpDataPointcordinateNifty=="r2"){
         			var nifty10="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		} else if(openDataPointcordinate=="r2"){
+        			var nifty10="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		}else if(closeDataPointcordinate=="r2"){
+        			var nifty10="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
         		}
         		else{
         			var nifty10="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r2 + "</span>";
         		}
+        		
         		if(ltpDataPointcordinateNifty=="r3"){
         			var nifty11="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		} else if(openDataPointcordinate=="r3"){
+        			var nifty11="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		}else if(closeDataPointcordinate=="r3"){
+        			var nifty11="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
         		}
         		else{
         			var nifty11="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r3 + "</span>";
@@ -768,6 +819,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r4"){
         			var nifty12="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		} else if(openDataPointcordinate=="r4"){
+        			var nifty12="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		}else if(closeDataPointcordinate=="r4"){
+        			var nifty12="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
         		}
         		else{
         			var nifty12="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r4 + "</span>";
@@ -775,6 +830,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r5"){
         			var nifty13="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+        		} else	if(openDataPointcordinate=="r5"){
+            			var nifty13="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+            	}else	if(closeDataPointcordinate=="r5"){
+        			var nifty13="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
         		}
         		else{
         			var nifty13="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r5 + "</span>";
@@ -782,6 +841,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r6"){
         			var nifty14="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		} else if(openDataPointcordinate=="r6"){
+        			var nifty14="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		}else if(closeDataPointcordinate=="r6"){
+        			var nifty14="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
         		}
         		else{
         			var nifty14="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r6 + "</span>";
@@ -789,10 +852,17 @@
         		
         		if(ltpDataPointcordinateNifty=="r7"){
         			var nifty15="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		} else if(openDataPointcordinate=="r7"){
+        			var nifty15="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		}else if(closeDataPointcordinate=="r7"){
+        			var nifty15="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
         		}
         		else{
         			var nifty15="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r7 + "</span>";
         		}
+        		
+        		
+        		/*end close data point*/
         		
                 $("#niftySymbolName").html(symbolNifty);
                 $("#niftyMapS0").html(nifty0);
@@ -828,7 +898,10 @@
         		var json = result;
         		var ltpDataPointcordinateNifty=json.ltpDataPointcordinate;
         		var symbol=json.symbol;
-        		
+        		var closeDataPointcordinate=json.closeDataPointcordinate;
+        		var openDataPointcordinate=json.openDataPointcordinate;
+        		var direction=json.direction;
+        		console.log("closeDataPointcordinate" + closeDataPointcordinate);
         		var s0Open=json.s0Open;
         		var s7=json.s7;
         		var s6=json.s6;
@@ -848,15 +921,24 @@
         		  
         		var symbolNifty="<span class='nifty' style='font-weight: bold; font-size: 16px;'>" + symbol + "</span>";
         		
-        		if(ltpDataPointcordinateNifty=="s0Open"){
+        		if(ltpDataPointcordinateNifty=="s0open"){
         			var nifty0="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} else if(openDataPointcordinate=="s0open"){
+        			var nifty0="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
+        		} else if(closeDataPointcordinate=="s0open"){
+        			var nifty0="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s0Open + "</span>";
         		} 
         		else {
         			var nifty0="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s0Open + "</span>";
         		}
         		
+        		console.log(nifty0);
         		if(ltpDataPointcordinateNifty=="s1"){
         			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		}  else if(openDataPointcordinate=="s1"){
+        			var nifty1="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
+        		} else if(closeDataPointcordinate=="s1"){
+        			var nifty1="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
         		} 
         		else {
         			var nifty1="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s1 + "</span>";
@@ -864,6 +946,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s2"){
         			var nifty2="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} else if(openDataPointcordinate=="s2"){
+        			var nifty2="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
+        		} else if(closeDataPointcordinate=="s2"){
+        			var nifty2="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s2 + "</span>";
         		} 
         		else {
         			var nifty2="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s2 + "</span>";
@@ -871,6 +957,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s3"){
         			var nifty3="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} else if(openDataPointcordinate=="s3"){
+        			var nifty3="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
+        		} else if(closeDataPointcordinate=="s3"){
+        			var nifty3="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s3 + "</span>";
         		} 
         		else {
         			var nifty3="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s3 + "</span>";
@@ -878,6 +968,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s4"){
         			var nifty4="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} else if(openDataPointcordinate=="s4"){
+        			var nifty4="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
+        		} else if(closeDataPointcordinate=="s4"){
+        			var nifty4="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s4 + "</span>";
         		} 
         		else {
         			var nifty4="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s4 + "</span>";
@@ -885,6 +979,10 @@
         		
         		if(ltpDataPointcordinateNifty=="s5"){
         			var nifty5="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		} else if(openDataPointcordinate=="s5"){
+        			var nifty5="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
+        		}  else if(closeDataPointcordinate=="s5"){
+        			var nifty5="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s5 + "</span>";
         		} 
         		else {
         			var nifty5="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s5 + "</span>";
@@ -892,14 +990,21 @@
         		
         		if(ltpDataPointcordinateNifty=="s6"){
         			var nifty6="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
-        		} 
-        		else {
+        		} else if(openDataPointcordinate=="s6"){
+        			var nifty6="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		} else if(closeDataPointcordinate=="s6"){
+        			var nifty6="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s6 + "</span>";
+        		}else {
         			var nifty6="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s6 + "</span>";
         		}
         		
         		if(ltpDataPointcordinateNifty=="s7"){
         			var nifty7="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
-        		} 
+        		} else if(openDataPointcordinate=="s7"){
+        			var nifty7="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		}  else if(closeDataPointcordinate=="s7"){
+        			var nifty7="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + s7 + "</span>";
+        		}  
         		else {
         			var nifty7="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s7 + "</span>";
         		}
@@ -908,7 +1013,11 @@
         		
         		if(ltpDataPointcordinateNifty=="r0open"){
         			var nifty8="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
-        		} 
+        		} else if(openDataPointcordinate=="r0open"){
+            			var nifty8="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+            		} else if(closeDataPointcordinate=="r0open"){
+            			var nifty8="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r0open + "</span>";
+            		}
         		else{
         			var nifty8="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r0open + "</span>";
         		}
@@ -916,18 +1025,31 @@
         		
         		if(ltpDataPointcordinateNifty=="r1"){
         			var nifty9="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else if(openDataPointcordinate=="r1"){
+        			var nifty9="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
+        		} else if(closeDataPointcordinate=="r1"){
+        			var nifty9="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r1 + "</span>";
         		} else{
         			var nifty9="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r1 + "</span>";
         		}
         		
         		if(ltpDataPointcordinateNifty=="r2"){
         			var nifty10="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		} else if(openDataPointcordinate=="r2"){
+        			var nifty10="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
+        		}else if(closeDataPointcordinate=="r2"){
+        			var nifty10="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r2 + "</span>";
         		}
         		else{
         			var nifty10="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r2 + "</span>";
         		}
+        		
         		if(ltpDataPointcordinateNifty=="r3"){
         			var nifty11="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		} else if(openDataPointcordinate=="r3"){
+        			var nifty11="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
+        		}else if(closeDataPointcordinate=="r3"){
+        			var nifty11="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r3 + "</span>";
         		}
         		else{
         			var nifty11="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r3 + "</span>";
@@ -935,6 +1057,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r4"){
         			var nifty12="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		} else if(openDataPointcordinate=="r4"){
+        			var nifty12="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
+        		}else if(closeDataPointcordinate=="r4"){
+        			var nifty12="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r4 + "</span>";
         		}
         		else{
         			var nifty12="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r4 + "</span>";
@@ -942,6 +1068,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r5"){
         			var nifty13="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+        		} else	if(openDataPointcordinate=="r5"){
+            			var nifty13="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
+            	}else	if(closeDataPointcordinate=="r5"){
+        			var nifty13="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r5 + "</span>";
         		}
         		else{
         			var nifty13="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r5 + "</span>";
@@ -949,6 +1079,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r6"){
         			var nifty14="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		} else if(openDataPointcordinate=="r6"){
+        			var nifty14="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
+        		}else if(closeDataPointcordinate=="r6"){
+        			var nifty14="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r6 + "</span>";
         		}
         		else{
         			var nifty14="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r6 + "</span>";
@@ -956,6 +1090,10 @@
         		
         		if(ltpDataPointcordinateNifty=="r7"){
         			var nifty15="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		} else if(openDataPointcordinate=="r7"){
+        			var nifty15="<span class='greenBlinker' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
+        		}else if(closeDataPointcordinate=="r7"){
+        			var nifty15="<span class='superolive' style='font-weight: bold; font-size: 16px;'>" + r7 + "</span>";
         		}
         		else{
         			var nifty15="<span style='color: black; font-weight: bold; font-size: 14px;'>" + r7 + "</span>";

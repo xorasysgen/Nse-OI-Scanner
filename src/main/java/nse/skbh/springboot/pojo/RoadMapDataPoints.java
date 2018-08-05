@@ -20,6 +20,29 @@ public class RoadMapDataPoints {
 	private String r5;
 	private String r6;
 	private String r7;
+	private String openDataPointcordinate;
+	private String closeDataPointcordinate;
+	private String direction;
+	
+	
+	public String getDirection() {
+		return direction;
+	}
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+	public String getOpenDataPointcordinate() {
+		return openDataPointcordinate;
+	}
+	public void setOpenDataPointcordinate(String openDataPointcordinate) {
+		this.openDataPointcordinate = openDataPointcordinate;
+	}
+	public String getCloseDataPointcordinate() {
+		return closeDataPointcordinate;
+	}
+	public void setCloseDataPointcordinate(String closeDataPointcordinate) {
+		this.closeDataPointcordinate = closeDataPointcordinate;
+	}
 	public String getLtpDataPointcordinate() {
 		return ltpDataPointcordinate;
 	}

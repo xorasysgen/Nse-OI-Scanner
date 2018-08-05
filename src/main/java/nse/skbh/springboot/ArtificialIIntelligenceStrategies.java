@@ -100,21 +100,34 @@ public class ArtificialIIntelligenceStrategies {
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/indices&ind_id=9"), String.class);
 		String stringInJson = response.getBody();
+		/*begins parse json data from response*/
 		Object obj = new JsonParser().parse(stringInJson);
 		JsonObject jsonObject = (JsonObject) obj;
 		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("indices");
 		String rawLastprice=jsonObjectChild.get("lastprice").getAsString();
+		String ltp="0";
 		if(rawLastprice!=null) {
 			rawLastprice=rawLastprice.replaceAll(",", "");
+			ltp=rawLastprice;
 		}
 		String rawPrevclose=jsonObjectChild.get("prevclose").getAsString();
+		String close="0";
 		if(rawPrevclose!=null) {
 			rawPrevclose=rawPrevclose.replaceAll(",", "");
+			close=rawPrevclose;
 		}
-		String ltp=rawLastprice;
-		String close=rawPrevclose;
+		String rawOpen=jsonObjectChild.get("open").getAsString();
+		String open="0";
+		if(rawOpen!=null) {
+			rawOpen=rawOpen.replaceAll(",", "");
+			open=rawOpen;
+		}
+		
+		String direction=jsonObjectChild.get("direction").getAsString();
+		/*end parse json data from response*/
 		String symbolName="NIFTY";
-		RoadMapDataPoints roadMapDataPoints=GannRoadMap.roadMap(ltp,close,symbolName);
+		RoadMapDataPoints roadMapDataPoints=GannRoadMap.roadMap(ltp,close,open,symbolName);
+		roadMapDataPoints.setDirection(direction);
 		//System.err.println(roadMapDataPoints);
 		return roadMapDataPoints;
 		
@@ -144,8 +157,16 @@ public class ArtificialIIntelligenceStrategies {
 			rawPrevclose=rawPrevclose.replaceAll(",", "");
 			close=rawPrevclose;
 		}
+		String rawOpen=jsonObjectChild.get("open").getAsString();
+		String open="0";
+		if(rawOpen!=null) {
+			rawOpen=rawOpen.replaceAll(",", "");
+			open=rawOpen;
+		}
+		String direction=jsonObjectChild.get("direction").getAsString();
 		String symbolName="BANKNIFTY";
-		RoadMapDataPoints roadMapDataPoints=GannRoadMap.roadMap(ltp,close,symbolName);
+		RoadMapDataPoints roadMapDataPoints=GannRoadMap.roadMap(ltp,close,open,symbolName);
+		roadMapDataPoints.setDirection(direction);
 		//System.err.println(roadMapDataPoints);
 		return roadMapDataPoints;
 
