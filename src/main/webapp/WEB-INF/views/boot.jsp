@@ -309,10 +309,15 @@
 								</tbody>
 							</table>
 			</div>
+			
+			
+			<jsp:include page="road_map.jsp" />
 </div>
 
 
-<ul class="list-group">
+
+
+<!-- <ul class="list-group">
  				 <li class="list-group-item">
 					 	Best Time to Buy Options MORNING <strong class="navy">[ 10:04Am to 10:07Am ]</strong> NEXT <strong class="navy">[ 11:01Am - 11:04Am</strong> (Max 11:10Am)] 
   				</li>
@@ -320,7 +325,7 @@
   				<li class="list-group-item">
 					 	Best Time to Buy Options AFTER-NOON <strong class="negative">[ 12:16Pm - 12:18Pm, 01:21Pm, 01:42Pm, 02:10Pm, 02:40Pm ]</strong> LAST <strong class="negative">[ 02:55Pm - 03:10Pm (Max 03:12Pm) ]</strong> 
   				</li>
- </ul>
+ </ul> -->
 
 
 <jsp:include page="_auto_addon_gann_target_finder.jsp" />
@@ -425,7 +430,7 @@
 </fieldset>
 <sec:csrfInput /> 
 <!-- </fieldset> -->
-<jsp:include page="road_map.jsp" />
+
 <jsp:include page="footer.jsp" />
 
 	
