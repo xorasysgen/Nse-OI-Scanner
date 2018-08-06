@@ -9,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+
 import nse.skbh.springboot.pojo.ParentWorldFutureIndex;
 import nse.skbh.springboot.pojo.WorldFutureIndex;
 
@@ -49,7 +50,7 @@ public class HtmlReaderindices {
 					rowValues.contains("Euro Stoxx"))
 						
 				//System.out.println(i + "#" +rowValues);
-					if(i==2 || i==8 || i==9 || i==24 || i==26 || i==32 || i==33) {
+					if(i==1 || i==2 || i==8 || i==9 || i==24 || i==22 || i==30 || i==31) {
 				String dataValue[]=rowValues.split("\\s+");
 				wfi.setIndex(dataValue[0] + dataValue[1]);
 				wfi.setMonth(dataValue[2] + dataValue[3]);
@@ -62,6 +63,7 @@ public class HtmlReaderindices {
 				data.add(wfi);
 					}else if(i==10){
 						String dataValue[]=rowValues.split("\\s+");
+						//System.out.println("error" + rowValues);
 						wfi.setIndex(dataValue[0] + dataValue[1] + dataValue[2]);
 						wfi.setMonth(dataValue[3] + dataValue[4]);
 						wfi.setLtp(dataValue[5]);
@@ -69,9 +71,9 @@ public class HtmlReaderindices {
 						wfi.setLow(dataValue[7]);
 						wfi.setChg(dataValue[8]);
 						wfi.setChgPer(dataValue[9]);
-						wfi.setTime(dataValue[10]);
+						//wfi.setTime(dataValue[10]);
 						data.add(wfi);
-					}else if(i==7){
+					}else if(i==7 || i==6){
 						String dataValue[]=rowValues.split("\\s+");
 						wfi.setIndex(dataValue[0]);
 						wfi.setMonth(dataValue[1] + dataValue[2]);
@@ -95,5 +97,8 @@ public class HtmlReaderindices {
 
 	}
 		
+/*	public static void main(String[] args) {
+	System.out.println(new Gson().toJson(HtmlReaderindices.getParentWorldFutureIndex()));	
+	}*/
 
 }
