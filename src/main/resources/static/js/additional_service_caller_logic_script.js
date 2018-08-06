@@ -196,8 +196,10 @@
         		var sellResult=Math.abs(openPrice.replace(/,/g , "")-highPrice.replace(/,/g , ""));
         		
         		var booleanValue=false;
-        		
-       			if(vwap.replace(/,/g , "") <= lastPrice.replace(/,/g , "")){
+        		var correctedVwap=vwap.replace(/,/g , "");
+        		correctedVwap=correctedVwap-5; // price spike adjuestment 
+        		var lastPrice=lastPrice.replace(/,/g , "");
+       			if(correctedVwap <= lastPrice){
        				var vwapText="<span class='vwapGreenBlinker'>" + vwap + "</span>" +
        				"<span style='color: green; font-weight: bold; font-size: 14px;'> Buy</span>" +
        				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
@@ -309,9 +311,13 @@
             			if(changeEvo1>10 && booleanValue==true){
                 			price="+";
                 		}
-                		else{
+                		else if(changeEvo1<= -10 && booleanValue==false){
                 			price="-";
                 		}
+                		else {
+                			price="+-";
+                		}
+                		
                 		
                 		if(changeEvo<0 && pChangeEvo<-2){
                 			shortCovringOrLongUnwinding=true;
@@ -319,7 +325,8 @@
                 		else{
                 			shortCovringOrLongUnwinding=false;
                 		}
-            			console.log("price" + price);
+            			console.log("booleanValue")
+                		console.log("price" + price);
             			console.log("oi" + oi);
             			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
                 		
@@ -344,6 +351,10 @@
                 		}
             			else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding){
             				text11=dogImage + " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>LONG UNWINDING</span>";
+            				display="-";
+            			}
+            			else{
+            				text11=dogImage + hulkImage + " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Buy On Decline</span>";
             				display="-";
             			}
             			
