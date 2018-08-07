@@ -308,7 +308,7 @@
         		
             			
             			
-            			if(changeEvo1>10 && booleanValue==true){
+            			if(changeEvo1>10 && booleanValue==true){ // percentage change
                 			price="+";
                 		}
                 		else if(changeEvo1<= -10 && booleanValue==false){
@@ -325,7 +325,7 @@
                 		else{
                 			shortCovringOrLongUnwinding=false;
                 		}
-            			console.log("booleanValue")
+            			console.log("booleanValue" + booleanValue)
                 		console.log("price" + price);
             			console.log("oi" + oi);
             			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
@@ -335,6 +335,7 @@
             			var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
             			var dogImage="<img src='images/dog.png' style='height:30px; width:35px;'>";
             			var hulkImage="<img src='images/hulk.gif' style='height:35px; width:35px;'>";
+            			var captain="<img src='images/captain.png' style='height:60px; width:35px;'>";
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -354,7 +355,7 @@
             				display="-";
             			}
             			else{
-            				text11=dogImage + hulkImage + " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Buy On Decline</span>";
+            				text11=dogImage + captain + " <span class='greenBlinker' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
             				display="-";
             			}
             			

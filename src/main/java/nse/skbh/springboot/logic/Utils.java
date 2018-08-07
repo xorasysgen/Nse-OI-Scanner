@@ -344,20 +344,16 @@ public class Utils {
 	}
 	
 	public static Map<Object, Object> sortTwoStringKeyValueHashMapByValues(HashMap<String, Float> map) {
-	 Map<Object, Object> sortedMap = 
-			 map.entrySet().stream()
-		    .sorted(Entry.comparingByValue())
-		    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-		                              (e1, e2) -> e1, LinkedHashMap::new));
+	 Map<Object, Object> sortedMap =map.entrySet().stream()
+			 						.sorted(Entry.comparingByValue())
+			 						.collect(Collectors.toMap(Entry::getKey, Entry::getValue,(e1, e2) -> e1, LinkedHashMap::new));
 	return sortedMap;
 	}
 	
 	public static Map<Object, Object> sortTwoStringKeyValueHashMapByValuesDoubleType(WeakHashMap<String, Double> map) {
-		 Map<Object, Object> sortedMap = 
-				 map.entrySet().stream()
-			    .sorted(Entry.comparingByValue())
-			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-			                              (e1, e2) -> e1, LinkedHashMap::new));
+		 Map<Object, Object> sortedMap =map.entrySet().stream()
+				 						.sorted(Entry.comparingByValue())
+				 						.collect(Collectors.toMap(Entry::getKey, Entry::getValue,(e1, e2) -> e1, LinkedHashMap::new));
 		return sortedMap;
 	}
 	

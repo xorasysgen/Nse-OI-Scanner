@@ -338,7 +338,7 @@
           <ul class="list-group">
 			<li class="list-group-item">
 			<span id="mark1"></span>
-			<span id="bear"></span><span id="ShortsOrLongRemarkMinus"></span>&nbsp; &nbsp; &nbsp; &nbsp;
+			<span id="bear"></span><span id="ShortsOrLongRemarkMinus"></span>&nbsp;
 			<span id="bankNiftyShortsOrLongFUTNameMinus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestMinus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestMinus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestMinus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
