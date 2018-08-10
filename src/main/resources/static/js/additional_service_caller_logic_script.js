@@ -336,6 +336,7 @@
             			var dogImage="<img src='images/dog.png' style='height:30px; width:35px;'>";
             			var hulkImage="<img src='images/hulk.gif' style='height:35px; width:35px;'>";
             			var captain="<img src='images/captain.png' style='height:60px; width:35px;'>";
+            			var loki="<img src='images/loki.png' style='height:60px; width:35px;'>";
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -353,10 +354,13 @@
             			else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding){
             				text11=dogImage + " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>LONG UNWINDING</span>";
             				display="-";
+            			}else if(price=="-" && oi=="-" && shortCovringOrLongUnwinding==false){
+            				text11=dogImage + loki + " <span class='greenBlinker' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Bears Coming,Sell On Rise</span>";
+            				display="-";
             			}
             			else{
-            				text11=dogImage + captain + " <span class='greenBlinker' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
-            				display="-";
+            				text11=dogImage + captain + " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
+            				display="+";
             			}
             			
             			
