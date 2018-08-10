@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Boot F&amp;O Equity Analysis Platform - The Trading and Investing Engine that simplify Trades-JSR101-1.8.5.RELEASE</title>
+<title>Boot Heuristic F&amp;O Equity Analysis Platform - The Trading and Investing Engine that simplify Trades-JSR101-1.8.5.RELEASE</title>
 <meta charset="utf-8">
 <meta name="viewport"	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -74,7 +74,7 @@
 <fieldset style="margin-left:28px;margin-right:28px;">
 <legend>
   
- <span style="color: #6c757d; font-size: 16px;">Welcome [ <span style="color:#007E33;"><strong> <sec:authentication property="principal.username" /></strong></span> ] Logged as a <span style="color:#4a148c;"> <sec:authentication property="principal.authorities"/> </span> #The I<span style="color: orange; font-size: 16px;">&amp;</span>T Engine Powered By</span> <span style="color:#6db33f;">Boot</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup><br>
+ <span style="color: #6c757d; font-size: 16px;">Welcome [ <span style="color:#007E33;"><strong> <sec:authentication property="principal.username" /></strong></span> ] Logged as a <span style="color:#4a148c;"> <sec:authentication property="principal.authorities"/> </span> #The I<span style="color: orange; font-size: 16px;">&amp;</span>T Engine Powered By</span> <span style="color:#6db33f;">Boot-Heuristic</span><span class="glyphicon glyphicon-leaf" style="color:#6db33f;"></span>&nbsp;<sup><small><span class="label label-success">JSR101-1.8.5.RELEASE</span></small></sup><br>
 <sup><span style="color: #17a2b8; font-weight: bold; font-size: 12px;"> #Last sync : <span id="txt"></span></span>  
 		&nbsp;<span style="color: #17a2b8; font-weight: bold; font-size: 12px;">#AutoSync : </span><span class="pink" style="color: #ff4444; font-weight: bold; font-size: 12px;"><span id="timer"></span></span>&nbsp;<span class="glyphicon glyphicon-time" style="font-size: 12px; color: green;"></span> <small><span style="color: #6c757d; font-weight: bold; font-size: 12px;" id="date_time"></span></small></sup>
 		<sup><i><span id="mktStatus"></span></i></sup>
@@ -99,7 +99,7 @@
 			<script type="text/javascript">window.onload = date_time_auto_sync();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Boot Dashboard <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
+        <h3 class="panel-title">Boot Heuristic <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
       <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85&nbsp; exp#2.18-2.37</strong></span></span></span>
@@ -425,12 +425,12 @@
 
 
 
+<jsp:include page="disclaimer.jsp" />
 </div>  <!-- root div -->
 
 </fieldset>
 <sec:csrfInput /> 
 <!-- </fieldset> -->
-
 <jsp:include page="footer.jsp" />
 
 	
