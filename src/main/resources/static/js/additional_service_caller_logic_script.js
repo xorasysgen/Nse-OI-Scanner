@@ -308,7 +308,7 @@
         		
             			
             			
-            			if(changeEvo1>10 && booleanValue==true){ // percentage change
+            			if(changeEvo1>10 && booleanValue==true){ // percentage change value
                 			price="+";
                 		}
                 		else if(changeEvo1<= -10 && booleanValue==false){
@@ -337,6 +337,7 @@
             			var hulkImage="<img src='images/hulk.gif' style='height:35px; width:35px;'>";
             			var captain="<img src='images/captain.png' style='height:60px; width:35px;'>";
             			var loki="<img src='images/loki.png' style='height:60px; width:35px;'>";
+            			var ironman="<img src='images/ironman.png' style='height:60px; width:35px;'>";
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -359,10 +360,11 @@
             				display="-";
             			}
             			else{
-            				text11=dogImage + captain + " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
+            				text11=captain + " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
             				display="+";
             			}
             			
+                		
             			
                 		if(display=="+"){
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
@@ -370,7 +372,13 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
-                            $("#bull").html(hulkImage+bullImage + " ");
+                            if(pChangeEvo1>=4)
+                            	{
+                            		$("#bull").html(hulkImage+ ironman + bullImage + " ");
+                            	}else{
+                            		$("#bull").html(hulkImage+bullImage + " ");
+                            		}
+                            
                 		}
                 		else{
                 			$("#mark0").html("Not Recommended");
