@@ -328,13 +328,14 @@
             			console.log("shortCovringOrLongUnwinding" + shortCovringOrLongUnwinding);
                 		
             			var text11="No Clear Trend, Bulls are still waiting";
-            			var bullImage="<img src='images/png_bull.png' style='height:35px; width:35px;'>";
+            			var bullImage="<img src='images/png_bull.png' style='height:40px; width:55px;'>";
             			var bearImage="<img src='images/bear.png' style='height:25px; width:32px;'>";
             			var dogImage="<img src='images/dog.png' style='height:30px; width:35px;'>";
-            			var hulkImage="<img src='images/hulk.gif' style='height:35px; width:35px;'>";
+            			var hulkImage="<img src='images/hulk.gif' style='height:45px; width:45px;'>";
             			var captain="<img src='images/captain.png' style='height:60px; width:35px;'>";
             			var loki="<img src='images/loki.png' style='height:60px; width:35px;'>";
             			var ironman="<img src='images/ironman.png' style='height:60px; width:35px;'>";
+            			var thor="<img src='images/thor.png' style='height:60px; width:60px;'>";
             			
             			text11 = text11 + " " + dogImage;
             			
@@ -372,7 +373,7 @@
                             $("#ShortsOrLongRemarkPlus").html(text11);
                             if(pChangeEvo>=4)
                             	{
-                            		$("#bull").html(hulkImage+ ironman + bullImage + " ");
+                            		$("#bull").html(thor + hulkImage +  bullImage + " ");
                             	}else{
                             		$("#bull").html(hulkImage+bullImage + " ");
                             		}
