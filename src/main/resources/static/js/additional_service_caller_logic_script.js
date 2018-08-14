@@ -270,8 +270,6 @@
             		changeinOpenInterest=changeinOpenInterest.replace(/,/g , "");
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
             		
-            		
-            		
             		var pChangeEvo1=pChange.replace("%" , "");
             		console.log("pChangeEvo1" + pChangeEvo1);
             		
@@ -285,7 +283,6 @@
             		var changeEvo=changeinOpenInterest;
             		console.log("changeEvo" + changeinOpenInterest);
 
-            		
             			if(changeinOpenInterest>0){
             				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
             				"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
@@ -338,6 +335,7 @@
             			var captain="<img src='images/captain.png' style='height:60px; width:35px;'>";
             			var loki="<img src='images/loki.png' style='height:60px; width:35px;'>";
             			var ironman="<img src='images/ironman.png' style='height:60px; width:35px;'>";
+            			
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -372,7 +370,7 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
-                            if(pChangeEvo1>=4)
+                            if(pChangeEvo>=4)
                             	{
                             		$("#bull").html(hulkImage+ ironman + bullImage + " ");
                             	}else{
