@@ -336,6 +336,7 @@
             			var loki="<img src='images/loki.png' style='height:60px; width:35px;'>";
             			var ironman="<img src='images/ironman.png' style='height:60px; width:35px;'>";
             			var thor="<img src='images/thor.png' style='height:60px; width:60px;'>";
+            			var hulkImageNew="<img src='images/hulk1.gif' style='height:48px; width:50px;'>";
             			
             			text11 = text11 + " " + dogImage;
             			
@@ -373,7 +374,7 @@
                             $("#ShortsOrLongRemarkPlus").html(text11);
                             if(pChangeEvo>=4)
                             	{
-                            		$("#bull").html(thor + hulkImage +  bullImage + " ");
+                            		$("#bull").html(thor + hulkImageNew +  bullImage + " ");
                             	}else{
                             		$("#bull").html(hulkImage+bullImage + " ");
                             		}
