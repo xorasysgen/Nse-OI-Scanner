@@ -271,17 +271,17 @@
             		var pchangeinOpenInterest=json.data[0].pchangeinOpenInterest;
             		
             		var pChangeEvo1=pChange.replace("%" , "");
-            		console.log("pChangeEvo1" + pChangeEvo1);
+            		console.log("pChangeEvo1=" + pChangeEvo1);
             		
             		var changeEvo1=change;
-            		console.log("changeEvo1" + changeEvo1);
+            		console.log("changeEvo1=" + changeEvo1);
             		
             		
             		var pChangeEvo=pchangeinOpenInterest.replace("%" , "");
-            		console.log("pChangeEvo" + pChangeEvo);
+            		console.log("pChangeEvo=" + pChangeEvo);
             		
             		var changeEvo=changeinOpenInterest;
-            		console.log("changeEvo" + changeinOpenInterest);
+            		console.log("changeEvo=" + changeinOpenInterest);
 
             			if(changeinOpenInterest>0){
             				text3="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + openInterest + "</span>" + 
@@ -337,7 +337,7 @@
             			var ironman="<img src='images/ironman.png' style='height:60px; width:35px;'>";
             			var thor="<img src='images/thor.png' style='height:60px; width:60px;'>";
             			var hulkImageNew="<img src='images/hulk1.gif' style='height:48px; width:50px;'>";
-            			
+            			var doctor_strange="<img src='images/doctor_strange.png' style='height:52px; width:41px;'>";
             			text11 = text11 + " " + dogImage;
             			
             			var display="+";
@@ -359,10 +359,14 @@
             				text11=dogImage + loki + " <span class='greenBlinker' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Bears Coming,Sell On Rise</span>";
             				display="-";
             			}
-            			else{
-            				text11=captain + " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
+            			else if(price=="+-" && oi=="+" && shortCovringOrLongUnwinding==false && booleanValue==true ){
+            				text11="Caution! "+" <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
             				display="+";
             			}
+        				else{
+        					text11=captain + " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
+            				display="+";
+        				}
             			
                 		
             			
@@ -372,9 +376,12 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
-                            if(pChangeEvo>=4)
+                            if(pChangeEvo>=4 && price!="+-")
                             	{
                             		$("#bull").html(thor + hulkImageNew +  bullImage + " ");
+                            	}if(pChangeEvo>=4 && price=="+-")
+                            	{
+                            		$("#bull").html(doctor_strange  + " ");
                             	}else{
                             		$("#bull").html(hulkImage+bullImage + " ");
                             		}
@@ -925,7 +932,7 @@
         		var closeDataPointcordinate=json.closeDataPointcordinate;
         		var openDataPointcordinate=json.openDataPointcordinate;
         		var direction=json.direction;
-        		console.log("closeDataPointcordinate" + closeDataPointcordinate);
+        		
         		var s0Open=json.s0Open;
         		var s7=json.s7;
         		var s6=json.s6;
@@ -956,7 +963,7 @@
         			var nifty0="<span style='color: black; font-weight: bold; font-size: 14px;'>" + s0Open + "</span>";
         		}
         		
-        		console.log(nifty0);
+        		
         		if(ltpDataPointcordinateNifty=="s1"){
         			var nifty1="<span class='navyBlinker' style='font-weight: bold; font-size: 16px;'>" + s1 + "</span>";
         		}  else if(openDataPointcordinate=="s1"){
