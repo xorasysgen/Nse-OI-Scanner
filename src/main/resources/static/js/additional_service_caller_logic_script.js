@@ -360,7 +360,7 @@
             				display="-";
             			}
             			else if(price=="+-" && oi=="+" && shortCovringOrLongUnwinding==false && booleanValue==true ){
-            				text11="Caution! "+" <span class='superolive' style='color: green; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
+            				text11="Caution! "+" <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
             				display="+";
             			}
         				else{
@@ -376,15 +376,14 @@
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
                             $("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html(text5);
                             $("#ShortsOrLongRemarkPlus").html(text11);
-                            if(pChangeEvo>=4 && price!="+-")
-                            	{
+                            	if(pChangeEvo>=4 && price!="+-"){
                             		$("#bull").html(thor + hulkImageNew +  bullImage + " ");
-                            	}if(pChangeEvo>=4 && price=="+-")
-                            	{
-                            		$("#bull").html(doctor_strange  + " ");
-                            	}else{
-                            		$("#bull").html(hulkImage+bullImage + " ");
-                            		}
+                            		}else if(pChangeEvo>=4 && price=="+-")
+                            			{
+                            			$("#bull").html(doctor_strange  + " ");
+                            			}else{
+                            				$("#bull").html(hulkImage+bullImage + " ");
+                            				}
                             
                 		}
                 		else{

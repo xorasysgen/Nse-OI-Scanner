@@ -344,7 +344,7 @@
 			 <li class="list-group-item">
 					 	<span class='superolive'>
 					 	Chittori Sena Attack Short Or Long Unwinding(-)  </span><br>
-					 	<strong class="navy12">Entry ( 1:10Pm And 02:10Pm ) Exit ( 02:26Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
+					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00Pm ) Exit ( 01:10-16Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
 							</li>
 			
  				 <li class="list-group-item">
@@ -390,7 +390,7 @@
   				
   				<li class="list-group-item">
   						Quick Money Strong Prediction 2[ <span id="quick2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-  						Strong Prediction 5 [ <span id="nonExpiry2"></span> ] 
+  						Strong Prediction 6 [ <span id="nonExpiry2"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
