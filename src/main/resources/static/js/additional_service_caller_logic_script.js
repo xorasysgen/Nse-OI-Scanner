@@ -360,7 +360,7 @@
             				display="-";
             			}
             			else if(price=="+-" && oi=="+" && shortCovringOrLongUnwinding==false && booleanValue==true ){
-            				text11="Caution! "+" <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
+            				text11="Caution! "+" <span class='superolive' style='color: green; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
             				display="+";
             			}
         				else{
