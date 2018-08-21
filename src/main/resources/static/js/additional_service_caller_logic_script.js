@@ -382,7 +382,7 @@
                             			{
                             			$("#bull").html(doctor_strange  + " ");
                             			}else{
-                            				$("#bull").html(hulkImage+bullImage + " ");
+                            				$("#bull").html(bullImage + " ");
                             				}
                             
                 		}
