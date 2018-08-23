@@ -343,8 +343,8 @@
 			</li>
 			 <li class="list-group-item">
 					 	<span class='superolive'>
-					 	Chittori Sena Attack Short Or Long Unwinding(-)  </span><br>
-					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00Pm ) Exit ( 01:10-16Pm to 02:35 Pm )</strong> &nbsp;&nbsp;
+					 	Chitauri Army Arrived (-)</span><br>
+					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00-15Pm ) Exit ( 01:10-20-40Pm to 02:35 Pm)</strong> &nbsp;&nbsp;
 							</li>
 			
  				 <li class="list-group-item">
@@ -378,29 +378,29 @@
 			<span id="bankNiftyShortsOrLongFUTNamePlus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestPlus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestPlus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestPlus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
-					 	<span class="greenBlinker">Hulk Smash Long OR Short Covering(+) </span><br>
-					 	<strong class="navy12">Entry ( 10:02Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> 
+					 	<span class="greenBlinker">Hulk Arrived (+)</span><br>
+					 	<strong class="navy12">Entry ( 10:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> 
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
 			
  				 <li class="list-group-item">
 						Quick Money Strong Prediction 1 [ <span id="quick1"></span> ]  &nbsp;&nbsp;&nbsp;&nbsp;
-					 	Strong Prediction 5 [ <span id="nonExpiry1"></span> ]  
+					 	Winner [ <span id="nonExpiry1"></span> ]  
   				</li>
   				
   				<li class="list-group-item">
-  						Quick Money Strong Prediction 2[ <span id="quick2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-  						Strong Prediction 6 [ <span id="nonExpiry2"></span> ] 
+  						Quick Money Strong Prediction 2 [ <span id="quick2"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
+  						Winner [ <span id="nonExpiry2"></span> ] 
   				</li>
   				
   				<li class="list-group-item">
 	  					Quick Money Strong Prediction 3 [ <span id="quick3"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-	  					Strong Safe Buy 1 [ <span id="nonExpiry3"></span> ] 
+	  					Safe Buy [ <span id="nonExpiry3"></span> ] 
   				</li>
   				
   					<li class="list-group-item">
 	  					Quick Money Strong Prediction 4 [ <span id="quick4"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
-	  					Strong Safe Buy 2 [ <span id="nonExpiry4"></span> ] 
+	  					Safe Buy [ <span id="nonExpiry4"></span> ] 
   				</li>
   				
 		 </ul>
