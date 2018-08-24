@@ -342,10 +342,8 @@
 			<span id="bankNiftyShortsOrLongFUTNameMinus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestMinus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestMinus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestMinus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
-					 	<span class='superolive'>
-					 	Chitauri Army Arrived (-)</span><br>
-					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00-15Pm ) Exit ( 01:10-20-40Pm to 02:35 Pm)</strong> &nbsp;&nbsp;
-							</li>
+					 	<span class='superolive'><span id="mark11"></span></span>
+			 </li>
 			
  				 <li class="list-group-item">
 					 	<strong>Strong Prediction 1 </strong>[ <span id="Predictionfirst"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
@@ -367,6 +365,11 @@
 	  					
   				</li>
   				
+  				<li class="list-group-item">
+					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00-15Pm ) <br>Exit ( 01:10-20-40Pm to 02:35 Pm)</strong> &nbsp;&nbsp;
+					 
+  				</li>
+  				
 		 </ul>
 			
         </div>
@@ -378,9 +381,7 @@
 			<span id="bankNiftyShortsOrLongFUTNamePlus"></span> <span id="bankNiftyShortsOrLongFUTOpenInterestPlus"></span><sup><span id="bankNiftyShortsOrLongPerchangeinOpenInterestPlus"></span>&nbsp;&nbsp;<span id="bankNiftyShortsOrLongChangeinOpenInterestPlus"></span></sup> 
 			</li>
 			 <li class="list-group-item">
-					 	<span class="greenBlinker">Hulk Arrived (+)</span><br>
-					 	<strong class="navy12">Entry ( 10:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> 
-					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
+					 	<span class="greenBlinker"><span id="mark00"></span></span>
   				</li>
 			
  				 <li class="list-group-item">
@@ -401,6 +402,10 @@
   					<li class="list-group-item">
 	  					Quick Money Strong Prediction 4 [ <span id="quick4"></span> ] &nbsp;&nbsp;&nbsp;&nbsp;
 	  					Safe Buy [ <span id="nonExpiry4"></span> ] 
+  				</li>
+  					<li class="list-group-item">
+					 	<strong class="navy12">Entry ( 10:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> <br>
+					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
   				
 		 </ul>

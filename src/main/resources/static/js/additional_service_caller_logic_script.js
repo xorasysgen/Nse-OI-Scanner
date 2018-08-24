@@ -371,6 +371,7 @@
                 		
             			
                 		if(display=="+"){
+                			$("#mark00").html("Hulk Arrived (+)");
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("BANK NIFTY-OI");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html(text3);
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html(text4);
@@ -387,7 +388,8 @@
                             
                 		}
                 		else{
-                			$("#mark0").html("Not Recommended");
+                			$("#mark0").html("Strongly Not Recommended to buy Calls");
+                			$("#mark00").html("");
                 			$("#bankNiftyShortsOrLongFUTNamePlus").html("");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html("");
                             $("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html("");
@@ -399,6 +401,7 @@
                 		
                 		
                 		if(display=="-"){
+                			$("#mark11").html("Chitauri Army Arrived (-)");
                 			$("#bankNiftyShortsOrLongFUTNameMinus").html("BANK NIFTY-OI");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html(text3);
                             $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(text4);
@@ -408,6 +411,7 @@
                 		}
                 		else{
                 			$("#mark1").html("Not Recommended");
+                			$("#mark11").html("");
                 			$("#bankNiftyShortsOrLongFUTNameMinus").html("");
                 			$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html("");
                             $("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
