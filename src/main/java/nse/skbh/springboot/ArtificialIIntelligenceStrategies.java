@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -20,6 +21,7 @@ import nse.skbh.springboot.logic.Top20ContractsReader;
 import nse.skbh.springboot.pojo.OptionSuggestion;
 import nse.skbh.springboot.pojo.ParentOptionSuggestion;
 import nse.skbh.springboot.pojo.ParentsDataPoints;
+import nse.skbh.springboot.pojo.PremiumDiscountNiftyBankNifty;
 import nse.skbh.springboot.pojo.RoadMapDataPoints;
 
 @RestController
@@ -172,5 +174,79 @@ public class ArtificialIIntelligenceStrategies {
 
 	}
 	
+	@GetMapping("/premium_discount_nifty_banknifty")
+	public  PremiumDiscountNiftyBankNifty getNiftyBankNiftyFuture() {
+		String nifty="jsonapi/market/indices&ind_id=9";
+		String niftyFuture="jsonapi/fno/overview&format=&inst_type=Futures&id=NIFTY&ExpiryDate=";
+		String banknifty="jsonapi/market/indices&ind_id=23";
+		String bankniftyFuture="jsonapi/fno/overview&format=&inst_type=Futures&id=BANKNIFTY&ExpiryDate=";
+		nifty=ArtificialIIntelligenceStrategies.getlastPriceBasedonCashURI(nifty);
+		banknifty=ArtificialIIntelligenceStrategies.getlastPriceBasedonCashURI(banknifty);
+		niftyFuture=ArtificialIIntelligenceStrategies.getlastPriceBasedonFutureURI(niftyFuture);
+		bankniftyFuture=ArtificialIIntelligenceStrategies.getlastPriceBasedonFutureURI(bankniftyFuture);
+		nifty=nifty.replace(",", "");
+		banknifty=banknifty.replace(",", "");
+		niftyFuture=niftyFuture.replaceAll("\"", "");
+		bankniftyFuture=bankniftyFuture.replaceAll("\"", "");
+		Float premiumOrDiscountNifty=Float.parseFloat(niftyFuture)-Float.parseFloat(nifty);
+		Float premiumOrDiscountNiftyBank=Float.parseFloat(bankniftyFuture)-Float.parseFloat(banknifty);
+		PremiumDiscountNiftyBankNifty premiumDiscountNiftyBankNifty=new PremiumDiscountNiftyBankNifty();
+		premiumDiscountNiftyBankNifty.setNifty(premiumOrDiscountNifty);
+		premiumDiscountNiftyBankNifty.setBankNifty(premiumOrDiscountNiftyBank);
+		return premiumDiscountNiftyBankNifty;
+
+	}
 	
-}
+	private static String getlastPriceBasedonCashURI(String uri) {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate
+				.getForEntity(AppFeedsJsonApiController.URIHelper().concat(uri), String.class);
+		String stringInJson = response.getBody();
+		/*begins parse json data from response*/
+		if(stringInJson!=null) {
+			Object obj = new JsonParser().parse(stringInJson);
+			JsonObject jsonObject = (JsonObject) obj;
+			JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("indices");
+			String rawLastprice=jsonObjectChild.get("lastprice").getAsString();
+			return rawLastprice;
+		}
+		return "0";
+	}
+	
+	private static String getlastPriceBasedonFutureURI(String uri) {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate
+				.getForEntity(AppFeedsJsonApiController.URIHelper().concat(uri), String.class);
+		String stringInJson = response.getBody();
+		/*begins parse json data from response*/
+		if(stringInJson!=null) {
+		Object obj = new JsonParser().parse(stringInJson);
+		JsonObject jsonObject = (JsonObject) obj;
+		JsonObject jsonlistObject =  jsonObject.getAsJsonObject("fno_list");
+		JsonArray ja=jsonlistObject.getAsJsonArray("item");
+		JsonObject jo=ja.get(0).getAsJsonObject();
+		String lastprice=jo.get("lastprice").toString();
+		return lastprice;
+		}
+		return "0";
+	}
+	
+	
+}	
+/*//	Nifty Premium –If Nifty future is trading higher than nifty spot, then nifty future is trading with premium. The Highest Premium seen in Nifty was 70 points in 28 Feb 2012 expiry when market rose 20% in matter on 2 months.
+//
+//	Premium = Nifty Future Price – Spot Nifty Value
+//
+//	For Eg: Suppose  NIFTY is trading at  5000 and NIFTY FUTURE is trading at  5020 in this case Nifty is trading in Premium of 20 points (5020-5000)
+//
+//	 
+//
+//	Nifty Discount –If Nifty future is trading lower than nifty spot, then nifty future is trading with Discount.
+//
+//	Discount = Spot Nifty Value – Nifty Future Price
+//
+//	For Eg: Suppose  NIFTY is trading at  5000 and NIFTY FUTURE is trading at  4990 in this case Nifty is trading in Discount of 10 points (5000-4990)
+//	What is significance of Discount and Premium availability of NIFTY?
+//	When discount widens , bearish mood of market is increasing
+//	When premium widens , bullish mood of market is increasing
+*/

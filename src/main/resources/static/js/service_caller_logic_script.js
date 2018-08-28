@@ -322,6 +322,32 @@ document.getElementById('timer').innerHTML =
 
 /*---------------------------------------------------------------------------------*/
 
+        
+        /*---------------------------------------------------------------------------------*/
+        $.ajax({
+        	type:'Get',
+        	url: 'suggestions/premium_discount_nifty_banknifty',
+        	success: function(result){
+        		var nifty = result.nifty.toString().substring(0,5);
+        		var bankNifty = result.bankNifty.toString().substring(0,5);
+        		if(nifty>=1)
+        			text="<span class='nifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>" +"N-" +nifty+ "</span>";
+        			else
+        			text="<span class='nifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>" +"N-" +nifty+  "</span>";
+        		
+        		if(bankNifty>=1)
+        			text1="<span class='bankNifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + "BN-"+bankNifty+ "</span>";
+        			else
+        			text1="<span class='bankNifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + "BN-"+bankNifty+ "</span>";
+        		
+          		 $("#niftyPreDis").html(text);
+          		 $("#bankniftyPreDis").html(text1);
+        	
+        }
+        })
+
+/*---------------------------------------------------------------------------------*/
+        
 /*---------------------------------------------------------------------------------*/
         $.ajax({
         	type:'Get',

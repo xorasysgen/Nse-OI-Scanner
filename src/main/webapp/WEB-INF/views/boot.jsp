@@ -99,10 +99,15 @@
 			<script type="text/javascript">window.onload = date_time_auto_sync();</script>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Boot Heuristic <span class="glyphicon glyphicon-dashboard" style="font-size: 12px; color: #ffbb33;"></span>&nbsp;Market Breadth &amp; Trend
+        <h3 class="panel-title">Market Breadth &amp; Trend
         <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; IndiaVix LTP# [&nbsp;<span style="color: #00e676;" id="IndiaVix"></span>&nbsp;] IndiaVix Change#[&nbsp;<span style="color: #00e676;" id="IndiaVixPerChange"></span>&nbsp;] <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span>
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
       <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85&nbsp; exp#2.18-2.37</strong></span></span></span>
+      &nbsp; <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; 
+      Premium <span class="nobr">[
+      <span class="supsub"><span style="color: #00e676;"><strong><span id="niftyPreDis"></span></strong></span><br />
+      <span style="color: #ffc107;"><strong><span id="bankniftyPreDis"></strong></span></span></span>
+      ]
         </h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
