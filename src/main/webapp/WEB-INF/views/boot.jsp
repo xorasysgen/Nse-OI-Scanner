@@ -104,10 +104,10 @@
         Nifty Put-Call-Ratio (PCR)# [&nbsp;<span style="color: #00e676;" id="OptionsNiftyPCR"></span>&nbsp;<span class="nobr">]
       <span class="supsub"><span style="color: #00e676;"><strong>0.83</strong></span><br /><span style="color: #ffc107;"><strong>1.85&nbsp; exp#2.18-2.37</strong></span></span></span>
       &nbsp; <span class="glyphicon glyphicon-resize-small" style="font-size: 16px; color: #ffbb33;"></span> &nbsp; 
-      Premium <span class="nobr">[
-      <span class="supsub"><span style="color: #00e676;"><strong><span id="niftyPreDis"></span></strong></span><br />
-      <span style="color: #ffc107;"><strong><span id="bankniftyPreDis"></strong></span></span></span>
-      ]
+      Premium<span class="nobr">
+      <span class="supsub"><span style="color: white;">N# </span><strong><span id="niftyPreDis"></span></strong><br />
+      <span style="color: white;">BN# </span><strong><span id="bankniftyPreDis"></strong></span></span>
+      
         </h3>
     </div>
 <div ng-app="myApp" ng-controller="GreetingController">
