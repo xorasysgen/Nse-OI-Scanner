@@ -331,14 +331,14 @@ document.getElementById('timer').innerHTML =
         		var nifty = result.nifty.toString().substring(0,5);
         		var bankNifty = result.bankNifty.toString().substring(0,5);
         		if(nifty>=1)
-        			text="<span class='nifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>" +"N-" +nifty+ "</span>";
+        			text="<span class='nifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>"  +nifty+ "</span>";
         			else
-        			text="<span class='nifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>" +"N-" +nifty+  "</span>";
+        			text="<span class='nifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>"  +nifty+  "</span>";
         		
         		if(bankNifty>=1)
-        			text1="<span class='bankNifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + "BN-"+bankNifty+ "</span>";
+        			text1="<span class='bankNifty' style='color: #00c853; font-weight: bold; font-size: 14px;'>" +bankNifty+ "</span>";
         			else
-        			text1="<span class='bankNifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + "BN-"+bankNifty+ "</span>";
+        			text1="<span class='bankNifty' style='color: #CC0000; font-weight: bold; font-size: 14px;'>" +bankNifty+ "</span>";
         		
           		 $("#niftyPreDis").html(text);
           		 $("#bankniftyPreDis").html(text1);
