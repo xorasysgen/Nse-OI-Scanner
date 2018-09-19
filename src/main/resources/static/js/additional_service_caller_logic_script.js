@@ -452,23 +452,18 @@ $
 					$("#mark00").html("");
 					$("#bankNiftyShortsOrLongFUTNamePlus").html("");
 					$("#bankNiftyShortsOrLongFUTOpenInterestPlus").html("");
-					$("#bankNiftyShortsOrLongChangeinOpenInterestPlus")
-							.html("");
-					$("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus")
-							.html("");
+					$("#bankNiftyShortsOrLongChangeinOpenInterestPlus").html("");
+					$("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html("");
 					$("#ShortsOrLongRemarkPlus").html("");
-					$("#bull").html("")
+					$("#bull").html("");
 				}
 
 				if (display == "-") {
 					$("#mark11").html("Chitauri Army Arrived (-)");
-					$("#bankNiftyShortsOrLongFUTNameMinus").html(
-							"BANK NIFTY-OI");
+					$("#bankNiftyShortsOrLongFUTNameMinus").html("BANK NIFTY-OI");
 					$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html(text3);
-					$("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(
-							text4);
-					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus")
-							.html(text5);
+					$("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(text4);
+					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html(text5);
 					$("#ShortsOrLongRemarkMinus").html(text11);
 					$("#bear").html(bearImage)
 				} else {
@@ -476,10 +471,8 @@ $
 					$("#mark11").html("");
 					$("#bankNiftyShortsOrLongFUTNameMinus").html("");
 					$("#bankNiftyShortsOrLongFUTOpenInterestMinus").html("");
-					$("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html(
-							"");
-					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus")
-							.html("");
+					$("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
+					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html("");
 					$("#bear").html("");
 				}
 
