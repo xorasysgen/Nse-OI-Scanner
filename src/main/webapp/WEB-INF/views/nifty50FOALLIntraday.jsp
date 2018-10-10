@@ -12,7 +12,7 @@
             "processing": true,
             "order": [[ 1, "asc" ]],
             "pageLength": 100,
-            "ajax": "nifty_FandO/ohl_strategy",
+            "ajax": "suggestions/nifty/ohl_strategy/fo",
             "columns": [
                 { "data": "symbol" ,
                	 render: function ( data, type, row ) {

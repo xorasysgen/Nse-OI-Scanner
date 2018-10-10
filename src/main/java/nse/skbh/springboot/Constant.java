@@ -60,6 +60,8 @@ final class Constant {
 	private static final String nifty_roadMap="/suggestions/nifty_roadMap";
 	private static final String bank_nifty_roadMap="/suggestions/bank_nifty_roadMap";
 	private static final String premium_discount_nifty_banknifty="/suggestions/premium_discount_nifty_banknifty";
+	private static final String ohl_strategy_fo="/suggestions/nifty/ohl_strategy/fo";
+	private static final String ohl_strategy="/suggestions/nifty/ohl_strategy";
 	
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
@@ -118,6 +120,8 @@ final class Constant {
 		list.add(nifty_roadMap);
 		list.add(bank_nifty_roadMap);
 		list.add(premium_discount_nifty_banknifty);
+		list.add(ohl_strategy);
+		list.add(ohl_strategy_fo);
 		return list;
 
 	}
