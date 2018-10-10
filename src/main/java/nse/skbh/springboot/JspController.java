@@ -233,6 +233,12 @@ public class JspController {
 	public String index() {
 		return "index";
 	}
+	
+	
+	@RequestMapping("/nifty50Intraday_ohl_strategy")
+	public String nifty50Intraday() {
+		return "nifty50Intraday";
+	}
 
 	
 }

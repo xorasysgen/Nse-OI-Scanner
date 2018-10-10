@@ -21,8 +21,10 @@ a.menu_links { cursor: pointer; }
       <ul class="nav navbar-nav">
     	   	 <li class="active"><a href="most_active_underlying"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Most Active<span class="sr-only">(current)</span></a></li>
 	         <li class="dropdown">
-         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <sup><span class="badge">10</span></sup><span class="caret"></span></a>
+         	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list" style="color:#ffc107;"></span>  NSE-Stocks <sup><span class="badge">11</span></sup><span class="caret"></span></a>
          <ul class="dropdown-menu">
+         <li><a href="nifty50Intraday_ohl_strategy"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Nifty-50 OHL</a></li>
+         <li role="separator" class="divider"></li>
 	         <li><a href="world_market_futures"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> World Market-FUT</a></li>
          <li role="separator" class="divider"></li>
          	  <li><a href="nifty_top_ten_heroes_weightage"><span class="glyphicon glyphicon-chevron-right" style="color:#ffc107;"></span> Nifty Heroes</a></li>

@@ -1,5 +1,7 @@
 package nse.skbh.springboot;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +20,11 @@ import nse.skbh.springboot.logic.GannRoadMap;
 import nse.skbh.springboot.logic.NiftyAndBankNiftySupportResistance;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Top20ContractsReader;
+import nse.skbh.springboot.pojo.IndicesData;
+import nse.skbh.springboot.pojo.IndicesDataOHL;
 import nse.skbh.springboot.pojo.OptionSuggestion;
+import nse.skbh.springboot.pojo.ParentIndicesData;
+import nse.skbh.springboot.pojo.ParentIndicesDataOHL;
 import nse.skbh.springboot.pojo.ParentOptionSuggestion;
 import nse.skbh.springboot.pojo.ParentsDataPoints;
 import nse.skbh.springboot.pojo.PremiumDiscountNiftyBankNifty;
@@ -231,6 +237,102 @@ public class ArtificialIIntelligenceStrategies {
 		return "0";
 	}
 	
+	
+	@RequestMapping("/nifty/ohl_strategy")
+	public ParentIndicesDataOHL AdvancesDeclinesNifty() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+				ParentIndicesData.class);
+		ParentIndicesData parentIndicesData = response.getBody();
+		List<IndicesData> data=parentIndicesData.getData();
+		List<IndicesDataOHL> dataNew=new ArrayList<IndicesDataOHL>();
+		ParentIndicesDataOHL parentIndicesDataOHL=new  ParentIndicesDataOHL();
+		for (Iterator<IndicesData> iterator = data.iterator(); iterator.hasNext();) {
+			IndicesDataOHL indicesDataOHL=new IndicesDataOHL();
+			IndicesData indicesData = (IndicesData) iterator.next();
+				indicesDataOHL.setOpen(indicesData.getOpen());
+				indicesDataOHL.setHigh(indicesData.getHigh());
+				indicesDataOHL.setLow(indicesData.getLow());
+				indicesDataOHL.setPreviousClose(indicesData.getPreviousClose());
+				indicesDataOHL.setLtP(indicesData.getLtP());
+				indicesDataOHL.setSymbol(indicesData.getSymbol());
+				indicesDataOHL.setPer(indicesData.getPer());
+				indicesDataOHL.setWkhi(indicesData.getWkhi());
+				indicesDataOHL.setWklo(indicesData.getWklo());
+				List<String> list=ArtificialIIntelligenceStrategies.calculateOHLBuySell(indicesData.getOpen(),
+						indicesData.getHigh(),
+						indicesData.getLow(),
+						indicesData.getLtP(),indicesData.getPreviousClose());
+				indicesDataOHL.setBuyPercentage(list.get(0));
+				indicesDataOHL.setSellPercentage(list.get(1));
+				indicesDataOHL.setBuySell(list.get(2));
+				
+			dataNew.add(indicesDataOHL);
+		}
+		parentIndicesDataOHL.setData(dataNew);
+		return parentIndicesDataOHL;
+	}
+	
+	
+	public static List<String> calculateOHLBuySell(String o,String h,String l,String ltp,String previousClose) {
+		String result="Neutral";
+		Double open=Double.parseDouble(o.replace(",", ""));
+		Double high=Double.parseDouble(h.replace(",", ""));
+		Double low=Double.parseDouble(l.replace(",", ""));
+		Double ltpd=Double.parseDouble(ltp.replace(",", ""));
+		Double previousClosed=Double.parseDouble(previousClose.replace(",", ""));
+		
+		Double highMinusOpen=high-open;
+		Double openMinuslow=open-low;
+		List<String> list=new ArrayList<String>();
+		Double oh = (highMinusOpen / high) * 100;
+		Double ol = (openMinuslow / open) * 100;
+	/*	System.out.println(highMinusOpen);
+		System.out.println(openMinuslow);
+		System.out.println(oh);
+		System.out.println(ol);*/
+		list.add(oh.toString());
+		list.add(ol.toString());
+		if(open==high) {
+			result="Strong Sell(OH)";
+			list.add(result);
+			return list;
+		}
+		else if(open==low) {
+			result="Strong Buy(OH)";
+			list.add(result);
+			return list;
+		}
+		if(oh>=0.0 && oh<=0.85 && ol>=1.25) {
+			result="Strong Sell(Lower High)";
+			list.add(result);
+			return list;
+		}
+		else if (ol>=0.0 && ol<=0.85 && oh >=1.25) {
+			result="Strong Buy(Higher High)";
+			list.add(result);
+			return list;
+		}
+		if(ltpd>=open && ltpd>=previousClosed) {
+			result="Buy";
+			list.add(result);
+			return list;
+		}
+		else if(ltpd<=open && ltpd<=previousClosed) {
+			result="Sell";
+			list.add(result);
+			return list;
+		}
+		list.add(result);
+		return list;
+		
+	}
+	
+	/*public static void main(String[] args) {
+		System.out.println(ArtificialIIntelligenceStrategies.calculateOHLBuySell("307.10","322.95"
+				,"304.50","318.85","306.25"));
+	}*/
 	
 }	
 /*//	Nifty Premium –If Nifty future is trading higher than nifty spot, then nifty future is trading with premium. The Highest Premium seen in Nifty was 70 points in 28 Feb 2012 expiry when market rose 20% in matter on 2 months.
