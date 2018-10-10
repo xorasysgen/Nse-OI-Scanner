@@ -20,9 +20,11 @@ import nse.skbh.springboot.logic.GannRoadMap;
 import nse.skbh.springboot.logic.NiftyAndBankNiftySupportResistance;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Top20ContractsReader;
+import nse.skbh.springboot.pojo.FOSecStockWatchData;
 import nse.skbh.springboot.pojo.IndicesData;
 import nse.skbh.springboot.pojo.IndicesDataOHL;
 import nse.skbh.springboot.pojo.OptionSuggestion;
+import nse.skbh.springboot.pojo.ParentFOSecStockWatchData;
 import nse.skbh.springboot.pojo.ParentIndicesData;
 import nse.skbh.springboot.pojo.ParentIndicesDataOHL;
 import nse.skbh.springboot.pojo.ParentOptionSuggestion;
@@ -238,6 +240,44 @@ public class ArtificialIIntelligenceStrategies {
 	}
 	
 	
+	@RequestMapping("/nifty_FandO/ohl_strategy")
+	public ParentIndicesDataOHL FandONiftyOHL() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<ParentFOSecStockWatchData> response = restTemplate.getForEntity(
+				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json",
+				ParentFOSecStockWatchData.class);
+		ParentFOSecStockWatchData parentFOSecStockWatchData = response.getBody();
+		
+		List<FOSecStockWatchData> data=parentFOSecStockWatchData.getData();
+		List<IndicesDataOHL> dataNew=new ArrayList<IndicesDataOHL>();
+		ParentIndicesDataOHL parentIndicesDataOHL=new  ParentIndicesDataOHL();
+		for (Iterator<FOSecStockWatchData> iterator = data.iterator(); iterator.hasNext();) {
+			IndicesDataOHL indicesDataOHL=new IndicesDataOHL();
+			FOSecStockWatchData indicesData = (FOSecStockWatchData) iterator.next();
+				indicesDataOHL.setOpen(indicesData.getOpen());
+				indicesDataOHL.setHigh(indicesData.getHigh());
+				indicesDataOHL.setLow(indicesData.getLow());
+				indicesDataOHL.setLtP(indicesData.getLtP());
+				indicesDataOHL.setSymbol(indicesData.getSymbol());
+				indicesDataOHL.setPer(indicesData.getPer());
+				indicesDataOHL.setWkhi(indicesData.getWkhi());
+				indicesDataOHL.setWklo(indicesData.getWklo());
+				List<String> list=ArtificialIIntelligenceStrategies.calculateOHLBuySell(indicesData.getOpen(),
+						indicesData.getHigh(),
+						indicesData.getLow(),
+						indicesData.getLtP());
+				indicesDataOHL.setBuyPercentage(list.get(0));
+				indicesDataOHL.setSellPercentage(list.get(1));
+				indicesDataOHL.setBuySell(list.get(2));
+				
+			dataNew.add(indicesDataOHL);
+		}
+		parentIndicesDataOHL.setData(dataNew);
+		return parentIndicesDataOHL;
+	}
+	
+	
+	
 	@RequestMapping("/nifty/ohl_strategy")
 	public ParentIndicesDataOHL AdvancesDeclinesNifty() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
@@ -320,6 +360,59 @@ public class ArtificialIIntelligenceStrategies {
 			return list;
 		}
 		else if(ltpd<=open && ltpd<=previousClosed) {
+			result="Sell";
+			list.add(result);
+			return list;
+		}
+		list.add(result);
+		return list;
+		
+	}
+	
+	public static List<String> calculateOHLBuySell(String o,String h,String l,String ltp) {
+		String result="Neutral";
+		Double open=Double.parseDouble(o.replace(",", ""));
+		Double high=Double.parseDouble(h.replace(",", ""));
+		Double low=Double.parseDouble(l.replace(",", ""));
+		Double ltpd=Double.parseDouble(ltp.replace(",", ""));
+		
+		Double highMinusOpen=high-open;
+		Double openMinuslow=open-low;
+		List<String> list=new ArrayList<String>();
+		Double oh = (highMinusOpen / high) * 100;
+		Double ol = (openMinuslow / open) * 100;
+	/*	System.out.println(highMinusOpen);
+		System.out.println(openMinuslow);
+		System.out.println(oh);
+		System.out.println(ol);*/
+		list.add(oh.toString());
+		list.add(ol.toString());
+		if(open==high) {
+			result="Strong Sell(OH)";
+			list.add(result);
+			return list;
+		}
+		else if(open==low) {
+			result="Strong Buy(OH)";
+			list.add(result);
+			return list;
+		}
+		if(oh>=0.0 && oh<=0.85 && ol>=1.25) {
+			result="Strong Sell(Lower High)";
+			list.add(result);
+			return list;
+		}
+		else if (ol>=0.0 && ol<=0.85 && oh >=1.25) {
+			result="Strong Buy(Higher High)";
+			list.add(result);
+			return list;
+		}
+		if(ltpd>=open && ltpd>=low) {
+			result="Buy";
+			list.add(result);
+			return list;
+		}
+		else if(ltpd<=open && ltpd<=high) {
 			result="Sell";
 			list.add(result);
 			return list;

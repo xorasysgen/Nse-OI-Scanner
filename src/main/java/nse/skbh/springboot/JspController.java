@@ -239,6 +239,10 @@ public class JspController {
 	public String nifty50Intraday() {
 		return "nifty50Intraday";
 	}
-
+	
+	@RequestMapping("/nifty50FOALLIntraday_ohl_strategy")
+	public String nifty50FOALLIntraday() {
+		return "nifty50FOALLIntraday";
+	}
 	
 }
