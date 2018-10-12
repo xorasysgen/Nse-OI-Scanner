@@ -387,41 +387,68 @@ public class WebBoot {
 		ParentIndicesData parentIndicesData = response.getBody();
 		List<IndicesData> data = parentIndicesData.getData();
 		for (IndicesData indicesData : data) {
-			if (indicesData.getSymbol().equals("KOTAKBANK"))
-				indicesData.setWeightage("13.99%");
+			List<String> list=ArtificialIIntelligenceStrategies.calculateOHLBuySell(indicesData.getOpen(), indicesData.getHigh(), indicesData.getLow(), indicesData.getLtP(), indicesData.getPreviousClose());
+			if(list!=null && list.size()>0) {
+				String signal=list.get(2);
+				indicesData.setSignal(signal);
+			}
+			if (indicesData.getSymbol().equals("KOTAKBANK")) {
+				indicesData.setWeightage("13.12%");
+				indicesData.setWeightageOld("13.99%");
+			}
 
-			if (indicesData.getSymbol().equals("INDUSINDBK"))
-				indicesData.setWeightage("8.36%");
+			if (indicesData.getSymbol().equals("INDUSINDBK")) {
+				indicesData.setWeightage("7.43%");
+				indicesData.setWeightageOld("8.36%");
+			}
+			if (indicesData.getSymbol().equals("YESBANK")) {
+				indicesData.setWeightage("2.92%");
+				indicesData.setWeightageOld("5.77%");
+			}
+			if (indicesData.getSymbol().equals("FEDERALBNK")) {
+				indicesData.setWeightage("1.21%");
+				indicesData.setWeightageOld("1.36%");
+			}
+			if (indicesData.getSymbol().equals("HDFCBANK")) {
+				indicesData.setWeightage("37.04%");
+				indicesData.setWeightageOld("34.49%");
+			}
 
-			if (indicesData.getSymbol().equals("YESBANK"))
-				indicesData.setWeightage("5.77%");
+			if (indicesData.getSymbol().equals("AXISBANK")) {
+				indicesData.setWeightage("9.96%");
+				indicesData.setWeightageOld("7.70%");
+			}
+			if (indicesData.getSymbol().equals("RBLBANK")) {
+				indicesData.setWeightage("1.66%");
+				indicesData.setWeightageOld("1.60%");
+			}
 
-			if (indicesData.getSymbol().equals("FEDERALBNK"))
-				indicesData.setWeightage("1.36%");
+			if (indicesData.getSymbol().equals("SBIN")) {
+				indicesData.setWeightage("8.57%");
+				indicesData.setWeightageOld("7.92%");
+			}
+			
 
-			if (indicesData.getSymbol().equals("HDFCBANK"))
-				indicesData.setWeightage("34.49%");
-
-			if (indicesData.getSymbol().equals("AXISBANK"))
-				indicesData.setWeightage("7.70%");
-
-			if (indicesData.getSymbol().equals("RBLBANK"))
-				indicesData.setWeightage("1.60%");
-
-			if (indicesData.getSymbol().equals("SBIN"))
-				indicesData.setWeightage("7.92%");
-
-			if (indicesData.getSymbol().equals("PNB"))
+			if (indicesData.getSymbol().equals("PNB")) {
 				indicesData.setWeightage("00.00%");
+				indicesData.setWeightageOld("00.00%");
+			}
 
-			if (indicesData.getSymbol().equals("IDFCBANK"))
+			if (indicesData.getSymbol().equals("IDFCBANK")) {
 				indicesData.setWeightage("00.00%");
+				indicesData.setWeightageOld("00.00%");
+			}
+			
 
-			if (indicesData.getSymbol().equals("BANKBARODA"))
-				indicesData.setWeightage("1.23%");
-
-			if (indicesData.getSymbol().equals("ICICIBANK"))
-				indicesData.setWeightage("15.81%");
+			if (indicesData.getSymbol().equals("BANKBARODA")) {
+				indicesData.setWeightage("0.82%");
+				indicesData.setWeightageOld("1.23%");
+				}
+				
+			if (indicesData.getSymbol().equals("ICICIBANK")) {
+				indicesData.setWeightage("16.93%");
+				indicesData.setWeightageOld("15.81%");
+			}
 
 		}
 		parentIndicesData.setData(data);

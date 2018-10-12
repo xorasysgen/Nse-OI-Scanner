@@ -4,6 +4,8 @@ public class IndicesData {
 
 	private String symbol;
 	private String weightage;
+	private String weightageOld;
+	private String signal;
 	private String open;
 	private String high;
 	private String low;
@@ -169,6 +171,20 @@ public class IndicesData {
 	}
 	public void setmPC(String mPC) {
 		this.mPC = mPC;
+	}
+	
+	
+	public String getWeightageOld() {
+		return weightageOld;
+	}
+	public void setWeightageOld(String weightageOld) {
+		this.weightageOld = weightageOld;
+	}
+	public String getSignal() {
+		return signal;
+	}
+	public void setSignal(String signal) {
+		this.signal = signal;
 	}
 	
 	@Override

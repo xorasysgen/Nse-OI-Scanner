@@ -334,8 +334,8 @@ public class ArtificialIIntelligenceStrategies {
 		System.out.println(ol);*/
 		list.add(oh.toString());
 		list.add(ol.toString());
-		System.out.println("open#" + open);
-		System.out.println("high#" + high);
+		/*System.out.println("open#" + open);
+		System.out.println("high#" + high);*/
 		if(Double.compare(open,high)==0) {
 			result="Strong Sell(OH)";
 			list.add(result);

@@ -12,6 +12,7 @@
         $('#example').DataTable( {
             "processing": true,
             "order": [[ 1, "desc" ]],
+            "pageLength": 25,
             "ajax": "advances_declines_bank_nifty",
             "columns": [
                 { "data": "symbol" ,
@@ -22,10 +23,27 @@
                      } 
                 	},
                 { "data": "weightage" },
+                { "data": "weightageOld" },
                 { "data": "open" },
-                { "data": "high" },
-                { "data": "low" },
-                { "data": "ltP" },
+                { "data": "high" ,
+                   	 render: function ( data, type, row ) {
+                         
+                         return '<span class="liteGreen">'+data+'</span>';
+                       
+                     }
+                },
+                { "data": "low" ,
+                  	 render: function ( data, type, row ) {
+                         
+                         return '<span class="negative">'+data+'</span>';
+                       
+                     }
+                },
+                { "data": "ltP" , 
+	               	 render: function ( data, type, row ) {
+	                     return '<span class="navy">'+data+'</span>';
+	                 } 
+                },
                 { "data": "previousClose" },
                 { "data": "ptsC" ,
                 	render: function ( data, type, row ) {
@@ -39,31 +57,59 @@
                 { "data": "per" ,
                     	render: function ( data, type, row ) {
                             if (data >= 0) {
-                              return '<span class="positive">'+data+' %</span>';
+                              return '<span class="positive">'+data+'%</span>';
                             } else {
-                              return '<span class="negative">'+data+' %</span>';
+                              return '<span class="negative">'+data+'%</span>';
                             }
                           } 
                 		},
-                { "data": "trdVol" },
-                { "data": "trdVolM" },
-                { "data": "wkhi" },
-                { "data": "wklo" },
+                { "data": "signal" ,
+                        	render: function ( data, type, row )  {
+                        		if (data =="Strong Buy(OL)") {
+                       			 return '<span class="positive">'+data+'</span>';
+                       		}
+                       		else if (data =="Strong Buy(Higher High)") {
+                                 return '<span class="positive">'+data+'</span>';
+                               } else if (data =="Buy") {
+                               	return '<span class="positive">'+data+'</span>';
+                               }
+                               else {
+                                 return '<span class="negative">'+data+'</span>';
+                               }
+                             } 
+                },
+                { "data": "wkhi"  ,
+                	render: function ( data, type, row ) {
+                		data=data.split(',').join('');//remove comma
+                        if (data >= 0) {
+                          return '<span class="positive">'+data+'</span>';
+                        } else {
+                          return '<span class="negative">'+data+'</span>';
+                        }
+                      }
+                },
+                { "data": "wklo"  ,
+                	render: function ( data, type, row ) {
+                		data=data.split(',').join('');//remove comma
+                          return '<span class="negative">'+data+'</span>';
+                        }
+                     
+                },
                 { "data": "yPC" ,
                 	render: function ( data, type, row ) {
                         if (data >= 0) {
-                          return '<span class="positive">'+data+' %</span>';
+                          return '<span class="positive">'+data+'%</span>';
                         } else {
-                          return '<span class="negative">'+data+' %</span>';
+                          return '<span class="negative">'+data+'%</span>';
                         }
                       } 
                 	},
                 { "data": "mPC" ,
                     	render: function ( data, type, row ) {
                             if (data >= 0) {
-                              return '<span class="positive">'+data+' %</span>';
+                              return '<span class="positive">'+data+'%</span>';
                             } else {
-                              return '<span class="negative">'+data+' %</span>';
+                              return '<span class="negative">'+data+'%</span>';
                             }
                           } 
                 		}
@@ -72,8 +118,6 @@
         } );
     } );
     </script>
-    
-    
     
   </head>
   <body>
@@ -93,15 +137,15 @@
 			<tr>
 				 	  <th>Symbol</th>
 				 	  <th>Weightage</th>
+				 	  <th>WT Old</th>
 				 	  <th>Open</th>
 					  <th>High</th>
 					  <th>Low</th>
   				      <th>Ltp</th>
 					  <th>preClose</th>
-				 	  <th>Val Chng</th>
-					  <th>% Chng</th>
-					  <th>Volume(L)</th>
-					   <th>365d %chng</th>
+				 	  <th>Chng</th>
+					  <th>%Chng</th>
+					  <th>Signal</th>
 				 	  <th>52wH</th>
 					  <th>52wL</th>
 					  <th>%YearChng</th>
