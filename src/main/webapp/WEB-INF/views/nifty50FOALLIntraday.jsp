@@ -44,7 +44,10 @@
                 },
                 { "data": "buySell",
                 	render: function ( data, type, row ) {
-                        if (data =="Strong Buy(Higher High)") {
+                		if (data =="Strong Buy(OL)") {
+                			 return '<span class="positive">'+data+'</span>';
+                		}
+                		else if (data =="Strong Buy(Higher High)") {
                           return '<span class="positive">'+data+'</span>';
                         } else if (data =="Buy") {
                         	return '<span class="positive">'+data+'</span>';
