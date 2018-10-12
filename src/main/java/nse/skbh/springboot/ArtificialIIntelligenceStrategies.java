@@ -334,13 +334,15 @@ public class ArtificialIIntelligenceStrategies {
 		System.out.println(ol);*/
 		list.add(oh.toString());
 		list.add(ol.toString());
-		if(open==high) {
+		System.out.println("open#" + open);
+		System.out.println("high#" + high);
+		if(Double.compare(open,high)==0) {
 			result="Strong Sell(OH)";
 			list.add(result);
 			return list;
 		}
-		else if(open==low) {
-			result="Strong Buy(OH)";
+		else if(Double.compare(open,low)==0) {
+			result="Strong Buy(OL)";
 			list.add(result);
 			return list;
 		}
@@ -387,13 +389,13 @@ public class ArtificialIIntelligenceStrategies {
 		System.out.println(ol);*/
 		list.add(oh.toString());
 		list.add(ol.toString());
-		if(open==high) {
+		if(Double.compare(open,high)==0) {
 			result="Strong Sell(OH)";
 			list.add(result);
 			return list;
 		}
-		else if(open==low) {
-			result="Strong Buy(OH)";
+		else if(Double.compare(open,low)==0) {
+			result="Strong Buy(OL)";
 			list.add(result);
 			return list;
 		}
