@@ -361,15 +361,15 @@ $
 							+ pchangeinOpenInterest + "%</span>";
 				}
 
-				if (changeEvo1 > 10 && booleanValue == true) { // percentage
+				if (changeEvo1 > 10 && booleanValue == true) { // percentage bull side
 					price = "+";
-				} else if (changeEvo1 <= -10 && booleanValue == false) {
+				} else if (changeEvo1 <= -10 && booleanValue == false) { // bear side,long unwinding
 					price = "-";
-				}else if (changeEvo1 >= 10 && booleanValue == false) {
+				}else if (changeEvo1 >= 10 && booleanValue == false) { // bear side, short
 					price = "-"; 
 				}
 				else {
-					price = "+-";
+					price = "+-";// no clear trend
 				}
 
 				if (changeEvo < 0 && pChangeEvo < -2) {
