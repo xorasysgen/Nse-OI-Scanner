@@ -367,6 +367,7 @@ $
 					price = "-";
 				}else if (changeEvo1 >= 10 && booleanValue == false) {
 					price = "-"; 
+				}
 				else {
 					price = "+-";
 				}
