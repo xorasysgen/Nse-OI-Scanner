@@ -362,11 +362,12 @@ $
 				}
 
 				if (changeEvo1 > 10 && booleanValue == true) { // percentage
-																// change value
 					price = "+";
 				} else if (changeEvo1 <= -10 && booleanValue == false) {
 					price = "-";
-				} else {
+				}else if (changeEvo1 >= 10 && booleanValue == false) {
+					price = "-"; 
+				else {
 					price = "+-";
 				}
 
