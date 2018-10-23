@@ -36,6 +36,7 @@
 <script src="js/service_caller_logic_script.js"></script>
 <script src="js/additional_service_caller_logic_script.js"></script>
 <script src="js/wd.js"></script>
+<script src="js/zerodha.js"></script>
 <%-- <jsp:include page="script_support_js.jsp" /> --%>
 <!-- high level configuration don't change till here -->
 
@@ -337,8 +338,11 @@
 
 
 						<div class="panel-body"> <!-- panel-body  start-->
+						<span id="zerodha"></span><br>
+						Zerodha Says - You will be allowed to take fresh short option positions. The restriction is only for long options positions.<br>
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<div class="row">
+			
         <div class="col-xs-6">
           <ul class="list-group">
 			<li class="list-group-item">

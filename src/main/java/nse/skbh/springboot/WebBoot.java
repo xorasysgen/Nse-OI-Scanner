@@ -27,6 +27,7 @@ import nse.skbh.springboot.logic.OptionChainReader;
 import nse.skbh.springboot.logic.ReadURI;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Top20ContractsReader;
+import nse.skbh.springboot.logic.ZerodhaTool;
 import nse.skbh.springboot.pojo.ForthComingDividend;
 import nse.skbh.springboot.pojo.GainerLosser;
 import nse.skbh.springboot.pojo.IndicesData;
@@ -78,6 +79,10 @@ public class WebBoot {
 
 	}
 	
+	@RequestMapping("/zerodha")
+	public String zerodhaFutureUrl() {
+		return ZerodhaTool.getZerodhaFuturesURL();
+	}
 	
 
 	@RequestMapping("/option_chain_reader")
