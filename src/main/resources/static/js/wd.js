@@ -120,8 +120,6 @@
     	type:'Get',
     	url: 'appfeeds/banknifty',
     	success: function(result){
-    		var json = JSON.parse(result);
-    		
       		var json = JSON.parse(result);
     		var prevclose=json.indices.prevclose;
     		prevclose=prevclose.replace(/,/g , "");
@@ -221,6 +219,60 @@
               
     	 }
     })	
+    
+    
+    
+    
+     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  start appfeeds/banknifty <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/      
+    $.ajax({
+    	type:'Get',
+    	url: 'appfeeds/banknifty/future',
+    	success: function(result){
+      		var json = JSON.parse(result);
+    		var ltp=json[0]["lastprice"];
+    		var expiry_date_d=json[0]["expiry_date_d"];    		
+    		var last_update_ent_date=json[0]["ent_date"]; 
+    		var change=json[0]["change"]; 
+    		var percentchange=json[0]["percentchange"]; 
+    		var volume_data=json[0]["volume_data"]; 
+    		var volume=json[0]["volume"]; 
+    		
+    		/*if(direction==1){
+    			var trend="Day-Positive";
+    			text0="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + trend + "</span>" +
+    			"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    			lastprice="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" +
+   			 	"<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    			text2="<span style='color: #00c853; font-weight: bold; font-size: 14px;'>+" + percentchange + "</span>";
+    		}
+    		else{
+    			var trend="Day-Negative";
+    			text0="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + trend + "</span>" + 
+				"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    			var lastprice=text="<span class='blinking1' style='color: #ff4444; font-weight: bold; font-size: 14px;'>" + lastprice + "</span>" + 
+    			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    			text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + percentchange + "</span>";
+    		}*/
+    		var lastprice="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" ;
+    		var volume_text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + volume_data + "</span>" ;
+    		var volume_million="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + volume + "</span>" ;
+    		var changeVal="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + change + "</span>" ;
+    		var changePer="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" ;
+    		
+    		 $("#BNFutureltp").html(lastprice);
+             $("#BNFutureExpiryDate").html(expiry_date_d);
+             $("#BNFutureLastUpdate").html(last_update_ent_date);
+             $("#BNFutureChangeValue").html(changeVal);
+             $("#BNFuturePercentChange").html(changePer);
+             
+             $("#BNFutureVolumeData").html(volume_text);
+             $("#BNFutureVolume").html(volume_million);
+    		
+              
+              
+    	 }
+    })	
+    
       
  /*))))))))))))))))))))))))))))))))   END appfeeds/banknifty ((((((((((((((((((((((((((((((((((((*/  
       

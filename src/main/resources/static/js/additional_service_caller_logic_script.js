@@ -198,6 +198,64 @@ $
 				var previousClose = json.data[0].prevClose.replace(/,/g, "");
 				var dailyVolatility = json.data[0].dailyVolatility;
 
+					
+				/*GANN Future calulation begins*/	
+				  var ltp = previousClose;
+	              var squareRoot = Math.floor(Math.sqrt(ltp));
+	              var startNumber = 1;
+	              if (squareRoot > 1) {
+	                  startNumber = squareRoot - 1
+	              }
+	              
+	              var sup1Factor = (Math.floor(Math.sqrt(ltp) * 1000) - Math.floor(Math.sqrt(ltp) * 1000) % 125) / 1000;
+	              var sup1 = (Math.floor(Math.pow(sup1Factor - 0.125, 2) * 100) / 100);
+	              var sup2 = (Math.floor(Math.pow(sup1Factor - 0.25, 2) * 100) / 100);
+	              var sup3 = (Math.floor(Math.pow(sup1Factor - 0.375, 2) * 100) / 100);
+	              var sup4 = (Math.floor(Math.pow(sup1Factor - 0.5, 2) * 100) / 100);
+	              var sup5 = (Math.floor(Math.pow(sup1Factor - 0.625, 2) * 100) / 100);
+	              var res1 = (Math.floor(Math.pow(sup1Factor + 0.25, 2) * 100) / 100);
+	              var res2 = (Math.floor(Math.pow(sup1Factor + 0.375, 2) * 100) / 100);
+	              var res3 = (Math.floor(Math.pow(sup1Factor + 0.5, 2) * 100) / 100);
+	              var res4 = (Math.floor(Math.pow(sup1Factor + 0.625, 2) * 100) / 100);
+	              var res5 = (Math.floor(Math.pow(sup1Factor + 0.75, 2) * 100) / 100);
+	              var buyAt = (Math.floor(Math.pow(sup1Factor + 0.125, 2) * 100) / 100);
+	              var buyStoploss = (Math.floor(Math.pow(sup1Factor, 2) * 100) / 100);
+	              var sellAt = (Math.floor(Math.pow(sup1Factor, 2) * 100) / 100);
+	              var sellStoploss = (Math.floor(Math.pow(sup1Factor + 0.125, 2) * 100) / 100);
+	              var buy = (Math.floor(Math.pow(sup1Factor + 0.25, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.375, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.5, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.625, 2) * 99.95) / 100);
+	              var sell = (Math.floor(Math.pow(sup1Factor - 0.125, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.25, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.375, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.5, 2) * 100.05) / 100);
+	             
+	              var extendedBuy =  (Math.floor(Math.pow(sup1Factor + 0.75, 2) * 99.95) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: green;'></span> " + Math.floor(Math.pow(sup1Factor + 0.875, 2) * 99.95) / 100);
+	    		  var extendedSell = (Math.floor(Math.pow(sup1Factor - 0.625, 2) * 100.05) / 100 + " <span class='glyphicon glyphicon-arrow-right' style='font-size: 14px; color: red;'></span> " + Math.floor(Math.pow(sup1Factor - 0.75, 2) * 100.05) / 100);
+	             
+	  	    
+	              $("#sup111").html(sup1);
+	              $("#sup222").html(sup2);
+	              $("#sup333").html(sup3);
+	              $("#sup444").html(sup4);
+	              $("#sup555").html(sup5);
+	              
+	              $("#res111").html(res1);
+	              $("#res222").html(res2);
+	              $("#res333").html(res3);
+	              $("#res444").html(res4);
+	              $("#res555").html(res5);
+	              
+	              $("#buyAt000").html(buyAt);
+	              $("#buy000").html(buy);
+	              $("#buyStoploss000").html(buyStoploss);
+	              
+	              $("#extendedBuy000").html(extendedBuy);
+	              $("#extendedSell000").html(extendedSell);
+	              
+	              $("#sellAt000").html(sellAt);
+	              $("#sell000").html(sell);
+	              $("#sellStoploss000").html(sellStoploss);
+	              
+	              
+	             
+	              /*GANN Future calulation End*/	
+					
 				var prevClose = json.data[0].prevClose;
 				prevClose = prevClose.replace(/,/g, "")
 

@@ -62,11 +62,14 @@ public class AppFeedsJsonApiController {
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=BANKNIFTY&ExpiryDate="), String.class);
 		String stringInJson = response.getBody();
+		if(stringInJson!=null) {
 		Object obj = new JsonParser().parse(stringInJson);
 		JsonObject jsonObject = (JsonObject) obj;
 		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("fno_list");
-		System.out.println(jsonObjectChild.toString());
-		return stringInJson;
+		String extractedItem=jsonObjectChild.get("item").toString();
+		return extractedItem;
+		}
+		return "";
 
 	}
 	
@@ -76,18 +79,21 @@ public class AppFeedsJsonApiController {
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=NIFTY&ExpiryDate="), String.class);
 		String stringInJson = response.getBody();
+		if(stringInJson!=null) {
 		Object obj = new JsonParser().parse(stringInJson);
 		JsonObject jsonObject = (JsonObject) obj;
 		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("fno_list");
-		System.out.println(jsonObjectChild.toString());
-		return stringInJson;
+		String extractedItem=jsonObjectChild.get("item").toString();
+		return extractedItem;
+		}
+		return "";
 
 	}
 	
-	/*public static void main(String[] args) {
-		new  AppFeedsJsonApiController().getBankNiftyFutureAppFeeds();
-		new  AppFeedsJsonApiController().getNiftyFutureAppFeeds();
-	}*/
+	public static void main(String[] args) {
+		System.out.println(new  AppFeedsJsonApiController().getBankNiftyFutureAppFeeds());
+		System.out.println(new  AppFeedsJsonApiController().getNiftyFutureAppFeeds());
+	}
 	
 	/*----------------------------------------------------------------------------------------*/
 	
