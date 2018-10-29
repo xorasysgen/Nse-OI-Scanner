@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Utils;
 
@@ -53,9 +56,38 @@ public class AppFeedsJsonApiController {
 
 	}
 	
+	@GetMapping("/banknifty/future")
+	public String getBankNiftyFutureAppFeeds() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate
+				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=BANKNIFTY&ExpiryDate="), String.class);
+		String stringInJson = response.getBody();
+		Object obj = new JsonParser().parse(stringInJson);
+		JsonObject jsonObject = (JsonObject) obj;
+		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("fno_list");
+		System.out.println(jsonObjectChild.toString());
+		return stringInJson;
+
+	}
 	
+	@GetMapping("/nifty/future")
+	public String getNiftyFutureAppFeeds() {
+		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		ResponseEntity<String> response = restTemplate
+				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=NIFTY&ExpiryDate="), String.class);
+		String stringInJson = response.getBody();
+		Object obj = new JsonParser().parse(stringInJson);
+		JsonObject jsonObject = (JsonObject) obj;
+		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("fno_list");
+		System.out.println(jsonObjectChild.toString());
+		return stringInJson;
+
+	}
 	
-	
+	/*public static void main(String[] args) {
+		new  AppFeedsJsonApiController().getBankNiftyFutureAppFeeds();
+		new  AppFeedsJsonApiController().getNiftyFutureAppFeeds();
+	}*/
 	
 	/*----------------------------------------------------------------------------------------*/
 	
