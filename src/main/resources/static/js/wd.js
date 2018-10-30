@@ -253,11 +253,28 @@
     			"<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
     			text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + percentchange + "</span>";
     		}*/
-    		var lastprice="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" ;
+    		
     		var volume_text="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + volume_data + "</span>" ;
     		var volume_million="<span class='blinking1' style='color: #00c853; font-weight: bold; font-size: 14px;'>" + volume + "</span>" ;
-    		var changeVal="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + change + "</span>" ;
-    		var changePer="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" ;
+    		
+    		if(change>=0){
+    			var lastprice="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" 
+    			+ "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";	
+    			var changeVal="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + change + "</span>" 
+    			+ "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+        		var changePer="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" 
+        		+ "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
+    		}
+    		else{
+    			var lastprice="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" 
+    			+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    			var changeVal="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + change + "</span>" 
+    			+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+        		var changePer="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" 
+        		+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
+    		}
+    		
+    		
     		
     		 $("#BNFutureltp").html(lastprice);
              $("#BNFutureExpiryDate").html(expiry_date_d);
