@@ -266,11 +266,11 @@
         		+ "<span style='color: #00c853;font-size: 14px;' class='glyphicon glyphicon-triangle-top'></span>";
     		}
     		else{
-    			var lastprice="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" 
+    			var lastprice="<span style='color: #ff4444; font-weight: bold; font-size: 15px;'>" + ltp + "</span>" 
     			+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-    			var changeVal="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + change + "</span>" 
+    			var changeVal="<span style='color: #ff4444; font-weight: bold; font-size: 15px;'>" + change + "</span>" 
     			+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
-        		var changePer="<span style='color: #00c853; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" 
+        		var changePer="<span style='color: #ff4444; font-weight: bold; font-size: 15px;'>" + percentchange + "% </span>" 
         		+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span>";
     		}
     		
