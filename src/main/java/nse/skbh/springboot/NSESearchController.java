@@ -26,7 +26,7 @@ public class NSESearchController {
 	}
 	
 	
-	@RequestMapping(value="/get_option_chain_stocks",method=RequestMethod.GET)
+	@RequestMapping(value="/option_chain_stocks_pcr",method=RequestMethod.GET)
 	public String OptionChainFutureStocks(Model model){
 		StockName stockName=new StockName();		
 		model.addAttribute("stockName", stockName);
