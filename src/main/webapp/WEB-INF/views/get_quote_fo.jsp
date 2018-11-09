@@ -97,7 +97,6 @@ $("#loadContent").change(function() {
 			}
 			
 			
-			lastPrice= "<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + lastPrice +"</span>"
 			
 			if(lastPrice>=vwap){
 				vwap= "<span style='color: green; font-weight: bold; font-size: 14px;'>" + vwap+"</span>"
@@ -108,6 +107,8 @@ $("#loadContent").change(function() {
 				vwap= "<span style='color: red; font-weight: bold; font-size: 14px;'>" + vwap+"</span>"
 				+ "<span style='color: #ff4444;font-size: 14px;' class='glyphicon glyphicon-triangle-bottom'></span> <span style='color: #ff4444;font-size: 14px;'>Sell</span>"
 			}
+			
+			lastPrice= "<span class='navyBlinker' style='font-weight: bold; font-size: 14px;'>" + lastPrice +"</span>"
 			
 			if(bestBuyCoC>=0){
 				bestBuyCoC= "<span style='color: green; font-weight: bold; font-size: 14px;'>" + bestBuyCoC+"</span>";
@@ -171,7 +172,7 @@ $("#loadContent").change(function() {
 			
 
 	<div class="form-group col-sm-8">
-			<!--  <label for="country">Select Stock</label> -->
+			<  <label for="country">Stock Future Scrutiny</label> 
 			 <form:select path="stockName" class="form-control" id="loadContent">
 			  		<form:option value="-1" label="Please Select Future and Option Stock"  selected="selected"/>
 					<form:options items="${stockList}" />
@@ -184,8 +185,8 @@ $("#loadContent").change(function() {
 			Underlying---------------[ <span id="underlying"></span> ]
 			LastUpdateTime-----------[ <span id="lastUpdateTime"></span> ]
 			VWAP---------------------[ <span id="vwap"></span> ] 
-			Ltp----------------------[ <span id="underlyingVal"></span> ] 
-			LastPrice----------------[ <span id="lastPrice"></span> ] 
+			LTP Future---------------[ <span id="lastPrice"></span> ] 
+			LTP Cash-----------------[ <span id="underlyingVal"></span> ] 
 			Change-------------------[ <span id="change"></span> ] 
 			%Change------------------[ <span id="pChange"></span> ] 
 			BestBuyCoC---------------[ <span id="bestBuyCoC"></span> ] 
