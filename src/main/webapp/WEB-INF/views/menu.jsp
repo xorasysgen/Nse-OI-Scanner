@@ -72,6 +72,9 @@ a.menu_links { cursor: pointer; }
 	          	<li role="separator" class="divider"></li>
 	          	<li><a href="bank_nifty_option_chain_12"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty Option Chain</a></li>
 	          	<li><a href="bank_nifty_option_chain_12_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty OC Mobile</a></li>
+	          	<li role="separator" class="divider"></li>
+	          	<li><a href="option_chain_stocks_pcr"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Stocks Option Chain</a></li>
+	          	
 	          	
 	            <li role="separator" class="divider"></li>
 	            <li><a href="derivative_call_all"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"> </span> All Calls-CE</a></li>
