@@ -505,4 +505,6 @@ public class WebBoot {
 		return BankNiftyFutureOIReader.getBankNiftyFutureOIReader();
 	}
 
+	
+	
 }

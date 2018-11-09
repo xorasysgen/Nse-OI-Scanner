@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import nse.skbh.springboot.logic.BankNiftyFutureOIReader;
 import nse.skbh.springboot.logic.RestTemplateProvider;
+import nse.skbh.springboot.pojo.ParentBankNiftyFuture;
 import nse.skbh.springboot.pojo.ParentBankNiftyVolume;
 import nse.skbh.springboot.pojo.ParentMostActiveCallPutAll;
 import nse.skbh.springboot.pojo.Services;
@@ -163,6 +166,30 @@ public class OISpurts {
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
+
+	}
+	
+	@RequestMapping("/nse/coc/{id}")
+	public ParentBankNiftyFuture readNseFOInternalData(@PathVariable("id") String id) {
+		String stockFuture="FUTSTK";
+		String indexFuture="FUTIDX";
+		String url=null;
+		if(id!=null) {
+			if(id.length()>20) {
+				return new ParentBankNiftyFuture();
+			}
+			if(id.equalsIgnoreCase("BANKNIFTY") || id.equalsIgnoreCase("NIFTY")) {
+				url="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" + 
+						"underlying="+id+"&instrument="+indexFuture+"&type=-&strike=-&expiry=";
+			}
+			else {
+			url="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" +
+					"underlying="+id+"&instrument="+stockFuture + "&type=-&strike=-&expiry=";
+			}
+			ParentBankNiftyFuture allFutureStockData=BankNiftyFutureOIReader.getAllFutureStockReaderNSE(url);
+			return allFutureStockData;
+		}
+		return null;
 
 	}
 	

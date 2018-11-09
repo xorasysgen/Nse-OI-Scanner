@@ -57,6 +57,32 @@ public class BankNiftyFutureOIReader {
 		}
 
 	}
+	
+	
+	
+	
+	
+	public static ParentBankNiftyFuture getAllFutureStockReaderNSE(String url) {
+		String expiryMonth=LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth().get(0);
+		if(Utils.compareDates(expiryMonth)==1) {
+			expiryMonth=LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth().get(1);
+		}
+		url = url+expiryMonth;
+		Document doc = null;
+		try {
+			doc = Jsoup.connect(url).get();
+			Element content = doc.getElementById("responseDiv");
+			String jsonCont=content.html();
+			//System.out.println(jsonCont);
+			ParentBankNiftyFuture parentBankNiftyFuture=new Gson().fromJson(jsonCont, ParentBankNiftyFuture.class);
+			
+			return parentBankNiftyFuture;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
 		
 /*	public static void main(String[] args) {
 		System.out.println(new Gson().toJson(BankNiftyFutureOIReader.getBankNiftyFutureOIReader()));

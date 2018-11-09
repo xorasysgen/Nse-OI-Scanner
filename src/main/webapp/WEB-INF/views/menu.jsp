@@ -89,14 +89,14 @@ a.menu_links { cursor: pointer; }
 
 
  		<li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-fire" style="color:#CC0000;"></span> Hot Futures <sup><span class="badge">3</span></sup> <span class="caret"></span></a>
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-fire" style="color:#CC0000;"></span> Hot Futures <sup><span class="badge">4</span></sup> <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 					<li><a href="fostocks"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"></span> Future &amp; Options Stocks</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="most_active_future_volume_public"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> Active Future Volume Wise</a></li>
 		            <li><a href="most_active_future_value_public"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> Active Future Value Wise</a></li>
 		            <li role="separator" class="divider"></li>
-		            <li><a href="#"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> To do...</a></li>
+		            <li><a href="coc"><span class="glyphicon glyphicon-chevron-right" style="color:#CC0000;"> </span> Stock Future Scrutiny</a></li>
 	          </ul>
         </li>
         
