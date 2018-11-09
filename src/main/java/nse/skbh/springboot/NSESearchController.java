@@ -25,6 +25,17 @@ public class NSESearchController {
 		
 	}
 	
+	
+	@RequestMapping(value="/get_option_chain_stocks",method=RequestMethod.GET)
+	public String OptionChainFutureStocks(Model model){
+		StockName stockName=new StockName();		
+		model.addAttribute("stockName", stockName);
+		model.addAttribute("actionUri", "/option_chain_stocks");
+		initModelList(model);
+		return "get_option_chain";
+		
+	}
+	
 	private void initModelList(Model model) {
 		List<String> list;
 		String [] array= {"ACC",

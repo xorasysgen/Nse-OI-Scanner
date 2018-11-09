@@ -38,6 +38,7 @@ final class Constant {
 	private static final String future_stocks_spike_volume = "/future_stocks_spike_volume";
 	private static final String future_stocks_spike_value = "/future_stocks_spike_value";
 	private static final String option_chain_reader = "/option_chain_reader";
+	private static final String option_chain_reader_stocks="/option_chain_stocks";
 	private static final String option_chain_reader_all = "/option_chain_reader_all";
 	private static final String option_chain_nifty="/option_chain_nifty";
 	private static final String top_20_contracts_nse_fo="/top_20_contracts_nse_fo";
@@ -100,6 +101,7 @@ final class Constant {
 		list.add(option_chain_reader);
 		list.add(option_chain_reader_all);
 		list.add(option_chain_nifty);
+		list.add(option_chain_reader_stocks);
 		list.add(top_20_contracts_nse_fo);
 		list.add(nifty_50_Options);
 		list.add(banknifty_option_chain_reader);

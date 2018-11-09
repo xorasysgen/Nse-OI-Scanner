@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -54,6 +55,7 @@ import nse.skbh.springboot.pojo.ParentWorldFutureIndex;
 import nse.skbh.springboot.pojo.ParentsForthComingResultsFY;
 import nse.skbh.springboot.pojo.ParentsNiftyIndices;
 import nse.skbh.springboot.pojo.ParentsOI;
+import nse.skbh.springboot.pojo.ParentsStocksOI;
 import nse.skbh.springboot.pojo.Pcr;
 
 @RestController
@@ -102,6 +104,20 @@ public class WebBoot {
 	public ParentsOI getOptionChainNiftyData() {
 		return OptionChainReader.getNiftyOptionChain();
 
+	}
+	
+	
+	@RequestMapping("/option_chain_stocks/{id}")
+	public ParentsStocksOI getOptionChainStocksData(@PathVariable String id) {
+		if(id!=null) {
+			if(id.length()>20)
+				id="ITC";
+			else if(id.equalsIgnoreCase("BANKNIFTY") || id.equalsIgnoreCase("NIFTY"))
+				id="ITC";
+			
+		}
+		
+		return OptionChainReader.getStockOptionChain(id);
 	}
 	
 	@RequestMapping("/banknifty_option_chain_reader")

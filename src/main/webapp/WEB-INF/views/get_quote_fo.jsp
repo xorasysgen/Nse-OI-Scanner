@@ -172,7 +172,7 @@ $("#loadContent").change(function() {
 			
 
 	<div class="form-group col-sm-8">
-			<  <label for="country">Stock Future Scrutiny</label> 
+			  <label for="country">Stock Future Scrutiny</label> 
 			 <form:select path="stockName" class="form-control" id="loadContent">
 			  		<form:option value="-1" label="Please Select Future and Option Stock"  selected="selected"/>
 					<form:options items="${stockList}" />

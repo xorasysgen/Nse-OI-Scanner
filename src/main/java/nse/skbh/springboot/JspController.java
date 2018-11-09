@@ -83,6 +83,7 @@ public class JspController {
 		return "bank_nifty_option_chain";
 	}
 
+	
 	@RequestMapping("/bank_nifty_option_chain_12_mobile")
 	public String bankNiftyOptionChainNiftyMobile() {
 		return "bank_nifty_option_chain_mobile";
@@ -244,5 +245,6 @@ public class JspController {
 	public String nifty50FOALLIntraday() {
 		return "nifty50FOALLIntraday";
 	}
+	
 	
 }
