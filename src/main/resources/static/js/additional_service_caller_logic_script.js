@@ -641,7 +641,9 @@ $
 
 /* begins support and resistance bank nifty future data */
 /*---------------------------------------------------------------------------------*/
-$
+/*
+ * offline
+ * $
 		.ajax({
 			type : 'Get',
 			url : 'suggestions/banknifty_and_nifty_support_resistance',
@@ -806,7 +808,9 @@ $
 
 			}
 		})
-
+		
+		offline
+*/
 /* begins road map Nifty data */
 /*---------------------------------------------------------------------------------*/
 $

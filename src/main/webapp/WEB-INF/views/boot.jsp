@@ -272,8 +272,8 @@
 		         <h3 class="panel-title">Artificial Intelligence Prediction <span class="glyphicon glyphicon-equalizer" style="font-size: 14px; color: #ffbb33;"></span></h3>
 		    </div>
 		    <div class="panel-body"> <!-- panel-body  start-->
-	<h4 align="center">Fibonacci Pivot Point Hourly Support &amp; Resistance <span style="font-size: 14px; color: red;">SELL&nbsp;&nbsp;</span>
-	<span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span>
+	<!-- <h4 align="center">Fibonacci Pivot Point Hourly Support &amp; Resistance <span style="font-size: 14px; color: red;">SELL&nbsp;&nbsp;</span> -->
+	<!-- <span class="glyphicon glyphicon-arrow-left" style="font-size: 14px; color: red;"></span>
 	&nbsp;&nbsp;PivotPoint&nbsp;&nbsp;
 	<span class="glyphicon glyphicon-arrow-right" style="font-size: 14px; color: green;"></span>
 	<span style="font-size: 14px; color: green;">&nbsp;&nbsp;BUY</span></h4>
@@ -314,7 +314,7 @@
 									</tr>
 								</tbody>
 							</table>
-			</div>
+			</div> -->
 			
 			
 			<jsp:include page="road_map.jsp" />
