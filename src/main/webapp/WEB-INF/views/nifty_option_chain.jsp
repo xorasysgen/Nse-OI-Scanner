@@ -104,7 +104,9 @@ document.getElementById('timer').innerHTML =
                               return '<span class="olive">'+data+'</span>';
                             } else	if (data >= 3000000 && data < 5000000) {
                             	 return '<span class="darkviolet">'+data+'</span>';
-                            } else {
+                            } else	if (data >= 2000000 && data <= 2900000) {
+                              	 return '<span class="liteviolet">'+data+'</span>';
+                            }else {
                               return '<span>'+data+'</span>';
                             }
                           }
@@ -202,7 +204,9 @@ document.getElementById('timer').innerHTML =
                           return '<span class="olive">'+data+'</span>';
                         } else	if (data >= 3000000 && data < 5000000) {
                         	 return '<span class="darkviolet">'+data+'</span>';
-                        } else {
+                        } else	if (data >= 2000000 && data <= 2900000) {
+                         	 return '<span class="liteviolet">'+data+'</span>';
+                        }else {
                           return '<span>'+data+'</span>';
                         }
                       }

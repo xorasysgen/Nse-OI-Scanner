@@ -163,6 +163,11 @@ color:darkviolet;
 font-weight: bold; 
 }
   
+.liteviolet{
+color: #bd79da;
+font-weight: bold; 
+}  
+  
 .liteGreen{
 color:#00C851;
 font-weight: bold; 
