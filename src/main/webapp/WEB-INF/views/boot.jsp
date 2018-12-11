@@ -340,6 +340,11 @@
 						<div class="panel-body"> <!-- panel-body  start-->
 						<span id="zerodha"></span><br>
 						Zerodha Says - You will be allowed to take fresh short option positions. The restriction is only for long options positions.<br>
+						
+						Future Buy# [ <strong class="navy12"><span id="BuyVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
+					 	Future Sell# [ <strong class="navy12"><span id="SellVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;
+					 	Future BSR# [ <strong class="navy12"><span id="BuySellRatio"></span></strong> ]
+					 	
 				<span style="color: #9c27b0; font-weight: bold; font-size: 13px;">
 			<div class="row">
 			
@@ -379,12 +384,6 @@
 					 
   				</li>
   				
-  					<li class="list-group-item">
-					 	Buy# [ <strong class="navy12"><span id="BuyVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
-					 	Sell# [ <strong class="navy12"><span id="SellVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;
-					 	BSR# [ <strong class="navy12"><span id="BuySellRatio"></span></strong> ]
-  				</li>
-  			  				
 		 </ul>
 			
         </div>
@@ -421,11 +420,6 @@
   					<li class="list-group-item">
 					 	<strong class="navy12">Entry ( 09:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> <br>
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
-  				</li>
-  				<li class="list-group-item">
-					 	Buy# [ <strong class="navy12"><span id="BuyVolume0"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
-					 	Sell# [ <strong class="navy12"><span id="SellVolume0"></span></strong> ] &nbsp;&nbsp;&nbsp;
-					 	BSR# [ <strong class="navy12"><span id="BuySellRatio0"></span></strong> ]
   				</li>
   				
 		 </ul>
