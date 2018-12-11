@@ -496,7 +496,20 @@ $
 							+ " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
 					display = "+";
 				}
+				/*begins additional code for total buy and sell data*/
+				var textBuy = "<span style='color: #00c853; font-weight: bold; font-size: 16px;'>" + totalBuyQuantity + "</span>";
+				var textSell = "<span style='color: #CC0000; font-weight: bold; font-size: 16px;'>" + totalSellQuantity + "</span>";
+				var ratio=totalBuyQuantity.replace(/,/g, "")/totalSellQuantity.replace(/,/g, "");
+				var ration=ratio.toString().substring(0,3);
+				var textRatio="none";
+				if(ratio>=1.0){
+					textRatio="<span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
+				}
+				else{
+					textRatio="<span class='superolive' style='color: red; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
+				}
 				
+				/*End  additional code for total buy and sell data*/
 				if (display == "+") {
 					$("#mark00").html("Hulk Arrived (+)");
 					$("#bankNiftyShortsOrLongFUTNamePlus")
@@ -515,6 +528,10 @@ $
 					} else {
 						$("#bull").html(bullImage + " ");
 					}
+					
+					$("#BuyVolume0").html(textBuy);
+					$("#SellVolume0").html(textSell);
+					$("#BuySellRatio0").html(textRatio);
 
 				} else {
 					$("#mark0").html("Strongly Not Recommended to buy Calls");
@@ -525,6 +542,9 @@ $
 					$("#bankNiftyShortsOrLongPerchangeinOpenInterestPlus").html("");
 					$("#ShortsOrLongRemarkPlus").html("");
 					$("#bull").html("");
+					$("#BuyVolume").html("0");
+					$("#SellVolume").html("0");
+					$("#BuySellRatio").html("0");
 				}
 
 				if (display == "-") {
@@ -535,6 +555,10 @@ $
 					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html(text5);
 					$("#ShortsOrLongRemarkMinus").html(text11);
 					$("#bear").html(bearImage)
+					
+					$("#BuyVolume").html(textBuy);
+					$("#SellVolume").html(textSell);
+					$("#BuySellRatio").html(textRatio);
 				} else {
 					$("#mark1").html("Not Recommended");
 					$("#mark11").html("");
@@ -543,6 +567,10 @@ $
 					$("#bankNiftyShortsOrLongChangeinOpenInterestMinus").html("");
 					$("#bankNiftyShortsOrLongPerchangeinOpenInterestMinus").html("");
 					$("#bear").html("");
+					
+					$("#BuyVolume0").html("0");
+					$("#SellVolume0").html("0");
+					$("#BuySellRatio0").html("0");
 				}
 
 				$("#bankNiftyPreviousClose").html(textPreviousClose);
@@ -561,20 +589,8 @@ $
 				$("#bankNiftyFUTChangeinOpenInterest").html(text4);
 				$("#bankNiftyFUTPchangeinOpenInterest").html(text5);
 				
-				var textBuy = "<span style='color: #00c853; font-weight: bold; font-size: 16px;'>" + totalBuyQuantity + "</span>";
-				var textSell = "<span style='color: #CC0000; font-weight: bold; font-size: 16px;'>" + totalSellQuantity + "</span>";
-				var ratio=totalBuyQuantity.replace(/,/g, "")/totalSellQuantity.replace(/,/g, "");
-				var ration=ratio.toString().substring(0,3);
-				var textRatio="none";
-				if(ratio>=1.0){
-					textRatio="<span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
-				}
-				else{
-					textRatio="<span class='superolive' style='color: red; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
-				}
-				$("#BuyVolume").html(textBuy);
-				$("#SellVolume").html(textSell);
-				$("#BuySellRatio").html(textRatio);
+				
+				
 
 			}
 		})

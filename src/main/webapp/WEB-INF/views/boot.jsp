@@ -375,10 +375,16 @@
   				</li>
   				
   				<li class="list-group-item">
-					 	<strong class="navy12">Entry ( 12:44-48Pm And 02:00-15Pm ) <br>Exit ( 01:10-20-40Pm to 02:35 Pm)</strong> &nbsp;&nbsp;
+					 	<strong class="navy12">Entry ( 11:20-25Pm And 11:40-45Pm ) <br>Exit ( 01:10-20-40Pm to 02:35 Pm)</strong> &nbsp;&nbsp;
 					 
   				</li>
   				
+  					<li class="list-group-item">
+					 	Buy# [ <strong class="navy12"><span id="BuyVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
+					 	Sell# [ <strong class="navy12"><span id="SellVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;
+					 	BSR# [ <strong class="navy12"><span id="BuySellRatio"></span></strong> ]
+  				</li>
+  			  				
 		 </ul>
 			
         </div>
@@ -413,13 +419,13 @@
 	  					Safe Buy [ <span id="nonExpiry4"></span> ] 
   				</li>
   					<li class="list-group-item">
-					 	<strong class="navy12">Entry ( 10:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> <br>
+					 	<strong class="navy12">Entry ( 09:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> <br>
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
   				<li class="list-group-item">
-					 	Buy# [ <strong class="navy12"><span id="BuyVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
-					 	Sell#[ <strong class="navy12"><span id="SellVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;
-					 	BSR# [ <strong class="navy12"><span id="BuySellRatio"></span></strong> ]
+					 	Buy# [ <strong class="navy12"><span id="BuyVolume0"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
+					 	Sell# [ <strong class="navy12"><span id="SellVolume0"></span></strong> ] &nbsp;&nbsp;&nbsp;
+					 	BSR# [ <strong class="navy12"><span id="BuySellRatio0"></span></strong> ]
   				</li>
   				
 		 </ul>
