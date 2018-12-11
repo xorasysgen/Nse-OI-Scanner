@@ -416,6 +416,11 @@
 					 	<strong class="navy12">Entry ( 10:29Am And 01:10Pm ) Exit( 10:59Am to 11:05Am )</strong> <br>
 					 	<strong class="navy12">Entry ( 02:55Pm ) Exit ( 03:15Pm )</strong>
   				</li>
+  				<li class="list-group-item">
+					 	Buy# [ <strong class="navy12"><span id="BuyVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;&nbsp; 
+					 	Sell#[ <strong class="navy12"><span id="SellVolume"></span></strong> ] &nbsp;&nbsp;&nbsp;
+					 	BSR# [ <strong class="navy12"><span id="BuySellRatio"></span></strong> ]
+  				</li>
   				
 		 </ul>
 			

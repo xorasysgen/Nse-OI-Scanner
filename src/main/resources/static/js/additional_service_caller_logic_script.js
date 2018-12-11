@@ -197,6 +197,8 @@ $
 				var vwap = json.data[0].vwap;
 				var previousClose = json.data[0].prevClose.replace(/,/g, "");
 				var dailyVolatility = json.data[0].dailyVolatility;
+				var totalBuyQuantity=json.data[0].totalBuyQuantity;
+				var totalSellQuantity=json.data[0].totalSellQuantity;
 
 					
 				/*GANN Future calulation begins*/	
@@ -476,9 +478,16 @@ $
 							+ loki
 							+ " <span class='greenBlinker' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Bears Coming,Sell On Rise</span>";
 					display = "-";
-				} else if (price == "+-" && oi == "+"
+				}else if (price == "+-" && oi == "+"
+					&& shortCovringOrLongUnwinding == false
+					&& booleanValue == true && pChangeEvo>=10) {
+				text11 = "Gambling! "
+						+ " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Buy,News & Events</span>";
+				display = "+";
+				} 
+				else if (price == "+-" && oi == "+"
 						&& shortCovringOrLongUnwinding == false
-						&& booleanValue == true) {
+						&& booleanValue == true && pChangeEvo<10) {
 					text11 = "Caution! "
 							+ " <span class='superolive' style='color: #CC0000; font-weight: bold; font-size: 16px;'>Writers Eroding Premium</span>";
 					display = "+";
@@ -487,7 +496,7 @@ $
 							+ " <span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>Defence,Buy On Decline</span>";
 					display = "+";
 				}
-
+				
 				if (display == "+") {
 					$("#mark00").html("Hulk Arrived (+)");
 					$("#bankNiftyShortsOrLongFUTNamePlus")
@@ -551,6 +560,21 @@ $
 				$("#bankNiftyFUTOpenInterest").html(text3);
 				$("#bankNiftyFUTChangeinOpenInterest").html(text4);
 				$("#bankNiftyFUTPchangeinOpenInterest").html(text5);
+				
+				var textBuy = "<span style='color: #00c853; font-weight: bold; font-size: 16px;'>" + totalBuyQuantity + "</span>";
+				var textSell = "<span style='color: #CC0000; font-weight: bold; font-size: 16px;'>" + totalSellQuantity + "</span>";
+				var ratio=totalBuyQuantity.replace(/,/g, "")/totalSellQuantity.replace(/,/g, "");
+				var ration=ratio.toString().substring(0,3);
+				var textRatio="none";
+				if(ratio>=1.0){
+					textRatio="<span class='greenBlinker' style='color: green; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
+				}
+				else{
+					textRatio="<span class='superolive' style='color: red; font-weight: bold; font-size: 16px;'>" +ratio +"<span>";
+				}
+				$("#BuyVolume").html(textBuy);
+				$("#SellVolume").html(textSell);
+				$("#BuySellRatio").html(textRatio);
 
 			}
 		})
