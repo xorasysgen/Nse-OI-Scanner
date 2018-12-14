@@ -128,10 +128,10 @@ document.getElementById('timer').innerHTML =
                 	url: 'currency/dollar_index_brent_usd_inr',
                 	success: function(result){
                 		var json = result;
-                		var BrentOilName=json.data[1].index;
-                		var BrentOilltp=json.data[1].ltp;
-                		var BrentOilChange=json.data[1].change;
-                		var BrentOilchangePercentage=json.data[1].changePercentage;
+                		var BrentOilName=json.data[0].index;
+                		var BrentOilltp=json.data[0].ltp;
+                		var BrentOilChange=json.data[0].change;
+                		var BrentOilchangePercentage=json.data[0].changePercentage;
                 		
                 			text0="<span style='color: #9c27b0; font-weight: bold; font-size: 16px;'>" +BrentOilName+"</span>";
                 			if(BrentOilChange>0){
@@ -153,10 +153,10 @@ document.getElementById('timer').innerHTML =
                 				text2="<span style='color: #CC0000; font-weight: bold; font-size: 14px;'>" + BrentOilchangePercentage + "%</span>";
                 			}
                 			
-                			var USDINRName=json.data[2].index;
-                			var USDINR=json.data[2].ltp;
-                   			var USDINRChange=json.data[2].change;
-                   			var USDINRchangePercentage=json.data[2].changePercentage;
+                			var USDINRName=json.data[1].index;
+                			var USDINR=json.data[1].ltp;
+                   			var USDINRChange=json.data[1].change;
+                   			var USDINRchangePercentage=json.data[1].changePercentage;
                    			
                    				text10="<span style='color: #9c27b0; font-weight: bold; font-size: 16px;'>" +USDINRName+"</span>";
                     			if(USDINRChange>0){
