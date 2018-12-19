@@ -93,7 +93,7 @@ document.getElementById('timer').innerHTML =
     	var table= $('#example').DataTable( {
             "processing": true,
             "order": [[ 9, "asc" ]],
-            "pageLength": 100,
+            "pageLength": 200,
             "ajax": "option_chain_nifty",
             "responsive" : true,
             "columns": [

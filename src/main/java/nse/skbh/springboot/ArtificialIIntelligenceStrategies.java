@@ -427,6 +427,11 @@ public class ArtificialIIntelligenceStrategies {
 	/*public static void main(String[] args) {
 		System.out.println(ArtificialIIntelligenceStrategies.calculateOHLBuySell("307.10","322.95"
 				,"304.50","318.85","306.25"));
+		
+		PremiumDiscountNiftyBankNifty premiumDiscountNiftyBankNifty=new ArtificialIIntelligenceStrategies().getNiftyBankNiftyFuture();
+		if(premiumDiscountNiftyBankNifty!=null) {
+			System.out.println(premiumDiscountNiftyBankNifty.getBankNifty());
+		}
 	}*/
 	
 }	
