@@ -50,7 +50,7 @@ public class NseBoot {
 
 		SpringApplication.run(NseBoot.class, args);
 		// boot from here, run as simple java program, rest it will take care of
-		// it.
+		// it. config file
 
 	}
 
