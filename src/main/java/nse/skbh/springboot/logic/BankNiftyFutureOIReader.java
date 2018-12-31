@@ -40,7 +40,9 @@ public class BankNiftyFutureOIReader {
 		String expiryMonth=LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth().get(0);
 		if(Utils.compareDates(expiryMonth)==1) {
 			expiryMonth=LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth().get(1);
+			
 		}
+		//System.out.println(expiryMonth);
 		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=BANKNIFTY&instrument=FUTIDX&type=-&strike=-&expiry="+expiryMonth;
 		Document doc = null;
 		try {
@@ -84,8 +86,8 @@ public class BankNiftyFutureOIReader {
 
 	}
 		
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		System.out.println(new Gson().toJson(BankNiftyFutureOIReader.getBankNiftyFutureOIReader()));
 		System.out.println(new Gson().toJson(BankNiftyFutureOIReader.getNiftyFutureOIReader()));
-	}
+	}*/
 }
