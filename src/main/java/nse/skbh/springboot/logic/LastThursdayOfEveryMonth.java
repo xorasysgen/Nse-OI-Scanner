@@ -31,7 +31,6 @@ public class LastThursdayOfEveryMonth {
                 c.set(Calendar.DAY_OF_MONTH, --day); // to get thursday
                 }
                 date=day.toString().concat(mon.toUpperCase()).concat(year.toString());
-               System.out.println(date);
                 lm.put(i++,date);
                 c.set(year, c.get(Calendar.MONTH) + 1, 1);
             }

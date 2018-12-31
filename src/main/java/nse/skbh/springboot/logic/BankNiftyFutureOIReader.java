@@ -86,8 +86,8 @@ public class BankNiftyFutureOIReader {
 
 	}
 		
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println(new Gson().toJson(BankNiftyFutureOIReader.getBankNiftyFutureOIReader()));
 		System.out.println(new Gson().toJson(BankNiftyFutureOIReader.getNiftyFutureOIReader()));
-	}*/
+	}
 }
