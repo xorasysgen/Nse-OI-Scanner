@@ -28,7 +28,7 @@ public class OptionChainReader {
 		ParentsOI parentsOI=new ParentsOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 						for (int i = 45; i < row.size()-1; i++) { // set 2 to start from default
@@ -75,7 +75,7 @@ public class OptionChainReader {
 		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol=NIFTY&instrument=-&date=-";
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
 			Elements content = doc.getElementsByClass("nobg");
 			if (content != null && content.size() > 0) {
 				Integer lastIndex = content.size() - 1;
@@ -272,7 +272,7 @@ public class OptionChainReader {
 		ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 				int i=3;
