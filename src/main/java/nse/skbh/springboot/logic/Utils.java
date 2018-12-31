@@ -193,6 +193,7 @@ public class Utils {
 	public static Integer compareDates(String date) {
 		SimpleDateFormat sf=new SimpleDateFormat("ddMMMyy");
 		Date expiry = null;
+		
 		try {
 			expiry = sf.parse(date);
 		} catch (ParseException exceptionObject) {
