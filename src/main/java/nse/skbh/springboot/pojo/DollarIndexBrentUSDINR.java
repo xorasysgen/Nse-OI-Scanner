@@ -2,6 +2,11 @@ package nse.skbh.springboot.pojo;
 
 public class DollarIndexBrentUSDINR {
 	
+	@Override
+	public String toString() {
+		return "DollarIndexBrentUSDINR [index=" + index + ", ltp=" + ltp + ", change=" + change + ", changePercentage="
+				+ changePercentage + "]";
+	}
 	private String index;
 	private String ltp;
 	private String change;

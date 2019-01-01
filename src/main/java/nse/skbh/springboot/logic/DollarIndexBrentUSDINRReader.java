@@ -27,8 +27,9 @@ public class DollarIndexBrentUSDINRReader {
 		String url = "https://in.investing.com/currencies/usd-inr";
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).get();
-			//Element content = doc.getElementById("QBS_1_inner");
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			@SuppressWarnings("unused")
+			Element content = doc.getElementById("QBS_1_inner");
 			//System.out.println(content.getAllElements().size());
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
@@ -36,17 +37,17 @@ public class DollarIndexBrentUSDINRReader {
 				String rowValues=row.get(i).text();
 				if(rowValues.contains("US Dollar Index")) {
 						if(map.get("US_Dollar_Index")==null)
-						map.put("US_Dollar_Index", rowValues);
+						map.put("US_Dollar_Index", rowValues.trim());
 						//System.out.println(rowValues);
 					}
 				if(rowValues.contains("USD/INR")) {
 							if(map.get("USDINR")==null)
-							map.put("USDINR", rowValues);
+							map.put("USDINR", rowValues.trim());
 							//System.out.println(rowValues);
 					}
 				if(rowValues.contains("Brent Oil")) {
 						if(map.get("Brent_Oil")==null)
-						map.put("Brent_Oil", rowValues);
+						map.put("Brent_Oil", rowValues.trim());
 						//System.out.println(rowValues);
 					}
 				
@@ -54,7 +55,7 @@ public class DollarIndexBrentUSDINRReader {
 			}
 			
 			}
-			//System.out.println(map);
+			//System.out.println("map + " + map);
 			return map;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -68,13 +69,13 @@ public class DollarIndexBrentUSDINRReader {
 		ParentDollarIndexBrentUSDINR parentDollarIndexBrentUSDINR=new ParentDollarIndexBrentUSDINR();
 		List<DollarIndexBrentUSDINR> data=new ArrayList<DollarIndexBrentUSDINR>();
 		Map<String,String> map=DollarIndexBrentUSDINRReader.getDollarIndexBrentUSDINRReader();
-		//System.out.println(map);
+		
 		if(map!=null) {
 		for(Entry<String, String> mapValue:map.entrySet()) {
 			if(mapValue.getKey().equals("US_Dollar_Index")) {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
-				String values[] = line.split(" ");
+				String values[] = line.trim().split(" ");
 				dollarIndexBrentUSDINR.setIndex(values[0] + values[1] + values[2]);
 				dollarIndexBrentUSDINR.setLtp(values[3]);
 				dollarIndexBrentUSDINR.setChange(values[4]);
@@ -84,21 +85,31 @@ public class DollarIndexBrentUSDINRReader {
 			if(mapValue.getKey().equals("Brent_Oil")) {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
-				String values[] = line.split(" ");
-				dollarIndexBrentUSDINR.setIndex(values[0] + values[1]);
-				dollarIndexBrentUSDINR.setLtp(values[2]);
-				dollarIndexBrentUSDINR.setChange(values[3]);
-				dollarIndexBrentUSDINR.setChangePercentage(values[4]);
+				
+				String values[] = line.trim().split(" ");
+			
+				
+				dollarIndexBrentUSDINR.setIndex(values[0] + values[1] + values[2]);
+				dollarIndexBrentUSDINR.setLtp(values[3]);
+				dollarIndexBrentUSDINR.setChange(values[4]);
+				dollarIndexBrentUSDINR.setChangePercentage(values[5]);
 				data.add(dollarIndexBrentUSDINR);
 			}
 			if(mapValue.getKey().equals("USDINR")) {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
-				String values[] = line.split(" ");
-				dollarIndexBrentUSDINR.setIndex(values[0]);
-				dollarIndexBrentUSDINR.setLtp(values[1]);
-				dollarIndexBrentUSDINR.setChange(values[2]);
-				dollarIndexBrentUSDINR.setChangePercentage(values[3]);
+				String values[] = line.trim().split(" ");
+				
+				/*System.out.println("0" + values[0]);
+				System.out.println("1" + values[1]);
+				System.out.println("2" + values[2]);
+				System.out.println("3" + values[3]);
+				System.out.println("4" + values[4]);*/
+				
+				dollarIndexBrentUSDINR.setIndex(values[0] + values[1]);
+				dollarIndexBrentUSDINR.setLtp(values[2]);
+				dollarIndexBrentUSDINR.setChange(values[3]);
+				dollarIndexBrentUSDINR.setChangePercentage(values[4]);
 				data.add(dollarIndexBrentUSDINR);
 			}
 		}
@@ -108,4 +119,7 @@ public class DollarIndexBrentUSDINRReader {
 		return parentDollarIndexBrentUSDINR;
 		
 	}
+/*	public static void main(String[] args) {
+		System.out.println(DollarIndexBrentUSDINRReader.dollarIndexBrentUSDINRProcessor().getData());
+	}*/
 }
