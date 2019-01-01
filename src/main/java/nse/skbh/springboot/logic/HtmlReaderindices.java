@@ -9,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
 import nse.skbh.springboot.pojo.ParentWorldFutureIndex;
 import nse.skbh.springboot.pojo.WorldFutureIndex;
 
@@ -54,12 +53,12 @@ public class HtmlReaderindices {
 				String dataValue[]=rowValues.split("\\s+");
 				wfi.setIndex(dataValue[0] + dataValue[1]);
 				wfi.setMonth(dataValue[2] + dataValue[3]);
-				wfi.setLtp(dataValue[4]);
-				wfi.setHigh(dataValue[5]);
-				wfi.setLow(dataValue[6]);
-				wfi.setChg(dataValue[7]);
-				wfi.setChgPer(dataValue[8]);
-				wfi.setTime(dataValue[9]);
+				wfi.setLtp(dataValue[5]);
+				wfi.setHigh(dataValue[6]);
+				wfi.setLow(dataValue[7]);
+				wfi.setChg(dataValue[8]);
+				wfi.setChgPer(dataValue[9]);
+				wfi.setTime(dataValue[10]);
 				data.add(wfi);
 					}else if(i==10){
 						String dataValue[]=rowValues.split("\\s+");
@@ -97,7 +96,7 @@ public class HtmlReaderindices {
 
 	}
 		
-/*	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 	System.out.println(new Gson().toJson(HtmlReaderindices.getParentWorldFutureIndex()));	
 	}*/
 
