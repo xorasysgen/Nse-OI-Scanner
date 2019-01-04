@@ -31,7 +31,7 @@ public class OptionChainReader {
 			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
-						for (int i = 45; i < row.size()-1; i++) { // set 2 to start from default
+						for (int i = 2; i < row.size()-1; i++) { // set 2 to start from default
 							String rowValues=row.get(i).text();
 							//System.out.println(rowValues);
 							OI oi=new OI();
