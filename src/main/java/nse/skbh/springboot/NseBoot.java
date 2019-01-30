@@ -21,6 +21,13 @@ import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
 
+/**************************************************************************
+@SpringBootApplication = @Configuration + @ComponentScanis + @EnableAutoConfiguration
+@Configuration to enable Java-based configuration. 
+@ComponentScan to enable component scanning, All the@Controller classes you write are discovered by this annotation.  
+@EnableAutoConfiguration to enable Spring Boot's auto-configuration feature.
+@SpringBootApplication is a 3-in-1 annotation that combines the functionality of @Configuration, @ComponentScan, and @EnableAutoConfiguration.
+****************************************************************************/
 @RestController
 @SpringBootApplication
 @CrossOrigin
@@ -77,7 +84,7 @@ public class NseBoot {
         Thread thread = new Thread(() -> {
         	logger.warn("Application shutting down and Context will be Reloaded in 10 seconds...");
             try {
-            	Thread.sleep(10000);// hold system for 5 seconds
+            	Thread.sleep(10000);// hold system for 10 seconds
            
 			} catch (InterruptedException exceptionObject) {
 				exceptionObject.printStackTrace();
