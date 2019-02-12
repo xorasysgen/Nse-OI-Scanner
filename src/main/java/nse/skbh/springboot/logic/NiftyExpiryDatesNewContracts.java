@@ -18,7 +18,7 @@ public class NiftyExpiryDatesNewContracts {
 			if(content!=null && content.size()>1) {
 			List<String> list=content.eachText();
 			String value=list.get(1).replaceAll("Select", "").trim();
-			System.out.println(value);
+			//System.out.println(value);
 			String[] values=value.split("\\s+");
 			return Arrays.asList(values);
 			}

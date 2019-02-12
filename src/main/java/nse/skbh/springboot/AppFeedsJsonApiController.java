@@ -1,5 +1,6 @@
 package nse.skbh.springboot;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +17,12 @@ import nse.skbh.springboot.logic.Utils;
 @RequestMapping("/appfeeds")
 public class AppFeedsJsonApiController {
 	
+	@Autowired
+	RestTemplateProvider restTemplateProvider;
+	
 	@GetMapping("/nifty")
 	public String getNiftyAppFeeds() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/indices&ind_id=9"), String.class);
 		String string = response.getBody();
@@ -28,7 +32,7 @@ public class AppFeedsJsonApiController {
 	
 	@GetMapping("/nifty/chart")
 	public String getNiftyAppFeedsChart() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/graph&format=&ind_id=9&range=1d&type=area"), String.class);
 		String string = response.getBody();
@@ -38,7 +42,7 @@ public class AppFeedsJsonApiController {
 	
 	@GetMapping("/banknifty")
 	public String getBankNiftyAppFeeds() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/indices&ind_id=23"), String.class);
 		String string = response.getBody();
@@ -48,7 +52,7 @@ public class AppFeedsJsonApiController {
 	
 	@GetMapping("/banknifty/chart")
 	public String getBankNiftyAppFeedsChart() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/graph&format=&ind_id=23&range=1d&type=area"), String.class);
 		String string = response.getBody();
@@ -58,7 +62,7 @@ public class AppFeedsJsonApiController {
 	
 	@GetMapping("/banknifty/future")
 	public String getBankNiftyFutureAppFeeds() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=BANKNIFTY&ExpiryDate="), String.class);
 		String stringInJson = response.getBody();
@@ -75,7 +79,7 @@ public class AppFeedsJsonApiController {
 	
 	@GetMapping("/nifty/future")
 	public String getNiftyFutureAppFeeds() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/fno/overview&format=&inst_type=Futures&id=NIFTY&ExpiryDate="), String.class);
 		String stringInJson = response.getBody();
@@ -91,7 +95,7 @@ public class AppFeedsJsonApiController {
 	}
 	
 /*	public static void main(String[] args) {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/ajaxFOGetQuoteJSON.jsp?underlying=BANKNIFTY&instrument=OPTIDX&expiry=27DEC2018&type=ce&strike=26900", String.class);
 		String stringInJson = response.getBody();

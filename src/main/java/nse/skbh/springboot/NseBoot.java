@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
@@ -28,6 +30,14 @@ import nse.skbh.springboot.pojo.ServicesList;
 @EnableAutoConfiguration to enable Spring Boot's auto-configuration feature.
 @SpringBootApplication is a 3-in-1 annotation that combines the functionality of @Configuration, @ComponentScan, and @EnableAutoConfiguration.
 ****************************************************************************/
+
+/************************************************************************************************
+@Scope=singleton #Scopes a single bean definition to a single object instance per Spring IoC container.
+@Scope=prototype #Scopes a single bean definition to any number of object instances.
+@Scope=request   #Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring ApplicationContext.
+@Scope=session   #Scopes a single bean definition to the lifecycle of a HTTP Session. Only valid in the context of a web-aware Spring ApplicationContext.
+@Scope=global session #Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.
+*************************************************************************************************/
 @RestController
 @SpringBootApplication
 @CrossOrigin
@@ -35,6 +45,32 @@ public class NseBoot {
 	
 	private static ConfigurableApplicationContext context;
 	private static Logger logger = LoggerFactory.getLogger(NseBoot.class);
+	
+	
+	/*begins Bean creation section*/
+	
+	@Bean
+	public ViewResolver getViewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		resolver.setViewClass(JstlView.class);
+		return resolver;
+	}
+
+	@Bean
+	public RestTemplateProvider restTemplateProvider() {
+		return new RestTemplateProvider();
+	}
+	
+	/************************* not in use ********************
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+	***********************uncomment when need******************/
+	
+	/*End Bean creation section*/
 	
 	@RequestMapping("/")
 	@ResponseBody
@@ -67,15 +103,7 @@ public class NseBoot {
 		// it. config files
 
 	}
-
-	@Bean
-	public ViewResolver getViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".jsp");
-		resolver.setViewClass(JstlView.class);
-		return resolver;
-	}
+	
 
 	
 	public static void restart() {

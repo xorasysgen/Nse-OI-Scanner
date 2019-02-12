@@ -3,6 +3,7 @@ package nse.skbh.springboot;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +22,14 @@ import nse.skbh.springboot.pojo.ServicesList;
 @RestController
 @RequestMapping("/derivative")
 public class OISpurts {
-
+	
+	@Autowired
+	RestTemplateProvider restTemplateProvider;
+	
 	@RequestMapping("/")
 	@ResponseBody
 	public ParentMostActiveCallPutAll derivative() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -70,7 +74,7 @@ public class OISpurts {
 
 	@RequestMapping("/bank_nifty_volume")
 	public ParentBankNiftyVolume showAllBankNiftyVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentBankNiftyVolume> response = restTemplate.getForEntity(
 				"https://www.nseindia.com//live_market/dynaContent/live_analysis/most_active/allBankNiftyVolume.json",
 				ParentBankNiftyVolume.class);
@@ -81,7 +85,7 @@ public class OISpurts {
 
 	@RequestMapping("/call/call_all")
 	public ParentMostActiveCallPutAll ShowCallsALLVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -92,7 +96,7 @@ public class OISpurts {
 
 	@RequestMapping("/call/call_nifty")
 	public ParentMostActiveCallPutAll ShowCallsNIFTYVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -103,7 +107,7 @@ public class OISpurts {
 
 	@RequestMapping("/call/call_nifty_bank")
 	public ParentMostActiveCallPutAll ShowCallsBANKNIFTYVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsBANKNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -114,7 +118,7 @@ public class OISpurts {
 
 	@RequestMapping("/call/call_stocks")
 	public ParentMostActiveCallPutAll ShowCallsOPTSTocKVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsOPTSTKVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -127,7 +131,7 @@ public class OISpurts {
 
 	@RequestMapping("/put/put_all")
 	public ParentMostActiveCallPutAll ShowPutsALLVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -138,7 +142,7 @@ public class OISpurts {
 
 	@RequestMapping("/put/put_nifty")
 	public ParentMostActiveCallPutAll ShowPutsNIFTYVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -149,7 +153,7 @@ public class OISpurts {
 
 	@RequestMapping("/put/put_nifty_bank")
 	public ParentMostActiveCallPutAll ShowPutsBANKNIFTYVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsBANKNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
@@ -160,7 +164,7 @@ public class OISpurts {
 
 	@RequestMapping("/put/put_stocks")
 	public ParentMostActiveCallPutAll ShowPutsOPTSTocKVolume() {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
+		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
 				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsOPTSTKVolume.json",
 				ParentMostActiveCallPutAll.class);
