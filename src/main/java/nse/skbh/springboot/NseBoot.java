@@ -22,7 +22,7 @@ import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
 
 /**************************************************************************
-@SpringBootApplication = @Configuration + @ComponentScanis + @EnableAutoConfiguration
+@SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiguration
 @Configuration to enable Java-based configuration. 
 @ComponentScan to enable component scanning, All the@Controller classes you write are discovered by this annotation.  
 @EnableAutoConfiguration to enable Spring Boot's auto-configuration feature.
