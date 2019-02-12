@@ -67,13 +67,14 @@ a.menu_links { cursor: pointer; }
 	            <li><a href="top_20_contracts_intraday"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Top 20 Contracts</a></li>
 	            <li><a href="nifty_50_options_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty50 Contracts</a></li>
 	           	<li role="separator" class="divider"></li>
-	           	
-	           	<li><a href="nifty_weekly"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span>Nifty OptionChain-Full</a></li>
-	           	<li><a href="option_chain_nifty_fifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain</a></li>
-	           	<li><a href="option_chain_nifty_fifty_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain Mobile</a></li>
+	           	<li><a href="nifty_weekly"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty OptionChain-Full</a></li>
+	           	<li><a href="bank_nifty_weekly"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> BankNifty OptionChain-Full</a></li>
+	           	<li role="separator" class="divider"></li>
+	           	<li><a href="option_chain_nifty_fifty"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain(C)</a></li>
+	           	<li><a href="option_chain_nifty_fifty_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty Option Chain Mobile(C)</a></li>
 	          	<li role="separator" class="divider"></li>
-	          	<li><a href="bank_nifty_option_chain_12"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty Option Chain</a></li>
-	          	<li><a href="bank_nifty_option_chain_12_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty OC Mobile</a></li>
+	          	<li><a href="bank_nifty_option_chain_12"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty Option Chain(C)</a></li>
+	          	<li><a href="bank_nifty_option_chain_12_mobile"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Bank Nifty OC Mobile(C)</a></li>
 	          	<li role="separator" class="divider"></li>
 	          	<li><a href="option_chain_stocks_pcr"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Stocks Option Chain</a></li>
 	          	

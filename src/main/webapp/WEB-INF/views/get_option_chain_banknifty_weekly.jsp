@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nifty Option Chain Analysis</title>
+    <title>BANK Nifty Option Chain Analysis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
 <jsp:include page="menu.jsp"/>
@@ -41,7 +41,7 @@ $("#loadContent").change(function() {
 	
     $.ajax({
     	type:'Get',
-    	url: 'nifty_weekly_optionChain/' + data,
+    	url: 'banknifty_weekly_optionChain/' + data,
     	success: function(result){
     		var json = result.pcr.pcrOI;
     		var puts = result.pcr.puts;
@@ -82,7 +82,7 @@ $("#loadContent").change(function() {
         "processing": true,
         "order": [[ 8, "asc" ]],
         "pageLength": 100,
-        "ajax": "nifty_weekly_optionChain/"+data,
+        "ajax": "banknifty_weekly_optionChain/"+data,
         "responsive" : true,
         "columns": [
         	  { "data": "oi_call" ,
@@ -228,7 +228,7 @@ $("#loadContent").change(function() {
 <body>
 	<div class="container ">
 		<form:form class="form-horizontal" method="post"	action="${pageContext.request.contextPath}${actionUri}"	modelAttribute="stockName">
-			<h3 class="form-signin-heading form-group col-sm-8"><strong>Nifty</strong> Weekly Option Chain Analysis</h3>
+			<h3 class="form-signin-heading form-group col-sm-8"><strong>Bank Nifty</strong> Weekly Option Chain Analysis</h3>
 			
 
 	<div class="form-group col-sm-8">
@@ -243,7 +243,7 @@ $("#loadContent").change(function() {
 </form:form>
 </div>	
 			<fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Nifty Option Chain (Equity Derivatives)<span class="pink"> </sub></span></legend>
+<legend>Bank Nifty Option Chain (Equity Derivatives)<span class="pink"> </sub></span></legend>
 
 <div class="panel panel-primary">
     <div class="panel-heading">

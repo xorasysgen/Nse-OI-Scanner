@@ -112,10 +112,10 @@ public class DollarIndexBrentUSDINRReader {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
 				String values[] = line.trim().split(" ");
-				System.out.println("0" + values[0]);
+			/*	System.out.println("0" + values[0]);
 				System.out.println("1" + values[1]);
 				System.out.println("2" + values[2]);
-				System.out.println("3" + values[3]);
+				System.out.println("3" + values[3]);*/
 				//System.out.println("4" + values[4]);
 				
 				dollarIndexBrentUSDINR.setIndex(values[0]);

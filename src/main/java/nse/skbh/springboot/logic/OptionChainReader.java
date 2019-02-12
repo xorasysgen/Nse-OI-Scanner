@@ -11,8 +11,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.google.gson.Gson;
-
 import nse.skbh.springboot.pojo.OI;
 import nse.skbh.springboot.pojo.ParentPcr;
 import nse.skbh.springboot.pojo.ParentsOI;
@@ -360,7 +358,7 @@ public class OptionChainReader {
 		ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 				int i=3;
@@ -441,7 +439,90 @@ public class OptionChainReader {
 	
 	
 
-	public static void main(String[] args) {
-		System.out.println(new Gson().toJson(getStockOptionChain("TATAMOTORS")));
+
+	public static ParentsStocksOI getBankNiftyWeeklyOptionChain(String date) {
+		//https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=14FEB2019
+				String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?"
+						+ "segmentLink=17&instrument=OPTIDX&symbol=BANKNIFTY&date="+date;
+				Document doc = null;
+				ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
+				List<OI> data=new ArrayList<OI>();
+				try {
+					doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+					for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
+						Elements row = table.select("tr");
+						int i=3;
+								for (; i < row.size()-1; i++) {
+									String rowValues=row.get(i).text();
+									//System.out.println(rowValues);
+									OI oi=new OI();
+									String dataValue[]=rowValues.split("\\s+");
+											 oi.setOi_call(dataValue[0]);
+											 oi.setChng_in_oi_call(dataValue[1]);
+											 oi.setVolume_call(dataValue[2]);
+											 oi.setIv_call(dataValue[3]);
+											 oi.setLtp_call(dataValue[4]);
+											 oi.setNet_chng_call(dataValue[5]);
+											 oi.setBid_qty_call(dataValue[6]);
+											 oi.setBid_price_call(dataValue[7]);
+											 oi.setAsk_price_call(dataValue[8]);
+											 oi.setAsk_qty_call(dataValue[9]);
+											 oi.setStrikePrice(dataValue[10]);
+											 oi.setBid_qty_put(dataValue[11]);
+											 oi.setBid_price_put(dataValue[12]);
+											 oi.setAsk_price_put(dataValue[13]);
+											 oi.setAsk_qty_put(dataValue[14]);
+											 oi.setNet_chng_put(dataValue[15]);
+											 oi.setLtp_put(dataValue[16]);
+											 oi.setIv_put(dataValue[17]);
+											 oi.setVolume_put(dataValue[18]);
+											 oi.setChng_in_oi_put(dataValue[19]);
+											 oi.setOi_put(dataValue[20]);
+											 data.add(oi);
+								}//Elements row end
+						
+								parentsStocksOI.setData(data);
+					}
+					try {
+						Elements content = doc.getElementsByClass("nobg");
+						if (content != null && content.size() > 0) {
+							Integer lastIndex = content.size() - 1;
+							String oi_puts = (content.get(lastIndex - 0).text());
+							String puts_volume = (content.get(lastIndex - 1).text());
+							String calls_volume = (content.get(lastIndex - 2).text());
+							String oi_calls = (content.get(lastIndex - 3).text());
+
+							oi_puts = oi_puts != null ? oi_puts.replace(",", "") : "0";
+							puts_volume = puts_volume != null ? puts_volume.replace(",", "") : "0";
+							calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
+							oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
+
+							try{
+							DecimalFormat df = new DecimalFormat("#.##");
+							
+							PcrDetail pcr = new PcrDetail();
+							pcr.setMonth("Current");
+							pcr.setPuts(oi_puts);
+							pcr.setPutsVolume(puts_volume);
+							pcr.setCallsVolume(calls_volume);
+							pcr.setCalls(oi_calls);
+							pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
+							pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
+							//System.out.println(pcr);
+							parentsStocksOI.setPcr(pcr);//setting PCR
+							}catch(RuntimeException e) {
+								 return null;
+								}
+							}
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
+					return parentsStocksOI;
+				} catch (IOException e) {
+					e.printStackTrace();
+					return new ParentsStocksOI();
+				}
+
 	}
 }

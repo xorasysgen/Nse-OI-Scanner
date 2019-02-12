@@ -132,6 +132,15 @@ public class WebBoot {
 		
 	}
 	
+	@RequestMapping("/banknifty_weekly_optionChain/{id}")
+	public ParentsStocksOI getBankNiftyWeeklyOptionChainData(@PathVariable String id) {
+		if(id!=null) {
+			return OptionChainReader.getBankNiftyWeeklyOptionChain(id);
+		}
+		return null;
+		
+	}
+	
 	
 	@RequestMapping("/banknifty_option_chain_reader")
 	public Pcr getbankNiftyOptionChainData() {

@@ -20,15 +20,21 @@ public class NSESearchController {
 	public String niftyWeekly(Model model){
 		StockName stockName=new StockName();		
 		model.addAttribute("stockName", stockName);
-		model.addAttribute("actionUri", "/niftyWeeklyContracts");
+		model.addAttribute("actionUri", "/niftyWeeklyContracts"); // unused
 		List<String> list =NiftyExpiryDatesNewContracts.getNiftyExpiryDates();
 		initModelList(model,list);
 		return "get_option_chain_nifty_weekly";
 	}
 	
-	
-	
-	
+	@RequestMapping(value="/bank_nifty_weekly",method=RequestMethod.GET)
+	public String bankNiftyWeekly(Model model){
+		StockName stockName=new StockName();		
+		model.addAttribute("stockName", stockName);
+		model.addAttribute("actionUri", "/bankniftyWeeklyContracts");// unused
+		List<String> list =NiftyExpiryDatesNewContracts.getNiftyExpiryDates();
+		initModelList(model,list);
+		return "get_option_chain_banknifty_weekly";
+	}
 	
 	@RequestMapping(value="/coc",method=RequestMethod.GET)
 	public String register(Model model){
