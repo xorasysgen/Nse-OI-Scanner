@@ -8,12 +8,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import nse.skbh.springboot.logic.NiftyExpiryDatesNewContracts;
 import nse.skbh.springboot.pojo.StockName;
 
 
 @Controller
 @RequestMapping("/")
 public class NSESearchController {
+	
+	@RequestMapping(value="/nifty_weekly",method=RequestMethod.GET)
+	public String niftyWeekly(Model model){
+		StockName stockName=new StockName();		
+		model.addAttribute("stockName", stockName);
+		model.addAttribute("actionUri", "/niftyWeeklyContracts");
+		List<String> list =NiftyExpiryDatesNewContracts.getNiftyExpiryDates();
+		initModelList(model,list);
+		return "get_option_chain_nifty_weekly";
+	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="/coc",method=RequestMethod.GET)
 	public String register(Model model){
@@ -246,5 +261,10 @@ public class NSESearchController {
 				"ZEEL"};
 		list=Arrays.asList(array);
 		model.addAttribute("stockList", list);
+	}
+	
+	
+	private void initModelList(Model model, List<String> list) {
+		model.addAttribute("dateList", list);
 	}
 }

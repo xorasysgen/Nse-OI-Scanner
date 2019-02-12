@@ -28,8 +28,8 @@ public class ExceptionHandlerControllerAdvice {
 		return error;
 	}
 
-	@ExceptionHandler(RuntimeException.class)
-	@ResponseStatus(value = HttpStatus.PRECONDITION_FAILED)
+	/*@ExceptionHandler(RuntimeException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	public @ResponseBody ErrorMessage handleException(final RuntimeException exception,
 			final HttpServletRequest request) {
 
@@ -39,6 +39,6 @@ public class ExceptionHandlerControllerAdvice {
 		error.setErrorCode(9999);
 		error.setTimeStamp(new Date());
 		return error;
-	}
+	}*/
 
 }
