@@ -76,10 +76,17 @@ public class DollarIndexBrentUSDINRReader {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
 				String values[] = line.trim().split(" ");
+				//System.out.println("0" + values[0]);
+				//System.out.println("1" + values[1]);
+				//System.out.println("2" + values[2]);
+				//System.out.println("3" + values[3]);
+				//System.out.println("4" + values[4]);
+				//System.out.println("5" + values[5]);
+				
 				dollarIndexBrentUSDINR.setIndex(values[0] + values[1] + values[2]);
 				dollarIndexBrentUSDINR.setLtp(values[3]);
 				dollarIndexBrentUSDINR.setChange(values[4]);
-				dollarIndexBrentUSDINR.setChangePercentage(values[5]);
+				//dollarIndexBrentUSDINR.setChangePercentage(values[5]);
 				data.add(dollarIndexBrentUSDINR);
 			}
 			if(mapValue.getKey().equals("Brent_Oil")) {
@@ -87,29 +94,34 @@ public class DollarIndexBrentUSDINRReader {
 				String line=mapValue.getValue();
 				
 				String values[] = line.trim().split(" ");
-			
 				
-				dollarIndexBrentUSDINR.setIndex(values[0] + values[1] + values[2]);
-				dollarIndexBrentUSDINR.setLtp(values[3]);
-				dollarIndexBrentUSDINR.setChange(values[4]);
-				dollarIndexBrentUSDINR.setChangePercentage(values[5]);
+				//System.out.println("0" + values[0]);
+				//System.out.println("1" + values[1]);
+				//System.out.println("2" + values[2]);
+				//System.out.println("3" + values[3]);
+				//System.out.println("4" + values[4]);
+				//System.out.println("5" + values[5]);
+				
+				dollarIndexBrentUSDINR.setIndex(values[0] + values[1]);
+				dollarIndexBrentUSDINR.setLtp(values[2]);
+				dollarIndexBrentUSDINR.setChange(values[3]);
+				dollarIndexBrentUSDINR.setChangePercentage(values[4]);
 				data.add(dollarIndexBrentUSDINR);
 			}
 			if(mapValue.getKey().equals("USDINR")) {
 				DollarIndexBrentUSDINR dollarIndexBrentUSDINR=new DollarIndexBrentUSDINR();
 				String line=mapValue.getValue();
 				String values[] = line.trim().split(" ");
-				
-				/*System.out.println("0" + values[0]);
+				System.out.println("0" + values[0]);
 				System.out.println("1" + values[1]);
 				System.out.println("2" + values[2]);
 				System.out.println("3" + values[3]);
-				System.out.println("4" + values[4]);*/
+				//System.out.println("4" + values[4]);
 				
-				dollarIndexBrentUSDINR.setIndex(values[0] + values[1]);
-				dollarIndexBrentUSDINR.setLtp(values[2]);
-				dollarIndexBrentUSDINR.setChange(values[3]);
-				dollarIndexBrentUSDINR.setChangePercentage(values[4]);
+				dollarIndexBrentUSDINR.setIndex(values[0]);
+				dollarIndexBrentUSDINR.setLtp(values[1]);
+				dollarIndexBrentUSDINR.setChange(values[2]);
+				dollarIndexBrentUSDINR.setChangePercentage(values[3]);
 				data.add(dollarIndexBrentUSDINR);
 			}
 		}
@@ -119,7 +131,8 @@ public class DollarIndexBrentUSDINRReader {
 		return parentDollarIndexBrentUSDINR;
 		
 	}
-/*	public static void main(String[] args) {
-		System.out.println(DollarIndexBrentUSDINRReader.dollarIndexBrentUSDINRProcessor().getData());
+	
+	/*public static void main(String[] args) {
+		System.out.println(DollarIndexBrentUSDINRReader.dollarIndexBrentUSDINRProcessor());
 	}*/
 }

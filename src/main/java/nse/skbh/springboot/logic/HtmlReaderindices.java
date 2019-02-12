@@ -51,26 +51,37 @@ public class HtmlReaderindices {
 				//System.out.println(i + "#" +rowValues);
 					if(i==1 || i==2 || i==8 || i==9 || i==24 || i==22 || i==30 || i==31) {
 				String dataValue[]=rowValues.split("\\s+");
+		/*		System.out.println(dataValue[0]);
+				System.out.println(dataValue[1]);
+				System.out.println(dataValue[2]);
+				System.out.println(dataValue[3]);
+				System.out.println(dataValue[4]);
+				System.out.println(dataValue[5]);
+				System.out.println(dataValue[6]);
+				System.out.println(dataValue[7]);
+				System.out.println(dataValue[8]);
+				System.out.println(dataValue[9]);*/
+				
 				wfi.setIndex(dataValue[0] + dataValue[1]);
 				wfi.setMonth(dataValue[2] + dataValue[3]);
-				wfi.setLtp(dataValue[5]);
-				wfi.setHigh(dataValue[6]);
-				wfi.setLow(dataValue[7]);
-				wfi.setChg(dataValue[8]);
-				wfi.setChgPer(dataValue[9]);
-				wfi.setTime(dataValue[10]);
+				wfi.setLtp(dataValue[4]);
+				wfi.setHigh(dataValue[5]);
+				wfi.setLow(dataValue[6]);
+				wfi.setChg(dataValue[7]);
+				wfi.setChgPer(dataValue[8]);
+				wfi.setTime(dataValue[9]);
 				data.add(wfi);
 					}else if(i==10){
 						String dataValue[]=rowValues.split("\\s+");
 						//System.out.println("error" + rowValues);
 						wfi.setIndex(dataValue[0] + dataValue[1] + dataValue[2]);
 						wfi.setMonth(dataValue[3] + dataValue[4]);
-						wfi.setLtp(dataValue[5]);
-						wfi.setHigh(dataValue[6]);
-						wfi.setLow(dataValue[7]);
-						wfi.setChg(dataValue[8]);
-						wfi.setChgPer(dataValue[9]);
-						//wfi.setTime(dataValue[10]);
+						wfi.setLtp(dataValue[4]);
+						wfi.setHigh(dataValue[5]);
+						wfi.setLow(dataValue[6]);
+						wfi.setChg(dataValue[7]);
+						wfi.setChgPer(dataValue[8]);
+						wfi.setTime(dataValue[9]);
 						data.add(wfi);
 					}else if(i==7 || i==6){
 						String dataValue[]=rowValues.split("\\s+");
