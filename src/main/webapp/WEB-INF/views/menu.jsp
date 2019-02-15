@@ -45,8 +45,10 @@ a.menu_links { cursor: pointer; }
         </li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-eye-open" style="color:#0277bd; font-size: 14px;"></span> Open-Interest <sup><span class="badge">8</span></sup> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-eye-open" style="color:#0277bd; font-size: 14px;"></span> Open-Interest <sup><span class="badge">9</span></sup> <span class="caret"></span></a>
           <ul class="dropdown-menu">
+	           	<li><a href="currency_weekly"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Currency OptionChain-Full</a></li>
+          		<li role="separator" class="divider"></li>
 	            <li><a href="oispurts"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> OI Spurts</a></li>
 	            <li role="separator" class="divider"></li>
 	            <li><a href="bullish"><span class="glyphicon glyphicon-chevron-right" style="color:#007bff;"></span> Bullish</a></li>
@@ -62,7 +64,7 @@ a.menu_links { cursor: pointer; }
         </li>
         
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <sup><span class="badge">13</span></sup> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large" style="color:#28a745;"></span> Derivatives <sup><span class="badge">16</span></sup> <span class="caret"></span></a>
           <ul class="dropdown-menu">
 	            <li><a href="top_20_contracts_intraday"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Top 20 Contracts</a></li>
 	            <li><a href="nifty_50_options_public"><span class="glyphicon glyphicon-chevron-right" style="color:#28a745;"></span> Nifty50 Contracts</a></li>

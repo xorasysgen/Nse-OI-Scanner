@@ -525,4 +525,95 @@ public class OptionChainReader {
 				}
 
 	}
+	
+	
+	public static ParentsStocksOI getCurrencyWeeklyOptionChain(String date) {
+		//https://www.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp?symbol=USDINR&instrument=OPTCUR&expiryDt=15FEB2019
+				String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp?"
+						+ "symbol=USDINR&instrument=OPTCUR&expiryDt="+date;
+				Document doc = null;
+				ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
+				List<OI> data=new ArrayList<OI>();
+				try {
+					doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+					for (Element table : doc.select("table#octable")) { //this will work if your doc contains only one table element
+						Elements row = table.select("tr");
+						//System.out.println(row.size());
+						int i=2;
+								for (; i < row.size()-1; i++) {
+									String rowValues=row.get(i).text();
+									//System.out.println(rowValues);
+									OI oi=new OI();
+									String dataValue[]=rowValues.split("\\s+");
+											 oi.setOi_call(dataValue[0]);
+											 oi.setChng_in_oi_call(dataValue[1]);
+											 oi.setVolume_call(dataValue[2]);
+											 oi.setIv_call(dataValue[3]);
+											 oi.setLtp_call(dataValue[4]);
+											 oi.setNet_chng_call("-");
+											 oi.setBid_qty_call(dataValue[5]);
+											 oi.setBid_price_call(dataValue[6]);
+											 oi.setAsk_price_call(dataValue[7]);
+											 oi.setAsk_qty_call(dataValue[8]);
+											 oi.setStrikePrice(dataValue[9]);
+											 oi.setBid_qty_put(dataValue[10]);
+											 oi.setBid_price_put(dataValue[11]);
+											 oi.setAsk_price_put(dataValue[12]);
+											 oi.setAsk_qty_put(dataValue[13]);
+											 oi.setLtp_put(dataValue[14]);
+											 oi.setIv_put(dataValue[15]);
+											 oi.setVolume_put(dataValue[16]);
+											 oi.setChng_in_oi_put(dataValue[17]);
+											 oi.setOi_put(dataValue[18]);
+											 oi.setNet_chng_put("-");
+											 data.add(oi);
+								}//Elements row end
+						
+								parentsStocksOI.setData(data);
+					}
+					try {
+						Elements content = doc.getElementsByClass("nobg");
+						if (content != null && content.size() > 0) {
+							Integer lastIndex = content.size() - 1;
+							String oi_puts = (content.get(lastIndex - 0).text());
+							String puts_volume = (content.get(lastIndex - 1).text());
+							String calls_volume = (content.get(lastIndex - 2).text());
+							String oi_calls = (content.get(lastIndex - 3).text());
+
+							oi_puts = oi_puts != null ? oi_puts.replace(",", "") : "0";
+							puts_volume = puts_volume != null ? puts_volume.replace(",", "") : "0";
+							calls_volume = calls_volume != null ? calls_volume.replace(",", "") : "0";
+							oi_calls = oi_calls != null ? oi_calls.replace(",", "") : "0";
+
+							try{
+							DecimalFormat df = new DecimalFormat("#.##");
+							
+							PcrDetail pcr = new PcrDetail();
+							pcr.setMonth("Current");
+							pcr.setPuts(oi_puts);
+							pcr.setPutsVolume(puts_volume);
+							pcr.setCallsVolume(calls_volume);
+							pcr.setCalls(oi_calls);
+							pcr.setPcrOI(df.format(Double.parseDouble(oi_puts) / Double.parseDouble(oi_calls)));
+							pcr.setPcrVolume(df.format(Double.parseDouble(puts_volume) / Double.parseDouble(calls_volume)));
+							//System.out.println(pcr);
+							parentsStocksOI.setPcr(pcr);//setting PCR
+							}catch(RuntimeException e) {
+								 return null;
+								}
+							}
+					} catch (Exception e) {
+						e.printStackTrace();
+						return null;
+					}
+					return parentsStocksOI;
+				} catch (IOException e) {
+					e.printStackTrace();
+					return new ParentsStocksOI();
+				}
+
+	}
+	public static void main(String[] args) {
+		OptionChainReader.getCurrencyWeeklyOptionChain("22FEB2019");
+	}
 }

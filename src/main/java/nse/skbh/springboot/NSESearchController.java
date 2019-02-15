@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import nse.skbh.springboot.logic.CurrencyContracts;
 import nse.skbh.springboot.logic.NiftyExpiryDatesNewContracts;
 import nse.skbh.springboot.pojo.StockName;
 
@@ -35,6 +36,18 @@ public class NSESearchController {
 		initModelList(model,list);
 		return "get_option_chain_banknifty_weekly";
 	}
+	
+	@RequestMapping(value="/currency_weekly",method=RequestMethod.GET)
+	public String CurrencyWeekly(Model model){
+		StockName stockName=new StockName();		
+		model.addAttribute("stockName", stockName);
+		model.addAttribute("actionUri", "/CurrencyWeeklyContracts");// unused
+		List<String> list =CurrencyContracts.getCurrencyContractsExpiryDates();
+		model.addAttribute("dateList", list);
+		return "get_option_chain_currency_weekly";
+	}
+	
+	
 	
 	@RequestMapping(value="/coc",method=RequestMethod.GET)
 	public String register(Model model){

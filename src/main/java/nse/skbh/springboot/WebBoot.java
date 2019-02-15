@@ -125,7 +125,7 @@ public class WebBoot {
 	}
 	
 	
-	
+	/*begins option chain analysis*/
 	
 	@RequestMapping("/nifty_weekly_optionChain/{id}")
 	public ParentsStocksOI getNiftyWeeklyOptionChainData(@PathVariable String id) {
@@ -145,7 +145,16 @@ public class WebBoot {
 		
 	}
 	
+	@RequestMapping("/currency_weekly_optionChain/{id}")
+	public ParentsStocksOI getCurrencyWeeklyOptionChainData(@PathVariable String id) {
+		if(id!=null) {
+			return OptionChainReader.getCurrencyWeeklyOptionChain(id);
+		}
+		return null;
+		
+	}
 	
+	/*end option chain analysis*/
 	@RequestMapping("/banknifty_option_chain_reader")
 	public Pcr getbankNiftyOptionChainData() {
 		return BankNiftyOptionChainReader.getBankNiftyOptionDataPCR();
