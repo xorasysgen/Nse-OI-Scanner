@@ -36,9 +36,11 @@ import nse.skbh.springboot.pojo.ServicesList;
 @Scope=prototype #Scopes a single bean definition to any number of object instances.
 @Scope=request   #Scopes a single bean definition to the lifecycle of a single HTTP request; that is each and every HTTP request will have its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring ApplicationContext.
 @Scope=session   #Scopes a single bean definition to the lifecycle of a HTTP Session. Only valid in the context of a web-aware Spring ApplicationContext.
-@Scope=global session #Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.
+@Scope=global session #Scopes a single bean definition to the lifecycle of a global HTTP Session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.used in portlet context.
 
-@RestController is a specialized version of the controller. It includes the @Controller and @ResponseBody annotations and as a result, simplifies the controller implementation:
+@RestController is a specialized version of the controller. 
+It includes the @Controller and @ResponseBody annotations and
+as a result, simplifies the controller implementation:
 *************************************************************************************************/
 @RestController
 @SpringBootApplication
@@ -50,7 +52,6 @@ public class NseBoot {
 	
 	
 	/*begins Bean creation section*/
-	
 	@Bean
 	public ViewResolver getViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();

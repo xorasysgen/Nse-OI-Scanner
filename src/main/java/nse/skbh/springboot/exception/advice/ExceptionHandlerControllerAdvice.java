@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import nse.skbh.springboot.exception.entity.ResourceNotFoundException;
 import nse.skbh.springboot.exception.entity.ErrorMessage;
-
+//Allows for more concise annotation declarations e.g.: @ControllerAdvice("org.my.pkg") is equivalent to @ControllerAdvice(basePackages="org.my.pkg").
 @ControllerAdvice
 public class ExceptionHandlerControllerAdvice {
 
