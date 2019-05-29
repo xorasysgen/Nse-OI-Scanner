@@ -2,9 +2,9 @@
 #remove application-heroku.properties completely from the git repository and then ignore it completely:
 #git rm --cached src/main/java/application-heroku.properties and add it to .gitignore.
 #keep application-heroku.properties in the git repository but ignore future changes to this file by doing below
-#git update-index --assume-unchanged  src/main/java/application-heroku.properties  [--command ]
+#git update-index --assume-unchanged  src/main/java/application-heroku.properties  [--command line]
 #If you wanna start tracking changes again run the following command
-#git update-index --no-assume-unchanged src/main/java/application-heroku.properties   [--command ]
+#git update-index --no-assume-unchanged src/main/java/application-heroku.properties   [--command line]
 
 /target/
 .classpath
