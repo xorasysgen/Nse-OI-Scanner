@@ -20,6 +20,8 @@ import nse.skbh.springboot.boot.backend.mongo.service.LoginUserDetailsService;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	private static final String LOGIN_INVALID_SESSION_URL="/login";
+	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -51,14 +53,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//.antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
-		.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me").permitAll()
+		.loginPage(LOGIN_INVALID_SESSION_URL).permitAll().and().logout().deleteCookies("remember-me").permitAll()
 		.and()
         .rememberMe()
         .and()
         .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 		http.sessionManagement()
 		.maximumSessions(1)
-		.expiredUrl("/login")
+		.expiredUrl(LOGIN_INVALID_SESSION_URL)
 		.maxSessionsPreventsLogin(false);
 		/*http.csrf().disable();*/
 		
