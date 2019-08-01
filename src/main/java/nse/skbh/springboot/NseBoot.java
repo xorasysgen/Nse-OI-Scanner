@@ -22,6 +22,7 @@ import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**************************************************************************
 @SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiguration
@@ -45,6 +46,7 @@ as a result, simplifies the controller implementation:
 @RestController
 @SpringBootApplication
 @CrossOrigin
+@EnableSwagger2
 public class NseBoot {
 	
 	private static ConfigurableApplicationContext context;

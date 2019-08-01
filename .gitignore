@@ -1,3 +1,9 @@
+/target/
+.classpath
+.project
+.settings/
+
+
 #There are two possible to ignore perticular file
 #remove application-heroku.properties completely from the git repository and then ignore it completely:
 #git rm --cached src/main/java/application-heroku.properties and add it to .gitignore.
@@ -5,8 +11,3 @@
 #git update-index --assume-unchanged  src/main/java/application-heroku.properties  [--command line]
 #If you wanna start tracking changes again run the following command
 #git update-index --no-assume-unchanged src/main/java/application-heroku.properties   [--command line]
-
-/target/
-.classpath
-.project
-.settings/

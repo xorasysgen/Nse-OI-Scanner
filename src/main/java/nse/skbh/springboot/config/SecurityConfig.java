@@ -19,6 +19,21 @@ import nse.skbh.springboot.boot.backend.mongo.service.LoginUserDetailsService;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	
+	private static final String[] permitted_url = {
+			"/v2/api-docs",
+			"/configuration/ui",
+			"/swagger-resources/**",
+			"/configuration/**",
+			"/swagger-ui.html",
+			"/webjars/**",
+			"/api/**",
+			"/static/**",
+			"/css/**",
+			"/js/**",
+			"/images/**"
+    };
 
 	private static final String LOGIN_INVALID_SESSION_URL="/login";
 	
@@ -43,14 +58,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/api/**", "/static/**", "/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers(permitted_url);
 	}
+	
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		/*.antMatchers("/").permitAll()*/
 		//.antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
+		.antMatchers(permitted_url).permitAll()
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
 		.loginPage(LOGIN_INVALID_SESSION_URL).permitAll().and().logout().deleteCookies("remember-me").permitAll()
