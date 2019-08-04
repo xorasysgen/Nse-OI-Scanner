@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,7 +27,7 @@ public class OISpurts {
 	@Autowired
 	RestTemplateProvider restTemplateProvider;
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	@ResponseBody
 	public ParentMostActiveCallPutAll derivative() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
@@ -38,7 +39,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/call")
+	@GetMapping("/call")
 	@ResponseBody
 	ServicesList callHome() {
 		ServicesList servicesObj = new ServicesList();
@@ -55,7 +56,7 @@ public class OISpurts {
 		return servicesObj;
 	}
 
-	@RequestMapping("/put")
+	@GetMapping("/put")
 	@ResponseBody
 	ServicesList putHome() {
 		ServicesList servicesObj = new ServicesList();
@@ -72,7 +73,7 @@ public class OISpurts {
 		return servicesObj;
 	}
 
-	@RequestMapping("/bank_nifty_volume")
+	@GetMapping("/bank_nifty_volume")
 	public ParentBankNiftyVolume showAllBankNiftyVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentBankNiftyVolume> response = restTemplate.getForEntity(
@@ -83,7 +84,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/call/call_all")
+	@GetMapping("/call/call_all")
 	public ParentMostActiveCallPutAll ShowCallsALLVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -94,7 +95,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/call/call_nifty")
+	@GetMapping("/call/call_nifty")
 	public ParentMostActiveCallPutAll ShowCallsNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -105,7 +106,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/call/call_nifty_bank")
+	@GetMapping("/call/call_nifty_bank")
 	public ParentMostActiveCallPutAll ShowCallsBANKNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -116,7 +117,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/call/call_stocks")
+	@GetMapping("/call/call_stocks")
 	public ParentMostActiveCallPutAll ShowCallsOPTSTocKVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -129,7 +130,7 @@ public class OISpurts {
 
 	/* all put section are here */
 
-	@RequestMapping("/put/put_all")
+	@GetMapping("/put/put_all")
 	public ParentMostActiveCallPutAll ShowPutsALLVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -140,7 +141,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/put/put_nifty")
+	@GetMapping("/put/put_nifty")
 	public ParentMostActiveCallPutAll ShowPutsNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -151,7 +152,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/put/put_nifty_bank")
+	@GetMapping("/put/put_nifty_bank")
 	public ParentMostActiveCallPutAll ShowPutsBANKNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -162,7 +163,7 @@ public class OISpurts {
 
 	}
 
-	@RequestMapping("/put/put_stocks")
+	@GetMapping("/put/put_stocks")
 	public ParentMostActiveCallPutAll ShowPutsOPTSTocKVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
@@ -173,7 +174,7 @@ public class OISpurts {
 
 	}
 	
-	@RequestMapping("/nse/coc/{id}")
+	@GetMapping("/nse/coc/{id}")
 	public ParentBankNiftyFuture readNseFOInternalData(@PathVariable("id") String id) {
 		String stockFuture="FUTSTK";
 		String indexFuture="FUTIDX";

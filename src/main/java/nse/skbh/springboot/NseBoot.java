@@ -1,4 +1,4 @@
-package nse.skbh.springboot;
+	package nse.skbh.springboot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ViewResolver;
@@ -22,7 +22,6 @@ import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**************************************************************************
 @SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiguration
@@ -46,7 +45,6 @@ as a result, simplifies the controller implementation:
 @RestController
 @SpringBootApplication
 @CrossOrigin
-@EnableSwagger2
 public class NseBoot {
 	
 	private static ConfigurableApplicationContext context;
@@ -77,13 +75,13 @@ public class NseBoot {
 	
 	/*End Bean creation section*/
 	
-	@RequestMapping("/")
+	@GetMapping("/")
 	@ResponseBody
 	ServerStatus root() {
 		return new ServerStatus();
 	}
 
-	@RequestMapping("/services")
+	@GetMapping("/services")
 	@ResponseBody
 	ServicesList home() {
 		ServicesList servicesObj = new ServicesList();

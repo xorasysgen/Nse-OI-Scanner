@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +18,7 @@ import nse.skbh.springboot.pojo.StockName;
 @RequestMapping("/")
 public class NSESearchController {
 	
-	@RequestMapping(value="/nifty_weekly",method=RequestMethod.GET)
+	@GetMapping("/nifty_weekly")
 	public String niftyWeekly(Model model){
 		StockName stockName=new StockName();		
 		model.addAttribute("stockName", stockName);
@@ -27,7 +28,7 @@ public class NSESearchController {
 		return "get_option_chain_nifty_weekly";
 	}
 	
-	@RequestMapping(value="/bank_nifty_weekly",method=RequestMethod.GET)
+	@GetMapping("/bank_nifty_weekly")
 	public String bankNiftyWeekly(Model model){
 		StockName stockName=new StockName();		
 		model.addAttribute("stockName", stockName);

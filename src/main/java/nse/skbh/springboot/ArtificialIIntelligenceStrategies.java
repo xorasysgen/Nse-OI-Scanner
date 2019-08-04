@@ -240,7 +240,7 @@ public class ArtificialIIntelligenceStrategies {
 	}
 	
 	
-	@RequestMapping("/nifty/ohl_strategy/fo")
+	@GetMapping("/nifty/ohl_strategy/fo")
 	public ParentIndicesDataOHL FandONiftyOHL() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
 		ResponseEntity<ParentFOSecStockWatchData> response = restTemplate.getForEntity(
@@ -278,7 +278,7 @@ public class ArtificialIIntelligenceStrategies {
 	
 	
 	
-	@RequestMapping("/nifty/ohl_strategy")
+	@GetMapping("/nifty/ohl_strategy")
 	public ParentIndicesDataOHL AdvancesDeclinesNifty() {
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
 		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(

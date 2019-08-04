@@ -8,8 +8,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -65,7 +65,7 @@ public class WebBoot {
 	@Autowired
 	RestTemplateProvider restTemplateProvider;
 	
-	@RequestMapping("/mkt_open_status")
+	@GetMapping("/mkt_open_status")
 	public String smeNormalMktStatus() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
@@ -75,7 +75,7 @@ public class WebBoot {
 
 	}
 	
-	@RequestMapping("/next_trading_date")
+	@GetMapping("/next_trading_date")
 	public String getNextTradingDate() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
@@ -85,33 +85,33 @@ public class WebBoot {
 
 	}
 	
-	@RequestMapping("/zerodha")
+	@GetMapping("/zerodha")
 	public String zerodhaFutureUrl() {
 		return ZerodhaTool.getZerodhaFuturesURL();
 	}
 	
 
-	@RequestMapping("/option_chain_reader")
+	@GetMapping("/option_chain_reader")
 	public Pcr getOptionChainData() {
 		return OptionChainReader.getOptionDataPCR();
 
 	}
 	
-	@RequestMapping("/option_chain_reader_all")
+	@GetMapping("/option_chain_reader_all")
 	public ParentPcr getThreeMonthOptionDataPCR() {
 		return OptionChainReader.getThreeMonthOptionDataPCR();
 
 	}
 	
 	
-	@RequestMapping("/option_chain_nifty")
+	@GetMapping("/option_chain_nifty")
 	public ParentsOI getOptionChainNiftyData() {
 		return OptionChainReader.getNiftyOptionChain();
 
 	}
 	
 	
-	@RequestMapping("/option_chain_stocks/{id}")
+	@GetMapping("/option_chain_stocks/{id}")
 	public ParentsStocksOI getOptionChainStocksData(@PathVariable String id) {
 		if(id!=null) {
 			if(id.length()>20)
@@ -127,7 +127,7 @@ public class WebBoot {
 	
 	/*begins option chain analysis*/
 	
-	@RequestMapping("/nifty_weekly_optionChain/{id}")
+	@GetMapping("/nifty_weekly_optionChain/{id}")
 	public ParentsStocksOI getNiftyWeeklyOptionChainData(@PathVariable String id) {
 		if(id!=null) {
 			return OptionChainReader.getNiftyWeeklyOptionChain(id);
@@ -136,7 +136,7 @@ public class WebBoot {
 		
 	}
 	
-	@RequestMapping("/banknifty_weekly_optionChain/{id}")
+	@GetMapping("/banknifty_weekly_optionChain/{id}")
 	public ParentsStocksOI getBankNiftyWeeklyOptionChainData(@PathVariable String id) {
 		if(id!=null) {
 			return OptionChainReader.getBankNiftyWeeklyOptionChain(id);
@@ -145,7 +145,7 @@ public class WebBoot {
 		
 	}
 	
-	@RequestMapping("/currency_weekly_optionChain/{id}")
+	@GetMapping("/currency_weekly_optionChain/{id}")
 	public ParentsStocksOI getCurrencyWeeklyOptionChainData(@PathVariable String id) {
 		if(id!=null) {
 			return OptionChainReader.getCurrencyWeeklyOptionChain(id);
@@ -155,30 +155,30 @@ public class WebBoot {
 	}
 	
 	/*end option chain analysis*/
-	@RequestMapping("/banknifty_option_chain_reader")
+	@GetMapping("/banknifty_option_chain_reader")
 	public Pcr getbankNiftyOptionChainData() {
 		return BankNiftyOptionChainReader.getBankNiftyOptionDataPCR();
 		
 	}
 	
-	@RequestMapping("/banknifty_option_chain_nifty")
+	@GetMapping("/banknifty_option_chain_nifty")
 	public ParentsOI getBankNiftyOptionChainNiftyData() {
 		return BankNiftyOptionChainReader.getBankNiftyOptionChain();
 
 	}
 	
-	@RequestMapping("/top_20_contracts_nse_fo")
+	@GetMapping("/top_20_contracts_nse_fo")
 	public ParentTop20Contract getTop20Contracts() {
 		return Top20ContractsReader.getTop20ContractsNSE();
 
 	}
-	@RequestMapping("/nifty_50_Options")
+	@GetMapping("/nifty_50_Options")
 	public ParentTop20Contract getNifty50Options() {
 		return Nifty50Options.getNifty50OOptionsContractsNSE();
 	}
 	
 
-	@RequestMapping("/future_stocks_spike_volume")
+	@GetMapping("/future_stocks_spike_volume")
 	public ParentStocksFutures futOPTSTK() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
@@ -189,7 +189,7 @@ public class WebBoot {
 
 	}
 
-	@RequestMapping("/future_stocks_spike_value")
+	@GetMapping("/future_stocks_spike_value")
 	public ParentStocksFutures futOPTSTKValue() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
@@ -200,33 +200,33 @@ public class WebBoot {
 
 	}
 
-	@RequestMapping("/security_wise_deliverable_positions_data")
+	@GetMapping("/security_wise_deliverable_positions_data")
 	public ParentDeliveryBhavData securityWiseDeliverablePositionsData() {
 		ParentDeliveryBhavData results = new CsvReader().getBhavCopyFromNSEOnline();
 		return results;
 	}
 
-	@RequestMapping("/security_var")
+	@GetMapping("/security_var")
 	public ParentSecurityVaR getSecurityVarFromNSe() {
 		ParentSecurityVaR results = new DatFileReader().getSecurityVar();
 		return results;
 	}
 	
-	@RequestMapping("/forthcoming_dividends")
+	@GetMapping("/forthcoming_dividends")
 	public ForthComingDividend ForthcomingDividends() {
 		ForthComingDividend results = new CsvReaderForthComingDividend().getForthComingDividendFromNSEOnline();
 		return results;
 	}
 	
 	
-	@RequestMapping("/forthcoming_results")
+	@GetMapping("/forthcoming_results")
 	public ParentsForthComingResultsFY ForthComingResults() {
 		ParentsForthComingResultsFY results = new CsvReaderResultsForthComingFY().getForthComingResultsFYFromNSEOnline();
 		return results;
 	}
 	
 
-	@RequestMapping("/open_interest")
+	@GetMapping("/open_interest")
 	public OIData home() {
 
 		List<Nse> nse = null;
@@ -241,7 +241,7 @@ public class WebBoot {
 		// return new Gson().toJson(OIData);
 	}
 
-	@RequestMapping("/top_gainer")
+	@GetMapping("/top_gainer")
 	public GainerLosser topGainer() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
@@ -251,7 +251,7 @@ public class WebBoot {
 		return gainerLosser;
 	}
 
-	@RequestMapping("/top_looser")
+	@GetMapping("/top_looser")
 	public GainerLosser topLosser() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
@@ -261,7 +261,7 @@ public class WebBoot {
 		return gainerLosser;
 	}
 
-	@RequestMapping("/oi_spurts")
+	@GetMapping("/oi_spurts")
 	public ParentOIChangeData topPositiveOIChangeData() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentOIChangeData> response = restTemplate.getForEntity(
@@ -271,7 +271,7 @@ public class WebBoot {
 		return parentOIChangeData;
 	}
 
-	@RequestMapping("/oi_spurts_rise_oi_rise_price")
+	@GetMapping("/oi_spurts_rise_oi_rise_price")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInOpenInterestRiseInPrice() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
@@ -281,7 +281,7 @@ public class WebBoot {
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
-	@RequestMapping("/oi_spurts_slide_in_price_rise_in_oi")
+	@GetMapping("/oi_spurts_slide_in_price_rise_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceRiseInOI() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
@@ -291,7 +291,7 @@ public class WebBoot {
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
-	@RequestMapping("/oi_spurts_rise_in_price_slide_in_oi")
+	@GetMapping("/oi_spurts_rise_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInPriceSlideInOI() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
@@ -301,7 +301,7 @@ public class WebBoot {
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
-	@RequestMapping("/oi_spurts_slide_in_price_slide_in_oi")
+	@GetMapping("/oi_spurts_slide_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceSlideInOI() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
@@ -311,7 +311,7 @@ public class WebBoot {
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
-	@RequestMapping("/fo_stocks")
+	@GetMapping("/fo_stocks")
 	public ParentFOSecStockWatchData foSecStockWatch() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentFOSecStockWatchData> response = restTemplate.getForEntity(
@@ -321,7 +321,7 @@ public class WebBoot {
 		return parentFOSecStockWatchData;
 	}
 
-	@RequestMapping("/most_active_volume")
+	@GetMapping("/most_active_volume")
 	public ParentMostActive mostActiveSecuritiesByVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
@@ -332,7 +332,7 @@ public class WebBoot {
 	}
 
 	
-	@RequestMapping("/most_active_value")
+	@GetMapping("/most_active_value")
 	public ParentMostActive mostActiveSecuritiesByValue() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
@@ -342,7 +342,7 @@ public class WebBoot {
 		return parentMostActive;
 	}
 
-	@RequestMapping("/most_active_securities_market_capitalisation")
+	@GetMapping("/most_active_securities_market_capitalisation")
 	public ParentMarketCapitalisation MostActiveSecuritiesMarketCapitalisationReader() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate.getForEntity(
@@ -362,7 +362,7 @@ public class WebBoot {
 		return new ParentMarketCapitalisation();
 	}
 	
-	@RequestMapping("/indices")
+	@GetMapping("/indices")
 	public ParentIndices allIndices() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentIndices> response = restTemplate
@@ -371,7 +371,7 @@ public class WebBoot {
 		return indices;
 	}
 	
-	@RequestMapping("/all_nifty_indices")
+	@GetMapping("/all_nifty_indices")
 	public ParentsNiftyIndices allNiftyIndices() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentsNiftyIndices> response = restTemplate
@@ -383,7 +383,7 @@ public class WebBoot {
 	
 	
 
-	@RequestMapping("/advances_declines")
+	@GetMapping("/advances_declines")
 	public ParentAdvanceDecline AdvancesDeclines() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentAdvanceDecline> response = restTemplate.getForEntity(
@@ -393,7 +393,7 @@ public class WebBoot {
 		return parentAdvanceDecline;
 	}
 
-	@RequestMapping("/advances_declines_nifty")
+	@GetMapping("/advances_declines_nifty")
 	public ParentIndicesData AdvancesDeclinesNifty() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
@@ -404,7 +404,7 @@ public class WebBoot {
 	}
 	
 	
-	@RequestMapping("/nifty_top_10_weightage_holdings")
+	@GetMapping("/nifty_top_10_weightage_holdings")
 	public ParentIndicesData getNifty10Holdings() {
 	Map<String,String> map=new HoldingFinderService().getTempCalulationNIFTY50Top10HoldingsDateFile();
 	RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
@@ -434,7 +434,7 @@ public class WebBoot {
 	
 	
 
-	@RequestMapping("/advances_declines_bank_nifty")
+	@GetMapping("/advances_declines_bank_nifty")
 	public ParentIndicesData AdvancesDeclinesBankNifty() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
@@ -511,7 +511,7 @@ public class WebBoot {
 		return parentIndicesData;
 	}
 
-	@RequestMapping("/volume_gainers")
+	@GetMapping("/volume_gainers")
 	public ParentVolumeGainer25 volumeGainers() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentVolumeGainer25> response = restTemplate.getForEntity(
@@ -521,7 +521,7 @@ public class WebBoot {
 		return parentVolumeGainer25;
 	}
 
-	@RequestMapping("/most_active_intraday")
+	@GetMapping("/most_active_intraday")
 	public ParentMostActiveUnderlying mostActiveUnderlying() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate.getForEntity(
@@ -535,23 +535,23 @@ public class WebBoot {
 		return null;
 	}
 	
-	@RequestMapping("/broad_market_indices")
+	@GetMapping("/broad_market_indices")
 	public String getBroadMarketIndices() {
 		return BroadMarketIndices.getBroadMarketIndices();
 	}
 	
 	
-	@RequestMapping("/world_market_indices")
+	@GetMapping("/world_market_indices")
 	public ParentWorldFutureIndex getWorldMarketIndices() {
 		return HtmlReaderindices.getParentWorldFutureIndex();
 	}
 	
-	@RequestMapping("/nifty_future_oi")
+	@GetMapping("/nifty_future_oi")
 	public ParentBankNiftyFuture getNiftyFutureOI() {
 		return BankNiftyFutureOIReader.getNiftyFutureOIReader();
 	}
 	
-	@RequestMapping("/bank_nifty_future_oi")
+	@GetMapping("/bank_nifty_future_oi")
 	public ParentBankNiftyFuture getBankNiftyFutureOI() {
 		return BankNiftyFutureOIReader.getBankNiftyFutureOIReader();
 	}
