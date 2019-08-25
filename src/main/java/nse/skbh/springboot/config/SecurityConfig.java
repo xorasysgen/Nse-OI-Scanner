@@ -71,12 +71,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(permitted_url).permitAll()
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
-		.loginPage(LOGIN_INVALID_SESSION_URL).permitAll().and().logout().deleteCookies("remember-me").permitAll()
+		.loginPage(LOGIN_INVALID_SESSION_URL).permitAll().and().logout().permitAll()
 		.and()
-        .rememberMe()
-        .and()
         .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
-		http.sessionManagement()
+  		http.sessionManagement()
 		.maximumSessions(1)
 		.expiredUrl(LOGIN_INVALID_SESSION_URL)
 		.maxSessionsPreventsLogin(false);
