@@ -23,6 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private static final String[] permitted_url = {
 			"/actuator/**",
+			"/actuator/hystrix.stream",
+			"/proxy/**",
 			"/hystrix/**",
 			"/v2/api-docs",
 			"/configuration/ui",
