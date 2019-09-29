@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	private static final String[] permitted_url = {
+			"/*",
 			"/actuator/**",
 			"/proxy/**",
 			"/hystrix/**",
