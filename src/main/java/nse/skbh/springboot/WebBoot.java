@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import nse.skbh.springboot.logic.BankNiftyFutureOIReader;
 import nse.skbh.springboot.logic.BankNiftyOptionChainReader;
@@ -66,6 +67,7 @@ public class WebBoot {
 	RestTemplateProvider restTemplateProvider;
 	
 	@GetMapping("/mkt_open_status")
+	@HystrixCommand(fallbackMethod = "mktOpenStatus", commandKey = "mktOpenStatus" , groupKey = "mktStatus")
 	public String smeNormalMktStatus() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
@@ -75,7 +77,12 @@ public class WebBoot {
 
 	}
 	
+	public String mktOpenStatus() {
+		return "offline";
+	}
+	
 	@GetMapping("/next_trading_date")
+	@HystrixCommand(fallbackMethod = "nextTradingDate", commandKey = "nextTradingDate" , groupKey = "nextTrading")
 	public String getNextTradingDate() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
@@ -83,6 +90,11 @@ public class WebBoot {
 		String string = response.getBody();
 		return string;
 
+	}
+	
+	public String nextTradingDate() {
+		return "NA";
+		
 	}
 	
 	@GetMapping("/zerodha")

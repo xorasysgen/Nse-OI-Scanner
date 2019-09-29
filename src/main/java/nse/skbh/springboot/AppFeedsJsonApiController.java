@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.logic.Utils;
@@ -21,12 +22,18 @@ public class AppFeedsJsonApiController {
 	RestTemplateProvider restTemplateProvider;
 	
 	@GetMapping("/nifty")
+	@HystrixCommand(fallbackMethod = "appFeedsJsonApiControllerFailure", commandKey = "AppFeedsJson" , groupKey = "AppFeedsJsonApiController")
 	public String getNiftyAppFeeds() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/indices&ind_id=9"), String.class);
 		String string = response.getBody();
 		return string;
+
+	}
+	
+	public String appFeedsJsonApiControllerFailure() {
+		return "nifty appFeedsJsonApi ControllerFailure Happend";
 
 	}
 	

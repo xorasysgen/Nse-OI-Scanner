@@ -3,11 +3,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PreDestroy;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,10 +22,13 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
 import nse.skbh.springboot.pojo.ServicesList;
+import rx.schedulers.Schedulers;
 
 /**************************************************************************
 @SpringBootApplication = @Configuration + @ComponentScan + @EnableAutoConfiguration
@@ -45,11 +52,17 @@ as a result, simplifies the controller implementation:
 @RestController
 @SpringBootApplication
 @CrossOrigin
+@EnableHystrix
+@EnableHystrixDashboard
 public class NseBoot {
 	
 	private static ConfigurableApplicationContext context;
 	private static Logger logger = LoggerFactory.getLogger(NseBoot.class);
 	
+	@PreDestroy
+	public void shutdown() {// killing HystrixThread
+		Schedulers.shutdown();
+	}
 	
 	/*begins Bean creation section*/
 	@Bean
@@ -83,6 +96,7 @@ public class NseBoot {
 
 	@GetMapping("/services")
 	@ResponseBody
+	@HystrixCommand(fallbackMethod = "homeServiceFailure", commandKey = "homeCK" , groupKey = "homeGK")
 	ServicesList home() {
 		ServicesList servicesObj = new ServicesList();
 		List<Services> services = new ArrayList<>();
@@ -96,6 +110,16 @@ public class NseBoot {
 		}
 		servicesObj.setService(services);
 		return servicesObj;
+		//throw new ResourceNotFoundException("System Error");
+	}
+	
+	ServicesList homeServiceFailure() {
+		ServicesList servicesObj = new ServicesList();
+		List<Services> services=new ArrayList<>();
+		services.add(new Services(0,"No Service Available"));
+		servicesObj.setService(services);
+		return servicesObj;
+		
 	}
 
 	

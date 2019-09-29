@@ -5,6 +5,14 @@ public class Services {
 	private Integer serviceID;
 	private String serviceURI;
 	
+	
+	public Services(Integer serviceID, String serviceURI) {
+		super();
+		this.serviceID = serviceID;
+		this.serviceURI = serviceURI;
+	}
+	public Services() {
+	}
 	public Integer getServiceID() {
 		return serviceID;
 	}

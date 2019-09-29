@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import nse.skbh.springboot.logic.GannRoadMap;
 import nse.skbh.springboot.logic.NiftyAndBankNiftySupportResistance;
@@ -37,6 +38,7 @@ import nse.skbh.springboot.pojo.RoadMapDataPoints;
 public class ArtificialIIntelligenceStrategies {
 	
 	@GetMapping("/bank_nifty_expiry_day_option_suggestion")
+	@HystrixCommand(fallbackMethod = "suggestionsService", commandKey = "suggestionsServiceCommand" , groupKey = "suggestionsService")
 	public ParentOptionSuggestion getbankNiftyOptionFinderExpiryDay() {
 		Map<String,String> map=Top20ContractsReader.bankNiftyOptionFinder();
 		ParentOptionSuggestion parentOptionSuggestion=new ParentOptionSuggestion();
@@ -51,6 +53,12 @@ public class ArtificialIIntelligenceStrategies {
 		}
 		parentOptionSuggestion.setData(data);
 		return parentOptionSuggestion;
+
+	}
+	
+	
+	public ParentOptionSuggestion suggestionsService() {
+		return new ParentOptionSuggestion();
 
 	}
 	

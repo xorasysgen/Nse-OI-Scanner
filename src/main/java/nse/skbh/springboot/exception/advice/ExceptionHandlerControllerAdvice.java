@@ -19,7 +19,7 @@ is equivalent to @ControllerAdvice(basePackages="org.my.pkg").
 public class ExceptionHandlerControllerAdvice {
 
 	@ExceptionHandler(ResourceNotFoundException.class)
-	@ResponseStatus(value=HttpStatus.FORBIDDEN)
+	@ResponseStatus(value=HttpStatus.GATEWAY_TIMEOUT)
 	public @ResponseBody ErrorMessage handleResourceNotFound(final ResourceNotFoundException exception,
 			final HttpServletRequest request) {
 
