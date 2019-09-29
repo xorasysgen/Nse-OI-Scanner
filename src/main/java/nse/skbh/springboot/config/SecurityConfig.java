@@ -22,13 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	private static final String[] permitted_url = {
-			"/*",
 			"/actuator/**",
 			"/proxy/**",
 			"/hystrix/**",
-			"/proxy.stream?origin=https%3A%2F%2Fjsr102.herokuapp.com%2Factuator%2Fhystrix.stream",
-			"/proxy.stream?origin=https%3A%2F%2Fjsr101.herokuapp.com%2Factuator%2Fhystrix.stream",
-			"/actuator/hystrix.stream",
 			"/v2/api-docs",
 			"/configuration/ui",
 			"/swagger-resources/**",
