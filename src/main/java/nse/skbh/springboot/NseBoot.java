@@ -7,6 +7,7 @@ import javax.annotation.PreDestroy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -59,9 +60,13 @@ public class NseBoot {
 	private static ConfigurableApplicationContext context;
 	private static Logger logger = LoggerFactory.getLogger(NseBoot.class);
 	
+	@Value("${spring.application.name}")
+	String appName;
+	
 	@PreDestroy
 	public void shutdown() {// killing HystrixThread
 		Schedulers.shutdown();
+		logger.trace("killing HystrixThread susscessfully...");
 	}
 	
 	/*begins Bean creation section*/
@@ -91,6 +96,7 @@ public class NseBoot {
 	@GetMapping("/")
 	@ResponseBody
 	ServerStatus root() {
+		logger.trace("home getting served" + appName);
 		return new ServerStatus();
 	}
 
@@ -109,6 +115,7 @@ public class NseBoot {
 			services.add(s);
 		}
 		servicesObj.setService(services);
+		logger.trace("Users getting services informations");
 		return servicesObj;
 		//throw new ResourceNotFoundException("System Error");
 	}
@@ -126,6 +133,7 @@ public class NseBoot {
 		
 	public static void main(String[] args) {
 		context =SpringApplication.run(NseBoot.class, args);
+		logger.trace(context.getApplicationName() + " has started successfully...");
 		// boot from here, run as simple java program, rest it will take care of
 		// it. config files
 
