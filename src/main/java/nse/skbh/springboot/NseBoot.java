@@ -60,8 +60,9 @@ public class NseBoot {
 	private static ConfigurableApplicationContext context;
 	private static Logger logger = LoggerFactory.getLogger(NseBoot.class);
 	
-	@Value("${spring.application.name}")
-	String appName;
+	/*
+	 * @Value("${spring.application.name}") String appName;
+	 */
 	
 	@PreDestroy
 	public void shutdown() {// killing HystrixThread
@@ -96,7 +97,8 @@ public class NseBoot {
 	@GetMapping("/")
 	@ResponseBody
 	ServerStatus root() {
-		logger.trace("home getting served" + appName);
+		logger.trace("home getting served");
+		//logger.trace("home getting served" + appName);
 		return new ServerStatus();
 	}
 
