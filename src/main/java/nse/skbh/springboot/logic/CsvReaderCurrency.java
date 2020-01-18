@@ -13,7 +13,7 @@ public class CsvReaderCurrency {
 	public USDINRCurrency getForthComingResultsFYFromNSEOnline() {
 		String expiryDate=new CsvReadertoGetExpiryDateCurrency().GetExpiryDateCurrency();
 		try {
-			String myUrl = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getCIDHistoricalData.jsp?underlying=USDINR&instrument=FUTCUR&expiry="+expiryDate+"&type=-&strike=0&fromDate=undefined&toDate=undefined&datePeriod=week&fileDnld=true";
+			String myUrl = "https://www1.nseindia.com/live_market/dynaContent/live_watch/get_quote/getCIDHistoricalData.jsp?underlying=USDINR&instrument=FUTCUR&expiry="+expiryDate+"&type=-&strike=0&fromDate=undefined&toDate=undefined&datePeriod=week&fileDnld=true";
 			//System.out.println(myUrl);
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
@@ -46,7 +46,7 @@ public class CsvReaderCurrency {
 			// create the HttpURLConnection
 			url = new URL(desiredUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36");
+			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
 

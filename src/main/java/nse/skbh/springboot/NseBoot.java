@@ -85,6 +85,14 @@ public class NseBoot {
 	}
 	
 	/************************* not in use ********************
+	
+	 @Bean
+	 public RestTemplateIssueResolver restTemplateIssueResolver(){ 
+	 	 return  new RestTemplateIssueResolver(); 
+	 }
+	************************* @Componeant uncomment when need ********************/
+	
+	/************************* not in use ********************
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();

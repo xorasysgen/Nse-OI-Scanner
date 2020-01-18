@@ -32,7 +32,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll derivative() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -77,7 +77,7 @@ public class OISpurts {
 	public ParentBankNiftyVolume showAllBankNiftyVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentBankNiftyVolume> response = restTemplate.getForEntity(
-				"https://www.nseindia.com//live_market/dynaContent/live_analysis/most_active/allBankNiftyVolume.json",
+				"https://www1.nseindia.com//live_market/dynaContent/live_analysis/most_active/allBankNiftyVolume.json",
 				ParentBankNiftyVolume.class);
 		ParentBankNiftyVolume parentBankNiftyVolume = response.getBody();
 		return parentBankNiftyVolume;
@@ -88,7 +88,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowCallsALLVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -99,7 +99,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowCallsNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsNIFTYVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -110,7 +110,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowCallsBANKNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsBANKNIFTYVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsBANKNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -121,7 +121,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowCallsOPTSTocKVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsOPTSTKVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/CallsOPTSTKVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -134,7 +134,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowPutsALLVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsALLVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsALLVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -145,7 +145,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowPutsNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsNIFTYVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -156,7 +156,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowPutsBANKNIFTYVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsBANKNIFTYVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsBANKNIFTYVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -167,7 +167,7 @@ public class OISpurts {
 	public ParentMostActiveCallPutAll ShowPutsOPTSTocKVolume() {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<ParentMostActiveCallPutAll> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsOPTSTKVolume.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/PutsOPTSTKVolume.json",
 				ParentMostActiveCallPutAll.class);
 		ParentMostActiveCallPutAll parentMostActiveCallPutAll = response.getBody();
 		return parentMostActiveCallPutAll;
@@ -184,11 +184,11 @@ public class OISpurts {
 				return new ParentBankNiftyFuture();
 			}
 			if(id.equalsIgnoreCase("BANKNIFTY") || id.equalsIgnoreCase("NIFTY")) {
-				url="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" + 
+				url="https://www1.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" + 
 						"underlying="+id+"&instrument="+indexFuture+"&type=-&strike=-&expiry=";
 			}
 			else {
-			url="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" +
+			url="https://www1.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?" +
 					"underlying="+id+"&instrument="+stockFuture + "&type=-&strike=-&expiry=";
 			}
 			ParentBankNiftyFuture allFutureStockData=BankNiftyFutureOIReader.getAllFutureStockReaderNSE(url);

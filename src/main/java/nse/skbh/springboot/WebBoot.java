@@ -6,12 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.jsoup.Connection.Response;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -66,13 +67,21 @@ public class WebBoot {
 	@Autowired
 	RestTemplateProvider restTemplateProvider;
 	
+	@Autowired
+	RestTemplateIssueResolver restTemplateIssueResolver;
+	
 	@GetMapping("/mkt_open_status")
 	@HystrixCommand(fallbackMethod = "mktOpenStatus", commandKey = "mktOpenStatus" , groupKey = "mktStatus")
 	public String smeNormalMktStatus() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		/*RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity("https://nseindia.com/emerge/homepage/smeNormalMktStatus.json", String.class);
 		String string = response.getBody();
+		*/
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://nseindia.com/emerge/homepage/smeNormalMktStatus.json");
+
+		String string=new Gson().fromJson(result.toString(),String.class);
+		
 		return string;
 
 	}
@@ -84,10 +93,15 @@ public class WebBoot {
 	@GetMapping("/next_trading_date")
 	@HystrixCommand(fallbackMethod = "nextTradingDate", commandKey = "nextTradingDate" , groupKey = "nextTrading")
 	public String getNextTradingDate() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<String> response = restTemplate
-				.getForEntity("https://www.nseindia.com/homeNextDate.htm", String.class);
-		String string = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<String> response = restTemplate
+		 * .getForEntity("https://www1.nseindia.com/homeNextDate.htm", String.class);
+		 * String string = response.getBody();
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/homeNextDate.htm");
+		String string=new Gson().fromJson(result.toString(),String.class);
 		return string;
 
 	}
@@ -192,22 +206,32 @@ public class WebBoot {
 
 	@GetMapping("/future_stocks_spike_volume")
 	public ParentStocksFutures futOPTSTK() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKVolume.json",
-				ParentStocksFutures.class);
-		ParentStocksFutures string = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKVolume.json",
+		 * ParentStocksFutures.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKVolume.json");
+
+		ParentStocksFutures string = new Gson().fromJson(result.toString(),ParentStocksFutures.class);
 		return string;
 
 	}
 
 	@GetMapping("/future_stocks_spike_value")
 	public ParentStocksFutures futOPTSTKValue() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKValue.json",
-				ParentStocksFutures.class);
-		ParentStocksFutures string = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentStocksFutures> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKValue.json",
+		 * ParentStocksFutures.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKValue.json");
+
+		ParentStocksFutures string = new Gson().fromJson(result.toString(),ParentStocksFutures.class);
 		return string;
 
 	}
@@ -255,114 +279,167 @@ public class WebBoot {
 
 	@GetMapping("/top_gainer")
 	public GainerLosser topGainer() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json",
-				GainerLosser.class);
-		GainerLosser gainerLosser = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json",
+		 * GainerLosser.class);
+		 */
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json");
+		GainerLosser gainerLosser = new Gson().fromJson(result.toString(),GainerLosser.class);
 		return gainerLosser;
 	}
 
 	@GetMapping("/top_looser")
 	public GainerLosser topLosser() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/losers/niftyLosers1.json",
-				GainerLosser.class);
-		GainerLosser gainerLosser = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<GainerLosser> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/losers/niftyLosers1.json",
+		 * GainerLosser.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/losers/niftyLosers1.json");
+		GainerLosser gainerLosser = new Gson().fromJson(result.toString(),GainerLosser.class);
 		return gainerLosser;
 	}
 
 	@GetMapping("/oi_spurts")
 	public ParentOIChangeData topPositiveOIChangeData() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentOIChangeData> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/topPositiveOIChangeData.json",
-				ParentOIChangeData.class);
-		ParentOIChangeData parentOIChangeData = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate()
+		 * ResponseEntity<ParentOIChangeData> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/topPositiveOIChangeData.json",
+		 * ParentOIChangeData.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/topPositiveOIChangeData.json");
+		ParentOIChangeData parentOIChangeData = new Gson().fromJson(result.toString(),ParentOIChangeData.class);
 		return parentOIChangeData;
 	}
 
 	@GetMapping("/oi_spurts_rise_oi_rise_price")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInOpenInterestRiseInPrice() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceRiseInOI.json",
-				ParentRiseInOpenInterestRiseInPrice.class);
-		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response =
+		 * restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceRiseInOI.json",
+		 * ParentRiseInOpenInterestRiseInPrice.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceRiseInOI.json");
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = new Gson().fromJson(result.toString(),ParentRiseInOpenInterestRiseInPrice.class);
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
 	@GetMapping("/oi_spurts_slide_in_price_rise_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceRiseInOI() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceRiseInOI.json",
-				ParentRiseInOpenInterestRiseInPrice.class);
-		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response =
+		 * restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceRiseInOI.json",
+		 * ParentRiseInOpenInterestRiseInPrice.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceRiseInOI.json");
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = new Gson().fromJson(result.toString(),ParentRiseInOpenInterestRiseInPrice.class);
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
 	@GetMapping("/oi_spurts_rise_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topRiseInPriceSlideInOI() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceSlideInOI.json",
-				ParentRiseInOpenInterestRiseInPrice.class);
-		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response =
+		 * restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceSlideInOI.json",
+		 * ParentRiseInOpenInterestRiseInPrice.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/riseInPriceSlideInOI.json");
+		
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = new Gson().fromJson(result.toString(),ParentRiseInOpenInterestRiseInPrice.class);
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
 	@GetMapping("/oi_spurts_slide_in_price_slide_in_oi")
 	public ParentRiseInOpenInterestRiseInPrice topSlideInPriceSlideInOI() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceSlideInOI.json",
-				ParentRiseInOpenInterestRiseInPrice.class);
-		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentRiseInOpenInterestRiseInPrice> response =
+		 * restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceSlideInOI.json",
+		 * ParentRiseInOpenInterestRiseInPrice.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/slideInPriceSlideInOI.json");
+
+		ParentRiseInOpenInterestRiseInPrice parentRiseInOpenInterestRiseInPrice = new Gson().fromJson(result.toString(),ParentRiseInOpenInterestRiseInPrice.class);
 		return parentRiseInOpenInterestRiseInPrice;
 	}
 
 	@GetMapping("/fo_stocks")
 	public ParentFOSecStockWatchData foSecStockWatch() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentFOSecStockWatchData> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json",
-				ParentFOSecStockWatchData.class);
-		ParentFOSecStockWatchData parentFOSecStockWatchData = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentFOSecStockWatchData> response =
+		 * restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json",
+		 * ParentFOSecStockWatchData.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/foSecStockWatch.json");
+		ParentFOSecStockWatchData parentFOSecStockWatchData = 	new Gson().fromJson(result.toString(),ParentFOSecStockWatchData.class);
 		return parentFOSecStockWatchData;
 	}
 
 	@GetMapping("/most_active_volume")
 	public ParentMostActive mostActiveSecuritiesByVolume() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopVolume1.json",
-				ParentMostActive.class);
-		ParentMostActive parentMostActive = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopVolume1.json",
+		 * ParentMostActive.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopVolume1.json");
+		ParentMostActive parentMostActive = new Gson().fromJson(result.toString(),ParentMostActive.class);
+		
 		return parentMostActive;
 	}
 
 	
 	@GetMapping("/most_active_value")
 	public ParentMostActive mostActiveSecuritiesByValue() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopValue1.json",
-				ParentMostActive.class);
-		ParentMostActive parentMostActive = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentMostActive> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopValue1.json",
+		 * ParentMostActive.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/allTopValue1.json");
+		ParentMostActive parentMostActive = new Gson().fromJson(result.toString(),ParentMostActive.class);
 		return parentMostActive;
 	}
 
 	@GetMapping("/most_active_securities_market_capitalisation")
 	public ParentMarketCapitalisation MostActiveSecuritiesMarketCapitalisationReader() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity(
-				"https://nseindia.com/products/dynaContent/equities/equities/json/mostActiveYearly.json",
-				String.class);
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<String> response = restTemplate.getForEntity(
+		 * "https://nseindia.com/products/dynaContent/equities/equities/json/mostActiveYearly.json",
+		 * String.class);
+		 */
 		
-		if (response.getBody() != null) {
-			ParentMarketCapitalisation marketCapitalisation  = new Gson().fromJson(response.getBody().toString(),
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://nseindia.com/products/dynaContent/equities/equities/json/mostActiveYearly.json");
+
+		String response=new Gson().fromJson(result.toString(),String.class);
+		
+		if (response != null) {
+			ParentMarketCapitalisation marketCapitalisation  = new Gson().fromJson(response.toString(),
 					ParentMarketCapitalisation.class);
 			List<MarketCapitalisation> data=marketCapitalisation.getData();
 			for (MarketCapitalisation marketCapitalisation2 : data) {
@@ -376,19 +453,26 @@ public class WebBoot {
 	
 	@GetMapping("/indices")
 	public ParentIndices allIndices() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentIndices> response = restTemplate
-				.getForEntity("https://www.nseindia.com/homepage/Indices1.json", ParentIndices.class);
-		ParentIndices indices = response.getBody();
+		//RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/homepage/Indices1.json");
+		/*ResponseEntity<ParentIndices> response = restTemplate
+				.getForEntity("https://www1.nseindia.com/homepage/Indices1.json", ParentIndices.class);*/
+		
+		ParentIndices indices = new Gson().fromJson(result, ParentIndices.class);
 		return indices;
 	}
 	
 	@GetMapping("/all_nifty_indices")
 	public ParentsNiftyIndices allNiftyIndices() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentsNiftyIndices> response = restTemplate
-				.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json", ParentsNiftyIndices.class);
-		ParentsNiftyIndices indices = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentsNiftyIndices> response = restTemplate .getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json",
+		 * ParentsNiftyIndices.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/liveIndexWatchData.json");
+		ParentsNiftyIndices indices = new Gson().fromJson(result, ParentsNiftyIndices.class);
 		return indices;
 	}
 	
@@ -397,21 +481,29 @@ public class WebBoot {
 
 	@GetMapping("/advances_declines")
 	public ParentAdvanceDecline AdvancesDeclines() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentAdvanceDecline> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/changePercentage.json",
-				ParentAdvanceDecline.class);
-		ParentAdvanceDecline parentAdvanceDecline = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentAdvanceDecline> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/changePercentage.json",
+		 * ParentAdvanceDecline.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/changePercentage.json");
+		ParentAdvanceDecline parentAdvanceDecline =  new Gson().fromJson(result, ParentAdvanceDecline.class);
 		return parentAdvanceDecline;
 	}
 
 	@GetMapping("/advances_declines_nifty")
 	public ParentIndicesData AdvancesDeclinesNifty() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
-				ParentIndicesData.class);
-		ParentIndicesData parentIndicesData = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+		 * ParentIndicesData.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json");
+		ParentIndicesData parentIndicesData =  new Gson().fromJson(result, ParentIndicesData.class);
 		return parentIndicesData;
 	}
 	
@@ -419,11 +511,15 @@ public class WebBoot {
 	@GetMapping("/nifty_top_10_weightage_holdings")
 	public ParentIndicesData getNifty10Holdings() {
 	Map<String,String> map=new HoldingFinderService().getTempCalulationNIFTY50Top10HoldingsDateFile();
-	RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-	ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
-			"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
-			ParentIndicesData.class);
-	ParentIndicesData parentIndicesData = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+		 * ParentIndicesData.class);
+		 */
+	
+	String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json");
+	ParentIndicesData parentIndicesData = new Gson().fromJson(result, ParentIndicesData.class);
 	List<IndicesData> data=parentIndicesData.getData();
 	if(map!=null) {
 	List<IndicesData> newData=new ArrayList<IndicesData>();
@@ -448,11 +544,15 @@ public class WebBoot {
 
 	@GetMapping("/advances_declines_bank_nifty")
 	public ParentIndicesData AdvancesDeclinesBankNifty() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json",
-				ParentIndicesData.class);
-		ParentIndicesData parentIndicesData = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json",
+		 * ParentIndicesData.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/bankNiftyStockWatch.json");
+		ParentIndicesData parentIndicesData =  new Gson().fromJson(result, ParentIndicesData.class);
 		List<IndicesData> data = parentIndicesData.getData();
 		for (IndicesData indicesData : data) {
 			List<String> list=ArtificialIIntelligenceStrategies.calculateOHLBuySell(indicesData.getOpen(), indicesData.getHigh(), indicesData.getLow(), indicesData.getLtP(), indicesData.getPreviousClose());
@@ -525,22 +625,32 @@ public class WebBoot {
 
 	@GetMapping("/volume_gainers")
 	public ParentVolumeGainer25 volumeGainers() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<ParentVolumeGainer25> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/volume_spurts/volume_spurts.json",
-				ParentVolumeGainer25.class);
-		ParentVolumeGainer25 parentVolumeGainer25 = response.getBody();
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<ParentVolumeGainer25> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/volume_spurts/volume_spurts.json",
+		 * ParentVolumeGainer25.class);
+		 */
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/volume_spurts/volume_spurts.json");
+		
+		ParentVolumeGainer25 parentVolumeGainer25 = new Gson().fromJson(result, ParentVolumeGainer25.class);
 		return parentVolumeGainer25;
 	}
 
 	@GetMapping("/most_active_intraday")
 	public ParentMostActiveUnderlying mostActiveUnderlying() {
-		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_analysis/underlyings/ActiveUnderlyingsValue.json",
-				String.class);
-		if (response.getBody() != null) {
-			ParentMostActiveUnderlying parentMostActiveUnderlying = new Gson().fromJson(response.getBody().toString(),
+		/*
+		 * RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
+		 * ResponseEntity<String> response = restTemplate.getForEntity(
+		 * "https://www1.nseindia.com/live_market/dynaContent/live_analysis/underlyings/ActiveUnderlyingsValue.json",
+		 * String.class);
+		 */
+		
+		
+		String result=restTemplateIssueResolver.CommonHttpDataFetcher("https://www1.nseindia.com/live_market/dynaContent/live_analysis/underlyings/ActiveUnderlyingsValue.json");
+		if (result != null) {
+			ParentMostActiveUnderlying parentMostActiveUnderlying = new Gson().fromJson(result.toString(),
 					ParentMostActiveUnderlying.class);
 			return parentMostActiveUnderlying;
 		}
@@ -568,6 +678,45 @@ public class WebBoot {
 		return BankNiftyFutureOIReader.getBankNiftyFutureOIReader();
 	}
 
+	
+	
+	/*
+	 * public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
+	 * ClientHttpRequestInterceptor interceptor = (request, body, execution) -> {
+	 * request.getHeaders().add("user-agent", "spring"); return
+	 * execution.execute(request, body); }; return
+	 * restTemplateBuilder.additionalInterceptors(interceptor).build(); }
+	 */
+	public static void main(String[] args) {
+		
+
+			
+			Document doc = null;
+			try {
+				Response response= Jsoup.connect("https://www1.nseindia.com/live_market/dynaContent/live_analysis/most_active/FutOPTSTKVolume.json")
+					       .ignoreContentType(true)
+					       .userAgent("Mozilla/5.0")  
+					       .referrer("https://www1.nseindia.com")   
+					       .timeout(15_000) 
+					       .followRedirects(true)
+					       .execute();
+					// TODO: verify Response status code here!
+					 doc = response.parse();
+				
+					 
+				String jsonCont=doc.text();
+				
+				System.out.println(jsonCont);
+				ParentStocksFutures parentBankNiftyFuture=new Gson().fromJson(jsonCont, ParentStocksFutures.class);
+				System.out.println(parentBankNiftyFuture);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+
+	
+	}
 	
 	
 }

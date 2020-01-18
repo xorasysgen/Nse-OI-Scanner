@@ -13,10 +13,10 @@ public class CurrencyContracts {
 	
 	
 	public static List<String> getCurrencyContractsExpiryDates() {
-		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp";
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp";
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").get();
 			Elements content = doc.getElementsByClass("goodTextBox");
 			if(content!=null && content.size()>1) {
 			List<String> list=content.eachText();

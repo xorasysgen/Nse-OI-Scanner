@@ -15,7 +15,7 @@ public class CsvReader {
 
 	public ParentDeliveryBhavData getBhavCopyFromNSEOnline() {
 		try {
-			String myUrl = "https://www.nseindia.com/products/content/sec_bhavdata_full.csv";
+			String myUrl = "https://www1.nseindia.com/products/content/sec_bhavdata_full.csv";
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
@@ -50,7 +50,7 @@ public class CsvReader {
 
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36");
+			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 

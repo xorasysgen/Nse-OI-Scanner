@@ -42,7 +42,7 @@ public class ReadURIback {
 
 	public static List<Nse> unpackArchive() throws IOException {
 		String date = Utils.getYesterdayDateString();
-		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
+		String ftpUrl = "https://www1.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = date.replaceAll("-", "") + ".zip";
 		URL url = null;
 		url = new URL(ftpUrl);

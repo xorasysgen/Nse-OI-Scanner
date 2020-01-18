@@ -42,8 +42,8 @@ public class ReadURI {
 	public static List<Nse> unpackArchive() throws IOException {
 		String date = Utils.getDateToIgnoreWeekEndCloseOpenInterest();
 		System.out.println(date);
-		String hitAndTrialURL="https://www.nseindia.com/archives/nsccl/mwpl/";
-		String ftpUrl = "https://www.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
+		String hitAndTrialURL="https://www1.nseindia.com/archives/nsccl/mwpl/";
+		String ftpUrl = "https://www1.nseindia.com/archives/nsccl/mwpl/nseoi_" + date.replaceAll("-", "") + ".zip";
 		String file_name = "nseoi_" + date.replaceAll("-", "") + ".zip";
 		System.out.println("ftpUrl" + ftpUrl);
 		URL url = null;

@@ -12,7 +12,7 @@ import nse.skbh.springboot.pojo.ParentBankNiftyFuture;
 
 
 public class BankNiftyFutureOIReader {
-	
+
 	
 	public static ParentBankNiftyFuture getNiftyFutureOIReader() {
 		String expiryMonth=LastThursdayOfEveryMonth.getNextExpiryOfEveryMonth().get(0);
@@ -22,7 +22,7 @@ public class BankNiftyFutureOIReader {
 		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=FUTIDX&type=-&strike=-&expiry="+expiryMonth;
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(20*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(20*1000).get();
 			Element content = doc.getElementById("responseDiv");
 			String jsonCont=content.html();
 			//System.out.println(jsonCont);
@@ -46,7 +46,7 @@ public class BankNiftyFutureOIReader {
 		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=BANKNIFTY&instrument=FUTIDX&type=-&strike=-&expiry="+expiryMonth;
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(20*1000).get();
 			Element content = doc.getElementById("responseDiv");
 			String jsonCont=content.html();
 			//System.out.println(jsonCont);
@@ -72,7 +72,7 @@ public class BankNiftyFutureOIReader {
 		url = url+expiryMonth;
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(20*1000).get();
 			Element content = doc.getElementById("responseDiv");
 			String jsonCont=content.html();
 			//System.out.println(jsonCont);

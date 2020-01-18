@@ -27,7 +27,7 @@ public class NiftyAndBankNiftySupportResistance {
 		DataPoints dataPoints=new DataPoints();
 		HashMap<String,Float> map=new HashMap<String,Float>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 				Element ltdElement = doc.getElementById("last_last");
 				String ltp=ltdElement.html();
 				ltp=ltp.replaceAll(",", "");

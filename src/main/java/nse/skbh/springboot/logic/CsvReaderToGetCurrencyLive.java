@@ -12,7 +12,7 @@ public class CsvReaderToGetCurrencyLive {
 
 	public CurrencyFutureLive getCsvReaderToGetCurrencyLive() {
 		try {
-			String myUrl = "https://www.nseindia.com/marketinfo/fxTracker/priceWatchData.jsp?instrument=FUTCUR&currency=USDINR";
+			String myUrl = "https://www1.nseindia.com/marketinfo/fxTracker/priceWatchData.jsp?instrument=FUTCUR&currency=USDINR";
 			CurrencyFutureLive results = doHttpUrlConnectionAction(myUrl);
 			return results;
 		} catch (Exception e) {
@@ -41,9 +41,10 @@ public class CsvReaderToGetCurrencyLive {
 			url = new URL(desiredUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36");
+
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 
@@ -52,6 +53,7 @@ public class CsvReaderToGetCurrencyLive {
 			connection.connect();
 
 			// read the output from the server
+			
 			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String parentsString = new String();
 			String line = null;

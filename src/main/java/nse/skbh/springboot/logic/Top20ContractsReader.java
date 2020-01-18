@@ -37,12 +37,12 @@ public class Top20ContractsReader {
 
 	@SuppressWarnings("unused")
 	public static ParentTop20Contract getTop20ContractsNSE() {
-		String url = "https://nseindia.com/live_market/dynaContent/live_watch/fomktwtch_top20Contrct.htm";
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/fomktwtch_top20Contrct.htm";
 		Document doc = null;
 		ParentTop20Contract parentTop20Contract=new ParentTop20Contract();
 		List<Top20Contract> data=new ArrayList<Top20Contract>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").get();
 			Element content = doc.getElementById("myTable");
 			/*System.out.println(content.getAllElements().size());*/
 	

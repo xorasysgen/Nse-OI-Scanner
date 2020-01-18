@@ -16,12 +16,12 @@ public class Nifty50Options {
 
 	@SuppressWarnings("unused")
 	public static ParentTop20Contract getNifty50OOptionsContractsNSE() {
-		String url = "https://nseindia.com/live_market/dynaContent/live_watch/fomktwtch_OPTIDXNIFTY.htm";
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/fomktwtch_OPTIDXNIFTY.htm";
 		Document doc = null;
 		ParentTop20Contract parentTop20Contract=new ParentTop20Contract();
 		List<Top20Contract> data=new ArrayList<Top20Contract>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 			Element content = doc.getElementById("myTable");
 			/*System.out.println(content.getAllElements().size());*/
 	

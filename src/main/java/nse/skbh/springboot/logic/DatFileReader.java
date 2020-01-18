@@ -19,7 +19,7 @@ public class DatFileReader {
 		System.out.println("fileName" + fileName);
 
 		try {
-			String myUrl = "https://www.nseindia.com/archives/nsccl/var/" + fileName;
+			String myUrl = "https://www1.nseindia.com/archives/nsccl/var/" + fileName;
 			//System.out.println(myUrl);
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
@@ -54,7 +54,7 @@ public class DatFileReader {
 			// create the HttpURLConnection
 			url = new URL(desiredUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36");
+			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
 

@@ -23,7 +23,7 @@ public class HtmlReaderindices {
 		ParentWorldFutureIndex parentWorldFutureIndex=new ParentWorldFutureIndex();
 		List<WorldFutureIndex> data=new LinkedList<WorldFutureIndex>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(20*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(20*1000).get();
 			@SuppressWarnings("unused")
 			Element content = doc.getElementById("cross_rate_1");
 			//System.out.println(content.getAllElements().size());

@@ -30,7 +30,7 @@ public class HoldingFinderService {
 	public ParentsHoldings getNIFTY50Top10HoldingsDateFile() {
 		String dateForFile=Utils.getNIFTY50Top10HoldingsDateFormatddMMyy();
 		try {
-			String myUrl = "https://www.nseindia.com/content/indices/top10nifty50_" + dateForFile +".csv";
+			String myUrl = "https://www1.nseindia.com/content/indices/top10nifty50_" + dateForFile +".csv";
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
@@ -62,7 +62,7 @@ public class HoldingFinderService {
 			// create the HttpURLConnection
 			url = new URL(desiredUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36");
+			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
 
@@ -114,7 +114,7 @@ public class HoldingFinderService {
 	public Map<String,String> getTempCalulationNIFTY50Top10HoldingsDateFile() {
 		String dateForFile=Utils.getNIFTY50Top10HoldingsDateFormatddMMyy();
 		try {
-			String myUrl = "https://www.nseindia.com/content/indices/top10nifty50_" + dateForFile +".csv";
+			String myUrl = "https://www1.nseindia.com/content/indices/top10nifty50_" + dateForFile +".csv";
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
@@ -193,8 +193,11 @@ public class HoldingFinderService {
 		Map<String,String> map=new HoldingFinderService().getTempCalulationNIFTY50Top10HoldingsDateFile();
 		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
 		ResponseEntity<ParentIndicesData> response = restTemplate.getForEntity(
-				"https://www.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
+				"https://www1.nseindia.com/live_market/dynaContent/live_watch/stock_watch/niftyStockWatch.json",
 				ParentIndicesData.class);
+		
+		
+		
 		ParentIndicesData parentIndicesData = response.getBody();
 		List<IndicesData> data=parentIndicesData.getData();
 		List<IndicesData> newData=new ArrayList<IndicesData>();

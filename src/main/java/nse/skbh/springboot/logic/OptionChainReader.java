@@ -21,12 +21,12 @@ import nse.skbh.springboot.pojo.PcrDetail;
 public class OptionChainReader {
 
 	public static ParentsOI getNiftyOptionChain() {
-		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol=NIFTY&instrument=-&date=-";
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol=NIFTY&instrument=-&date=-";
 		Document doc = null;
 		ParentsOI parentsOI=new ParentsOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 						for (int i = 2; i < row.size()-1; i++) { // set 2 to start from default
@@ -70,10 +70,10 @@ public class OptionChainReader {
 	}
 	
 	public static Pcr getOptionDataPCR() {
-		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol=NIFTY&instrument=-&date=-";
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol=NIFTY&instrument=-&date=-";
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").get();
 			Elements content = doc.getElementsByClass("nobg");
 			if (content != null && content.size() > 0) {
 				Integer lastIndex = content.size() - 1;
@@ -117,7 +117,7 @@ public class OptionChainReader {
 		String thirdMonth=listOfDate.get(2);
 		
 		List<PcrDetail> pcrList=new LinkedList<PcrDetail>();
-		String url1 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" +firstMonth;
+		String url1 = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" +firstMonth;
 		Document doc = null;
 		try {
 			doc = Jsoup.connect(url1).get();
@@ -156,7 +156,7 @@ public class OptionChainReader {
 		}
 		
 		
-		String url2 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date="+secondMonth;
+		String url2 = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date="+secondMonth;
 		try {
 			doc = Jsoup.connect(url2).get();
 			Elements content = doc.getElementsByClass("nobg");
@@ -194,7 +194,7 @@ public class OptionChainReader {
 		}
 		
 		
-		String url3 = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" + thirdMonth;
+		String url3 = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=" + thirdMonth;
 		try {
 			doc = Jsoup.connect(url3).get();
 			Elements content = doc.getElementsByClass("nobg");
@@ -264,13 +264,13 @@ public class OptionChainReader {
 	
 	
 	public static ParentsStocksOI getStockOptionChain(String name) {
-		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=&symbol="
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=&symbol="
 				+name + "&symbol="+name+"&instrument=-&date=-&segmentLink=17&symbolCount=2&segmentLink=17";
 		Document doc = null;
 		ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 				int i=3;
@@ -352,13 +352,13 @@ public class OptionChainReader {
 	
 	public static ParentsStocksOI getNiftyWeeklyOptionChain(String date) {
 		//https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=14FEB2019
-		String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?"
+		String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?"
 				+ "segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date="+date;
 		Document doc = null;
 		ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 		List<OI> data=new ArrayList<OI>();
 		try {
-			doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+			doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 			for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 				Elements row = table.select("tr");
 				int i=3;
@@ -442,13 +442,13 @@ public class OptionChainReader {
 
 	public static ParentsStocksOI getBankNiftyWeeklyOptionChain(String date) {
 		//https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?segmentLink=17&instrument=OPTIDX&symbol=NIFTY&date=14FEB2019
-				String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?"
+				String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?"
 						+ "segmentLink=17&instrument=OPTIDX&symbol=BANKNIFTY&date="+date;
 				Document doc = null;
 				ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 				List<OI> data=new ArrayList<OI>();
 				try {
-					doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+					doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 					for (Element table : doc.select("table")) { //this will work if your doc contains only one table element
 						Elements row = table.select("tr");
 						int i=3;
@@ -529,13 +529,13 @@ public class OptionChainReader {
 	
 	public static ParentsStocksOI getCurrencyWeeklyOptionChain(String date) {
 		//https://www.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp?symbol=USDINR&instrument=OPTCUR&expiryDt=15FEB2019
-				String url = "https://www.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp?"
+				String url = "https://www1.nseindia.com/live_market/dynaContent/live_watch/fxTracker/optChainDataByExpDates.jsp?"
 						+ "symbol=USDINR&instrument=OPTCUR&expiryDt="+date;
 				Document doc = null;
 				ParentsStocksOI parentsStocksOI=new ParentsStocksOI();
 				List<OI> data=new ArrayList<OI>();
 				try {
-					doc = Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.38 Safari/537.36").timeout(10*1000).get();
+					doc = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(10*1000).get();
 					for (Element table : doc.select("table#octable")) { //this will work if your doc contains only one table element
 						Elements row = table.select("tr");
 						//System.out.println(row.size());

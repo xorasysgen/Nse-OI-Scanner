@@ -17,7 +17,7 @@ public class CsvReaderForthComingDividend {
 	public ForthComingDividend getForthComingDividendFromNSEOnline() {
 		try {
 			//String myUrl = "https://www.nseindia.com/corporates/datafiles/CA_ALL_FORTHCOMING_DIVIDEND.csv";
-			String myUrl = "https://www.nseindia.com/corporates/datafiles/CA_ALL_FORTHCOMING.csv";
+			String myUrl = "https://www1.nseindia.com/corporates/datafiles/CA_ALL_FORTHCOMING.csv";
 			// if your url can contain weird characters you will want to
 			// encode it here, something like this:
 			// myUrl = URLEncoder.encode(myUrl, "UTF-8");
