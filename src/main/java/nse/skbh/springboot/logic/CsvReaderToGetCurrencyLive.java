@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.CurrencyFutureLive;
 
 public class CsvReaderToGetCurrencyLive {
-
 	public CurrencyFutureLive getCsvReaderToGetCurrencyLive() {
 		try {
 			String myUrl = "https://www1.nseindia.com/marketinfo/fxTracker/priceWatchData.jsp?instrument=FUTCUR&currency=USDINR";
@@ -35,33 +35,47 @@ public class CsvReaderToGetCurrencyLive {
 	private CurrencyFutureLive doHttpUrlConnectionAction(String desiredUrl) throws Exception {
 		URL url = null;
 		BufferedReader reader = null;
-
+		HttpURLConnection connection=null;
 		try {
 			// create the HttpURLConnection
 			url = new URL(desiredUrl);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			 connection = (HttpURLConnection) url.openConnection();
 
 
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
+			
+			
+
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
+			
 
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 
 			// give it 15 seconds to respond
-			connection.setReadTimeout(15 * 1000);
+			connection.setReadTimeout(30 * 1000);
 			connection.connect();
 
 			// read the output from the server
-			
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));
 			String parentsString = new String();
 			String line = null;
 			CurrencyFutureLive currencyFutureLive=new CurrencyFutureLive();
 			while ((line = reader.readLine()) != null) {
-					if(line.length()>1) {
+				if(line!=null && !line.isEmpty()) {
+				break;
+				}
+			}
+				//System.out.println("line" + line);
+					if(line.length()>0) {
 						parentsString=line.split("~")[0];
-						//System.out.println(parentsString);
+						//System.out.println("parent " + parentsString);
 						currencyFutureLive.setExpiryDate(parentsString.split(":")[3]);
 						currencyFutureLive.setLtp(parentsString.split(":")[10]);
 						currencyFutureLive.setChange(parentsString.split(":")[15]);
@@ -69,13 +83,16 @@ public class CsvReaderToGetCurrencyLive {
 						currencyFutureLive.setTodayDate(parentsString.split(":")[17]);
 						
 					}
-				}
+				
 			return currencyFutureLive;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new CurrencyFutureLive();
 
 		} finally {
+			if(connection!=null) {
+			     connection.disconnect();
+			}
 			// close the reader; this can throw an exception too, so
 			// wrap it in another try/catch block.
 			if (reader != null) {
@@ -89,4 +106,11 @@ public class CsvReaderToGetCurrencyLive {
 	}
 	
 	
+	/*
+	 * public static void main(String[] args) { try { String myUrl =
+	 * "https://www1.nseindia.com/marketinfo/fxTracker/priceWatchData.jsp?instrument=FUTCUR&currency=USDINR";
+	 * CurrencyFutureLive results = new
+	 * CsvReaderToGetCurrencyLive().doHttpUrlConnectionAction(myUrl);
+	 * System.out.println(results); } catch (Exception e) { return ; } }
+	 */
 }

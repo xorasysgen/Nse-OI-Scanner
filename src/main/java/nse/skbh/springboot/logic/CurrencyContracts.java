@@ -8,6 +8,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import com.google.gson.Gson;
+
 
 public class CurrencyContracts {
 	
@@ -42,7 +44,7 @@ public class CurrencyContracts {
 	
 	
 		
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println(new Gson().toJson(CurrencyContracts.getCurrencyContractsExpiryDates()));
-	}*/
+	}
 }

@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.ForthComingResultsFY;
 import nse.skbh.springboot.pojo.ParentsForthComingResultsFY;
@@ -50,16 +51,22 @@ public class CsvReaderResultsForthComingFY {
 
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
 
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 
 			// give it 15 seconds to respond
-			connection.setReadTimeout(15 * 1000);
+			connection.setReadTimeout(30 * 1000);
 			connection.connect();
 
 			// read the output from the server
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));
 			ParentsForthComingResultsFY parentsParentsForthComingResultsFY = new ParentsForthComingResultsFY();
 			List<ForthComingResultsFY> data = new LinkedList<ForthComingResultsFY>();
 			String line = null;

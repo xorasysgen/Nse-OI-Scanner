@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.DeliveryBhavData;
 import nse.skbh.springboot.pojo.ParentDeliveryBhavData;
@@ -50,7 +51,12 @@ public class CsvReader {
 
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
+
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 
@@ -59,7 +65,8 @@ public class CsvReader {
 			connection.connect();
 
 			// read the output from the server
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));
 			ParentDeliveryBhavData parentDeliveryBhavData = new ParentDeliveryBhavData();
 			List<DeliveryBhavData> data = new LinkedList<DeliveryBhavData>();
 			String line = null;

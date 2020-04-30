@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.ForthComingDividend;
 import nse.skbh.springboot.pojo.ForthComingDividendRows;
@@ -52,6 +52,11 @@ public class CsvReaderForthComingDividend {
 
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
 
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
@@ -61,7 +66,8 @@ public class CsvReaderForthComingDividend {
 			connection.connect();
 
 			// read the output from the server
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));			
 			ForthComingDividend parentsForthComingDividend = new ForthComingDividend();
 			List<ForthComingDividendRows> data = new LinkedList<ForthComingDividendRows>();
 			String line = null;

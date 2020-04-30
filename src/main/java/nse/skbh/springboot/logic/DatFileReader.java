@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.ParentSecurityVaR;
 import nse.skbh.springboot.pojo.SecurityVaR;
@@ -54,7 +55,13 @@ public class DatFileReader {
 			// create the HttpURLConnection
 			url = new URL(desiredUrl);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.addRequestProperty("User-Agent", "Mozilla/5.0");
+
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
+			
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
 
@@ -66,7 +73,8 @@ public class DatFileReader {
 			connection.connect();
 
 			// read the output from the server
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));
 			ParentSecurityVaR parentSecurityVaR = new ParentSecurityVaR();
 			List<SecurityVaR> data = new LinkedList<SecurityVaR>();
 			String line = null;

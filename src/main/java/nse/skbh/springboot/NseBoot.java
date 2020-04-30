@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -24,6 +26,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import nse.skbh.springboot.config.addon.ContextClosedEventHandler;
+import nse.skbh.springboot.exception.entity.CommonException;
 import nse.skbh.springboot.logic.RestTemplateProvider;
 import nse.skbh.springboot.pojo.ServerStatus;
 import nse.skbh.springboot.pojo.Services;
@@ -62,6 +66,18 @@ public class NseBoot {
 	/*
 	 * @Value("${spring.application.name}") String appName;
 	 */
+	
+	@Bean
+	public ContextClosedEventHandler gracefulShutdown() {
+	    return new ContextClosedEventHandler();
+	}
+
+	@Bean
+	public ConfigurableServletWebServerFactory webServerFactory(final ContextClosedEventHandler contextClosedEventHandler) {
+	    TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+	    factory.addConnectorCustomizers(contextClosedEventHandler);
+	    return factory;
+	}
 	
 	@PreDestroy
 	public void shutdown() {// killing HystrixThread
@@ -108,6 +124,25 @@ public class NseBoot {
 		//logger.trace("home getting served" + appName);
 		return new ServerStatus();
 	}
+	
+	@GetMapping("/long-process")
+	public String pause() {
+		int runUntill=100;
+		System.out.println("Thread having PID [" + Thread.currentThread().getId() + "] long process started.." + runUntill + " times should execute");
+		try {
+			for (int i = 1; i <= runUntill; i++) {
+				if(i!=100)
+					System.out.println("thread Job PID " + Thread.currentThread().getId() + " processing " + i + "th item out of "+ runUntill);
+				else
+					System.out.println("thread Job PID " + Thread.currentThread().getId() + " [ Completed ]" + i + "th item out of "+ runUntill + " Thread exited...");
+				Thread.sleep(500);
+			}
+		} catch (InterruptedException e) {
+			throw new CommonException("SERVICE_UNAVAILABLE, Server forcefully shutdown");
+		}
+		return "Even Though commencing graceful shutdown initiated, Process finished successfully..";
+	}
+
 
 	@GetMapping("/services")
 	@ResponseBody

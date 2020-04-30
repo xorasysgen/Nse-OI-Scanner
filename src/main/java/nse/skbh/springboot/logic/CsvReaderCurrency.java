@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.zip.GZIPInputStream;
 
 import nse.skbh.springboot.pojo.USDINRCurrency;
 
@@ -50,6 +51,11 @@ public class CsvReaderCurrency {
 			// just want to do an HTTP GET here
 			connection.setRequestMethod("GET");
 
+			connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+			connection.setRequestProperty("Accept", "*/*");
+			connection.setRequestProperty("Host", "www1.nseindia.com");
+			connection.setRequestProperty("User-Agent", "Mozilla/5.0");
+			connection.setRequestProperty("Connection", "Keep-Alive");
 			// uncomment this if you want to write output to this url
 			// connection.setDoOutput(true);
 
@@ -58,7 +64,8 @@ public class CsvReaderCurrency {
 			connection.connect();
 
 			// read the output from the server
-			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			GZIPInputStream gzip = new GZIPInputStream(connection.getInputStream());
+			reader = new BufferedReader(new InputStreamReader(gzip));
 			String line = null;
 			int i=0;
 			USDINRCurrency usd = new USDINRCurrency();
