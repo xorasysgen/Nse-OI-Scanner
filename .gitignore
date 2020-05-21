@@ -3,7 +3,7 @@
 .project
 .settings/
 bin/
-
+.sts4-cache/
 
 #There are two possible to ignore perticular file
 #remove application-heroku.properties completely from the git repository and then ignore it completely:

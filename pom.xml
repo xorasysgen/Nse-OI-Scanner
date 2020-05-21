@@ -8,6 +8,7 @@
 	<artifactId>nse-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>NSE Research Application api</name>
+	<!-- <packaging>war</packaging> -->
 
 
 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
