@@ -41,13 +41,13 @@ public class RestTemplateIssueResolver {
 		}
 
 	}
-	
+	/*----------------------------------------------------------------------------------------
 	public static void main(String[] args) {
 		String uri="https://www1.nseindia.com//live_market/dynaContent/live_analysis/most_active/allBankNiftyVolume.json";
 		System.out.println(new RestTemplateIssueResolver().commonHttpConnectionDataFetcher(uri));
 	}
 	
-	
+	*/
 	
 	public String commonHttpConnectionDataFetcher(String desiredUrl) {
 
