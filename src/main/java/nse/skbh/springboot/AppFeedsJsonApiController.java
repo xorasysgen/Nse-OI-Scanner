@@ -100,13 +100,15 @@ public class AppFeedsJsonApiController {
 		return "";
 
 	}
-	
+	/*----------------------------this code is offline and deprecated only money control one is live------------------------------------------------------------*/
 /*	public static void main(String[] args) {
 		RestTemplate restTemplate = restTemplateProvider.getRestTemplate();
 		ResponseEntity<String> response = restTemplate
 				.getForEntity("https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/ajaxFOGetQuoteJSON.jsp?underlying=BANKNIFTY&instrument=OPTIDX&expiry=27DEC2018&type=ce&strike=26900", String.class);
 		String stringInJson = response.getBody();
 		System.out.println(stringInJson);
+		
+		
 	}
 	*/
 	/*----------------------------------------------------------------------------------------*/
