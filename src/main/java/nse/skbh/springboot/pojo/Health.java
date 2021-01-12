@@ -6,6 +6,8 @@ public class Health {
 	private Long freeHeapSizeMemory;
 	private Long totalHeapHeapSizeMemory;
 	private Long maximumHeapHeapSizeMemory;
+	//private Long maximumHeapHeapSizeMemorygroup;
+	
 	public Long getUsedHeapSizeMemory() {
 		return usedHeapSizeMemory;
 	}
