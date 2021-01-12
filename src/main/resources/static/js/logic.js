@@ -1,6 +1,6 @@
 	var myApp = angular.module('myApp', []);
 
-		
+	
 	myApp.controller('GreetingController', [ '$scope', '$http',
 	                             			function($scope, $http) {
 	                             				$scope.greeting = 'Hola!';
