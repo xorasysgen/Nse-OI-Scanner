@@ -122,8 +122,7 @@
   </head>
   <body>
   <jsp:include page="menu.jsp"/>
-  
-  
+   
   
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
 <legend>Bank Nifty Stocks</legend>
