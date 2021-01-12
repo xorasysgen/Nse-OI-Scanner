@@ -4,7 +4,6 @@
     <title>F&amp;O Stocks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <jsp:include page="js_css_include.jsp"/>
- 
    
     <script type="text/javascript">
 
