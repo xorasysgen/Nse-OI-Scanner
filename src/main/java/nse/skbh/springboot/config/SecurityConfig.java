@@ -14,8 +14,6 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import nse.skbh.springboot.boot.backend.mongo.service.LoginUserDetailsService;
 
-
-
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -70,7 +68,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		/*.antMatchers("/").permitAll()*/
-		//.antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
 		.antMatchers(permitted_url).permitAll()
 		.antMatchers("/").hasAnyRole("USER", "ADMIN")
 		.anyRequest().authenticated().and().formLogin().successHandler(successHandler)
