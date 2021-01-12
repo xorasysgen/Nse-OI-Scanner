@@ -31,17 +31,6 @@ public class ExceptionHandlerControllerAdvice {
 		return error;
 	}
 
-	/*@ExceptionHandler(RuntimeException.class)
-	@ResponseStatus(value = HttpStatus.NOT_FOUND)
-	public @ResponseBody ErrorMessage handleException(final RuntimeException exception,
-			final HttpServletRequest request) {
-
-		ErrorMessage error = new ErrorMessage();
-		error.setErrorMessage(exception.getMessage());
-		error.setRequestedURI(request.getRequestURI());
-		error.setErrorCode(9999);
-		error.setTimeStamp(new Date());
-		return error;
-	}*/
+	
 
 }
