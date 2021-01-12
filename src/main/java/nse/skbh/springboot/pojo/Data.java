@@ -14,6 +14,7 @@ public class Data {
 	private String turnoverInLakhs;
 	private String lastCorpAnnouncementDate;
 	private String lastCorpAnnouncement;
+	
 	public String getSymbol() {
 		return symbol;
 	}
@@ -83,6 +84,7 @@ public class Data {
 	public String getLastCorpAnnouncement() {
 		return lastCorpAnnouncement;
 	}
+	
 	public void setLastCorpAnnouncement(String lastCorpAnnouncement) {
 		this.lastCorpAnnouncement = lastCorpAnnouncement;
 	}
