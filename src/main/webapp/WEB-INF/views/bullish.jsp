@@ -76,16 +76,16 @@
   
   
 <fieldset class="field_set" style="margin-left:28px;margin-right:28px;">
-<legend>Bullish signs according to open interest : An increase in open interest along with an increase in price mostly indicates long positions being built up, except for very weak stocks where some traders may short the stock on a rally.</legend>
+<legend>Bullish signs according to open interest : An increase in open interest along with an increase in price mostly indicates long positions being built up, except for very weak stocks where some traders may short the stock on a rally.[AutoRun]</legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Bullish : Rise in Open Interest Rise in Price -> An increase in open interest along with an increase in price</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
+	<table id="example"	class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
 		<thead>
 			<tr> 
-						  <th>symbol</th>
+				<th>symbol</th>
                             <th>instrument</th>
                             <th>expiry</th>
                             <th>strike</th>
