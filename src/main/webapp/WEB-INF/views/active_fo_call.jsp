@@ -70,10 +70,10 @@
 <legend>F&amp;O Most Active Calls </legend>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Most Active Calls(F&amp;O)</h3>
+        <h3 class="panel-title">Most Active Calls Nifty(F&amp;O)</h3>
     </div>
     <div class="panel-body">
-	<table id="example"		class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
+	<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width: 105%">
 		<thead>
 			<tr>
 					 	<th>InstrumentType</th>
