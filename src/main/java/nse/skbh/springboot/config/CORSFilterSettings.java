@@ -26,7 +26,7 @@ public class CORSFilterSettings implements Filter {
 		response.setHeader("X-Frame-Options", "SAMEORIGIN");
 		response.setHeader("web-serivces-powered-by", "Spring Boot 2.0");
 		response.setHeader("ownership", "SKBH");
-		response.setHeader("copyright-infringement-email-contact", "xorasysgen@yahoo.com");
+		response.setHeader("copyright-infringement-email-contact", "xorasysgen@yahoo.com,sushil_bhaskar@hotmail.com");
 		chain.doFilter(req, res);
 	}
 
