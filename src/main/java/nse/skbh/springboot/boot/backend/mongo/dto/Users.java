@@ -60,11 +60,7 @@ public class Users {
 	public void setAuthorities(List<Authorities> authorities) {
 		this.authorities = authorities;
 	}
-	@Override
-	public String toString() {
-		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", fullname=" + fullname
-				+ ", enabled=" + enabled + ", authorities=" + authorities + "]";
-	}
+	
 	
 	
 	
