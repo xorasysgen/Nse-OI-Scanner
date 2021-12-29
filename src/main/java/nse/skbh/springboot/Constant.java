@@ -63,6 +63,8 @@ final class Constant {
 	private static final String premium_discount_nifty_banknifty="/suggestions/premium_discount_nifty_banknifty";
 	private static final String ohl_strategy_fo="/suggestions/nifty/ohl_strategy/fo";
 	private static final String ohl_strategy="/suggestions/nifty/ohl_strategy";
+	private static final String ohl_strategy_nifty_auto="/suggestions/nifty/ohl_strategy1";
+	private static final String ohl_strategy_bank_auto="/suggestions/nifty/ohl_strategy2";
 	
 	public static List<String> getListOfService() {
 		List<String> list = new ArrayList<>();
