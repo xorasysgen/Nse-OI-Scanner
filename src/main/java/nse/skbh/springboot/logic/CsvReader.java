@@ -74,17 +74,21 @@ public class CsvReader {
 				if (line.contains("EQ")) {
 					DeliveryBhavData deliveryBhavData = new DeliveryBhavData();
 					String values[] = line.split("\\,");
+					
 					deliveryBhavData.setSymbol(values[0]);
 					deliveryBhavData.setSeries(values[1]);
 					deliveryBhavData.setDate(values[2]);
 					deliveryBhavData.setPreClose(values[3]);
 					deliveryBhavData.setOpenPrice(values[4]);
+					
 					deliveryBhavData.setHighPrice(values[5]);
 					deliveryBhavData.setLowPrice(values[6]);
 					deliveryBhavData.setLastPrice(values[7]);
 					deliveryBhavData.setClosePrice(values[8]);
 					deliveryBhavData.setAvgPrice(values[9]);
+					String temp123 = values[5];
 					deliveryBhavData.setTotalTradedQnty(values[10]);
+					
 					deliveryBhavData.setTurnOvrLac(values[11]);
 					deliveryBhavData.setNoOfTrades(values[12]);
 					deliveryBhavData.setDelivQnty(values[13]);
