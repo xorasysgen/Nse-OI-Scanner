@@ -9,7 +9,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>NSE Research Application api</name>
 	<!-- <packaging>war</packaging> -->
-	<!-- <packaging>jar</packaging> -->
+	 <packaging>jar</packaging>
 
 
 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
@@ -37,7 +37,7 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+	
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
