@@ -30,11 +30,6 @@ public class Authorities {
 		this.authority = authority;
 	}
 
-	@Override
-	public String toString() {
-		return "Authority [id=" + id + ", authority=" + authority + "]";
-	}
-
-
+	
     
 }
