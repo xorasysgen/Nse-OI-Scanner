@@ -33,6 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/static/**",
 			"/css/**",
 			"/js/**",
+			"/kapi/**",
+			"/rest/**",
 			"/images/**"
     };
 
