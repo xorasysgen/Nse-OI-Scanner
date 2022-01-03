@@ -162,31 +162,6 @@ public class GannRoadMap {
 		 String keyDistance = entry.getKey().toString();
 		return keyDistance;
 	}
-	/*public static void main(String[] args) {
-		RestTemplate restTemplate = new RestTemplateProvider().getRestTemplate();
-		ResponseEntity<String> response = restTemplate
-				.getForEntity(AppFeedsJsonApiController.URIHelper().concat("jsonapi/market/indices&ind_id=23"), String.class);
-		String stringInJson = response.getBody();
-		Object obj = new JsonParser().parse(stringInJson);
-		JsonObject jsonObject = (JsonObject) obj;
-		JsonObject jsonObjectChild =  jsonObject.getAsJsonObject("indices");
-		String rawLastprice=jsonObjectChild.get("lastprice").getAsString();
-		if(rawLastprice!=null) {
-			rawLastprice=rawLastprice.replaceAll(",", "");
-		}
-		String rawPrevclose=jsonObjectChild.get("prevclose").getAsString();
-		if(rawPrevclose!=null) {
-			rawPrevclose=rawPrevclose.replaceAll(",", "");
-		}
-		String ltp=rawLastprice;
-		String close=rawPrevclose;
-		String symbolName="NIFTY";
-		RoadMapDataPoints roadMapDataPoints=roadMap(ltp,close,symbolName);
-		System.err.println(roadMapDataPoints);
 		
-        
-	}*/
-
-	
 
 }
