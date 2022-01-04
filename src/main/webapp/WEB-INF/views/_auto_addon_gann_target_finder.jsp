@@ -366,6 +366,19 @@
 									
 								</tbody>
 								
+								<tbody>
+									<tr>
+										
+										<th style="font-size: 18px; color: green; text-align:center;">SUPPORT -2 </th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup111"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup222"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup333"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup444"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup555"></span></th>
+									</tr>
+									
+								</tbody>
+								
 							</table>
 			</div>
 	
