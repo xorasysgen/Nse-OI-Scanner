@@ -306,6 +306,19 @@ document.getElementById('timer').innerHTML =
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="positive">Color Code#</span> Positive Values<br>
 	<span class="glyphicon glyphicon-info-sign" style="color: #40c4ff;"></span>&nbsp; <span class="negative">Color Code#</span> Negative Values<br>
 	
+	<tbody>
+									<tr>
+										
+										<th style="font-size: 18px; color: green; text-align:center;">color palletes</th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup111"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup222"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup333"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup444"></span></th>
+										<th class="success" style="font-size: 16px; color: green; text-align:center;"><span id="sup555"></span></th>
+									</tr>
+									
+								</tbody>
+	
 	
 	</fieldset>
 	<jsp:include page="footer.jsp" />	
